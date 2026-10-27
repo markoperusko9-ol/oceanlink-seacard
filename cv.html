@@ -18,10 +18,10 @@
 .oldl-tile{width:48px;height:48px;margin:0 auto 16px;border-radius:10px;background:#00E5FF14;border:1px solid #00E5FF40;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
 .oldl-title{font:600 17px/1.3 Inter,sans-serif;letter-spacing:-.011em;color:#F2F4F7;margin:0}
 .oldl-sub{font:400 14px/1.45 Inter,sans-serif;letter-spacing:-.011em;color:#8B93A0;margin:8px 0 0;word-break:break-word}
-.oldl-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
-.oldl-actions:empty{display:none}
-.oldl-btn{display:inline-block;height:40px;padding:0 18px;border-radius:10px;border:1px solid #FFFFFF24;background:none;color:#F2F4F7;font:500 14px/38px Inter,sans-serif;letter-spacing:-.011em;text-decoration:none;cursor:pointer;box-sizing:border-box}
+.oldl-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.oldl-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:44px;padding:0 18px;border-radius:10px;border:1px solid #FFFFFF24;background:none;color:#F2F4F7;font:500 15px/1 Inter,sans-serif;letter-spacing:-.011em;text-decoration:none;cursor:pointer;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 .oldl-btn.pri{background:#00E5FF;border-color:#00E5FF;color:#050609;font-weight:600}
+.oldl-btn svg{flex:none}
 .oldl-brand{margin-top:22px;font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;color:#5F6672}
 .oldl-brand b{color:#00E5FF;font-weight:600}
 </style>
@@ -38,21 +38,25 @@ var q=new URLSearchParams(location.search);
 var f=q.get('f')||'';
 var n=(q.get('n')||'CV.pdf').replace(/[\\\/:*?"<>|\u0000-\u001f]+/g,' ').replace(/\s+/g,' ').trim()||'CV.pdf';
 if(!/\.pdf$/i.test(n))n+='.pdf';
+/* h = the app page the user came from; the link opens the Ocean Link app there */
+var h=q.get('h')||'';
+var home=/^https:\/\/(www\.)?oceanlinkai\.com\//i.test(h)?h:'https://oceanlinkai.com/';
 var title=document.getElementById('oldl-title'),sub=document.getElementById('oldl-sub'),actions=document.getElementById('oldl-actions');
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function set(t,s,html){title.textContent=t;sub.textContent=s;actions.innerHTML=html||'';}
+function back(pri){return '<a class="oldl-btn'+(pri?' pri':'')+'" href="'+esc(home)+'"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>Back to Ocean Link</a>';}
 var ok=/^https:\/\/([a-z0-9-]+\.)*(cdn\.bubble\.io|oceanlinkai\.com)\//i.test(f);
-if(!ok){set('Nothing to download','Open the Ocean Link app and tap Download CV again.','');return;}
+if(!ok){set('Nothing to download','Open the Ocean Link app and tap Download CV again.',back(true));return;}
 var openLink='<a class="oldl-btn" href="'+esc(f)+'" target="_blank" rel="noopener">Open the PDF</a>';
 function run(){
-set('Saving your CV…','One moment.','');
+set('Saving your CV…','One moment.',back(false));
 fetch(f,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.blob();}).then(function(b){
 var blob=new Blob([b],{type:'application/pdf'});
 var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n;a.style.display='none';document.body.appendChild(a);a.click();
 setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},4000);
-set('Saved to your phone',n+' is in your Downloads folder. Press back to return to Ocean Link.',openLink);
+set('Saved to your phone',n+' is in your Downloads folder.',back(true)+openLink);
 }).catch(function(){
-set('Couldn’t save the file','Check your connection and try again.','<button type="button" class="oldl-btn pri" id="oldl-retry">Try again</button>'+openLink);
+set('Couldn’t save the file','Check your connection and try again.','<button type="button" class="oldl-btn pri" id="oldl-retry">Try again</button>'+openLink+back(false));
 var b=document.getElementById('oldl-retry');if(b)b.addEventListener('click',run);
 });
 }
