@@ -10,20 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap">
 <style>
-html,body{margin:0;min-height:100%;background:#050609;color:#F2F4F7;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:-0.011em;-webkit-font-smoothing:antialiased}
-main{min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px 16px;text-align:center}
-h1{margin:0;font-size:20px;font-weight:600;letter-spacing:-0.025em}
-p{margin:0;max-width:320px;font-size:14px;line-height:1.5;color:#8B93A0}
-a{color:#00E5FF;font-size:14px;font-weight:500;text-decoration:none}
+html,body{margin:0;min-height:100%;background:#050609}
+.fb{min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px 16px;text-align:center;color:#F2F4F7;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:-0.011em;-webkit-font-smoothing:antialiased}
+.fb-title{margin:0;font-size:20px;font-weight:600;letter-spacing:-0.025em}
+.fb-text{margin:0;max-width:320px;font-size:14px;line-height:1.5;color:#8B93A0}
+.fb-link{color:#00E5FF;font-size:14px;font-weight:500;text-decoration:none}
 </style>
 </head>
 <body>
-<main>
+<div class="fb">
 <svg width="48" height="48" viewBox="0 0 32 32" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg>
-<h1>Your Sea Card</h1>
-<p>Open your Sea Card from the Ocean Link app to download or share it.</p>
-<a href="https://oceanlinkai.com">oceanlinkai.com</a>
-</main>
+<div class="fb-title">Your Sea Card</div>
+<div class="fb-text">Open your Sea Card from the Ocean Link app to download or share it.</div>
+<a class="fb-link" href="https://oceanlinkai.com">oceanlinkai.com</a>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
 <script src="seacard.js"></script>
 </body>
