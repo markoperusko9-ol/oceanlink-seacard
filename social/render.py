@@ -24,8 +24,10 @@ slides = spec['slides']
 os.makedirs(out, exist_ok=True)
 overflow = []
 
+VARIANT = int(spec.get('variant', spec.get('seed', 0))) % 3
+
 def shot(pg, slide, i, n, w, h, mode, t, path):
-    ok = pg.evaluate("([s,i,n,o])=>{build(s,i,n,o);return fit()}", [slide, i, n, {"w": w, "h": h, "mode": mode}])
+    ok = pg.evaluate("([s,i,n,o])=>{build(s,i,n,o);return fit()}", [slide, i, n, {"w": w, "h": h, "mode": mode, "variant": VARIANT}])
     pg.set_viewport_size({"width": w, "height": h})
     pg.evaluate(f"render({t})")
     pg.screenshot(path=path, type='jpeg', quality=92, clip={"x": 0, "y": 0, "width": w, "height": h})
@@ -42,17 +44,18 @@ with sync_playwright() as p:
         tmp = f"{out}/_v"; shutil.rmtree(tmp, ignore_errors=True); os.makedirs(tmp)
         scenes, cuts, t = [], [], 0.0
         for i, s in enumerate(slides):
-            dur = float(s.get('dur', 3.2)); anim = 1.7
+            dur = float(s.get('dur', 3.2))
             fr = f"{tmp}/s{i:02d}"; os.makedirs(fr)
-            pg.evaluate("([s,i,n,o])=>{build(s,i,n,o);return fit()}", [s, i, len(slides), {"w": 1080, "h": 1920, "mode": "video"}])
+            pg.evaluate("([s,i,n,o])=>{build(s,i,n,o);return fit()}", [s, i, len(slides), {"w": 1080, "h": 1920, "mode": "video", "variant": VARIANT}])
             pg.set_viewport_size({"width": 1080, "height": 1920})
-            nf = int(round(anim * 30))
+            nf = int(round(dur * 30))
+            inst = 'true' if i == 0 else 'false'
             for f in range(nf):
-                pg.evaluate(f"render({f/30})")
+                pg.evaluate(f"render({f/30},{inst})")
                 pg.screenshot(path=f"{fr}/{f:04d}.jpg", type='jpeg', quality=92)
             sc = f"{tmp}/scene{i:02d}.mp4"
             r = subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", "30", "-i", f"{fr}/%04d.jpg",
-                                "-vf", f"tpad=stop_mode=clone:stop_duration={dur-anim:.3f},format=yuv420p",
+                                "-vf", "format=yuv420p",
                                 "-frames:v", str(int(round(dur * 30))), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
                                 "-pix_fmt", "yuv420p", "-r", "30", "-g", "60", "-video_track_timescale", "15360",
                                 f"{sc[:-4]}.tmp.mp4"])

@@ -3,12 +3,12 @@
 Two posts a day, every day, scheduled in Metricool (brand id 7716383, timezone Asia/Tomsk).
 Approach: **entertain first, then educate, then sell** — the app is the payoff, never the opener.
 
-## Slots (Asia/Tomsk time)
+## Slots (Asia/Tomsk time — see social/PLAYBOOK.md §5)
 
 | Slot | Format | Network: time |
 |---|---|---|
-| AM | Carousel (stills) | TikTok photo 10:00 · Facebook 10:00 · LinkedIn 11:00 · Instagram 13:00 |
-| PM | 9:16 video (same template, `--video`) | LinkedIn 17:00 · Facebook Reel 18:00 · TikTok 18:00 · YouTube Short 19:00 · Instagram Reel 22:00 |
+| AM | Carousel (stills) | TikTok photo 10:00 · LinkedIn 11:00 · Facebook 12:00 · Instagram 13:00 |
+| PM | 9:16 video (same template, `--video`) | LinkedIn 15:30 · Facebook Reel 20:00 · TikTok 20:00 · YouTube Short 20:00 · Instagram Reel 21:00 |
 
 ## Pillars (rotate; never two from the same pillar on one day)
 
@@ -19,6 +19,8 @@ Approach: **entertain first, then educate, then sell** — the app is the payoff
 - **Community** (engage): questions and polls that get seafarers commenting.
 
 ## Hard rules
+
+- Follow social/PLAYBOOK.md for hooks, captions, links and hashtags on every network.
 
 - Every regulation/certificate fact is checked against an official or reputable source before posting (IMO/COLREG text, STCW, MLC, flag-state pages). If it can't be confirmed, drop that line or pick another topic. Rules can differ by flag state — say so where it matters.
 - Never post job vacancies or anything that looks like advertising another agency's vacancy (legal demand from Danica, Sept 2026).
@@ -56,6 +58,10 @@ Approach: **entertain first, then educate, then sell** — the app is the payoff
 - [ ] knowhow-colreg-rule18 · Know-how · Rule 18 Responsibilities between vessels (pecking order)
 - [ ] sealife-first-contract · Sea life · "First contract vs fifth contract" myth/reality
 - [ ] knowhow-interview-questions · Know-how · Questions crewing agencies commonly ask officers at interview (generic)
+
+## Learnings (weekly review, newest first)
+
+- (first review due Mon 2 Nov 2026)
 
 ## Log (posted)
 
