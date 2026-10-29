@@ -1,0 +1,10 @@
+{"id":"2026-10-31-pm-sealife-signoff-stages","seed":6,"slides":[
+ {"type":"cover","kicker":"Sign-off week","title":"The *5 stages* of sign-off week","sub":"Every seafarer has lived them.","dur":3.2},
+ {"type":"point","n":1,"title":"The countdown","body":"You know exactly how many days, watches and mess dinners are left.","chip":"Stage 1","tone":"accent","dur":4.8},
+ {"type":"point","n":2,"title":"Handover notes","body":"Pages of notes for your relief. Every quirk of every printer, pump and passage plan.","chip":"Stage 2","tone":"accent","dur":4.8},
+ {"type":"point","n":3,"title":"Packing","body":"Months of life into one suitcase. The souvenirs somehow never fit.","chip":"Stage 3","tone":"accent","dur":4.8},
+ {"type":"point","n":4,"title":"Relief arrives","body":"The best handshake of the whole contract. Then two hours of talking non-stop.","chip":"Stage 4","tone":"accent","dur":4.8},
+ {"type":"point","n":5,"title":"The airport","body":"First real coffee, first fast Wi-Fi, first sleep that isn't split around a watch.","chip":"Stage 5","tone":"valid","dur":4.8},
+ {"type":"vs","kicker":"Bonus stage","a_label":"Myth","a":"Once you're home, the work is done.","b_label":"Reality","b":"CV, sea time and certificates still need updating.","dur":4.8},
+ {"type":"cta","question":"Which stage are you in right now?","line":"Ocean Link does the after-sign-off admin for you.","dur":3.2}
+]}

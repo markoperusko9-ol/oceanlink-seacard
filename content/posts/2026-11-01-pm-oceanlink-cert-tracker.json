@@ -1,0 +1,9 @@
+{"id":"2026-11-01-pm-oceanlink-cert-tracker","seed":8,"slides":[
+ {"type":"cover","kicker":"Ocean Link · Certificates","title":"Snap it once. *Never* miss an expiry.","sub":"How the certificate tracker works.","dur":3.2},
+ {"type":"point","n":1,"title":"Snap the certificate","body":"Take a photo of each certificate in the app. Its expiry date gets tracked from then on.","chip":"Certificate tracker","tone":"accent","dur":4.8},
+ {"type":"list","kicker":"At a glance","title":"Colour tells you first","items":[{"t":"Cyan: valid","tone":"valid"},{"t":"Amber: expiring soon","tone":"warning"},{"t":"Red: needs action now","tone":"critical"}],"dur":4.8},
+ {"type":"point","n":2,"title":"Check before you join","body":"Every certificate in one list, long before the crewing office asks for it.","chip":"Before joining","tone":"valid","dur":4.8},
+ {"type":"vs","kicker":"Myth vs reality","a_label":"Myth","a":"I'll remember when it expires.","b_label":"Reality","b":"Certificates quietly expire onboard. Then comes the last-minute scramble.","dur":4.8},
+ {"type":"point","n":3,"title":"Built at sea","body":"A serving 2nd Officer built this after watching certificates expire onboard.","chip":"Founder","tone":"accent","dur":4.8},
+ {"type":"cta","question":"Which certificate always catches you out?","line":"Snap your first certificate today.","dur":3.2}
+]}

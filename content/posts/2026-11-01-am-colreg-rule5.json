@@ -1,0 +1,9 @@
+{"id":"2026-11-01-am-colreg-rule5","seed":7,"slides":[
+ {"type":"cover","kicker":"COLREG · Rule 5","title":"Your radar is *not* the look-out.","sub":"What Rule 5 actually asks for.","dur":3.2},
+ {"type":"point","n":1,"title":"At all times","body":"Every vessel, every watch. Clear daylight and open ocean included.","chip":"Rule 5","tone":"accent","dur":4.8},
+ {"type":"point","n":2,"title":"Sight and hearing","body":"Eyes and ears come first. Rule 5 names them before any equipment.","chip":"Rule 5","tone":"accent","dur":4.8},
+ {"type":"point","n":3,"title":"All available means","body":"Radar, ARPA, AIS, VHF: whatever suits the conditions. They add to the look-out, they don't replace it.","chip":"Rules 5 and 7(b)","tone":"accent","dur":4.8},
+ {"type":"point","n":4,"title":"The point of it all","body":"A full appraisal of the situation and of the risk of collision.","chip":"Rule 5","tone":"valid","dur":4.8},
+ {"type":"vs","kicker":"Myth vs reality","a_label":"Myth","a":"AIS shows every vessel around you.","b_label":"Reality","b":"Many small craft don't transmit AIS. Look out of the window.","dur":4.8},
+ {"type":"cta","question":"What have you spotted by eye before radar?","line":"Practise COLREGs in the Learn tab.","dur":3.2}
+]}

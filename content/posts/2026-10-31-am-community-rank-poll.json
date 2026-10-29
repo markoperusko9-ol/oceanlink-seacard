@@ -1,0 +1,8 @@
+{"id":"2026-10-31-am-community-rank-poll","seed":5,"slides":[
+ {"type":"cover","kicker":"Roll call","title":"Who's *actually* on board here?","sub":"Find your rank. Then tell us in the comments.","dur":3.2},
+ {"type":"list","kicker":"Deck department","title":"Bridge team","items":[{"t":"Master","tone":"valid"},{"t":"Chief Officer","tone":"valid"},{"t":"2nd Officer","tone":"valid"},{"t":"3rd Officer","tone":"valid"},{"t":"Deck Cadet","tone":"valid"}],"dur":4.8},
+ {"type":"list","kicker":"Engine department","title":"Engine room team","items":[{"t":"Chief Engineer","tone":"warning"},{"t":"2nd Engineer","tone":"warning"},{"t":"3rd Engineer","tone":"warning"},{"t":"4th Engineer","tone":"warning"},{"t":"Engine Cadet","tone":"warning"}],"dur":4.8},
+ {"type":"list","kicker":"Everyone else who runs the ship","title":"The backbone","items":[{"t":"Electro-Technical Officer","tone":"valid"},{"t":"Bosun","tone":"valid"},{"t":"AB and OS","tone":"valid"},{"t":"Motorman and Oiler","tone":"valid"},{"t":"Cook and Steward","tone":"valid"}],"dur":4.8},
+ {"type":"vs","kicker":"Sea time, honestly","a_label":"On paper","a_tone":"neutral","a":"Years at sea: a number on a CV.","b_label":"In reality","b":"Every sunrise, every port, every fog watch you remember.","dur":4.8},
+ {"type":"cta","question":"Your rank and years at sea?","line":"Drop it in the comments. Let's see who's on board.","dur":3.2}
+]}
