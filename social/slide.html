@@ -1,0 +1,127 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Ocean Link slide</title>
+<style>
+  :root{--page:#050609;--card:#0F1217;--b:#FFFFFF14;--div:#FFFFFF0A;--t1:#F2F4F7;--t2:#8B93A0;--t3:#5F6672;--t4:#4A505A;
+        --acc:#00E5FF;--accd:#4FD9EE;--valid:#00B0D2;--warn:#F5A524;--crit:#F2555A}
+  html,body{margin:0;padding:0;background:var(--page);overflow:hidden}
+  *{box-sizing:border-box;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  #s{position:relative;background:var(--page);overflow:hidden}
+  .motif{position:absolute;opacity:.06;pointer-events:none}
+  .top{position:absolute;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:14px;font-size:28px;font-weight:600;letter-spacing:-0.025em;color:var(--t1)}
+  .brand span{color:var(--acc)}
+  .count{font-size:26px;font-weight:500;color:var(--t3);font-variant-numeric:tabular-nums}
+  .body{position:absolute;display:flex;flex-direction:column;justify-content:center}
+  .foot{position:absolute;font-size:26px;font-weight:500;color:var(--t4);letter-spacing:-0.011em}
+  .kicker{font-size:30px;font-weight:600;letter-spacing:.07em;color:var(--accd);text-transform:uppercase}
+  .title{font-weight:600;letter-spacing:-0.03em;line-height:1.05;color:var(--t1)}
+  .title .acc{color:var(--acc)}
+  .sub{font-size:42px;font-weight:500;letter-spacing:-0.015em;line-height:1.3;color:var(--t2)}
+  .num{font-size:120px;font-weight:600;letter-spacing:-0.04em;line-height:1;color:var(--acc);font-variant-numeric:tabular-nums}
+  .txt{font-size:42px;font-weight:500;letter-spacing:-0.011em;line-height:1.38;color:var(--t2)}
+  .chip{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;font-size:30px;font-weight:600;letter-spacing:-0.011em;padding:12px 20px;border-radius:10px;border:1px solid var(--b);background:var(--card)}
+  .dot{width:14px;height:14px;border-radius:7px}
+  .card{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:34px 36px}
+  .lbl{font-size:26px;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+  .rows{display:flex;flex-direction:column}
+  .row{display:flex;align-items:flex-start;gap:24px;padding:22px 0;border-top:1px solid var(--div)}
+  .row:first-child{border-top:0}
+  .ic{width:58px;height:58px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+  .rt{font-size:40px;font-weight:500;letter-spacing:-0.015em;line-height:1.3;color:var(--t1);padding-top:6px}
+  .cta{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .btn{font-size:38px;font-weight:600;letter-spacing:-0.011em;color:var(--page);background:var(--acc);border-radius:12px;padding:22px 40px}
+  .swipe{font-size:30px;font-weight:500;color:var(--t3);display:flex;align-items:center;gap:10px}
+  .a{opacity:1}
+</style></head>
+<body><div id="s"></div>
+<script>
+const LOGO=(w)=>`<svg width="${w}" height="${w}" viewBox="0 0 32 32"><rect class="q" x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect class="q" x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect class="q" x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect class="q" x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect class="q" x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect class="q" x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg>`;
+const TONE={valid:'var(--valid)',warning:'var(--warn)',critical:'var(--crit)',neutral:'var(--t3)',accent:'var(--acc)'};
+const TBG={valid:'#00B0D21F',warning:'#F5A5241F',critical:'#F2555A1F',neutral:'#FFFFFF0D',accent:'#00E5FF1A'};
+const ICON={
+  valid:'<path d="M20 6 9 17l-5-5"/>',
+  warning:'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  critical:'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  neutral:'<circle cx="12" cy="12" r="3"/>',
+  accent:'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'};
+const ic=(tone)=>`<div class="ic" style="background:${TBG[tone]||TBG.neutral}"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="${TONE[tone]||TONE.neutral}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[tone]||ICON.neutral}</svg></div>`;
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// *word* in titles -> accent colour
+const rich=s=>esc(s).replace(/\*(.+?)\*/g,'<span class="acc">$1</span>').replace(/\n/g,'<br>');
+
+let W=1080,H=1350,STORY=false,MODE='still';
+function geom(){
+  // safe content box; story (9:16) keeps clear of TikTok/Reels UI
+  return STORY ? {x:84,top:250,bottom:440,right:150} : {x:88,top:88,bottom:88,right:88};
+}
+function build(slide,i,total,opts){
+  W=opts.w;H=opts.h;STORY=H/W>1.6;MODE=opts.mode||'still';
+  const g=geom(), s=document.getElementById('s');
+  s.style.width=W+'px';s.style.height=H+'px';
+  const bw=W-g.x-g.right, ty=g.top, by=H-g.bottom;
+  let h='';
+  h+=`<div class="motif" style="right:-120px;bottom:${STORY?260:-80}px">${LOGO(STORY?620:560)}</div>`;
+  if(slide.type!=='cta'){
+    h+=`<div class="top a" style="left:${g.x}px;top:${ty}px;width:${bw}px"><div class="brand">${LOGO(44)}<div>OCEAN<span>LINK</span></div></div>${total>1&&MODE==='still'?`<div class="count">${i+1}/${total}</div>`:''}</div>`;
+  }
+  const cTop=ty+(slide.type==='cta'?0:110), cBot=by-(slide.type==='cta'?0:70);
+  let inner='';
+  if(slide.type==='cover'){
+    inner+=slide.kicker?`<div class="kicker a">${esc(slide.kicker)}</div>`:'';
+    inner+=`<div class="title a" data-fit="1" style="font-size:${slide.size||104}px;margin-top:22px">${rich(slide.title)}</div>`;
+    inner+=slide.sub?`<div class="sub a" style="margin-top:30px">${rich(slide.sub)}</div>`:'';
+    if(MODE==='still'&&total>1) inner+=`<div class="swipe a" style="margin-top:56px">Swipe <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#5F6672" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>`;
+  } else if(slide.type==='point'){
+    inner+=slide.n!=null?`<div class="num a">${esc(String(slide.n).padStart(2,'0'))}</div>`:'';
+    inner+=slide.kicker?`<div class="kicker a" style="margin-top:18px">${esc(slide.kicker)}</div>`:'';
+    inner+=`<div class="title a" data-fit="1" style="font-size:${slide.size||76}px;margin-top:26px">${rich(slide.title)}</div>`;
+    inner+=slide.body?`<div class="txt a" style="margin-top:28px">${rich(slide.body)}</div>`:'';
+    if(slide.chip) inner+=`<div class="chip a" style="margin-top:36px;color:${TONE[slide.tone||'neutral']}"><div class="dot" style="background:${TONE[slide.tone||'neutral']}"></div>${esc(slide.chip)}</div>`;
+  } else if(slide.type==='list'){
+    inner+=slide.kicker?`<div class="kicker a">${esc(slide.kicker)}</div>`:'';
+    inner+=`<div class="title a" data-fit="1" style="font-size:${slide.size||68}px;margin-top:20px">${rich(slide.title)}</div>`;
+    inner+=`<div class="rows" style="margin-top:34px">`+(slide.items||[]).map(it=>{const o=typeof it==='string'?{t:it,tone:'valid'}:it;return `<div class="row a">${ic(o.tone||'valid')}<div class="rt">${rich(o.t)}</div></div>`}).join('')+`</div>`;
+  } else if(slide.type==='vs'){
+    inner+=slide.kicker?`<div class="kicker a">${esc(slide.kicker)}</div>`:'';
+    inner+=slide.title?`<div class="title a" data-fit="1" style="font-size:${slide.size||64}px;margin-top:20px">${rich(slide.title)}</div>`:'';
+    inner+=`<div class="card a" style="margin-top:34px"><div class="lbl" style="color:${TONE[slide.a_tone||'critical']}">${esc(slide.a_label||'Myth')}</div><div class="rt" style="margin-top:14px;font-size:42px">${rich(slide.a)}</div></div>`;
+    inner+=`<div class="card a" style="margin-top:22px;border-color:#00E5FF40"><div class="lbl" style="color:${TONE[slide.b_tone||'accent']}">${esc(slide.b_label||'Reality')}</div><div class="rt" style="margin-top:14px;font-size:42px">${rich(slide.b)}</div></div>`;
+  } else if(slide.type==='cta'){
+    inner+=`<div class="cta">`;
+    inner+=slide.question?`<div class="title a" style="font-size:52px;margin-bottom:70px">${rich(slide.question)}</div>`:'';
+    inner+=`<div class="a logo">${LOGO(200)}</div>`;
+    inner+=`<div class="title a" style="font-size:96px;margin-top:30px">OCEAN<span class="acc">LINK</span></div>`;
+    inner+=`<div class="sub a" style="margin-top:22px;font-size:38px">${rich(slide.line||'Built at sea by a serving 2nd Officer.')}</div>`;
+    inner+=`<div class="btn a" style="margin-top:56px">${esc(slide.button||'Free on Google Play')}</div>`;
+    inner+=`<div class="sub a" style="margin-top:24px;font-size:32px;color:var(--t3)">${esc(slide.url||'oceanlinkai.com')}</div>`;
+    inner+=`</div>`;
+  }
+  h+=`<div class="body" id="body" style="left:${g.x}px;top:${cTop}px;width:${bw}px;height:${cBot-cTop}px;${slide.type==='cta'?'align-items:center':''}">${inner}</div>`;
+  if(slide.type!=='cta') h+=`<div class="foot a" style="left:${g.x}px;top:${by-34}px">oceanlinkai.com</div>`;
+  s.innerHTML=h;
+  if(STORY){ const z=1.18, e=document.getElementById('body');
+    e.style.zoom=z; e.style.left=(g.x/z)+'px'; e.style.top=(cTop/z)+'px'; e.style.width=(bw/z)+'px'; e.style.height=((cBot-cTop)/z)+'px'; }
+  fit();
+}
+function fit(){
+  const b=document.getElementById('body');
+  const fs=[...b.querySelectorAll('[data-fit]')];
+  let guard=0;
+  while(b.scrollHeight>b.clientHeight+1 && guard<60){
+    fs.forEach(e=>{const v=parseFloat(e.style.fontSize);e.style.fontSize=Math.max(44,v-3)+'px'});
+    b.querySelectorAll('.txt,.rt').forEach(e=>{const v=parseFloat(getComputedStyle(e).fontSize);e.style.fontSize=Math.max(30,v-1)+'px'});
+    guard++;
+  }
+  return b.scrollHeight<=b.clientHeight+1;
+}
+const clamp=(x)=>Math.min(1,Math.max(0,x)); const eo=x=>1-Math.pow(1-clamp(x),3);
+function render(t){
+  const els=[...document.querySelectorAll('.a')];
+  els.forEach((e,k)=>{const p=eo((t-0.12-0.11*k)/0.45);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*26}px)`});
+  const qs=[...document.querySelectorAll('.logo .q')];
+  qs.forEach((q,k)=>{const p=eo((t-0.2-0.06*k)/0.4);q.style.opacity=p});
+}
+window.build=build;window.render=render;window.fit=fit;
+</script></body></html>

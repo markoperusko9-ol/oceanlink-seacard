@@ -1,0 +1,14 @@
+{
+  "id": "2026-10-30-pm-colreg-rule35",
+  "seed": 3,
+  "slides": [
+    {"type": "cover", "kicker": "COLREG · Rule 35", "title": "Fog. You hear *one long blast*. What is it?", "sub": "Sound signals in restricted visibility.", "dur": 3.2},
+    {"type": "point", "n": 1, "title": "One prolonged blast", "body": "Power-driven vessel making way through the water. Every 2 minutes or less.", "chip": "Rule 35(a)", "tone": "accent", "dur": 4.8},
+    {"type": "point", "n": 2, "title": "Two prolonged blasts", "body": "Power-driven vessel underway but stopped, making no way. About 2 seconds between them.", "chip": "Rule 35(b)", "tone": "accent", "dur": 4.8},
+    {"type": "point", "n": 3, "title": "One prolonged, two short", "body": "Not under command, restricted in ability to manoeuvre, constrained by draught, sailing, fishing, or towing/pushing.", "chip": "Rule 35(c)", "tone": "accent", "dur": 4.8},
+    {"type": "point", "n": 4, "title": "One prolonged, three short", "body": "The vessel towed (the last one, if manned). When practicable, right after the towing vessel's signal.", "chip": "Rule 35(e)", "tone": "accent", "dur": 4.8},
+    {"type": "point", "n": 5, "title": "Bell, rapidly, about 5 seconds", "body": "Vessel at anchor, at least every minute. 100 m or more: bell forward, then gong aft.", "chip": "Rule 35(g)", "tone": "accent", "dur": 4.8},
+    {"type": "vs", "kicker": "Quick check · Rule 32", "a_label": "Short blast", "a_tone": "neutral", "a": "About 1 second.", "b_label": "Prolonged blast", "b": "4 to 6 seconds.", "dur": 4.8},
+    {"type": "cta", "question": "Which one do you hear most on watch?", "line": "Practise COLREGs in the Learn tab.", "dur": 3.2}
+  ]
+}
