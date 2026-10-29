@@ -1,0 +1,65 @@
+{
+ "id": "2026-11-04-am-blamed-onboard",
+ "variant": 2,
+ "seed": 13,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Survival guide · 03",
+   "title": "Blamed for something you *didn't* do?",
+   "sub": "What to say on board instead of firing back.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "Don't fight it mid-watch",
+   "body": "Not on the bridge, not in front of the crew. Ask for two minutes after the watch.",
+   "chip": "Timing",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "Bring the record, not feelings",
+   "body": "Point to what's written: the log, the checklist, the handover notes. Facts settle it faster than emotion.",
+   "chip": "Evidence",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "Say it in one line",
+   "body": "\"I see it differently. Can I show you what happened at 0230?\" Calm, short, no accusation.",
+   "chip": "Words",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 4,
+   "title": "End with the *next* time",
+   "body": "Ask: \"What do you want me to do next time?\" You keep your respect, and the next watch stays calm.",
+   "chip": "The move that works",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "vs",
+   "kicker": "Myth vs reality",
+   "a_label": "Myth",
+   "a": "Staying quiet keeps the peace.",
+   "b_label": "Reality",
+   "b": "Silence becomes the story. Say it once, calmly, in private.",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "How do you handle blame on board?",
+   "line": "Built at sea by a serving 2nd Officer.",
+   "dur": 3.2
+  }
+ ]
+}

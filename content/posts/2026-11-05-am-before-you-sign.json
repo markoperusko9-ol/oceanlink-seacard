@@ -1,0 +1,65 @@
+{
+ "id": "2026-11-05-am-before-you-sign",
+ "variant": 0,
+ "seed": 14,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Survival guide · 04",
+   "title": "4 contract red flags *before* you sign",
+   "sub": "Your rights under the MLC, in 30 seconds.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "No time to read it",
+   "body": "You have the right to review your employment agreement and get advice on it before you sign.",
+   "chip": "MLC 2006 · Standard A2.1",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "Wages aren't written down",
+   "body": "The agreement must state your wages, or how they're calculated, and your paid annual leave.",
+   "chip": "MLC 2006 · Standard A2.1",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "No signed original for you",
+   "body": "You and the shipowner must each hold a signed original. Not a photo on someone else's phone.",
+   "chip": "MLC 2006 · Standard A2.1",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 4,
+   "title": "Repatriation is *missing*",
+   "body": "Your right to repatriation must be in the agreement. Ask before you sign, not at the end of the contract.",
+   "chip": "MLC 2006 · Standard A2.1",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "vs",
+   "kicker": "Myth vs reality",
+   "a_label": "Myth",
+   "a": "Everyone signs at the airport. It's normal.",
+   "b_label": "Reality",
+   "b": "Common isn't the rule. Read it, ask, then sign.",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "Ever signed a contract you didn't get to read?",
+   "line": "Send this to a shipmate joining next month.",
+   "dur": 3.2
+  }
+ ]
+}

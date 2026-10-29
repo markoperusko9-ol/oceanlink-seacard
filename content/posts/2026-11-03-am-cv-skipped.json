@@ -1,0 +1,65 @@
+{
+ "id": "2026-11-03-am-cv-skipped",
+ "variant": 1,
+ "seed": 12,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Survival guide · 02",
+   "title": "Why crewing offices *skip* your CV",
+   "sub": "Fix these 4 things before your next application.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "Lead with your rank",
+   "body": "First line: your rank, the vessel types you've sailed and the date you can join. That's what recruiters search for.",
+   "chip": "Page one, line one",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "Show every expiry date",
+   "body": "List each certificate with its expiry date. Hidden dates make a recruiter check everything twice.",
+   "chip": "Certificates",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "Sea service as a clean table",
+   "body": "Vessel type, rank, sign-on, sign-off, months. One row per contract, newest first.",
+   "chip": "Sea service",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 4,
+   "title": "Use their *portal* if they have one",
+   "body": "Some agencies only review applications made on their own portal. A CV emailed to their inbox may never be opened.",
+   "chip": "Check how they want it",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "vs",
+   "kicker": "Myth vs reality",
+   "a_label": "Myth",
+   "a": "A longer CV looks more experienced.",
+   "b_label": "Reality",
+   "b": "Recruiters scan. Rank, vessel type and valid certificates get you the call.",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "What's the first line on your CV?",
+   "line": "Ocean Link builds your CV from your sea time in one tap.",
+   "dur": 3.2
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "id": "2026-11-07-am-interview-hire-you",
+ "variant": 2,
+ "seed": 16,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Survival guide · 05",
+   "title": "\"Why should we hire you?\" Answer *this*.",
+   "sub": "A 3-part answer for crewing interviews.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "Match their vessel first",
+   "body": "Open with your rank and time on their vessel type. \"Two contracts as 3rd Officer on tankers.\"",
+   "chip": "Part 1",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "Name one real operation",
+   "body": "Cargo ops, bunkering, dry dock, a port state inspection. One specific thing you did, in one sentence.",
+   "chip": "Part 2",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "Prove you can *join*",
+   "body": "Say your certificates are valid past their joining date, and when you're available. That's what fills a vacancy.",
+   "chip": "Part 3, the strongest",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "vs",
+   "kicker": "Weak vs strong",
+   "a_label": "What everyone says",
+   "a_tone": "neutral",
+   "a": "\"I'm hardworking and a fast learner.\"",
+   "b_label": "What gets the job",
+   "b": "Rank, vessel type, one real operation, valid certificates.",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "Hardest interview question you've been asked?",
+   "line": "Built at sea by a serving 2nd Officer.",
+   "dur": 3.2
+  }
+ ]
+}

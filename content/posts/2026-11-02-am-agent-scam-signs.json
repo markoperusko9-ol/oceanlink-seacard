@@ -1,0 +1,65 @@
+{
+ "id": "2026-11-02-am-agent-scam-signs",
+ "variant": 0,
+ "seed": 11,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Survival guide · 01",
+   "title": "How to know a crewing agent is *scamming* you",
+   "sub": "Check before you send your passport.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "They ask you to pay",
+   "body": "The MLC bans recruitment fees for seafarers. Exceptions: your medical, seafarer's book and passport. Visas? The shipowner pays.",
+   "chip": "MLC 2006 · Standard A1.4",
+   "tone": "critical",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "The offer came on WhatsApp",
+   "body": "Unsolicited offers by WhatsApp, social media or personal email top the red flags in DG Shipping's seafarer advisory.",
+   "chip": "DG Shipping advisory, Nov 2025",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "The contract is vague",
+   "body": "No vessel name, employer, wages or repatriation terms? Don't sign. Ask for the full agreement first.",
+   "chip": "Red flag",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 4,
+   "title": "No *active* licence",
+   "body": "India: check the RPSL is active on the DG Shipping site. Philippines: check the licence on dmw.gov.ph.",
+   "chip": "Check before you send documents",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "vs",
+   "kicker": "Myth vs reality",
+   "a_label": "Myth",
+   "a": "A small fee guarantees you the job.",
+   "b_label": "Reality",
+   "b": "Real placement is free. Cash for a \"guaranteed\" job is the classic scam.",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "Has an agent ever asked you to pay?",
+   "line": "Licensed agencies show their RPSL in Ocean Link.",
+   "dur": 3.2
+  }
+ ]
+}

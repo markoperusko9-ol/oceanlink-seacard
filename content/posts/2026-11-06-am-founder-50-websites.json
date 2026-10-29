@@ -1,0 +1,56 @@
+{
+ "id": "2026-11-06-am-founder-50-websites",
+ "variant": 1,
+ "seed": 15,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Founder story",
+   "title": "I typed the same CV into *50* websites",
+   "sub": "As a fresh 3rd Officer with no contract in rank.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "No contract in rank",
+   "body": "Fresh 3rd Officer licence, no ship yet. Every agency wanted its own online form.",
+   "chip": "Where it started",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "Same details, 50 times",
+   "body": "Name, rank, certificates, sea service. Typed by hand into about 50 agency websites.",
+   "chip": "Hours I won't get back",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "A weak CV, no model",
+   "body": "Nobody showed me what a good seafarer CV looks like. Mine was weak, and I didn't know it.",
+   "chip": "The real problem",
+   "tone": "warning",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 4,
+   "title": "So I built *Ocean Link*",
+   "body": "Snap your certificates once, track your sea time, get a clean CV in one tap. Built by a 2nd Officer, still at sea.",
+   "chip": "Free on Google Play",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "How many agency forms have you filled in?",
+   "line": "Built at sea by a serving 2nd Officer.",
+   "dur": 3.2
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "id": "2026-11-08-am-first-contract",
+ "variant": 0,
+ "seed": 17,
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Survival guide · 06",
+   "title": "What nobody tells you before your *first* contract",
+   "sub": "From a 2nd Officer, for every cadet.",
+   "dur": 3.2
+  },
+  {
+   "type": "point",
+   "n": 1,
+   "title": "Rest hours are a right",
+   "body": "At least 10 hours in any 24, and 77 in any 7 days. Record them honestly.",
+   "chip": "MLC 2006 · Standard A2.3",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 2,
+   "title": "Download before you join",
+   "body": "Ship Wi-Fi can be slow or limited. Load your films, music and study notes while you're still ashore.",
+   "chip": "Day 1 tip",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 3,
+   "title": "Get tasks signed early",
+   "body": "Cadets: get your training record book signed task by task, not in your last week on board.",
+   "chip": "Cadets",
+   "tone": "accent",
+   "dur": 4.8
+  },
+  {
+   "type": "point",
+   "n": 4,
+   "title": "Keep your *own* records",
+   "body": "Keep a copy of every sea service testimonial and discharge entry. Your next certificate depends on sea time you can prove.",
+   "chip": "The one that matters most",
+   "tone": "valid",
+   "dur": 4.8
+  },
+  {
+   "type": "cta",
+   "question": "What do you wish you'd known before your first contract?",
+   "line": "Ocean Link counts your sea time for you.",
+   "dur": 3.2
+  }
+ ]
+}
