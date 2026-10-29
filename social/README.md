@@ -56,7 +56,7 @@ Metricool copies the media at creation (response shows static.metricool.com URLs
 
 ## 6. Close out
 - Tick the backlog item and add a log line with the planner links; commit + push.
-- Delete `media/` folders older than 3 days (Metricool already holds copies); commit + push.
+- Delete the `media/` folders of every post you created this run once each Metricool response shows static.metricool.com copies (Metricool keeps its own copy, so the public files are no longer needed); commit + push.
 - If fewer than 10 backlog items remain, add 15 new ones that follow the pillars and hard rules.
 - Finish with a short summary for Marko: what was scheduled, when, and the planner links. Add one "Reshare on your personal LinkedIn" suggestion: the strongest post of the day plus 2–3 lines he could post in his own words (he posts it himself; never post as him).
 
