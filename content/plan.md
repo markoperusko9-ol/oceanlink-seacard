@@ -30,10 +30,10 @@ Approach: **entertain first, then educate, then sell** — the app is the payoff
 
 ## Backlog (top = next; tick and move to the log when posted)
 
-- [ ] community-rank-poll · Community · "Comment your rank and years at sea" — list slide of ranks, CTA question
-- [ ] sealife-signoff-stages · Sea life · "The 5 stages of sign-off week" (countdown → handover notes → packing → relief arrives → airport)
-- [ ] knowhow-colreg-rule5 · Know-how · Rule 5 Look-out: "sight and hearing as well as all available means"
-- [ ] oceanlink-cert-tracker · Ocean Link · Snap a certificate → expiry tracked, colour-coded valid/warning/critical
+- [x] community-rank-poll · Community · "Comment your rank and years at sea" — list slide of ranks, CTA question
+- [x] sealife-signoff-stages · Sea life · "The 5 stages of sign-off week" (countdown → handover notes → packing → relief arrives → airport)
+- [x] knowhow-colreg-rule5 · Know-how · Rule 5 Look-out: "sight and hearing as well as all available means"
+- [x] oceanlink-cert-tracker · Ocean Link · Snap a certificate → expiry tracked, colour-coded valid/warning/critical
 - [ ] founder-50-websites · Founder · "As a fresh 3rd Officer I typed the same details into 50 agency websites" → why Ocean Link exists
 - [ ] sealife-wifi · Sea life · "Ship Wi-Fi, explained" (loading bar jokes, what actually loads)
 - [ ] knowhow-colreg-rule13 · Know-how · Rule 13 Overtaking: more than 22.5° abaft the beam; overtaking vessel keeps out of the way
@@ -61,3 +61,7 @@ Approach: **entertain first, then educate, then sell** — the app is the payoff
 
 - 2026-10-30 AM-ish · video · "POV: 120 days at sea in 24 seconds" (own ship footage) — all five networks, 10:00–13:00
 - 2026-10-30 PM · knowhow-colreg-rule35 · COLREG Rule 35 fog signals — carousel on IG/FB/LinkedIn/TikTok, video on YouTube (spec: content/posts/2026-10-30-pm-colreg-rule35.json)
+- 2026-10-31 AM · community-rank-poll · Rank roll call carousel (spec: content/posts/2026-10-31-am-community-rank-poll.json) — [TikTok 10:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-4485656627708410171) · [FB 10:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=3887102586073072824) · [LinkedIn 11:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=7689837869956547859) · [IG 13:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-6586245104794582811)
+- 2026-10-31 PM · sealife-signoff-stages · 5 stages of sign-off week video (spec: content/posts/2026-10-31-pm-sealife-signoff-stages.json) — [LinkedIn 17:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=8947988725763622567) · [FB Reel 18:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-8684540654082372063) · [TikTok 18:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-1948948376641451593) · [YouTube 19:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=4299211261805612328) · [IG Reel 22:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-2461639914062131645)
+- 2026-11-01 AM · knowhow-colreg-rule5 · COLREG Rule 5 look-out carousel (spec: content/posts/2026-11-01-am-colreg-rule5.json) — [TikTok 10:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-8380471849270688443) · [FB 10:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=1314307044807951817) · [LinkedIn 11:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-5106116492785530870) · [IG 13:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=2600408431643738855)
+- 2026-11-01 PM · oceanlink-cert-tracker · Certificate tracker video (spec: content/posts/2026-11-01-pm-oceanlink-cert-tracker.json) — [LinkedIn 17:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-3159685115762818114) · [FB Reel 18:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-6303316590513732111) · [TikTok 18:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-5413833050777499196) · [YouTube 19:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-1224834032543185118) · [IG Reel 22:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=855089613200444426)
