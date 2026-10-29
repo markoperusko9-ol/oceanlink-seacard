@@ -8,7 +8,7 @@ Re-check this file against the account's own Metricool analytics every Monday (s
 - **Frame 0 / slide 1 must already show the hook.** No blank, black or fading-in opening — Instagram measures "skip rate" in the first 3 s, Shorts counts "stayed to watch", TikTok uses frame 0 as the default cover. (The template now renders the first slide fully visible at frame 0.)
 - Hook ≤ 10 words. State an outcome or a tension, never a topic label ("Your radar is not the look-out" ✔, "COLREG Rule 5" ✘).
 - **Slide 2 must also work as a hook on its own** — Instagram re-serves carousels from slide 2 and TikTok viewers often land there.
-- Hook styles that test best: story (founder/sea life), contrarian ("X is not Y"), myth vs reality, mistakes, numbered list, POV. Rotate them; don't repeat the same opener two days running.
+- Hook styles that test best: story (founder/sea life), contrarian ("X is not Y"), myth vs reality, mistakes, numbered list, POV, and "How to know if [someone] is [doing X to you]" (see "Strategy: macro out" in content/plan.md). Rotate them; don't repeat the same opener two days running.
 - Series beat one-offs (feeds now push recurring themes): name them consistently, e.g. "COLREGs in 30 seconds · Rule 5", "Sign-off week", "Certificate check".
 
 ## 2. On-screen text and video
