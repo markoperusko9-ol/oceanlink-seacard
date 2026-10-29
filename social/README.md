@@ -33,8 +33,7 @@ Everything needed to make and schedule the day's posts lives in this repo:
 
 ## 3. Render and check
 ```
-python3 social/render.py content/posts/<id>.json /tmp/<id>            # AM: stills
-python3 social/render.py content/posts/<id>.json /tmp/<id> --video    # PM: stills + video.mp4
+python3 social/render.py content/posts/<id>.json /tmp/<id> --video    # AM and PM: stills + video.mp4 (AM: TikTok gets the stills, IG/FB/LinkedIn get the video)
 ```
 Exit code 2 = text too long → shorten and render again. Open `contact.jpg`, one `story_*.jpg` and two frames of `video.mp4` with the Read tool and look at them before publishing.
 
