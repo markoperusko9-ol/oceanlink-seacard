@@ -34,6 +34,9 @@
 </div></div>
 <script>
 (function(){
+/* Chrome "Desktop site" ignores the viewport tag and lays the page out ~980px wide; scale the card back to phone size */
+var iw=window.innerWidth,sw=(window.screen&&screen.width)||iw;
+if(sw&&iw/sw>1.2&&window.matchMedia&&matchMedia('(pointer:coarse)').matches)document.querySelector('.oldl-card').style.zoom=(iw/sw).toFixed(3);
 var q=new URLSearchParams(location.search);
 var f=q.get('f')||'';
 var n=(q.get('n')||'CV.pdf').replace(/[\\\/:*?"<>|\u0000-\u001f]+/g,' ').replace(/\s+/g,' ').trim()||'CV.pdf';
