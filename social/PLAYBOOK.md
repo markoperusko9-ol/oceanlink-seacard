@@ -49,7 +49,7 @@ Re-check this file against the account's own Metricool analytics every Monday (s
 - No study covers Indian/Filipino seafarers specifically, and seafarers at sea keep odd hours — after 30 days, move each slot to the account's own best hours from Metricool.
 
 ## 6. Hard limits
-- Originality: our own templates and footage only; no third-party clips, watermarks or reposts.
+- Originality: our own templates and footage only; no third-party clips, watermarks or reposts. One exception: Pexels clips Marko downloads into `D:\Vessel Videos\Stock` (Pexels license: free commercial use, editing allowed, no credit needed). Never post them raw: always add our text, graphics and music on top. Skip any clip that shows a ship name, company logo or recognisable face, and match the ship type to the topic. Every other downloaded clip in `D:\Vessel Videos` stays off-limits.
 - Facts: every regulation/certificate line is checked against an official source before posting.
 - No job vacancies, invented numbers, testimonials, faces, ship or company names.
 
