@@ -19,6 +19,9 @@ Re-check this file against the account's own Metricool analytics every Monday (s
 - Our format is text + music only. Emplifi's 2026 Facebook study: speech in the first 3 s gives ~25% better retention. Real ship footage and (later) a voice line are the biggest upgrades — use footage posts when Marko provides clips.
 - Music: only the original music baked in by `social/music.py`; TikTok carousels use `autoAddMusic true` (TikTok's commercial-safe library). Never add commercial tracks.
 
+- Every Reel gets a custom cover image (the hook frame) so the profile grid never shows a blank tile; keep the cover text inside the central 1080×1440 (the grid crops to 3:4).
+- Every post is also shared to Instagram and Facebook Stories 30 min after it goes live (Stories reach followers who don't see the feed post).
+
 ## 3. Captions and links
 | Network | Structure | Links | Hashtags |
 |---|---|---|---|

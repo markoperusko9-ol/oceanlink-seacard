@@ -20,6 +20,8 @@ Model: Jefferson Fisher, a Texas trial lawyer with about 6M Instagram followers.
 | AM | Carousel, rendered with `--video` too (no silent stills, Marko 30 Oct 2026) | TikTok photo carousel (story_*.jpg, `autoAddMusic true`) 10:00 · LinkedIn video 11:00 · Facebook Reel 12:00 · Instagram Reel 13:00, all three using video.mp4 (original music baked in), `videoCoverMilliseconds` 300 |
 | PM | 9:16 video (same template, `--video`) | LinkedIn 15:30 · Facebook Reel 20:00 · TikTok 20:00 · YouTube Short 20:00 · Instagram Reel 21:00 |
 
+Stories: every slot is also posted as an Instagram + Facebook Story 30 min after its Instagram post (see social/README.md step 5). Reels always carry a custom cover (cover.jpg).
+
 ## Pillars (rotate; never two from the same pillar on one day)
 
 - **Sea life** (entertain): relatable humour, watch life, sign-off, ship Wi-Fi, mess food, shipmates. No faces, no ship or company names.

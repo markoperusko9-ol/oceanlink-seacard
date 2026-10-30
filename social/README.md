@@ -49,7 +49,8 @@ Separate post per network; captions follow the table in `social/PLAYBOOK.md` §3
 - **LinkedIn** (company page): `linkedinData {"type":"post"}`. No URL anywhere and **no `firstCommentText`**. Mention "Ocean Link (free on Google Play)" in plain text.
 - **YouTube**: video only, `youtubeData {"title", "type":"short", "privacy":"public", "madeForKids":false, "category":"EDUCATION" or "PEOPLE_BLOGS", "isAiGeneratedContent":false}`. No URL in the description; 3 hashtags at its end.
 - Carousels: `mediaAltText` = one short sentence per image, same order as `media`.
-- Video posts: `videoCoverMilliseconds` 300 (the hook is fully drawn at frame 0).
+- **Video covers (required):** Instagram Reels, Facebook Reels and LinkedIn videos get `videoThumbnailUrl` = `https://card.oceanlinkai.com/media/<folder>/cover.jpg` (rendered by `render.py --video`) and NO `videoCoverMilliseconds`. Without a custom cover Instagram can show a black tile in the profile grid (happened 30 Oct 2026). TikTok videos keep `videoCoverMilliseconds` 300; YouTube gets neither.
+- **Stories (required, every slot):** one extra post per slot with `providers` instagram + facebook, `instagramData {"type":"STORY"}`, `facebookData {"type":"STORY"}`, **no `text`, no hashtags**, scheduled 30 min after that slot's Instagram post. Media = the slot's `video.mp4` (or `story_01.jpg` if the slot has no video). Instagram Stories only auto-publish from a Business account.
 - Before creating, re-read every caption against the banned list in PLAYBOOK §3 ("comment YES", "tag someone", "like if", "agree?", "share if").
 Metricool copies the media at creation (response shows static.metricool.com URLs) — check every response has them.
 

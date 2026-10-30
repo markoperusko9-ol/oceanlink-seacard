@@ -81,6 +81,8 @@ if want_video:
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{tmp}/v.mp4", "-i", f"{tmp}/mn.wav", "-map", "0:v", "-map", "1:a",
                     "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", f"{out}/video.tmp.mp4"], check=True)
     os.replace(f"{out}/video.tmp.mp4", f"{out}/video.mp4")
+    # cover.jpg: the hook frame, used as the Reel cover (Instagram/Facebook/LinkedIn videoThumbnailUrl)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "0.3", "-i", f"{out}/video.mp4", "-frames:v", "1", "-q:v", "2", f"{out}/cover.jpg"], check=True)
     shutil.rmtree(tmp, ignore_errors=True)
     print(f"video.mp4 {t:.1f}s")
 
