@@ -1,0 +1,13 @@
+{
+ "id": "2026-11-02-pm-difficult-senior",
+ "variant": 0,
+ "seed": 15,
+ "slides": [
+  {"type": "cover", "kicker": "Survival guide · 09", "title": "Your senior officer is *difficult*. Now what?", "sub": "3 things that help on board.", "dur": 3.2},
+  {"type": "point", "n": 1, "title": "Stop trying to *win*", "body": "You won't out-argue a senior mid-watch. Learn how they want reports and handovers, then deliver exactly that.", "chip": "Their system", "tone": "accent", "dur": 4.8},
+  {"type": "point", "n": 2, "title": "Raise it once, in private", "body": "Not in front of the crew. After the watch: one specific example, one calm question.", "chip": "One talk", "tone": "accent", "dur": 4.8},
+  {"type": "point", "n": 3, "title": "Know your *line*", "body": "Some things aren't \"just the job\". The MLC gives you an on-board complaint procedure, including the right to go straight to the Master.", "chip": "MLC Reg 5.1.5", "tone": "valid", "dur": 4.8},
+  {"type": "vs", "kicker": "Myth vs reality", "a_label": "Myth", "a": "Keep your head down and survive the contract.", "b_label": "Reality", "b": "Predictable work and one calm talk change more than silence.", "dur": 4.8},
+  {"type": "cta", "question": "What helped you with a difficult senior?", "line": "Built at sea by a serving 2nd Officer.", "dur": 3.2}
+ ]
+}
