@@ -5,6 +5,7 @@ Everything needed to make and schedule the day's posts lives in this repo:
 - **`social/PLAYBOOK.md` — reach rules per platform (hooks, captions, links, hashtags, timing). Read it every run; it overrides anything below that disagrees.**
 
 - `content/plan.md` — slots, pillars, hard rules, backlog and log. Read it first, follow it exactly.
+- `content/library.md` — the finished-video library (promos, COLREG lessons, quizzes) used for every PM slot, with how to fetch, check and post each one.
 - `content/posts/*.json` — one spec per post (kept as a record).
 - `social/slide.html` + `social/render.py` — the only template. Brand: abyss-dark, Inter, flat, no shadows.
 - `media/<YYYY-MM-DD>-am|pm/` — rendered files, served publicly by GitHub Pages at `https://card.oceanlinkai.com/media/...` so Metricool can fetch them.
@@ -12,7 +13,7 @@ Everything needed to make and schedule the day's posts lives in this repo:
 ## 1. Pick what to make
 1. Today's date in Asia/Tomsk. Target = the earliest day from tomorrow up to 3 days ahead whose AM or PM slot is missing.
    Check `getScheduledPosts` (brandId 7716383, timezone Asia/Tomsk) for that day as well as the log, so nothing is doubled.
-2. Take the next unticked backlog items. AM and PM on the same day must be different pillars.
+2. AM: take the next unticked backlog item and make it with the template (steps 2–3). **PM: never the template.** Take the next video from `content/library.md` (rotation and checks are there), skip steps 2–3 for it, and go straight to step 4 with its `video.mp4` + `cover.jpg`.
 3. Fact-check every regulation/certificate claim with a web search against an official or reputable source. If it can't be confirmed, cut it.
 
 ## 2. Write the spec — `content/posts/<date>-<am|pm>-<slug>.json`
@@ -50,7 +51,7 @@ Separate post per network; captions follow the table in `social/PLAYBOOK.md` §3
 - **YouTube**: video only, `youtubeData {"title", "type":"short", "privacy":"public", "madeForKids":false, "category":"EDUCATION" or "PEOPLE_BLOGS", "isAiGeneratedContent":false}`. No URL in the description; 3 hashtags at its end.
 - Carousels: `mediaAltText` = one short sentence per image, same order as `media`.
 - **Video covers (required):** Instagram Reels, Facebook Reels and LinkedIn videos get `videoThumbnailUrl` = `https://card.oceanlinkai.com/media/<folder>/cover.jpg` (rendered by `render.py --video`) and NO `videoCoverMilliseconds`. Without a custom cover Instagram can show a black tile in the profile grid (happened 30 Oct 2026). TikTok videos keep `videoCoverMilliseconds` 300; YouTube gets neither.
-- **Stories (required, every slot):** one extra post per slot with `providers` instagram + facebook, `instagramData {"type":"STORY"}`, `facebookData {"type":"STORY"}`, **no `text`, no hashtags**, scheduled 30 min after that slot's Instagram post. Media = the slot's `video.mp4` (or `story_01.jpg` if the slot has no video). Instagram Stories only auto-publish from a Business account.
+- **Stories (required, every slot):** one extra post per slot with `providers` instagram + facebook, `instagramData {"type":"STORY"}`, `facebookData {"type":"STORY"}`, **no `text`, no hashtags**, scheduled 30 min after that slot's Instagram post. Media = the slot's `video.mp4` (or `story_01.jpg` if the slot has no video). Instagram Stories take video up to 60 s: for a longer video use the slot's `cover.jpg`. Instagram Stories only auto-publish from a Business account.
 - Before creating, re-read every caption against the banned list in PLAYBOOK §3 ("comment YES", "tag someone", "like if", "agree?", "share if").
 Metricool copies the media at creation (response shows static.metricool.com URLs) — check every response has them.
 
