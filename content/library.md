@@ -14,7 +14,7 @@ Rotate **quiz → promo → lesson → quiz → promo → lesson …**. Never tw
 | File | Drive id | Size | What it is | Status |
 |---|---|---|---|---|
 | ocean-link-sea-card-reel-final.mp4 | 19zXAlF9FjXw8m54f_08vFzmK6OctDsmL | 3.3 MB, 42 s | "How many days have you spent at sea?" Sea Card demo | Posted 1 Nov PM |
-| ocean-link-crew-promo-voice.mp4 | 1iIgAbfmXIY9IuYD_pD4lP8KIwCy20I98 | 1.6 MB, 28 s | "Remember the crew from your last ship?" Crew tab in SeaFeed | Posted 2 Nov PM |
+| ocean-link-crew-promo-voice.mp4 | 1iIgAbfmXIY9IuYD_pD4lP8KIwCy20I98 | 1.6 MB, 28 s | "Remember the crew from your last ship?" Crew tab in SeaFeed. Drive file has voice only, no music: add a bed before any reuse | Scheduled 2 Nov PM (with music added) |
 | ocean_link_supercharged_vo.mp4 | 10NEt5jv_un6uDAtcb876LcLpJTqN_nIz | 13 MB | "LinkedIn for seafarers. But supercharged." 5 power-ups, voiceover | Reserved 4 Nov PM (needs Metricool Drive link) |
 | ocean_link_network_vo.mp4 | 10IJ-fvzDfDzHuvTbGznUHupwxMbtWdb3 | 13.9 MB, 33.5 s | "You've missed birthdays for this job… Your career. Finally seen." voiceover | Reserved 6 Nov PM (needs Metricool Drive link) |
 | ocean_link_promo-2.mp4 | 1fACeNH7O6mE9ofLyHv2dvi0QZd_5OYwG | 23.4 MB, ~40 s | Full feature tour with voiceover: snap a certificate, sea time, jobs for your rank, CV, COLREG quizzes, Sea Feed, chat, licensed agencies | Reserved 8 Nov PM (needs Metricool Drive link) |
@@ -39,4 +39,5 @@ Animated lessons from the Learn tab, 4–6 MB, about 1.5–2.5 min. Lesson 13 (R
 3. Cover: render a cover slide with `social/render.py` (one `cover` slide: kicker, title with `*accent*`, sub) and use `story_01.jpg` as `cover.jpg`. For promos whose 2-second frame already shows the hook, a frame grab is fine.
 4. Length limits: Facebook Reel ≤ 90 s (longer → `facebookData.type "POST"`); YouTube Short ≤ 180 s; Story video ≤ 60 s (longer → Story uses `cover.jpg`).
 5. TikTok: `videoCoverMilliseconds` at a frame where the hook is fully drawn (1000–2000).
-6. Quiz captions say "Answer before the reveal" / "What would you do on watch?". Never "comment A/B/C" (vote bait).
+6. Sound: every video needs music. If a file has voice but no music (gaps that drop below −50 dB), add a bed with `social/music.py` (`make_bed(duration, scene_cuts, wav, seed)`), keep it about 19 dB under the voice and dip it 6 dB more while the voice speaks, then `loudnorm=I=-14:TP=-1.5`. The crew promo needed this (31 Oct 2026); its fixed version is what Metricool now holds.
+7. Quiz captions say "Answer before the reveal" / "What would you do on watch?". Never "comment A/B/C" (vote bait).
