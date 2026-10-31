@@ -1,0 +1,110 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root{--page:#050609;--t1:#F2F4F7;--t2:#C9CED6;--acc:#00E5FF;--accd:#4FD9EE}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+  #root{position:absolute;inset:0}
+  .layer{position:absolute;left:120px;right:192px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .line{display:inline-block;background:rgba(5,6,9,0.86);border-radius:12px;padding:6px 22px 12px;margin:6px 0;
+        font-weight:600;letter-spacing:-0.03em;line-height:1.1;color:var(--t1);white-space:nowrap}
+  .w{display:inline-block;white-space:pre}
+  .acc{color:var(--acc)}
+  .tag{position:absolute;left:120px;top:300px;font-size:30px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+       color:var(--accd);background:rgba(5,6,9,0.80);border-radius:10px;padding:10px 18px}
+  .stamp{font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:-0.04em;color:var(--acc);
+         background:rgba(5,6,9,0.86);border-radius:14px;padding:4px 26px 10px;line-height:1}
+  .label{margin-top:14px}
+  .count{font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:-0.045em;color:var(--acc);line-height:1;
+         background:rgba(5,6,9,0.86);border-radius:16px;padding:10px 30px 18px}
+  #end{position:absolute;inset:0;background:rgba(5,6,9,0.84);display:none}
+  #endin{position:absolute;left:120px;right:192px;top:520px;display:flex;flex-direction:column;align-items:flex-start}
+  .wm{font-size:64px;font-weight:600;letter-spacing:-0.025em;margin-top:34px;color:var(--t1)}
+  .eline{font-size:64px;font-weight:600;letter-spacing:-0.03em;line-height:1.1;color:var(--t1);margin-top:56px}
+  .pill{margin-top:48px;font-size:40px;font-weight:600;color:var(--page);background:var(--acc);border-radius:12px;padding:24px 40px}
+  .url{margin-top:26px;font-size:32px;font-weight:500;color:var(--t2)}
+</style></head>
+<body><div id="root"></div><div id="end"><div id="endin"></div></div>
+<script>
+const LOGO = `<svg width="150" height="150" viewBox="0 0 32 32"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg>`;
+const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const eob=x=>{x=clamp(x,0,1);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)}; // ease-out-back
+const eo=x=>1-Math.pow(1-clamp(x,0,1),3);
+// words with accent flags: "*a b* c" -> [{w:'a',a:1},{w:'b',a:1},{w:'c',a:0}]
+function words(s){const out=[];String(s||'').split('*').forEach((seg,i)=>seg.split(/\s+/).filter(Boolean).forEach(w=>out.push({w,a:i%2})));return out}
+// lines: caption text may contain " / " to force a line break
+function lines(s){return String(s||'').split(' / ').map(words)}
+
+let CAPS=[], END=null;
+function setup(caps,end){CAPS=caps;END=end}
+
+// draw the overlay at time t (seconds). Returns a signature string; identical signatures = identical pixels.
+function drawAt(t){
+  const root=document.getElementById('root'); let html='', sig=[];
+  for(const c of CAPS){
+    if(t<c.t0||t>=c.t1) continue;
+    const lt=t-c.t0, size=c.size||100, y=c.y||900;
+    if(c.style==='tag'){ html+=`<div class="tag">${esc(c.text)}</div>`; sig.push('tag'+c.text); continue; }
+    if(c.style==='stamp'){
+      const p=eob(lt/0.22), q=eo(lt/0.18);
+      html+=`<div class="layer" style="top:${y}px"><div class="stamp" style="font-size:${size*1.5}px;transform:scale(${0.6+0.4*p});opacity:${q}">${esc(c.time)}</div>`
+          +`<div class="line label" style="font-size:${size*0.62}px;opacity:${eo((lt-0.08)/0.18)}">${rich(c.text)}</div></div>`;
+      sig.push('st'+c.time+(lt<0.3?Math.round(lt*30):'H')); continue;
+    }
+    if(c.style==='count'){
+      const d=c.dur||1.0, p=eo(lt/d), v=c.from+(c.to-c.from)*p;
+      const val=(c.dec?v.toFixed(c.dec):Math.round(v).toLocaleString('en-US'));
+      html+=`<div class="layer" style="top:${y}px"><div class="count" style="font-size:${size*1.9}px;transform:scale(${0.7+0.3*eob(lt/0.25)})">${esc(c.pre||'')}${val}${esc(c.suf||'')}</div>`
+          +(c.text?`<div class="line label" style="font-size:${size*0.62}px;opacity:${eo((lt-0.1)/0.2)}">${rich(c.text)}</div>`:'')+`</div>`;
+      sig.push('ct'+val+(lt<0.4?Math.round(lt*30):'H')+c.text); continue;
+    }
+    // hook / pop: words pop in one by one (stagger), current word lights up (karaoke) if c.karaoke
+    const L=lines(c.text), stag=c.stagger??0.07; let k=0, anim=false;
+    let inner='';
+    for(const ln of L){
+      let li=''; const st0=(c.instant&&k===0)?-1:k*stag; const lo=c.instant?1:clamp((lt-st0)/0.06,0,1);
+      for(const w of ln){
+        const st=(c.instant&&k===0)?-1:k*stag, wt=lt-st;
+        const p=c.instant?1:eob(wt/0.16), o=c.instant?1:clamp(wt/0.06,0,1);
+        if(!c.instant && wt<0.2) anim=true;
+        const lit = c.karaoke ? (lt>=st && lt<st+stag*1.6) : false;
+        li+=`<span class="w ${w.a||lit?'acc':''}" style="transform:translateY(${(1-p)*30}px) scale(${0.75+0.25*p});opacity:${o}">${esc(w.w)} </span>`;
+        k++;
+      }
+      inner+=`<div class="line" style="font-size:${size}px;opacity:${lo}">${li.replace(/ <\/span>$/,'</span>')}</div>`;
+    }
+    html+=`<div class="layer" style="top:${y}px">${inner}</div>`;
+    sig.push('h'+c.text+(anim?Math.round(lt*30):'H'));
+  }
+  root.innerHTML=html;
+  // never wrap a caption line: shrink it until it fits the 768 px safe width
+  for(const el of root.querySelectorAll('.line, .stamp, .count')){
+    const w=el.getBoundingClientRect().width;
+    if(w>768){ const fs=parseFloat(el.style.fontSize||getComputedStyle(el).fontSize); el.style.fontSize=(fs*768/w*0.98)+'px'; }
+  }
+  const e=document.getElementById('end');
+  if(END && t>=END.t0){
+    e.style.display='block';
+    const lt=t-END.t0, p=eo(lt/0.3);
+    document.getElementById('endin').innerHTML=`<div style="transform:translateY(${(1-p)*40}px);opacity:${p}">${LOGO}</div>`
+      +`<div class="wm" style="opacity:${eo((lt-0.1)/0.3)}">OCEAN<span class="acc">LINK</span></div>`
+      +(END.line?`<div class="eline" style="opacity:${eo((lt-0.25)/0.3)}">${rich(END.line)}</div>`:'')
+      +`<div class="pill" style="opacity:${eo((lt-0.45)/0.3)}">${esc(END.cta||'Free on Google Play')}</div><div class="url" style="opacity:${eo((lt-0.55)/0.3)}">oceanlinkai.com</div>`;
+    sig.push('end'+(lt<0.9?Math.round(lt*30):'H'));
+  } else { e.style.display='none'; }
+  return sig.join('|');
+}
+function rich(s){return words(s).map(w=>`<span class="${w.a?'acc':''}">${esc(w.w)}</span>`).join(' ')}
+// fit check for every caption at its settled state: inside x 120..888, y 288..1248
+function check(){
+  const bad=[];
+  for(const c of CAPS){ if(c.style==='tag') continue;
+    drawAt(c.t0+0.9>c.t1?c.t1-0.01:c.t0+0.9);
+    for(const el of document.querySelectorAll('#root .line, #root .stamp, #root .count')){
+      const r=el.getBoundingClientRect(); if(r.top<288||r.bottom>1248||r.left<110||r.right>898) {bad.push(c.text||c.time); break;}
+    }
+  }
+  return bad;
+}
+</script></body></html>

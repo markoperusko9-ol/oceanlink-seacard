@@ -1,0 +1,285 @@
+{
+ "id": "reel-day-in-life",
+ "seed": 2,
+ "cuts": [
+  {
+   "clip": "16359654",
+   "start": 3.0,
+   "beats": 2,
+   "fx": [
+    "punch"
+   ]
+  },
+  {
+   "clip": "10234812",
+   "start": 2.0,
+   "beats": 3,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20261020",
+   "start": 0.0,
+   "beats": 4,
+   "fx": [
+    "flash",
+    "push"
+   ],
+   "gamma": 1.3
+  },
+  {
+   "clip": "20261028_010901",
+   "start": 0.5,
+   "beats": 2,
+   "fx": [
+    "punch"
+   ],
+   "gamma": 1.9
+  },
+  {
+   "clip": "20261028_010901",
+   "start": 3.0,
+   "beats": 2,
+   "fx": [
+    "push"
+   ],
+   "gamma": 1.9
+  },
+  {
+   "clip": "20261022_212842",
+   "start": 0.2,
+   "beats": 4,
+   "fx": [
+    "punch",
+    "shake"
+   ]
+  },
+  {
+   "clip": "VID-20260309",
+   "start": 0.0,
+   "beats": 4,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260220",
+   "start": 0.8,
+   "beats": 2,
+   "fx": [
+    "punch"
+   ]
+  },
+  {
+   "clip": "VID-20260122",
+   "start": 2.0,
+   "beats": 2,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260123",
+   "start": 2.2,
+   "beats": 4,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260212",
+   "start": 0.0,
+   "beats": 4,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "15999582",
+   "start": 8.0,
+   "beats": 2,
+   "fx": [
+    "punch",
+    "shake"
+   ]
+  },
+  {
+   "clip": "15047407",
+   "start": 10.0,
+   "beats": 2,
+   "fx": [
+    "punch"
+   ]
+  },
+  {
+   "clip": "13691789",
+   "start": 1.0,
+   "beats": 2,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "14424212",
+   "start": 6.0,
+   "beats": 2,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260401",
+   "start": 0.0,
+   "beats": 4,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "11707486",
+   "start": 2.0,
+   "beats": 2,
+   "fx": [
+    "whip"
+   ]
+  },
+  {
+   "clip": "20260222_154251",
+   "start": 0.0,
+   "beats": 2,
+   "speed": 0.5,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 49,
+   "style": "tag",
+   "text": "Day in the life \u00b7 2nd Officer"
+  },
+  {
+   "from": 0,
+   "to": 5,
+   "style": "hook",
+   "text": "24 hours as a / *2nd Officer* at sea",
+   "instant": true,
+   "y": 700,
+   "size": 92
+  },
+  {
+   "from": 5,
+   "to": 9,
+   "style": "stamp",
+   "time": "23:45",
+   "text": "Wake-up call",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 9,
+   "to": 13,
+   "style": "stamp",
+   "time": "00:00",
+   "text": "Night watch *starts*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 13,
+   "to": 17,
+   "style": "stamp",
+   "time": "03:00",
+   "text": "Pilot ladder *rigged*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 17,
+   "to": 21,
+   "style": "stamp",
+   "time": "04:00",
+   "text": "Handover. *Bed.*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 21,
+   "to": 25,
+   "style": "stamp",
+   "time": "09:00",
+   "text": "Passage plan, *chart corrections*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 25,
+   "to": 29,
+   "style": "stamp",
+   "time": "11:00",
+   "text": "Rounds",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 29,
+   "to": 33,
+   "style": "stamp",
+   "time": "12:00",
+   "text": "Back on the *bridge*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 33,
+   "to": 37,
+   "style": "stamp",
+   "time": "14:00",
+   "text": "Rust *never sleeps*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 37,
+   "to": 41,
+   "style": "stamp",
+   "time": "18:00",
+   "text": "Sunset, *finally*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 41,
+   "to": 45,
+   "style": "stamp",
+   "time": "20:00",
+   "text": "Counting days to *sign-off*",
+   "y": 720,
+   "size": 90
+  },
+  {
+   "from": 45,
+   "to": 49,
+   "style": "stamp",
+   "time": "23:00",
+   "text": "Repeat. *For 6 months.*",
+   "y": 720,
+   "size": 90
+  }
+ ],
+ "end": {
+  "clip": "9654558",
+  "start": 3.0,
+  "beats": 6,
+  "line": "Every day at sea, *counted.*"
+ }
+}
