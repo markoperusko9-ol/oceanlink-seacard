@@ -1,0 +1,36 @@
+{
+ "id": "meme-05",
+ "seed": 0,
+ "cuts": [
+  {
+   "clip": "Memes/5.mp4",
+   "start": 0.0,
+   "beats": 20,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 20,
+   "style": "meme",
+   "text": "Vetting inspector heading straight / for *the one thing you missed*",
+   "instant": true,
+   "y": 320,
+   "size": 64
+  },
+  {
+   "from": 2,
+   "to": 20,
+   "style": "label",
+   "text": "Vetting inspector",
+   "x": 540,
+   "y": 800,
+   "dark": true,
+   "size": 58,
+   "todo": "place on the character"
+  }
+ ]
+}

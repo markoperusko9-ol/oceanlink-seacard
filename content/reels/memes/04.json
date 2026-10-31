@@ -1,0 +1,36 @@
+{
+ "id": "meme-04",
+ "seed": 4,
+ "cuts": [
+  {
+   "clip": "Memes/4.mp4",
+   "start": 0.0,
+   "beats": 20,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 20,
+   "style": "meme",
+   "text": "Bridge: *\"standby engine / in 10 minutes\"*",
+   "instant": true,
+   "y": 320,
+   "size": 64
+  },
+  {
+   "from": 2,
+   "to": 20,
+   "style": "label",
+   "text": "Engine room",
+   "x": 540,
+   "y": 800,
+   "dark": true,
+   "size": 58,
+   "todo": "place on the character"
+  }
+ ]
+}

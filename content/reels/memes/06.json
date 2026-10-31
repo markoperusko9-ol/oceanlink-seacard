@@ -1,0 +1,36 @@
+{
+ "id": "meme-06",
+ "seed": 1,
+ "cuts": [
+  {
+   "clip": "Memes/6.mp4",
+   "start": 0.0,
+   "beats": 20,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 20,
+   "style": "meme",
+   "text": "Ship's Wi-Fi at 20:00 when / *the whole crew calls home*",
+   "instant": true,
+   "y": 320,
+   "size": 64
+  },
+  {
+   "from": 2,
+   "to": 20,
+   "style": "label",
+   "text": "Ship's Wi-Fi",
+   "x": 540,
+   "y": 800,
+   "dark": true,
+   "size": 58,
+   "todo": "place on the character"
+  }
+ ]
+}
