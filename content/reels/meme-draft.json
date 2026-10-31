@@ -1,0 +1,39 @@
+{
+ "id": "meme-read-the-draft",
+ "seed": 0,
+ "cuts": [
+  {
+   "clip": "1249414",
+   "start": 8.0,
+   "beats": 18,
+   "x": 0.5,
+   "gamma": 1.0,
+   "speed": 1.0,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 18,
+   "style": "meme",
+   "text": "Cadet when the Chief Officer / says *\"go read the draft\"*",
+   "instant": true,
+   "y": 320,
+   "size": 64
+  },
+  {
+   "from": 2,
+   "to": 18,
+   "style": "label",
+   "text": "Cadet",
+   "x": 760,
+   "y": 800,
+   "dark": true,
+   "instant": false,
+   "size": 58
+  }
+ ]
+}

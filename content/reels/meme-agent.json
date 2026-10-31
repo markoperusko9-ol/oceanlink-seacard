@@ -1,0 +1,39 @@
+{
+ "id": "meme-crewing-agent",
+ "seed": 3,
+ "cuts": [
+  {
+   "clip": "12913827",
+   "start": 2.0,
+   "beats": 18,
+   "x": 0.5,
+   "gamma": 1.0,
+   "speed": 1.0,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 18,
+   "style": "meme",
+   "text": "Crewing agent: / \"the vessel has / *great facilities\"*",
+   "instant": true,
+   "y": 320,
+   "size": 64
+  },
+  {
+   "from": 3,
+   "to": 18,
+   "style": "label",
+   "text": "Crew facilities",
+   "x": 560,
+   "y": 1185,
+   "dark": true,
+   "instant": false,
+   "size": 58
+  }
+ ]
+}

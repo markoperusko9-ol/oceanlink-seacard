@@ -50,14 +50,15 @@ def frames_of(cut, n):
     need = n / FPS * sp + 0.2
     vf = (f"setpts=PTS/{sp},fps={FPS},scale=w='if(gt(a,{MW}/{MH}),-2,{MW})':h='if(gt(a,{MW}/{MH}),{MH},-2)',"
           f"crop={MW}:{MH}:(iw-{MW})*{x}:(ih-{MH})*{y},eq=contrast=1.07:saturation=1.15:brightness=-0.015:gamma={cut.get('gamma', 1.0)},format=rgb24")
-    raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(cut.get('start', 0)), '-t', f'{need:.3f}', '-i', src,
-                          '-vf', vf, '-f', 'rawvideo', '-'], capture_output=True).stdout
-    fr = np.frombuffer(raw, np.uint8)
-    k = len(fr) // (MW * MH * 3)
-    if k == 0: sys.exit(f'no frames from {src} at {cut.get("start", 0)}')
-    fr = fr[:k * MW * MH * 3].reshape(k, MH, MW, 3)
-    idx = [min(i, k - 1) for i in range(n)]
-    return [fr[i] for i in idx]
+    proc = subprocess.Popen(['ffmpeg', '-v', 'error', '-ss', str(cut.get('start', 0)), '-t', f'{need:.3f}', '-i', src,
+                             '-vf', vf, '-f', 'rawvideo', '-'], stdout=subprocess.PIPE)
+    size = MW * MH * 3; last = None
+    for _ in range(n):                      # stream frames one by one (low memory); hold the last frame if the clip runs out
+        buf = proc.stdout.read(size)
+        if len(buf) == size: last = np.frombuffer(buf, np.uint8).reshape(MH, MW, 3)
+        if last is None: sys.exit(f'no frames from {src} at {cut.get("start", 0)}')
+        yield last
+    proc.stdout.close(); proc.kill(); proc.wait()
 
 
 def fx_frame(img, cut, i, n, nxt_whip):
@@ -111,7 +112,7 @@ with sync_playwright() as p:
     for si, (c, n) in enumerate(zip(segs, nframes)):
         imgs = frames_of(c, n)
         nxt_whip = si + 1 < len(segs) and 'whip' in segs[si + 1].get('fx', [])
-        for i in range(n):
+        for i, img in zip(range(n), imgs):
             t = f_abs / FPS
             sig = pg.evaluate(f'drawAt({t})')
             if sig != last_sig:
@@ -119,7 +120,7 @@ with sync_playwright() as p:
                 arr = cv2.imdecode(np.frombuffer(png, np.uint8), cv2.IMREAD_UNCHANGED)   # BGRA
                 ov = (arr[:, :, [2, 1, 0]].astype(np.float32), arr[:, :, 3:4].astype(np.float32) / 255.0) if arr is not None and arr.shape[2] == 4 else None
                 last_sig = sig
-            frame = fx_frame(imgs[i], c, i, n, nxt_whip).astype(np.float32)
+            frame = fx_frame(img, c, i, n, nxt_whip).astype(np.float32)
             if ov is not None and sig:
                 frame = frame * (1 - ov[1]) + ov[0] * ov[1]
             enc.stdin.write(frame.clip(0, 255).astype(np.uint8).tobytes())

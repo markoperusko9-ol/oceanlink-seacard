@@ -1,0 +1,50 @@
+{
+ "id": "meme-weather-routing",
+ "seed": 1,
+ "cuts": [
+  {
+   "clip": "16359654",
+   "start": 4.0,
+   "beats": 18,
+   "x": 0.5,
+   "gamma": 1.0,
+   "speed": 1.0,
+   "fx": [
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 18,
+   "style": "meme",
+   "text": "Weather routing: / *\"slight sea\"*",
+   "instant": true,
+   "y": 320,
+   "size": 64
+  },
+  {
+   "from": 2,
+   "to": 18,
+   "style": "label",
+   "text": "The \"slight sea\"",
+   "x": 540,
+   "y": 820,
+   "dark": false,
+   "instant": false,
+   "size": 58
+  },
+  {
+   "from": 4,
+   "to": 18,
+   "style": "label",
+   "text": "Us",
+   "x": 500,
+   "y": 1185,
+   "dark": true,
+   "instant": false,
+   "size": 58
+  }
+ ]
+}

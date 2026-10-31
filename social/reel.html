@@ -17,6 +17,11 @@
   .label{margin-top:14px}
   .count{font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:-0.045em;color:var(--acc);line-height:1;
          background:rgba(5,6,9,0.86);border-radius:16px;padding:10px 30px 18px}
+  .meme{position:absolute;left:504px;transform:translateX(-50%);max-width:768px;width:max-content;background:#F2F4F7;color:#050609;
+        border-radius:24px;padding:20px 32px 24px;font-weight:600;letter-spacing:-0.025em;line-height:1.14;text-align:center}
+  .meme .acc{color:#0E86A6}
+  .ml{white-space:nowrap}
+  .lbl{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;border-radius:14px;padding:10px 22px 14px;font-weight:600;letter-spacing:-0.02em}
   #end{position:absolute;inset:0;background:rgba(5,6,9,0.84);display:none}
   #endin{position:absolute;left:120px;right:192px;top:520px;display:flex;flex-direction:column;align-items:flex-start}
   .wm{font-size:64px;font-weight:600;letter-spacing:-0.025em;margin-top:34px;color:var(--t1)}
@@ -45,6 +50,16 @@ function drawAt(t){
   for(const c of CAPS){
     if(t<c.t0||t>=c.t1) continue;
     const lt=t-c.t0, size=c.size||100, y=c.y||900;
+    if(c.style==='meme'){
+      const p=c.instant?1:eob(lt/0.2);
+      html+=`<div class="meme" style="top:${c.y||330}px;font-size:${c.size||62}px;transform:translateX(-50%) scale(${0.8+0.2*p});opacity:${c.instant?1:clamp(lt/0.08,0,1)}">${String(c.text).split(' / ').map(l=>`<div class="ml">${rich(l)}</div>`).join('')}</div>`;
+      sig.push('mm'+c.text+(!c.instant&&lt<0.25?Math.round(lt*30):'H')); continue;
+    }
+    if(c.style==='label'){
+      const p=c.instant?1:eob(lt/0.2), dark=c.dark!==false;
+      html+=`<div class="lbl" style="left:${c.x}px;top:${c.y}px;font-size:${c.size||46}px;background:${dark?'#050609':'#F2F4F7'};color:${dark?'#F2F4F7':'#050609'};transform:translate(-50%,-50%) scale(${0.6+0.4*p});opacity:${c.instant?1:clamp(lt/0.08,0,1)}">${esc(c.text)}</div>`;
+      sig.push('lb'+c.text+(!c.instant&&lt<0.25?Math.round(lt*30):'H')); continue;
+    }
     if(c.style==='tag'){ html+=`<div class="tag">${esc(c.text)}</div>`; sig.push('tag'+c.text); continue; }
     if(c.style==='stamp'){
       const p=eob(lt/0.22), q=eo(lt/0.18);
@@ -79,7 +94,7 @@ function drawAt(t){
   }
   root.innerHTML=html;
   // never wrap a caption line: shrink it until it fits the 768 px safe width
-  for(const el of root.querySelectorAll('.line, .stamp, .count')){
+  for(const el of root.querySelectorAll('.line, .stamp, .count, .meme')){
     const w=el.getBoundingClientRect().width;
     if(w>768){ const fs=parseFloat(el.style.fontSize||getComputedStyle(el).fontSize); el.style.fontSize=(fs*768/w*0.98)+'px'; }
   }
@@ -101,7 +116,7 @@ function check(){
   const bad=[];
   for(const c of CAPS){ if(c.style==='tag') continue;
     drawAt(c.t0+0.9>c.t1?c.t1-0.01:c.t0+0.9);
-    for(const el of document.querySelectorAll('#root .line, #root .stamp, #root .count')){
+    for(const el of document.querySelectorAll('#root .line, #root .stamp, #root .count, #root .meme, #root .lbl')){
       const r=el.getBoundingClientRect(); if(r.top<288||r.bottom>1248||r.left<110||r.right>898) {bad.push(c.text||c.time); break;}
     }
   }
