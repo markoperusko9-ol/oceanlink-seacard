@@ -5,7 +5,7 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme04_37775856.mp4",
-   "start": 0.0,
+   "start": 11.5,
    "beats": 20,
    "fx": [
     "push"
@@ -29,10 +29,16 @@
    "style": "label",
    "text": "Engine room",
    "x": 540,
-   "y": 900,
+   "y": 1150,
    "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     540,
+     1150
+    ]
+   ]
   }
  ]
 }

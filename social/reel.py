@@ -50,8 +50,14 @@ def frames_of(cut, n):
     src = find(cut['clip']); sp = float(cut.get('speed', 1.0))
     x, y = cut.get('x', 0.5), cut.get('y', 0.5)
     need = n / FPS * sp + 0.2
-    vf = (f"setpts=PTS/{sp},fps={FPS},scale=w='if(gt(a,{MW}/{MH}),-2,{MW})':h='if(gt(a,{MW}/{MH}),{MH},-2)',"
-          f"crop={MW}:{MH}:(iw-{MW})*{x}:(ih-{MH})*{y},eq=contrast=1.07:saturation=1.15:brightness=-0.015:gamma={cut.get('gamma', 1.0)},format=rgb24")
+    cover = f"scale=w='if(gt(a,{MW}/{MH}),-2,{MW})':h='if(gt(a,{MW}/{MH}),{MH},-2)'"
+    grade = f"eq=contrast=1.07:saturation=1.15:brightness=-0.015:gamma={cut.get('gamma', 1.0)},format=rgb24"
+    if cut.get('fit'):   # landscape clip: whole frame (x fit zoom) over a blurred, darkened copy; ox = px shift, cy = centre y
+        fw = int(MW * float(cut['fit'])) // 2 * 2
+        vf = (f"setpts=PTS/{sp},fps={FPS},split[a][b];[a]{cover},crop={MW}:{MH},boxblur=40:3,eq=brightness=-0.18[bg];"
+              f"[b]scale={fw}:-2[fg];[bg][fg]overlay=x=({MW}-w)/2+{cut.get('ox', 0)}:y={cut.get('cy', MH // 2)}-h/2,{grade}")
+    else:
+        vf = f"setpts=PTS/{sp},fps={FPS},{cover},crop={MW}:{MH}:(iw-{MW})*{x}:(ih-{MH})*{y},{grade}"
     proc = subprocess.Popen(['ffmpeg', '-v', 'error', '-ss', str(cut.get('start', 0)), '-t', f'{need:.3f}', '-i', src,
                              '-vf', vf, '-f', 'rawvideo', '-'], stdout=subprocess.PIPE)
     size = MW * MH * 3; last = None

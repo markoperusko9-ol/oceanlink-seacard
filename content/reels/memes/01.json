@@ -5,7 +5,7 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme01_31147382.mp4",
-   "start": 0.0,
+   "start": 1.0,
    "beats": 20,
    "fx": [
     "push"
@@ -24,15 +24,31 @@
    "brand": true
   },
   {
-   "from": 2,
+   "from": 8,
    "to": 20,
    "style": "label",
    "text": "Master",
-   "x": 540,
+   "x": 720,
    "y": 900,
-   "dark": true,
+   "dark": false,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     8,
+     720,
+     900
+    ],
+    [
+     12,
+     660,
+     880
+    ],
+    [
+     20,
+     640,
+     880
+    ]
+   ]
   }
  ]
 }

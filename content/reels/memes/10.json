@@ -5,11 +5,12 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme10_9631979.mp4",
-   "start": 0.0,
+   "start": 0.3,
    "beats": 20,
    "fx": [
     "push"
-   ]
+   ],
+   "speed": 1.3
   }
  ],
  "caps": [
@@ -19,7 +20,7 @@
    "style": "meme",
    "text": "After a week of chicken, / the cook makes *pizza*",
    "instant": true,
-   "y": 320,
+   "y": 960,
    "size": 64,
    "brand": true
   },
@@ -28,11 +29,37 @@
    "to": 20,
    "style": "label",
    "text": "Crew",
-   "x": 540,
-   "y": 900,
+   "x": 330,
+   "y": 860,
    "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     330,
+     860
+    ],
+    [
+     7.6,
+     500,
+     860
+    ],
+    [
+     11.4,
+     520,
+     850
+    ],
+    [
+     17.2,
+     500,
+     830
+    ],
+    [
+     20,
+     500,
+     830
+    ]
+   ]
   }
  ]
 }

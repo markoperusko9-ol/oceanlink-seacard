@@ -5,7 +5,7 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme02_34808826.mp4",
-   "start": 0.0,
+   "start": 1.25,
    "beats": 20,
    "fx": [
     "push"
@@ -28,22 +28,44 @@
    "to": 20,
    "style": "label",
    "text": "Master",
-   "x": 540,
-   "y": 900,
+   "x": 260,
+   "y": 790,
    "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     260,
+     790
+    ],
+    [
+     20,
+     250,
+     820
+    ]
+   ]
   },
   {
    "from": 4,
    "to": 20,
    "style": "label",
    "text": "Chief Engineer",
-   "x": 540,
-   "y": 1100,
-   "dark": false,
+   "x": 640,
+   "y": 740,
+   "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     4,
+     640,
+     740
+    ],
+    [
+     20,
+     640,
+     770
+    ]
+   ]
   }
  ]
 }

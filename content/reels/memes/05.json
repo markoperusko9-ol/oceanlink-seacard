@@ -17,7 +17,7 @@
    "from": 0,
    "to": 20,
    "style": "meme",
-   "text": "Vetting inspector heading straight / for *the one thing you missed*",
+   "text": "Vetting inspector heading / straight for *the one* / *thing you missed*",
    "instant": true,
    "y": 320,
    "size": 64,
@@ -28,11 +28,17 @@
    "to": 20,
    "style": "label",
    "text": "Vetting inspector",
-   "x": 540,
-   "y": 900,
+   "x": 600,
+   "y": 800,
    "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     600,
+     800
+    ]
+   ]
   }
  ]
 }

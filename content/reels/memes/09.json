@@ -5,7 +5,7 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme09_5279819.mp4",
-   "start": 0.0,
+   "start": 3.0,
    "beats": 20,
    "fx": [
     "push"
@@ -28,11 +28,17 @@
    "to": 20,
    "style": "label",
    "text": "Chief Officer",
-   "x": 540,
-   "y": 900,
+   "x": 670,
+   "y": 1150,
    "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     670,
+     1150
+    ]
+   ]
   }
  ]
 }

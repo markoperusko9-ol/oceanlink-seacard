@@ -5,7 +5,7 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme03_6953022.mp4",
-   "start": 0.0,
+   "start": 0.2,
    "beats": 20,
    "fx": [
     "push"
@@ -28,11 +28,32 @@
    "to": 20,
    "style": "label",
    "text": "Cadet",
-   "x": 540,
-   "y": 900,
+   "x": 440,
+   "y": 1120,
    "dark": true,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     440,
+     1120
+    ],
+    [
+     10,
+     400,
+     1120
+    ],
+    [
+     15,
+     290,
+     1110
+    ],
+    [
+     20,
+     290,
+     1110
+    ]
+   ]
   }
  ]
 }

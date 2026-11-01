@@ -102,8 +102,9 @@ function drawAt(t){
   root.innerHTML=html;
   // never wrap a caption line: shrink it until it fits the 768 px safe width
   for(const el of root.querySelectorAll('.line, .stamp, .count, .meme')){
-    const w=el.getBoundingClientRect().width;
-    if(w>768){ const fs=parseFloat(el.style.fontSize||getComputedStyle(el).fontSize); el.style.fontSize=(fs*768/w*0.98)+'px'; }
+    // .meme is capped at max-width, so measure its widest text line (+ padding) instead of the box
+    const w=el.classList.contains('meme') ? Math.max(...[...el.querySelectorAll('.ml')].map(m=>m.scrollWidth))+64 : el.getBoundingClientRect().width;
+    if(w>768){ const fs=parseFloat(el.style.fontSize||getComputedStyle(el).fontSize); el.style.fontSize=(fs*768/w*(el.classList.contains('meme')?0.95:0.98))+'px'; }
   }
   const e=document.getElementById('end');
   if(END && t>=END.t0){
@@ -128,6 +129,7 @@ function check(){
       for(const el of document.querySelectorAll('#root .line, #root .stamp, #root .count, #root .meme, #root .lbl')){
         const r=el.getBoundingClientRect(); if(r.top<288||r.bottom>1248||r.left<110||r.right>898) {out=true; break;}
       }
+      for(const m of document.querySelectorAll('#root .ml')) if(m.scrollWidth>m.clientWidth+1) out=true;   // text spilling out of the meme box
       if(out){bad.push((c.text||c.time)+' @'+t.toFixed(1)+'s'); break;}
     }
   }

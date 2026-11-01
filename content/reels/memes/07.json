@@ -5,11 +5,14 @@
  "cuts": [
   {
    "clip": "Memes/ol_meme07_27875218.mp4",
-   "start": 0.0,
+   "start": 0.5,
    "beats": 20,
    "fx": [
     "push"
-   ]
+   ],
+   "fit": 1.3,
+   "ox": 160,
+   "cy": 1114
   }
  ],
  "caps": [
@@ -28,11 +31,17 @@
    "to": 20,
    "style": "label",
    "text": "Me",
-   "x": 540,
-   "y": 900,
-   "dark": true,
+   "x": 560,
+   "y": 800,
+   "dark": false,
    "size": 58,
-   "todo": "set path on the character from the clip contact sheet"
+   "path": [
+    [
+     2,
+     560,
+     800
+    ]
+   ]
   }
  ]
 }
