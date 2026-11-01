@@ -1,9 +1,10 @@
 {
  "id": "meme-02",
  "seed": 2,
+ "source": "Pexels 34808826 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/2.mp4",
+   "clip": "Memes/ol_meme02_34808826.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -19,7 +20,8 @@
    "text": "Master and Chief Engineer / discussing *fuel consumption*",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,10 +29,10 @@
    "style": "label",
    "text": "Master",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   },
   {
    "from": 4,
@@ -38,10 +40,10 @@
    "style": "label",
    "text": "Chief Engineer",
    "x": 540,
-   "y": 1060,
+   "y": 1100,
    "dark": false,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }

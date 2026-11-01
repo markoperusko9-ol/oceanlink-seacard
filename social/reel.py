@@ -7,8 +7,10 @@ SPEC (one beat = 0.4 s, the music grid):
 {"id": "...", "seed": 2,
  "cuts": [ {"clip": "16359654", "start": 3.0, "beats": 2, "speed": 1.0, "x": 0.5, "y": 0.5,
             "fx": ["punch", "push", "shake", "flash", "whip", "slow"]}, ... ],
- "caps": [ {"from": 0, "to": 8, "style": "hook|stamp|count|tag", "text": "POV: *night watch*", "y": 820, "size": 100,
-            "instant": true, "karaoke": false, "time": "03:00", "from_v": 0, "to_v": 75, "suf": "%", "dec": 0, "dur": 1.0} ],
+ "caps": [ {"from": 0, "to": 8, "style": "hook|stamp|count|tag|meme|label", "text": "POV: *night watch*", "y": 820, "size": 100,
+            "instant": true, "karaoke": false, "time": "03:00", "from_v": 0, "to_v": 75, "suf": "%", "dec": 0, "dur": 1.0,
+            "brand": true (meme: small logo + wordmark under the text), "x": 540, "dark": true,
+            "path": [[beat, x, y], ...] (label: keyframes so the label follows its character)} ],
  "end": {"beats": 8, "clip": "...", "start": 0, "line": "Built at sea, *for seafarers.*"}}
 
 cuts play back to back; caps are timed in beats from the start, independent of cuts (text holds while footage cuts).
@@ -95,6 +97,7 @@ caps = []
 for c in spec.get('caps', []):
     d = dict(c); d['t0'] = c['from'] * BEAT; d['t1'] = c['to'] * BEAT
     if c.get('style') == 'count': d['from'] = c['from_v']; d['to'] = c['to_v']
+    if c.get('path'): d['path'] = [[k[0] * BEAT, k[1], k[2]] for k in c['path']]   # label keyframes: [beat, x, y]
     caps.append(d)
 endcfg = dict(t0=end_t0, line=end.get('line'), cta=end.get('cta')) if end else None
 

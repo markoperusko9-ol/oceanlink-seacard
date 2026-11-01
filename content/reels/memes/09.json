@@ -1,9 +1,10 @@
 {
  "id": "meme-09",
- "seed": 4,
+ "seed": 9,
+ "source": "Pexels 5279819 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/9.mp4",
+   "clip": "Memes/ol_meme09_5279819.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -19,7 +20,8 @@
    "text": "Chief Officer, / *hour 30 of cargo ops*",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,10 +29,10 @@
    "style": "label",
    "text": "Chief Officer",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }

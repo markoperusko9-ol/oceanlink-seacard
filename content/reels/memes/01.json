@@ -1,9 +1,10 @@
 {
  "id": "meme-01",
  "seed": 1,
+ "source": "Pexels 31147382 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/1.mp4",
+   "clip": "Memes/ol_meme01_31147382.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -19,7 +20,8 @@
    "text": "Master coming up for / *\"just a quick look\"* at 0300",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,21 +29,10 @@
    "style": "label",
    "text": "Master",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
-  },
-  {
-   "from": 4,
-   "to": 20,
-   "style": "label",
-   "text": "OOW",
-   "x": 540,
-   "y": 1060,
-   "dark": false,
-   "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }

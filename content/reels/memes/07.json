@@ -1,9 +1,10 @@
 {
  "id": "meme-07",
- "seed": 2,
+ "seed": 7,
+ "source": "Pexels 27875218 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/7.mp4",
+   "clip": "Memes/ol_meme07_27875218.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -19,7 +20,8 @@
    "text": "Agent: *\"your relief is delayed, / just 2 more weeks\"*",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,10 +29,10 @@
    "style": "label",
    "text": "Me",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }

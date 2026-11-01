@@ -1,9 +1,10 @@
 {
  "id": "meme-04",
  "seed": 4,
+ "source": "Pexels 37775856 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/4.mp4",
+   "clip": "Memes/ol_meme04_37775856.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -19,7 +20,8 @@
    "text": "Bridge: *\"standby engine / in 10 minutes\"*",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,10 +29,10 @@
    "style": "label",
    "text": "Engine room",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }

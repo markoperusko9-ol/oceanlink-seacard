@@ -1,9 +1,10 @@
 {
  "id": "meme-10",
- "seed": 0,
+ "seed": 10,
+ "source": "Pexels 9631979 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/10.mp4",
+   "clip": "Memes/ol_meme10_9631979.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -16,10 +17,11 @@
    "from": 0,
    "to": 20,
    "style": "meme",
-   "text": "Chicken on the menu, / *day 5 in a row*",
+   "text": "After a week of chicken, / the cook makes *pizza*",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,10 +29,10 @@
    "style": "label",
    "text": "Crew",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }

@@ -1,9 +1,10 @@
 {
  "id": "meme-03",
  "seed": 3,
+ "source": "Pexels 6953022 (free licence)",
  "cuts": [
   {
-   "clip": "Memes/3.mp4",
+   "clip": "Memes/ol_meme03_6953022.mp4",
    "start": 0.0,
    "beats": 20,
    "fx": [
@@ -19,7 +20,8 @@
    "text": "Cadet sent to fetch / *the keys to the anchor*",
    "instant": true,
    "y": 320,
-   "size": 64
+   "size": 64,
+   "brand": true
   },
   {
    "from": 2,
@@ -27,10 +29,10 @@
    "style": "label",
    "text": "Cadet",
    "x": 540,
-   "y": 800,
+   "y": 900,
    "dark": true,
    "size": 58,
-   "todo": "place on the character"
+   "todo": "set path on the character from the clip contact sheet"
   }
  ]
 }
