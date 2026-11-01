@@ -127,3 +127,23 @@ Stories: every slot is also posted as an Instagram + Facebook Story 30 min after
 - 2026-11-06 PM · reserved · "Your career. Finally seen." promo (Drive, 13.9 MB): not scheduled yet, needs Metricool Drive connection
 - 2026-11-07 PM · showcase · COLREG quick check, Rule 14 head-on (library quiz s2_l08_q1) — [LinkedIn 15:30](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-6741211630699461744) · [FB 20:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-358005184263470738) · [TikTok 20:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=4360408566440544796) · [YouTube 20:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-1987517965115964864) · [IG Reel 21:00](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-2636177028393514681) · [Story 21:30](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=5554495330648672538)
 - 2026-11-08 PM · reserved · feature tour promo ocean_link_promo-2 (Drive, 23.4 MB): not scheduled yet, needs Metricool Drive connection
+
+### Rotation week 1 (scheduled 1 Nov 2026; Instagram link per slot, every slot also on TikTok, YouTube, Facebook and an IG+FB Story; mornings and evenings also on LinkedIn)
+- 2026-11-02 AM · 📚 COLREG quick check Rule 13 overtaking (s2_l07_q1) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-332665113639566283)
+- 2026-11-02 16:30 · 😂 meme 01 Master's 0300 quick look — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-2101687699269139133)
+- 2026-11-03 AM · 💬 Day in the life of a 2nd Officer (content/reels/day-in-the-life.json) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=796742353380525397)
+- 2026-11-03 16:30 · 😂 meme 06 ship's Wi-Fi at 20:00 — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=1076239210453419068)
+- 2026-11-04 AM · 📚 COLREG quick check Rule 15 crossing (s2_l09_q1) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-3166239996928244350)
+- 2026-11-04 16:30 · 😂 meme 02 Master vs Chief Engineer — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=2985723584164216936)
+- 2026-11-04 PM · 📱 "Still doing this manually?" promo (OceanLink_Reel_9x16 from the laptop; agency and vessel names blurred) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=1164462350408172114)
+- 2026-11-05 AM · 💬 What my family thinks life at sea looks like vs reality (content/reels/expectation-vs-reality.json) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=9039570954589982203)
+- 2026-11-05 16:30 · 😂 meme 08 first hour ashore — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=4708099529655468813)
+- 2026-11-06 AM · 📚 COLREG quick check Rule 18 sailing vessel (s2_l11_q1) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=714127652053336103)
+- 2026-11-06 16:30 · 😂 meme 05 vetting inspector — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-798247950343191288)
+- 2026-11-06 PM · 📱 OPEN: "Your career. Finally seen." (network_vo) once Metricool has Google Drive connected
+- 2026-11-07 AM · 💬 Tell me you're a seafarer without telling me (content/reels/seafarer-tells.json) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-2956593055113133583)
+- 2026-11-07 16:30 · 😂 meme 04 standby engine — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=8029865014535472740)
+- 2026-11-08 AM · 📚 COLREG quick check Rule 7 risk of collision (s2_l02_q1) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=8106727413748679514)
+- 2026-11-08 16:30 · 😂 meme 10 pizza after a week of chicken — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-7891333216920711213)
+- 2026-11-08 PM · 📱 OPEN: feature tour (promo-2) once Metricool has Google Drive connected
+- Stock left for week 2: memes 03 (cadet, anchor keys), 07 (relief delayed), 09 (Chief Officer, cargo ops); no unused engage reels; quizzes used: s2_l07_q1, s2_l09_q1, s2_l11_q1, s2_l02_q1.
