@@ -37,8 +37,8 @@
    ]
   },
   {
-   "clip": "15999582",
-   "start": 8.0,
+   "clip": "16257540",
+   "start": 2.0,
    "beats": 2,
    "fx": [
     "punch"
@@ -121,7 +121,7 @@
    "from": 10,
    "to": 12,
    "style": "hook",
-   "text": "Chipping rust",
+   "text": "Cargo ops / *all night*",
    "y": 760,
    "size": 110
   },
@@ -137,7 +137,7 @@
    "from": 14,
    "to": 16,
    "style": "hook",
-   "text": "Pilot ladder / in the *dark*",
+   "text": "Pilot ladder / *checks*",
    "y": 760,
    "size": 110
   },

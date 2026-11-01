@@ -1,0 +1,117 @@
+{
+ "id": "seafarer-tells",
+ "seed": 5,
+ "cuts": [
+  {
+   "clip": "16359654",
+   "start": 3.0,
+   "beats": 6,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260309",
+   "start": 0.0,
+   "beats": 5,
+   "fx": [
+    "flash",
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260212",
+   "start": 0.0,
+   "beats": 5,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "20261028_010901",
+   "start": 0.5,
+   "beats": 5,
+   "fx": [
+    "whip",
+    "push"
+   ],
+   "gamma": 1.9
+  },
+  {
+   "clip": "14424212",
+   "start": 4.0,
+   "beats": 5,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260401",
+   "start": 0.0,
+   "beats": 5,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 6,
+   "style": "hook",
+   "text": "Tell me you're a seafarer / *without telling me*",
+   "instant": true,
+   "y": 760,
+   "size": 92
+  },
+  {
+   "from": 6,
+   "to": 11,
+   "style": "hook",
+   "text": "You wake up when / the engine *stops*",
+   "y": 760,
+   "size": 100
+  },
+  {
+   "from": 11,
+   "to": 16,
+   "style": "hook",
+   "text": "Non-slip mat / under *everything*",
+   "y": 760,
+   "size": 100
+  },
+  {
+   "from": 16,
+   "to": 21,
+   "style": "hook",
+   "text": "Your body clock / runs on *watches*",
+   "y": 760,
+   "size": 100
+  },
+  {
+   "from": 21,
+   "to": 26,
+   "style": "hook",
+   "text": "Sunsets? / *Seen thousands.*",
+   "y": 760,
+   "size": 100
+  },
+  {
+   "from": 26,
+   "to": 31,
+   "style": "hook",
+   "text": "Calendar = / *days to sign-off*",
+   "y": 760,
+   "size": 100
+  }
+ ],
+ "end": {
+  "clip": "9654558",
+  "start": 3.0,
+  "beats": 8,
+  "line": "Built at sea, *for seafarers.*"
+ }
+}
