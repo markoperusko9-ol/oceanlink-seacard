@@ -140,10 +140,10 @@ Stories: every slot is also posted as an Instagram + Facebook Story 30 min after
 - 2026-11-05 16:30 · 😂 meme 08 first hour ashore — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=4708099529655468813)
 - 2026-11-06 AM · 📚 COLREG quick check Rule 18 sailing vessel (s2_l11_q1) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=714127652053336103)
 - 2026-11-06 16:30 · 😂 meme 05 vetting inspector — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-798247950343191288)
-- 2026-11-06 PM · 📱 OPEN: "Your career. Finally seen." (network_vo) once Metricool has Google Drive connected
+- 2026-11-06 PM · 📱 "LinkedIn for seafarers, but supercharged" promo (Drive, checked: demo names only) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-6730172329667049778)
 - 2026-11-07 AM · 💬 Tell me you're a seafarer without telling me (content/reels/seafarer-tells.json) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-2956593055113133583)
 - 2026-11-07 16:30 · 😂 meme 04 standby engine — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=8029865014535472740)
 - 2026-11-08 AM · 📚 COLREG quick check Rule 7 risk of collision (s2_l02_q1) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=8106727413748679514)
 - 2026-11-08 16:30 · 😂 meme 10 pizza after a week of chicken — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-7891333216920711213)
-- 2026-11-08 PM · 📱 OPEN: feature tour (promo-2) once Metricool has Google Drive connected
+- 2026-11-08 PM · 📱 Feature tour promo-2 (Drive, checked: demo names only) — [IG](https://app.metricool.com/planner/calendar?blogId=7716383&openWithPostUuid=-3976126491676423905)
 - Stock left for week 2: memes 03 (cadet, anchor keys), 07 (relief delayed), 09 (Chief Officer, cargo ops); no unused engage reels; quizzes used: s2_l07_q1, s2_l09_q1, s2_l11_q1, s2_l02_q1.
