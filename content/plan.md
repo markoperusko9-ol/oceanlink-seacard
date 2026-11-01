@@ -1,7 +1,34 @@
 # Ocean Link social content plan
 
-Two posts a day, every day, scheduled in Metricool (brand id 7716383, timezone Asia/Tomsk).
+Three posts a day, every day, scheduled in Metricool (brand id 7716383, timezone Asia/Tomsk).
 Approach: **entertain first, then educate, then sell** — the app is the payoff, never the opener.
+
+**No static text posts (Marko, 1 Nov 2026):** every post is a real video people watch — ship footage, memes, the app's own animated COLREG videos, app promos. Never slides that just list text on screen. The template carousels below (`social/slide.html`) are no longer posted; render.py is only used for cover images. The Nov 2–8 "Survival guide" carousels were moved to drafts on 1 Nov: they are parked, never publish them and ignore them when checking whether a slot is filled.
+
+## Rotation (from 2 Nov 2026)
+
+Four content types take turns so the feed never feels like the same post twice:
+
+| Type | What | Source |
+|---|---|---|
+| 📚 Learn | COLREG quick-check quizzes (~30 s) and lessons from the app's Learn tab | `content/library.md` §2–3 (Drive, small enough to download) |
+| 💬 Engage | Footage reels that end on a real-experience question: day in the life, expectation vs reality, "tell me you're a seafarer…" | `content/reels/*.json` rendered with `social/reel.py` (own footage + Pexels Stock) |
+| 😂 Fun | Labelled-animal memes about life on board | `content/reels/memes/NN.json`, clips in `D:\Vessel Videos\Stock\Memes` |
+| 📱 Promo | Ocean Link app videos | `content/library.md` §1 |
+
+| Day | Morning (10:00–13:00) | Afternoon (16:30–18:00) | Evening (15:30 LinkedIn, 20:00–21:30) |
+|---|---|---|---|
+| Even dates (2, 4, 6 …) | 📚 Learn | 😂 Fun | 📱 Promo |
+| Odd dates (3, 5, 7 …) | 💬 Engage | 😂 Fun | 📚 Learn |
+
+Every two days all four types appear; promos stay at about 1 in 6 posts. Never two posts of the same type on one day.
+
+Network times:
+- Morning: TikTok 10:00 · LinkedIn 11:00 · YouTube Short 12:00 · Facebook Reel 12:00 · Instagram Reel 13:00 · Story 13:30
+- Afternoon (memes): TikTok 16:30 · YouTube Short 16:30 · Facebook Reel 17:00 · Instagram Reel 17:30 · Story 18:00. **Memes skip LinkedIn** (the company page stays professional).
+- Evening: LinkedIn 15:30 · Facebook Reel 20:00 · TikTok 20:00 · YouTube Short 20:00 · Instagram Reel 21:00 · Story 21:30
+
+Stock check: a meme batch is 10 memes (10 days). When fewer than 4 unused memes or engage reels remain, build the next batch (Pexels clips via the built-in browser on Marko's laptop, see the meme section of this file's log).
 
 ## Strategy: macro out (from 30 Oct 2026)
 
@@ -13,16 +40,7 @@ Model: Jefferson Fisher, a Texas trial lawyer with about 6M Instagram followers.
 - Structure: slide 1 hook; 3–4 points with **the strongest point last** (it trains people to swipe to the end); CTA asks about real experience.
 - Hook formula that works: "How to know if [someone in your life] is [doing X to you]", e.g. "How to know a crewing agent is scamming you". Rotate it with the other hook styles in PLAYBOOK §1.
 
-## Slots (Asia/Tomsk time — see social/PLAYBOOK.md §5)
-
-| Slot | Format | Network: time |
-|---|---|---|
-| AM | Carousel, rendered with `--video` too (no silent stills, Marko 30 Oct 2026) | TikTok photo carousel (story_*.jpg, `autoAddMusic true`) 10:00 · LinkedIn video 11:00 · Facebook Reel 12:00 · Instagram Reel 13:00, all three using video.mp4 (original music baked in), `videoCoverMilliseconds` 300 |
-| PM | **Real finished video from `content/library.md`** (promo, COLREG lesson or quiz; Marko 31 Oct 2026: no more text-on-screen videos in the PM slot) | LinkedIn 15:30 · Facebook Reel 20:00 (POST if over 90 s) · TikTok 20:00 · YouTube Short 20:00 · Instagram Reel 21:00 |
-
-Mix rule: each day = one AM value post (template) + one PM real video. Never two text-template posts on the same day.
-
-Stories: every slot is also posted as an Instagram + Facebook Story 30 min after its Instagram post (see social/README.md step 5). Reels always carry a custom cover (cover.jpg).
+Stories: every slot is also posted as an Instagram + Facebook Story 30 min after its Instagram post (see social/README.md step 5). Reels always carry a custom cover (cover.jpg). Facebook video over 90 s goes out as a POST, not a REEL.
 
 ## Pillars (rotate; never two from the same pillar on one day)
 
