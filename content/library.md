@@ -7,7 +7,7 @@ All files live in Marko's Google Drive. Get them with the Google Drive connector
 
 ## Rotation
 
-Rotate **quiz → promo → lesson → quiz → promo → lesson …**. Never two COLREG items on consecutive PM slots if a promo is available. Never repost a file listed under Posted/Reserved unless 60 days have passed.
+**Every 📚 Learn slot in `content/plan.md` is a full COLREG lesson from §2, never a quiz** (Marko, 1 Nov 2026: the lessons were cut under 3 minutes so they can go on every network; posting the short quizzes instead of them is wrong). Take the next unused lesson in §2's order. Quizzes (§3) are not posted while any lesson is unused; when every lesson has run, tell Marko in the run summary before using a quiz. Never repost a file listed as used unless 60 days have passed.
 
 ## 1. Promos (Drive folder `1G0WHBeFH-A3PRsxkuy60zLozpVAvFvHw`)
 
@@ -26,11 +26,18 @@ Skip: `ocean_link_network.mp4` (music-only twin of network_vo), `ocean_link_supe
 
 ## 2. COLREG lessons (Drive folder `1DlEr7rwIyp_uQJJIity2Z8pUgYh9yfPK`, query `title contains '_social'`)
 
-Animated lessons from the Learn tab, 4–6 MB, about 1.5–2.5 min. Lesson 13 (Rule 19) is scheduled 5 Nov PM. Order to use next: l07 Rule 13 · l09 Rules 15–16 · l11 Rule 18 · l02 Rule 7 · l03 Rule 8 · l01 Rules 5–6 · l04 Rule 9 · l05 Rule 10 TSS · l06 Rule 10 impede · l10 Rule 17 · l12 Rule 12 · l08 Rule 14.
+Animated lessons from the Learn tab, 4–6 MB, 1:48–2:23 (all under 3 min). Download from Drive (under 10 MB), then:
+- **Add music:** the Drive files are voice-only. Run `python3 social/lesson_mix.py <in>.mp4 video.mp4 <seed>` (bed ~19 dB under the voice, −14 LUFS).
+- **Cover:** one `cover` slide through `social/render.py`, `story_01.jpg` → `cover.jpg`.
+- **Per network:** Instagram Reel, TikTok, YouTube Short and LinkedIn take the full video. Facebook: `facebookData.type "POST"` with a `title` (over 90 s, not a Reel). Story: `cover.jpg` (over 60 s).
+- Host at `media/showcase/<lesson>/` like every other video.
+
+Used: l13 Rule 19 (5 Nov PM) · l07 Rule 13 (2 Nov AM) · l03 Rule 8 (3 Nov PM) · l09 Rules 15–16 (4 Nov AM) · l11 Rule 18 (6 Nov AM) · l08 Rule 14 (7 Nov PM) · l02 Rule 7 (8 Nov AM).
+Next, in this order: l01 Rules 5–6 · l04 Rule 9 · l05 Rule 10 TSS · l06 Rule 10 impede · l10 Rule 17 · l12 Rule 12.
 
 ## 3. COLREG quick-check quizzes (Drive folder `1xFIJGaqIxqYa0xZ8YSRwu8DriyyNikul`, query `title contains 's2_l'`)
 
-`s2_lNN_qK.mp4`, about 1.2 MB, 32–37 s: question, four options, answer reveal with the rule reference. Used: s2_l13_q3 (3 Nov PM), s2_l08_q1 (7 Nov PM). Take one quiz per lesson before reusing a lesson.
+`s2_lNN_qK.mp4`, about 1.2 MB, 32–37 s: question, four options, answer reveal with the rule reference. **Not used in Learn slots** (see Rotation). The six week-1 quiz slots (2, 3, 4, 6, 7, 8 Nov) were switched to lessons on 1 Nov 2026, so no quiz has been posted yet.
 
 ## Per-video checks (every time)
 
