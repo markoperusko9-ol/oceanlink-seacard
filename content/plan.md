@@ -52,6 +52,7 @@ Stories: every slot is also posted as an Instagram + Facebook Story 30 min after
 
 ## Hard rules
 
+- **Format rule for every new build (Marko, 3 Nov 2026).** Applies to posts built from now on; posts already scheduled in Metricool stay as they are. Every post is real ship footage with the hook on the first frame. Full COLREG lessons stay, but each opens on real bridge footage with the question on screen in the first 2 seconds. Promos are built around a moment at sea, not an app walkthrough. Content types still take turns as in the rotation above.
 - Follow social/PLAYBOOK.md for hooks, captions, links and hashtags on every network.
 - A **draft** post in Metricool counts as a filled slot. Never create a second post for a network/slot that already has a draft (Marko approves drafts himself).
 
@@ -102,7 +103,7 @@ Stories: every slot is also posted as an Instagram + Facebook Story 30 min after
 
 ## Learnings (weekly review, newest first)
 
-- (first review due Mon 2 Nov 2026)
+- 2026-11-03 (first review, Metricool 30 Oct–3 Nov; posts 1–5 days old). Real ship footage POV won on every network: "120 days at sea in 24 seconds" got TikTok 552, YouTube 1,239, FB 278 views; "Day in the life" next (FB 261, TikTok 190). Short memes held attention on IG (Wi-Fi 98% avg watch, Master 0300 68%). Full COLREG lessons lose IG viewers in seconds (Rule 8: 3 s of 2:22; Rule 13: 6 s of 1:53). Jobs promo flopped (FB 5, IG 16, LinkedIn 6). Organic averages per post: TikTok 167, FB Reel 103, IG Reel 28, LinkedIn 19 impressions (falling at 2 a day). IG Stories reach 9–21, no replies. Meta ads are nearly all IG views (about 58k ad views on 1–3 Nov vs about 500 organic all week). → Format rule added under Hard rules.
 
 ## Log (posted)
 
