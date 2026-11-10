@@ -1,0 +1,156 @@
+{
+ "id": "p1-all-jobs",
+ "seed": 2,
+ "template": "hook.html",
+ "cuts": [
+  {
+   "clip": "16359654",
+   "start": 2.0,
+   "beats": 7,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.05,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "26893760",
+   "start": 6.0,
+   "beats": 7,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.08,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "7687569",
+   "start": 30.0,
+   "beats": 7,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.25,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "20260222_154251_1",
+   "start": 0.0,
+   "beats": 8,
+   "speed": 0.33,
+   "x": 0.5,
+   "gamma": 1.0,
+   "fx": [
+    "flash",
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 7,
+   "style": "hook",
+   "lines": [
+    {
+     "t": "How many",
+     "s": 76,
+     "k": false
+    },
+    {
+     "t": "SEAFARER",
+     "s": 190,
+     "k": true
+    },
+    {
+     "t": "JOBS",
+     "s": 190,
+     "k": true
+    },
+    {
+     "t": "in 7 days?",
+     "s": 96,
+     "k": false
+    }
+   ]
+  },
+  {
+   "from": 7,
+   "to": 21,
+   "style": "pin",
+   "text": "How many seafarer jobs / in 7 days?"
+  },
+  {
+   "from": 7.0,
+   "to": 9.33,
+   "style": "cap",
+   "text": "*Masters* to *wipers*"
+  },
+  {
+   "from": 9.33,
+   "to": 11.67,
+   "style": "cap",
+   "text": "Tankers, bulk, *containers*"
+  },
+  {
+   "from": 11.67,
+   "to": 14.0,
+   "style": "cap",
+   "text": "*24* ranks hiring"
+  },
+  {
+   "from": 14.0,
+   "to": 16.33,
+   "style": "cap",
+   "text": "*89* licensed agencies"
+  },
+  {
+   "from": 16.33,
+   "to": 18.67,
+   "style": "cap",
+   "text": "Licence numbers *shown*"
+  },
+  {
+   "from": 18.67,
+   "to": 21.0,
+   "style": "cap",
+   "text": "Never *pay* for a job"
+  },
+  {
+   "from": 21,
+   "to": 29,
+   "style": "num",
+   "label": "jobs posted / in 7 days",
+   "v0": 0,
+   "v1": 370,
+   "dur": 1.2
+  },
+  {
+   "from": 21.8,
+   "to": 29,
+   "style": "cap",
+   "text": "Ocean Link job board · 3–9 Nov 2026",
+   "size": 44,
+   "y": 1236
+  }
+ ],
+ "end": {
+  "clip": "10234812",
+  "start": 8.0,
+  "beats": 8,
+  "speed": 1.0,
+  "x": 0.5,
+  "gamma": 1.08,
+  "fx": [
+   "push"
+  ],
+  "line": "What rank are you *looking for?*",
+  "cta": "Find yours: link in bio",
+  "scrim": 0.5
+ }
+}

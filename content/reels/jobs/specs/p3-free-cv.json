@@ -1,0 +1,142 @@
+{
+ "id": "p3-free-cv",
+ "seed": 5,
+ "template": "hook.html",
+ "cuts": [
+  {
+   "clip": "VID-20260220",
+   "start": 0.0,
+   "beats": 7,
+   "speed": 0.55,
+   "x": 0.5,
+   "gamma": 1.05,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260212",
+   "start": 1.7,
+   "beats": 7,
+   "speed": 0.5,
+   "x": 0.5,
+   "gamma": 1.12,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "7687569",
+   "start": 20.0,
+   "beats": 7,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.25,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "9654558",
+   "start": 5.0,
+   "beats": 8,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.05,
+   "fx": [
+    "flash",
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 7,
+   "style": "hook",
+   "lines": [
+    {
+     "t": "Paying someone for your",
+     "s": 66,
+     "k": false
+    },
+    {
+     "t": "CV?",
+     "s": 240,
+     "k": true
+    },
+    {
+     "t": "Don't.",
+     "s": 110,
+     "k": false
+    }
+   ]
+  },
+  {
+   "from": 7,
+   "to": 21,
+   "style": "pin",
+   "text": "Paying someone / for your CV?"
+  },
+  {
+   "from": 7.0,
+   "to": 9.33,
+   "style": "cap",
+   "text": "*Snap* your certificates"
+  },
+  {
+   "from": 9.33,
+   "to": 11.67,
+   "style": "cap",
+   "text": "The app *reads* them"
+  },
+  {
+   "from": 11.67,
+   "to": 14.0,
+   "style": "cap",
+   "text": "and fills in *your CV*"
+  },
+  {
+   "from": 14.0,
+   "to": 16.33,
+   "style": "cap",
+   "text": "Sea time *counted* too"
+  },
+  {
+   "from": 16.33,
+   "to": 18.67,
+   "style": "cap",
+   "text": "Download the *PDF*"
+  },
+  {
+   "from": 18.67,
+   "to": 21.0,
+   "style": "cap",
+   "text": "Send it to *any agency*"
+  },
+  {
+   "from": 21,
+   "to": 29,
+   "style": "num",
+   "label": "No paid CV package / needed",
+   "word": "FREE",
+   "size": 250
+  }
+ ],
+ "end": {
+  "clip": "16359654",
+  "start": 14.0,
+  "beats": 8,
+  "speed": 1.0,
+  "x": 0.5,
+  "gamma": 1.05,
+  "fx": [
+   "push"
+  ],
+  "line": "What do agencies always ask you to *fix?*",
+  "cta": "Build your CV: link in bio",
+  "scrim": 0.5
+ }
+}

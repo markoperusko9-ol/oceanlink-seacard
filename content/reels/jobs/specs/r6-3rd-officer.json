@@ -1,0 +1,156 @@
+{
+ "id": "r6-3rd-officer",
+ "seed": 10,
+ "template": "hook.html",
+ "cuts": [
+  {
+   "clip": "37287417",
+   "start": 5.0,
+   "beats": 7,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.3,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260212",
+   "start": 1.7,
+   "beats": 7,
+   "speed": 0.5,
+   "x": 0.5,
+   "gamma": 1.12,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "20261022_212842",
+   "start": 1.15,
+   "beats": 7,
+   "speed": 0.6,
+   "x": 0.45,
+   "gamma": 1.0,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "10234812",
+   "start": 9.0,
+   "beats": 8,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.08,
+   "fx": [
+    "flash",
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 7,
+   "style": "hook",
+   "lines": [
+    {
+     "t": "How many",
+     "s": 76,
+     "k": false
+    },
+    {
+     "t": "3RD",
+     "s": 190,
+     "k": true
+    },
+    {
+     "t": "OFFICER",
+     "s": 190,
+     "k": true
+    },
+    {
+     "t": "jobs in 7 days?",
+     "s": 92,
+     "k": false
+    }
+   ]
+  },
+  {
+   "from": 7,
+   "to": 21,
+   "style": "pin",
+   "text": "How many 3rd Officer / jobs in 7 days?"
+  },
+  {
+   "from": 7.0,
+   "to": 9.33,
+   "style": "cap",
+   "text": "*Oil tankers*"
+  },
+  {
+   "from": 9.33,
+   "to": 11.67,
+   "style": "cap",
+   "text": "*Chemical tankers*"
+  },
+  {
+   "from": 11.67,
+   "to": 14.0,
+   "style": "cap",
+   "text": "Bulk and *product tankers*"
+  },
+  {
+   "from": 14.0,
+   "to": 16.33,
+   "style": "cap",
+   "text": "*17* licensed agencies"
+  },
+  {
+   "from": 16.33,
+   "to": 18.67,
+   "style": "cap",
+   "text": "Licence numbers *shown*"
+  },
+  {
+   "from": 18.67,
+   "to": 21.0,
+   "style": "cap",
+   "text": "Never *pay* for a job"
+  },
+  {
+   "from": 21,
+   "to": 29,
+   "style": "num",
+   "label": "3rd Officer jobs / posted in 7 days",
+   "v0": 0,
+   "v1": 21,
+   "dur": 1.2
+  },
+  {
+   "from": 21.8,
+   "to": 29,
+   "style": "cap",
+   "text": "Ocean Link job board · 3–9 Nov 2026",
+   "size": 44,
+   "y": 1236
+  }
+ ],
+ "end": {
+  "clip": "16359654",
+  "start": 0.5,
+  "beats": 8,
+  "speed": 1.0,
+  "x": 0.5,
+  "gamma": 1.05,
+  "fx": [
+   "push"
+  ],
+  "line": "How long since your *last contract?*",
+  "cta": "Find yours: link in bio",
+  "scrim": 0.5
+ }
+}

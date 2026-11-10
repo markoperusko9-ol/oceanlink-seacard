@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Big caption hook template (ocean-link-reel-hooks, 9 Nov 2026). Used by reel.py when a spec sets "template": "hook.html".
+     Styles: hook (frame-0 block, key lines huge and amber), pin (question pinned at the top until the reveal),
+     cap (3-5 word captions in the lower band), num (count-up or word reveal with label), plus the logo end card. -->
+<style>
+  :root{--ink:#050609;--w:#FFFFFF;--amb:#F5A524;--acc:#00E5FF;--t2:#C9CED6}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+  #root{position:absolute;inset:0}
+  .blk{position:absolute;left:90px;width:840px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .t{font-weight:600;letter-spacing:-0.03em;line-height:1.04;color:var(--w);white-space:nowrap;paint-order:stroke fill;
+     -webkit-text-stroke:14px rgba(5,6,9,.8);font-variant-numeric:tabular-nums}
+  .a{color:var(--amb)}
+  #end{position:absolute;inset:0;display:none}
+  #endin{position:absolute;left:120px;right:192px;top:500px;display:flex;flex-direction:column;align-items:flex-start}
+  .wm{font-size:64px;font-weight:600;letter-spacing:-0.025em;margin-top:34px;color:#F2F4F7}
+  .wm .acc{color:var(--acc)}
+  .eline{font-size:70px;font-weight:600;letter-spacing:-0.03em;line-height:1.08;color:#F2F4F7;margin-top:52px}
+  .eline .a{color:var(--amb)}
+  .pill{margin-top:46px;font-size:40px;font-weight:600;color:var(--ink);background:var(--acc);border-radius:12px;padding:24px 36px}
+  .url{margin-top:26px;font-size:32px;font-weight:500;color:var(--t2)}
+</style></head>
+<body><div id="root"></div><div id="end"><div id="endin"></div></div>
+<script>
+const LOGO = `<svg width="150" height="150" viewBox="0 0 32 32"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg>`;
+const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const eob=x=>{x=clamp(x,0,1);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const eo=x=>1-Math.pow(1-clamp(x,0,1),3);
+// "*amber words* plain words" -> spans
+function rich(s){return String(s||'').split('*').map((seg,i)=>seg?`<span class="${i%2?'a':''}">${esc(seg)}</span>`:'').join('')}
+const stroke=size=>Math.round(clamp(size*0.09,10,16));
+function tline(text,size,amber,extra){return `<div class="t ${amber?'a':''}" data-s="${size}" style="font-size:${size}px;-webkit-text-stroke-width:${stroke(size)}px;${extra||''}">${rich(text)}</div>`}
+
+let CAPS=[], END=null;
+function setup(caps,end){CAPS=caps;END=end}
+
+function drawAt(t){
+  const root=document.getElementById('root'); let html='', sig=[];
+  for(const c of CAPS){
+    if(t<c.t0||t>=c.t1) continue;
+    const lt=t-c.t0;
+    if(c.style==='hook'){            // fully drawn at frame 0, never animated in
+      const y=c.y||690;
+      html+=`<div class="blk hk" style="top:${y}px;transform:translateY(-50%)">`+c.lines.map(l=>tline(l.t,l.s,l.k,`margin:${l.k?'-2px 0 2px':'4px 0'}`)).join('')+`</div>`;
+      sig.push('hk'); continue;
+    }
+    if(c.style==='pin'){             // the hook question, shrunk and pinned at the top until the reveal
+      const p=eo(lt/0.28);
+      html+=`<div class="blk pn" style="top:${c.y||232}px;transform:translateY(${(1-p)*46}px) scale(${1.22-0.22*p});opacity:${clamp(lt/0.1,0,1)}">`
+          +String(c.text).split(' / ').map(l=>tline(l,c.size||60,false)).join('')+`</div>`;
+      sig.push('pn'+(lt<0.32?Math.round(lt*30):'H')); continue;
+    }
+    if(c.style==='cap'){             // 3-5 words at a time in the lower band
+      const p=eob(lt/0.16);
+      html+=`<div class="blk cp" style="top:${c.y||1196}px;transform:scale(${0.86+0.14*p});opacity:${clamp(lt/0.06,0,1)}">`
+          +String(c.text).split(' / ').map(l=>tline(l,c.size||76,false)).join('')+`</div>`;
+      sig.push('cp'+c.text+(lt<0.2?Math.round(lt*30):'H')); continue;
+    }
+    if(c.style==='num'){             // answer reveal: count-up number or a single word, with a label under it
+      let val=c.word;
+      if(val==null){const d=c.dur||1.1, v=(c.v0||0)+((c.v1||0)-(c.v0||0))*eo(lt/d); val=Math.round(v).toLocaleString('en-US');}
+      html+=`<div class="blk nm" style="top:${c.y||470}px"><div style="transform:scale(${0.72+0.28*eob(lt/0.26)})">`+tline(val,c.size||300,true,'line-height:0.98')+`</div>`
+          +`<div style="opacity:${eo((lt-0.12)/0.2)};display:flex;flex-direction:column;align-items:center;margin-top:10px">`
+          +String(c.label||'').split(' / ').map(l=>tline(l,c.lsize||84,false)).join('')+`</div></div>`;
+      sig.push('nm'+val+(lt<0.45?Math.round(lt*30):'H')); continue;
+    }
+  }
+  root.innerHTML=html;
+  // never wrap: shrink any line wider than the 840 px block
+  for(const el of root.querySelectorAll('.t')){
+    const w=el.scrollWidth; if(w>832){const fs=parseFloat(el.style.fontSize)*832/w; el.style.fontSize=fs+'px'; el.style.webkitTextStrokeWidth=stroke(fs)+'px';}
+  }
+  const e=document.getElementById('end');
+  if(END && t>=END.t0){
+    e.style.display='block'; e.style.background=`rgba(5,6,9,${END.scrim??0.62})`;
+    const lt=t-END.t0, p=eo(lt/0.3);
+    document.getElementById('endin').innerHTML=`<div style="transform:translateY(${(1-p)*40}px);opacity:${p}">${LOGO}</div>`
+      +`<div class="wm" style="opacity:${eo((lt-0.1)/0.3)}">OCEAN<span class="acc">LINK</span></div>`
+      +(END.line?`<div class="eline" style="opacity:${eo((lt-0.25)/0.3)}">${rich(END.line)}</div>`:'')
+      +`<div class="pill" style="opacity:${eo((lt-0.45)/0.3)}">${esc(END.cta||'Free on Google Play')}</div><div class="url" style="opacity:${eo((lt-0.55)/0.3)}">oceanlinkai.com</div>`;
+    sig.push('end'+(lt<0.9?Math.round(lt*30):'H'));
+  } else { e.style.display='none'; }
+  return sig.join('|');
+}
+// settled-state fit check against the hook skill's bands (phone UI covers the top 220 px and bottom 420 px)
+function check(){
+  const bad=[], band={hk:[360,1010],pn:[220,372],cp:[1140,1410],nm:[380,1130]};
+  for(const c of CAPS){
+    const t=Math.min(c.t0+0.6,c.t1-0.01); drawAt(t);
+    for(const k of Object.keys(band)){
+      for(const b of document.querySelectorAll('#root .'+k)){
+        const r=b.getBoundingClientRect();
+        if(r.top<band[k][0]||r.bottom>band[k][1]) bad.push(k+' y '+Math.round(r.top)+'-'+Math.round(r.bottom)+' @'+t.toFixed(1)+'s');
+        for(const el of b.querySelectorAll('.t')){const q=el.getBoundingClientRect(); if(q.left<86||q.right>934) bad.push(k+' x '+Math.round(q.left)+'-'+Math.round(q.right)+' "'+el.textContent+'"');}
+      }
+    }
+  }
+  if(END){ drawAt(END.t0+1.2); const r=document.getElementById('endin').getBoundingClientRect(); if(r.bottom>1500) bad.push('end card bottom '+Math.round(r.bottom)); }
+  return [...new Set(bad)];
+}
+</script></body></html>

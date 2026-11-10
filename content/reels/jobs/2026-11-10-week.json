@@ -1,0 +1,803 @@
+{
+ "stamp": "Ocean Link job board · 3–9 Nov 2026",
+ "source": "Bubble live, jobpost, date_posted 3-9 Nov 2026: 370 distinct jobs, 89 RPSL numbers, 24 ranks (counted 10 Nov 2026)",
+ "reels": [
+  {
+   "id": "p2-never-pay",
+   "seed": 4,
+   "hook": [
+    [
+     "An agent asks you to",
+     70,
+     0
+    ],
+    [
+     "PAY",
+     230,
+     1
+    ],
+    [
+     "for a job?",
+     100,
+     0
+    ]
+   ],
+   "pin": "An agent asks you / to pay for a job?",
+   "a": [
+    "They call it a / *processing fee*",
+    "or a *placement* fee",
+    "or *training* you must buy"
+   ],
+   "b": [
+    "You pay only for:",
+    "*medical*, seaman's book, / *passport*",
+    "Visas? The *shipowner* pays"
+   ],
+   "word": "BANNED",
+   "wsize": 200,
+   "label": "MLC 2006 · Standard A1.4 / no recruitment fees",
+   "stamp": "Check the agency's licence first",
+   "end": {
+    "line": "Has an agent ever *asked you to pay?*",
+    "cta": "Check licences: link in bio"
+   },
+   "cuts": [
+    [
+     "VID-20260401",
+     0.0,
+     0.65,
+     0.5,
+     1.08
+    ],
+    [
+     "10234812",
+     4.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "VID-20260212",
+     1.7,
+     0.5,
+     0.5,
+     1.12
+    ],
+    [
+     "16359654",
+     9.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "9654558",
+     3.0,
+     1.0,
+     0.5,
+     1.05
+    ]
+   ]
+  },
+  {
+   "id": "p3-free-cv",
+   "seed": 5,
+   "hook": [
+    [
+     "Paying someone for your",
+     66,
+     0
+    ],
+    [
+     "CV?",
+     240,
+     1
+    ],
+    [
+     "Don't.",
+     110,
+     0
+    ]
+   ],
+   "pin": "Paying someone / for your CV?",
+   "a": [
+    "*Snap* your certificates",
+    "The app *reads* them",
+    "and fills in *your CV*"
+   ],
+   "b": [
+    "Sea time *counted* too",
+    "Download the *PDF*",
+    "Send it to *any agency*"
+   ],
+   "word": "FREE",
+   "wsize": 250,
+   "label": "No paid CV package / needed",
+   "stamp": false,
+   "end": {
+    "line": "What do agencies always ask you to *fix?*",
+    "cta": "Build your CV: link in bio"
+   },
+   "cuts": [
+    [
+     "VID-20260220",
+     0.0,
+     0.55,
+     0.5,
+     1.05
+    ],
+    [
+     "VID-20260212",
+     1.7,
+     0.5,
+     0.5,
+     1.12
+    ],
+    [
+     "7687569",
+     20.0,
+     1.0,
+     0.5,
+     1.25
+    ],
+    [
+     "9654558",
+     5.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "16359654",
+     14.0,
+     1.0,
+     0.5,
+     1.05
+    ]
+   ]
+  },
+  {
+   "id": "p1-all-jobs",
+   "seed": 2,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "SEAFARER",
+     190,
+     1
+    ],
+    [
+     "JOBS",
+     190,
+     1
+    ],
+    [
+     "in 7 days?",
+     96,
+     0
+    ]
+   ],
+   "pin": "How many seafarer jobs / in 7 days?",
+   "a": [
+    "*Masters* to *wipers*",
+    "Tankers, bulk, *containers*",
+    "*24* ranks hiring"
+   ],
+   "b": [
+    "*89* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 370,
+   "label": "jobs posted / in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "What rank are you *looking for?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "16359654",
+     2.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "26893760",
+     6.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "7687569",
+     30.0,
+     1.0,
+     0.5,
+     1.25
+    ],
+    [
+     "20260222_154251_1",
+     0.0,
+     0.33,
+     0.5,
+     1.0
+    ],
+    [
+     "10234812",
+     8.0,
+     1.0,
+     0.5,
+     1.08
+    ]
+   ]
+  },
+  {
+   "id": "r1-chief-officer",
+   "seed": 3,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "CHIEF",
+     190,
+     1
+    ],
+    [
+     "OFFICER",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many Chief Officer / jobs in 7 days?",
+   "a": [
+    "*Bulk carriers*",
+    "*Oil tankers*",
+    "*LPG* and product tankers"
+   ],
+   "b": [
+    "*28* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 39,
+   "label": "Chief Officer jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "What rank are you *looking for?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "9654558",
+     0.5,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "16359654",
+     5.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "7687569",
+     12.0,
+     1.0,
+     0.5,
+     1.25
+    ],
+    [
+     "10234812",
+     6.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "37287417",
+     10.0,
+     1.0,
+     0.5,
+     1.3
+    ]
+   ]
+  },
+  {
+   "id": "r2-4th-engineer",
+   "seed": 6,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "4TH",
+     190,
+     1
+    ],
+    [
+     "ENGINEER",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many 4th Engineer / jobs in 7 days?",
+   "a": [
+    "*Product* and chemical tankers",
+    "*General cargo*",
+    "*LPG* and oil tankers"
+   ],
+   "b": [
+    "*23* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 30,
+   "label": "4th Engineer jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "Which ship type do you *want next?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "7687569",
+     40.0,
+     1.0,
+     0.5,
+     1.25
+    ],
+    [
+     "10234812",
+     11.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "VID-20260220",
+     0.0,
+     0.55,
+     0.5,
+     1.05
+    ],
+    [
+     "9654558",
+     2.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "16359654",
+     17.0,
+     1.0,
+     0.5,
+     1.05
+    ]
+   ]
+  },
+  {
+   "id": "r3-able-seaman",
+   "seed": 7,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "ABLE",
+     190,
+     1
+    ],
+    [
+     "SEAMAN",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many AB / jobs in 7 days?",
+   "a": [
+    "*Chemical tankers*",
+    "*Bulk carriers*",
+    "*Offshore* vessels"
+   ],
+   "b": [
+    "*18* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 20,
+   "label": "AB jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "How long since your *last contract?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "20261022_212842",
+     1.15,
+     0.6,
+     0.45,
+     1.0
+    ],
+    [
+     "16359654",
+     12.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "20260222_154251_1",
+     0.0,
+     0.33,
+     0.5,
+     1.0
+    ],
+    [
+     "37287417",
+     20.0,
+     1.0,
+     0.5,
+     1.3
+    ],
+    [
+     "10234812",
+     2.0,
+     1.0,
+     0.5,
+     1.08
+    ]
+   ]
+  },
+  {
+   "id": "r4-2nd-officer",
+   "seed": 8,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "2ND",
+     190,
+     1
+    ],
+    [
+     "OFFICER",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many 2nd Officer / jobs in 7 days?",
+   "a": [
+    "*Bulk carriers*",
+    "*Oil tankers*",
+    "Container ships and *LNG*"
+   ],
+   "b": [
+    "*25* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 28,
+   "label": "2nd Officer jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "What rank are you *looking for?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "VID-20260212",
+     1.7,
+     0.5,
+     0.5,
+     1.12
+    ],
+    [
+     "16359654",
+     8.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "37287417",
+     30.0,
+     1.0,
+     0.5,
+     1.3
+    ],
+    [
+     "9654558",
+     1.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "10234812",
+     13.0,
+     1.0,
+     0.5,
+     1.08
+    ]
+   ]
+  },
+  {
+   "id": "r5-eto",
+   "seed": 9,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "ETO",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many ETO / jobs in 7 days?",
+   "a": [
+    "*Product tankers*",
+    "*Oil* and LPG tankers",
+    "*Bulk carriers*"
+   ],
+   "b": [
+    "*21* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 27,
+   "label": "ETO jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "Which ship type do you *want next?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "VID-20260220",
+     0.0,
+     0.55,
+     0.5,
+     1.05
+    ],
+    [
+     "10234812",
+     3.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "7687569",
+     25.0,
+     1.0,
+     0.5,
+     1.25
+    ],
+    [
+     "16359654",
+     19.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "9654558",
+     4.0,
+     1.0,
+     0.5,
+     1.05
+    ]
+   ]
+  },
+  {
+   "id": "r6-3rd-officer",
+   "seed": 10,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "3RD",
+     190,
+     1
+    ],
+    [
+     "OFFICER",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many 3rd Officer / jobs in 7 days?",
+   "a": [
+    "*Oil tankers*",
+    "*Chemical tankers*",
+    "Bulk and *product tankers*"
+   ],
+   "b": [
+    "*17* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 21,
+   "label": "3rd Officer jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "How long since your *last contract?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "37287417",
+     5.0,
+     1.0,
+     0.5,
+     1.3
+    ],
+    [
+     "VID-20260212",
+     1.7,
+     0.5,
+     0.5,
+     1.12
+    ],
+    [
+     "20261022_212842",
+     1.15,
+     0.6,
+     0.45,
+     1.0
+    ],
+    [
+     "10234812",
+     9.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "16359654",
+     0.5,
+     1.0,
+     0.5,
+     1.05
+    ]
+   ]
+  },
+  {
+   "id": "r7-2nd-engineer",
+   "seed": 11,
+   "hook": [
+    [
+     "How many",
+     76,
+     0
+    ],
+    [
+     "2ND",
+     190,
+     1
+    ],
+    [
+     "ENGINEER",
+     190,
+     1
+    ],
+    [
+     "jobs in 7 days?",
+     92,
+     0
+    ]
+   ],
+   "pin": "How many 2nd Engineer / jobs in 7 days?",
+   "a": [
+    "*Container ships*",
+    "*Chemical* and product tankers",
+    "Oil tankers and *bulk*"
+   ],
+   "b": [
+    "*28* licensed agencies",
+    "Licence numbers *shown*",
+    "Never *pay* for a job"
+   ],
+   "num": 34,
+   "label": "2nd Engineer jobs / posted in 7 days",
+   "stamp": true,
+   "end": {
+    "line": "What rank are you *looking for?*",
+    "cta": "Find yours: link in bio"
+   },
+   "cuts": [
+    [
+     "26893760",
+     22.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "10234812",
+     14.0,
+     1.0,
+     0.5,
+     1.08
+    ],
+    [
+     "20260222_154251_1",
+     0.0,
+     0.33,
+     0.5,
+     1.0
+    ],
+    [
+     "9654558",
+     7.0,
+     1.0,
+     0.5,
+     1.05
+    ],
+    [
+     "37287417",
+     38.0,
+     1.0,
+     0.5,
+     1.3
+    ]
+   ]
+  }
+ ]
+}

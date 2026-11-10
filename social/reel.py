@@ -11,7 +11,8 @@ SPEC (one beat = 0.4 s, the music grid):
             "instant": true, "karaoke": false, "time": "03:00", "from_v": 0, "to_v": 75, "suf": "%", "dec": 0, "dur": 1.0,
             "brand": true (meme: small logo + wordmark under the text), "x": 540, "dark": true,
             "path": [[beat, x, y], ...] (label: keyframes so the label follows its character)} ],
- "end": {"beats": 8, "clip": "...", "start": 0, "line": "Built at sea, *for seafarers.*"}}
+ "end": {"beats": 8, "clip": "...", "start": 0, "line": "Built at sea, *for seafarers.*"},
+ "template": "hook.html" (optional: big caption hook styles hook/pin/cap/num, see social/hook.html; default reel.html)}
 
 cuts play back to back; caps are timed in beats from the start, independent of cuts (text holds while footage cuts).
 " / " in caption text forces a line break; *word* = cyan. The first caption should use "instant": true (hook visible at frame 0).
@@ -105,7 +106,7 @@ for c in spec.get('caps', []):
     if c.get('style') == 'count': d['from'] = c['from_v']; d['to'] = c['to_v']
     if c.get('path'): d['path'] = [[k[0] * BEAT, k[1], k[2]] for k in c['path']]   # label keyframes: [beat, x, y]
     caps.append(d)
-endcfg = dict(t0=end_t0, line=end.get('line'), cta=end.get('cta')) if end else None
+endcfg = dict(t0=end_t0, line=end.get('line'), cta=end.get('cta'), **{k: end[k] for k in ('scrim',) if k in end}) if end else None
 
 enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '21', '-pix_fmt', 'yuv420p', '-g', '60',
@@ -113,7 +114,7 @@ enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_f
 bad = []
 with sync_playwright() as p:
     b = p.chromium.launch(); pg = b.new_page(viewport={'width': W, 'height': H})
-    pg.goto('file://' + os.path.join(HERE, 'reel.html')); pg.wait_for_timeout(200)
+    pg.goto('file://' + os.path.join(HERE, spec.get('template', 'reel.html'))); pg.wait_for_timeout(200)
     pg.evaluate('([c,e])=>setup(c,e)', [caps, endcfg])
     bad = pg.evaluate('check()')
     last_sig, ov = None, None

@@ -1,0 +1,150 @@
+{
+ "id": "p2-never-pay",
+ "seed": 4,
+ "template": "hook.html",
+ "cuts": [
+  {
+   "clip": "VID-20260401",
+   "start": 0.0,
+   "beats": 7,
+   "speed": 0.65,
+   "x": 0.5,
+   "gamma": 1.08,
+   "fx": [
+    "push"
+   ]
+  },
+  {
+   "clip": "10234812",
+   "start": 4.0,
+   "beats": 7,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.08,
+   "fx": [
+    "whip",
+    "push"
+   ]
+  },
+  {
+   "clip": "VID-20260212",
+   "start": 1.7,
+   "beats": 7,
+   "speed": 0.5,
+   "x": 0.5,
+   "gamma": 1.12,
+   "fx": [
+    "punch",
+    "push"
+   ]
+  },
+  {
+   "clip": "16359654",
+   "start": 9.0,
+   "beats": 8,
+   "speed": 1.0,
+   "x": 0.5,
+   "gamma": 1.05,
+   "fx": [
+    "flash",
+    "push"
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 7,
+   "style": "hook",
+   "lines": [
+    {
+     "t": "An agent asks you to",
+     "s": 70,
+     "k": false
+    },
+    {
+     "t": "PAY",
+     "s": 230,
+     "k": true
+    },
+    {
+     "t": "for a job?",
+     "s": 100,
+     "k": false
+    }
+   ]
+  },
+  {
+   "from": 7,
+   "to": 21,
+   "style": "pin",
+   "text": "An agent asks you / to pay for a job?"
+  },
+  {
+   "from": 7.0,
+   "to": 9.33,
+   "style": "cap",
+   "text": "They call it a / *processing fee*"
+  },
+  {
+   "from": 9.33,
+   "to": 11.67,
+   "style": "cap",
+   "text": "or a *placement* fee"
+  },
+  {
+   "from": 11.67,
+   "to": 14.0,
+   "style": "cap",
+   "text": "or *training* you must buy"
+  },
+  {
+   "from": 14.0,
+   "to": 16.33,
+   "style": "cap",
+   "text": "You pay only for:"
+  },
+  {
+   "from": 16.33,
+   "to": 18.67,
+   "style": "cap",
+   "text": "*medical*, seaman's book, / *passport*"
+  },
+  {
+   "from": 18.67,
+   "to": 21.0,
+   "style": "cap",
+   "text": "Visas? The *shipowner* pays"
+  },
+  {
+   "from": 21,
+   "to": 29,
+   "style": "num",
+   "label": "MLC 2006 · Standard A1.4 / no recruitment fees",
+   "word": "BANNED",
+   "size": 200
+  },
+  {
+   "from": 21.8,
+   "to": 29,
+   "style": "cap",
+   "text": "Check the agency's licence first",
+   "size": 44,
+   "y": 1236
+  }
+ ],
+ "end": {
+  "clip": "9654558",
+  "start": 3.0,
+  "beats": 8,
+  "speed": 1.0,
+  "x": 0.5,
+  "gamma": 1.05,
+  "fx": [
+   "push"
+  ],
+  "line": "Has an agent ever *asked you to pay?*",
+  "cta": "Check licences: link in bio",
+  "scrim": 0.5
+ }
+}
