@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #143a66;
+        font-family: "Inter", sans-serif;
+      }
+      #scene {
+        position: absolute;
+        inset: 0;
+      }
+      #cv {
+        display: block;
+        width: 1080px;
+        height: 1920px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="98"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- Every picture, caption and label is drawn in code on this canvas -->
+      <div id="scene" data-composition-id="scene" data-start="0" data-duration="98" data-track-index="0" data-no-timeline>
+        <canvas id="cv" width="1080" height="1920"></canvas>
+      </div>
+      <!-- Narration (open-source voice) mixed with the synthesised sound bed -->
+      <audio id="mix" src="assets/mix.wav" data-start="0" data-duration="98" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.FILM_END = 98;
+    </script>
+    <script src="assets/timing.js"></script>
+    <script src="assets/geo.js"></script>
+    <script src="assets/lib.js"></script>
+    <script src="assets/film.js"></script>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const host = document.getElementById("scene");
+      if (window.__hyperframes && typeof window.__hyperframes.registerFrameSource === "function") {
+        window.__hyperframes.registerFrameSource({
+          element: host,
+          ready: document.fonts.ready.then(() => undefined),
+          render: (t, signal) => {
+            if (!signal || !signal.aborted) window.__drawScene(t);
+          },
+          dispose: () => {},
+        });
+      } else {
+        const st = { t: 0 };
+        tl.to(st, { t: 98, duration: 98, ease: "none", onUpdate: () => window.__drawScene(st.t) }, 0);
+      }
+      tl.set({}, {}, 98);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
