@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GM and Metacentric Height Explained: Formulas &amp; Example | Ocean Link</title><meta name="description" content="GM = KM − KG, corrected for free surface. How metacentric height works, a fully worked example, IS Code minimums, on-board checks and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/stability-cargo/gm-and-metacentric-height-explained/">
+<meta property="og:title" content="GM and Metacentric Height Explained: Formulas &amp; Example | Ocean Link"><meta property="og:description" content="GM = KM − KG, corrected for free surface. How metacentric height works, a fully worked example, IS Code minimums, on-board checks and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/stability-cargo/gm-and-metacentric-height-explained/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GM and Metacentric Height Explained: Formulas & Example", "description": "GM = KM − KG, corrected for free surface. How metacentric height works, a fully worked example, IS Code minimums, on-board checks and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/stability-cargo/gm-and-metacentric-height-explained/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good GM for a cargo ship?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single figure. It must satisfy the IS Code criteria (initial GM of at least 0.15 m along with the GZ curve criteria), any cargo-specific code such as the Grain Code, and the limits in the ship's approved stability booklet. Within those limits, aim to avoid an excessively stiff ship, especially with deck cargo or containers."}}, {"@type": "Question", "name": "What is the difference between solid GM and fluid GM?", "acceptedAnswer": {"@type": "Answer", "text": "Solid GM is KM − KG, assuming no liquid moves in the tanks. Fluid (effective) GM subtracts the free surface correction, the total free surface moment divided by displacement. Compliance and list calculations must use fluid GM."}}, {"@type": "Question", "name": "Can GM be negative and the ship still float upright?", "acceptedAnswer": {"@type": "Answer", "text": "A ship with negative GM will not stay upright. She heels until the shape of the immersed hull brings B far enough out to give zero GZ. This is the angle of loll. She may flop from side to side and is in a dangerous condition."}}, {"@type": "Question", "name": "Why does GM decrease as fuel is used during a voyage?", "acceptedAnswer": {"@type": "Answer", "text": "Bunker and double-bottom tanks sit low in the ship. Burning fuel from them removes weight below G, so G rises. Partly emptied tanks also add free surface. Both effects reduce fluid GM, which is why the arrival condition must be checked."}}, {"@type": "Question", "name": "How can I estimate GM from the rolling period?", "acceptedAnswer": {"@type": "Answer", "text": "Roll period is roughly inversely proportional to the square root of GM, so a longer, slower roll means smaller GM. The IS Code uses a formula relating roll period, beam and GM, but it is an approximation. Treat it as a warning sign only, never as a substitute for a calculated condition."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Stability & cargo work", "item": "https://card.oceanlinkai.com/guides/stability-cargo/"}, {"@type": "ListItem", "position": 3, "name": "GM and Metacentric Height Explained for Officers and Cadets", "item": "https://card.oceanlinkai.com/guides/stability-cargo/gm-and-metacentric-height-explained/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/stability-cargo/">Stability &amp; cargo work</a></div><h1>GM and Metacentric Height Explained for Officers and Cadets</h1><div class="card sum"><div class="label">Quick answer</div><p>Metacentric height (GM) is the vertical distance between the ship&#x27;s centre of gravity (G) and the transverse metacentre (M). It is found as KM − KG and then reduced by the free surface correction. A positive fluid GM means the ship returns upright at small angles of heel. For most ships the IS Code requires an initial GM of at least 0.15 m, but your approved stability booklet and its limiting KG/GM curves are what you actually comply with.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">The four points: K, B, G and M</a><a href="#s2">Formulas you must know</a><a href="#s3">Worked example: loading, discharging and a slack tank</a><a href="#s4">How much GM is right: stiff, tender and the criteria</a><a href="#s5">On-board practice: checking GM properly</a><a href="#s6">Common mistakes in exams and on board</a><a href="#s7">Oral exam questions you should expect</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">The four points: K, B, G and M</h2><p>Every transverse stability question rests on four points measured on the centreline.</p>
+<ul>
+<li><strong>K (keel)</strong> is the reference point. All vertical heights are measured up from it.</li>
+<li><strong>B (centre of buoyancy)</strong> is the geometric centre of the underwater volume. When the ship heels, the underwater shape changes and B moves towards the low side.</li>
+<li><strong>G (centre of gravity)</strong> is where the whole weight of the ship acts. It moves only when you load, discharge or shift weight, or when liquid moves in slack tanks.</li>
+<li><strong>M (transverse metacentre)</strong> is where the vertical line through the heeled position of B cuts the centreline. At small angles of heel, commonly taken as up to about 10°, M can be treated as a fixed point.</li>
+</ul>
+<p><strong>GM</strong> is the distance from G up to M. When the ship heels slightly, buoyancy acts up through B and weight acts down through G. If G is below M, these two forces form a couple that pushes the ship back upright, so the ship is in stable equilibrium. If G coincides with M, there is no righting couple and the ship is in neutral equilibrium. If G is above M, the couple heels the ship further and she is unstable. In practice an unstable ship heels over to an angle of loll, or capsizes if she has no reserve.</p>
+<p>The horizontal lever between the lines of action of weight and buoyancy is <strong>GZ</strong>, the righting lever. For small angles, GZ ≈ GM × sin θ. That is why GM is called the measure of <strong>initial</strong> stability. It tells you nothing reliable about large angles. For large angles you need the full GZ curve.</p><figure><svg aria-label="Cross-section of a ship heeled to the right. The centreline tilts with the hull and shows K at the keel, G above it and M near the deck. The centre of buoyancy B sits off the centreline towards the low side. A buoyancy arrow points up through B and a dashed vertical line rises from it to M. A weight arrow points down from G. A short horizontal line from G to Z on the buoyancy line is the righting lever GZ. The caption text reads that with G below M the couple rights the ship, and GZ is approximately GM times sin theta at small angles." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img"><defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#00B0D2" /></marker></defs><rect x="0" y="0" width="800" height="600" fill="#0F1217" rx="12" /><text x="400" y="46" font-family="Inter, sans-serif" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">Stable ship heeled: G below M</text><g transform="rotate(20 400 330)"><path d="M250,200 L250,440 L550,440 L550,200 Z" fill="none" stroke="#F2F4F7" stroke-width="3" /><line x1="400" y1="175" x2="400" y2="440" stroke="#F2F4F7" stroke-width="2" stroke-dasharray="8 6" /></g><line x1="150" y1="330" x2="640" y2="330" stroke="#00B0D2" stroke-width="3" /><text x="650" y="339" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2">WL</text><line x1="447.9" y1="395" x2="447.9" y2="198.4" stroke="#00E5FF" stroke-width="2" stroke-dasharray="6 6" /><line x1="447.9" y1="395" x2="447.9" y2="345" stroke="#00E5FF" stroke-width="4" marker-end="url(#a1)" /><line x1="406.8" y1="311.2" x2="406.8" y2="395" stroke="#00B0D2" stroke-width="4" marker-end="url(#a2)" /><line x1="406.8" y1="311.2" x2="447.9" y2="311.2" stroke="#F5A524" stroke-width="4" /><circle cx="362.4" cy="433.4" r="7" fill="#F2F4F7" /><circle cx="406.8" cy="311.2" r="7" fill="#00B0D2" /><circle cx="447.9" cy="198.4" r="7" fill="#00E5FF" /><circle cx="447.9" cy="395" r="7" fill="#00E5FF" /><circle cx="447.9" cy="311.2" r="5" fill="#F5A524" /><text x="345" y="445" font-family="Inter, sans-serif" font-size="28" fill="#F2F4F7" text-anchor="end" font-weight="700">K</text><text x="388" y="320" font-family="Inter, sans-serif" font-size="28" fill="#00B0D2" text-anchor="end" font-weight="700">G</text><text x="465" y="206" font-family="Inter, sans-serif" font-size="28" fill="#00E5FF" font-weight="700">M</text><text x="465" y="406" font-family="Inter, sans-serif" font-size="28" fill="#00E5FF" font-weight="700">B</text><text x="462" y="300" font-family="Inter, sans-serif" font-size="28" fill="#F5A524" font-weight="700">Z</text><text x="405" y="262" font-family="Inter, sans-serif" font-size="28" fill="#F2F4F7" text-anchor="end">GM</text><text x="400" y="530" font-family="Inter, sans-serif" font-size="28" fill="#F2F4F7" text-anchor="middle">G below M: couple rights ship</text><text x="400" y="570" font-family="Inter, sans-serif" font-size="28" fill="#F5A524" text-anchor="middle">GZ ≈ GM × sin θ (small angles)</text></svg><figcaption>When a stable ship heels, B moves to the low side and the buoyancy line cuts the centreline at M above G, giving a righting lever GZ.</figcaption></figure><h2 id="s2">Formulas you must know</h2><table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Formula</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metacentric height</td>
+<td>GM = KM − KG</td>
+<td>KM taken from hydrostatic tables at the actual displacement or draught</td>
+</tr>
+<tr>
+<td>Height of metacentre</td>
+<td>KM = KB + BM</td>
+<td>Both come from hydrostatics</td>
+</tr>
+<tr>
+<td>Metacentric radius</td>
+<td>BM = I / V</td>
+<td>I = second moment of area of the waterplane about the centreline; V = volume of displacement</td>
+</tr>
+<tr>
+<td>Box-shaped vessel</td>
+<td>KB = d/2, BM = B²/12d</td>
+<td>Common examination simplification</td>
+</tr>
+<tr>
+<td>Final KG</td>
+<td>KG = Σ(w × Kg) / Σw</td>
+<td>Uses moments about the keel; discharged weights are subtracted</td>
+</tr>
+<tr>
+<td>Shift of G</td>
+<td>GG₁ = (w × d) / Δ</td>
+<td>G moves parallel to the shift of the weight</td>
+</tr>
+<tr>
+<td>List from transverse G shift</td>
+<td>tan θ = GG₁ / GM</td>
+<td>Use fluid GM</td>
+</tr>
+<tr>
+<td>Righting moment (small angle)</td>
+<td>RM = Δ × GM × sin θ</td>
+<td>Gives tonne-metres</td>
+</tr>
+<tr>
+<td>Free surface correction</td>
+<td>FSC = ΣFSM / Δ</td>
+<td>Gives a virtual rise of G</td>
+</tr>
+<tr>
+<td>FSM, rectangular tank</td>
+<td>FSM = (l × b³ / 12) × ρ</td>
+<td>ρ = density of the liquid in the tank</td>
+</tr>
+<tr>
+<td>Inclining experiment</td>
+<td>GM = (w × d × L) / (Δ × deflection)</td>
+<td>L = pendulum length</td>
+</tr>
+</tbody>
+</table>
+<p>Two points on BM:</p>
+<ul>
+<li>BM depends on <strong>beam cubed</strong>, through the waterplane inertia. That is why beam dominates initial stability.</li>
+<li><strong>Fluid GM</strong> (also called effective GM) = solid GM − FSC. Fluid GM is the only figure that matters for compliance.</li>
+</ul><h2 id="s3">Worked example: loading, discharging and a slack tank</h2><p><strong>Given:</strong> Δ = 12,000 t, KG = 7.80 m. The ship loads 2,000 t at Kg 4.00 m and discharges 500 t at Kg 9.00 m. One rectangular double-bottom ballast tank, 20 m long and 15 m wide, is slack, with ballast density 1.025 t/m³. From the hydrostatic tables, KM at the final displacement is 8.40 m.</p>
+<p><strong>Step 1 – Moments about the keel</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Weight (t)</th>
+<th>Kg (m)</th>
+<th>Moment (t·m)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ship</td>
+<td>12,000</td>
+<td>7.80</td>
+<td>93,600</td>
+</tr>
+<tr>
+<td>Load</td>
+<td>+2,000</td>
+<td>4.00</td>
+<td>+8,000</td>
+</tr>
+<tr>
+<td>Discharge</td>
+<td>−500</td>
+<td>9.00</td>
+<td>−4,500</td>
+</tr>
+<tr>
+<td><strong>Final</strong></td>
+<td><strong>13,500</strong></td>
+<td></td>
+<td><strong>97,100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>KG = 97,100 / 13,500 = <strong>7.193 m</strong></p>
+<p><strong>Step 2 – Solid GM</strong></p>
+<p>GM = 8.40 − 7.193 = <strong>1.207 m</strong></p>
+<p><strong>Step 3 – Free surface</strong></p>
+<p>FSM = (20 × 15³ / 12) × 1.025 = 5,625 × 1.025 = 5,765.6 t·m</p>
+<p>FSC = 5,765.6 / 13,500 = <strong>0.427 m</strong></p>
+<p><strong>Step 4 – Fluid GM</strong></p>
+<p>GM(fluid) = 1.207 − 0.427 = <strong>0.78 m</strong></p>
+<p><strong>Step 5 – List from a transverse shift</strong></p>
+<p>Now 50 t of stores are shifted 10 m to starboard.</p>
+<p>GG₁ = (50 × 10) / 13,500 = 0.037 m</p>
+<p>tan θ = 0.037 / 0.78 = 0.0475, so θ ≈ <strong>2.7° to starboard</strong></p>
+<p>Notice what the single slack tank did. It removed about a third of the GM. If you had worked the list using solid GM, you would have under-predicted it. Also note that the FSM of a rectangular tank does not depend on how much liquid is in it, only on the free surface dimensions. The exception is a tank very nearly empty or pressed full.</p><figure><svg aria-label="A vertical height scale measured up from the keel K, with a break in the lower part. Points are marked at G (KG 7.193 m), at the virtual G after free surface correction (7.620 m) and at M (KM 8.40 m). A bracket on the left spans G to M and is labelled solid GM 1.207 m. Two brackets on the right show the free surface correction of 0.427 m in amber between G and the virtual G, and the fluid GM of 0.78 m between the virtual G and M." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><rect x="0" y="0" width="800" height="560" fill="#0F1217" rx="12" /><text x="400" y="46" font-family="Inter, sans-serif" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">Worked example: fluid GM</text><line x1="300" y1="100" x2="300" y2="465" stroke="#F2F4F7" stroke-width="3" /><path d="M300,465 L290,472 L310,480 L300,487" fill="none" stroke="#F2F4F7" stroke-width="3" /><line x1="300" y1="487" x2="300" y2="520" stroke="#F2F4F7" stroke-width="3" /><circle cx="300" cy="520" r="7" fill="#F2F4F7" /><circle cx="300" cy="414" r="8" fill="#00B0D2" /><circle cx="300" cy="311" r="8" fill="#F5A524" /><circle cx="300" cy="124" r="8" fill="#00E5FF" /><text x="322" y="529" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">K (keel)</text><text x="322" y="423" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2">G: KG 7.193 m</text><text x="322" y="320" font-family="Inter, sans-serif" font-size="26" fill="#F5A524">Virtual G 7.620 m</text><text x="322" y="133" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">M: KM 8.40 m</text><path d="M265,124 L250,124 L250,414 L265,414" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="235" y="258" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2" text-anchor="end">Solid GM</text><text x="235" y="292" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2" text-anchor="end" font-weight="700">1.207 m</text><path d="M595,124 L610,124 L610,305 L595,305" fill="none" stroke="#00E5FF" stroke-width="3" /><text x="625" y="206" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">Fluid GM</text><text x="625" y="240" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" font-weight="700">0.78 m</text><path d="M595,317 L610,317 L610,414 L595,414" fill="none" stroke="#F5A524" stroke-width="3" /><text x="625" y="360" font-family="Inter, sans-serif" font-size="26" fill="#F5A524">FSC</text><text x="625" y="394" font-family="Inter, sans-serif" font-size="26" fill="#F5A524" font-weight="700">0.427 m</text></svg><figcaption>In the worked example, the slack tank&#x27;s free surface correction raises G virtually from 7.193 m to 7.620 m, cutting GM from 1.207 m to a fluid GM of 0.78 m.</figcaption></figure><h2 id="s4">How much GM is right: stiff, tender and the criteria</h2><p><strong>Too little GM (tender ship)</strong></p>
+<ul>
+<li>The ship has a long, slow, comfortable roll.</li>
+<li>It heels readily to wind, turning and weight shifts.</li>
+<li>It has little margin for icing, water on deck or flooding.</li>
+<li>If GM goes negative, the ship takes a loll.</li>
+</ul>
+<p><strong>Too much GM (stiff ship)</strong></p>
+<ul>
+<li>The ship has a short, jerky roll with high accelerations.</li>
+<li>Lashings, cargo securing and structure come under heavy stress.</li>
+<li>The ship is uncomfortable and dangerous for crew working on deck.</li>
+<li>Container ships are especially sensitive. Lashing software uses GM to calculate the forces on stacks.</li>
+</ul>
+<p><strong>Roll period and GM</strong></p>
+<p>Roll period gives a rough feel for GM. The IS Code weather criterion uses T = 2CB/√GM, with C derived from the ship's beam, draught and length. Read it as an indication only: a doubled roll period suggests GM has dropped to roughly a quarter. Never use it in place of a proper calculation.</p>
+<p><strong>Statutory minimums</strong></p>
+<p>The 2008 Intact Stability Code, Part A, sets the general criteria for cargo and passenger ships:</p>
+<ul>
+<li>Initial GM of not less than <strong>0.15 m</strong>.</li>
+<li>Area under the GZ curve of not less than 0.055 m·rad up to 30°.</li>
+<li>Area under the GZ curve of not less than 0.09 m·rad up to 40° or the angle of downflooding, whichever is less.</li>
+<li>Area under the GZ curve of not less than 0.03 m·rad between 30° and 40° (or the downflooding angle, if less).</li>
+<li>GZ of at least 0.20 m at an angle of 30° or more.</li>
+<li>Maximum GZ at an angle preferably exceeding 30° and not less than 25°.</li>
+<li>A separate severe wind and rolling (weather) criterion.</li>
+</ul>
+<p>Some cargoes carry their own requirements. For example, the International Grain Code requires a minimum initial GM of 0.30 m after free surface correction, plus heeling-angle limits for an assumed grain shift.</p>
+<p>Your administration may impose additional requirements, and so may the approved stability booklet. The booklet's minimum GM or maximum KG curves often already combine intact and damage stability. <strong>Comply with the booklet.</strong> The IS Code figures are a floor, not a target.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s5">On-board practice: checking GM properly</h2><ol>
+<li><strong>Plan every stage, not just departure.</strong> Calculate departure, arrival and the worst intermediate condition. Consuming fuel and water from low tanks removes weight below G. That raises G and usually creates new free surface, so arrival GM is often the lowest.</li>
+<li><strong>Use the loading computer, but understand it.</strong> Where a stability instrument is fitted it must be approved for the ship. This is mandatory for tankers under MARPOL Annex I, the IBC Code and the IGC Code. Run the class test conditions as your SMS requires, and hand-check one condition occasionally so you know the program is sensible.</li>
+<li><strong>Enter tank soundings honestly.</strong> Mark every slack tank as slack. Most software takes FSM from the tank tables, often as the maximum value. Follow your booklet's method rather than mixing methods.</li>
+<li><strong>Compare calculated and observed draughts.</strong> If the displacement from the drafts differs significantly from the calculated displacement, something is wrong. Likely causes include an unknown constant, wrong tank figures or a wrong cargo weight. A weight error at an unknown height means an unknown KG.</li>
+<li><strong>Watch the ship.</strong> A slow, lazy roll, a list that will not correct, or a ship that flops from side to side are warnings. Stop and recalculate.</li>
+<li><strong>Ballast with stability in mind.</strong> Fill low tanks first and minimise the number of tanks slack at the same time. Treat ballast exchange sequences as planned stability operations.</li>
+</ol>
+<p>The Master must be given approved stability information under SOLAS Chapter II-1. Who prepares and signs the condition varies by company SMS. Commonly it is the Chief Officer, verified by the Master.</p><h2 id="s6">Common mistakes in exams and on board</h2><ul>
+<li><strong>Taking KM at the wrong displacement.</strong> Look up KM at the <em>final</em> displacement or draught, not the initial one.</li>
+<li><strong>Forgetting free surface.</strong> Or applying it twice: once in the tank tables and again by hand.</li>
+<li><strong>Confusing units for FSM.</strong> Some tables give the free surface moment of inertia in m⁴, which must be multiplied by the liquid's density. Others already give the FSM in t·m.</li>
+<li><strong>Wrong sign on discharge.</strong> A discharged weight has its moment <em>subtracted</em>. Removing weight from low down raises G.</li>
+<li><strong>Using GM sin θ at large angles.</strong> Beyond small angles, use the GZ curve from KN tables: GZ = KN − KG sin θ, plus the free surface correction.</li>
+<li><strong>Correcting a loll like a list.</strong> Mistaking a loll for a list and filling, or transferring weight to, the high side to correct it. With negative GM the ship can flop violently over to the other side to an equal or greater angle. Instead, first lower G and keep free surface to a minimum. Typically fill divided double-bottom tanks, starting with the smallest tank on the low side, then the high side. Never transfer liquid across the ship while she is at a loll.</li>
+<li><strong>Treating more GM as always safer.</strong> Excessive GM damages cargo, lashings and people.</li>
+</ul><h2 id="s7">Oral exam questions you should expect</h2><ul>
+<li><strong>"Define metacentre and GM."</strong> M is the point where the vertical through the new centre of buoyancy cuts the centreline at small angles of heel. GM is the height of M above G and measures initial stability.</li>
+<li><strong>"Why is GM only valid at small angles?"</strong> Beyond roughly 10°, M no longer stays fixed because the waterplane shape changes. You must then use the GZ curve.</li>
+<li><strong>"What is free surface effect and how do you reduce it?"</strong> It is a virtual rise of G caused by liquid moving in a slack tank. Reduce it by pressing up or emptying tanks, using longitudinally subdivided tanks, and keeping as few tanks slack as possible at the same time.</li>
+<li><strong>"Your ship has a 5° list. How do you know whether it is a list or a loll?"</strong> A list comes from G off the centreline with positive GM, and the ship lies steadily to one side. A loll comes from negative GM. The ship may flop over to the other side, roll slowly about the lolled angle, and will not respond normally to transferring weight.</li>
+<li><strong>"How is KG of the light ship found?"</strong> By the inclining experiment, which SOLAS requires on completion of the ship. Known weights are shifted across the deck and the heel is measured with pendulums or inclinometers.</li>
+<li><strong>"Stiff versus tender: give the dangers of each."</strong> A stiff ship has a short, violent roll, which overloads lashings and structure and causes cargo shift. A tender ship has little reserve against wind, turning heel or flooding.</li>
+<li><strong>"Fuel consumed from double bottoms: what happens to GM?"</strong> It usually reduces, because G rises and free surface appears in the tanks being used.</li>
+</ul><div class="card kp"><div class="label">Key points</div><ul><li>GM = KM − KG, and only the fluid GM (after free surface correction) counts.</li><li>KM comes from hydrostatics at the final displacement; KG comes from moments about the keel.</li><li>GZ ≈ GM sin θ holds only at small angles; use the GZ curve beyond about 10°.</li><li>The IS Code minimum initial GM is 0.15 m, but your approved stability booklet governs.</li><li>Slack tanks can remove a large part of your GM; FSM depends on free surface width cubed.</li><li>Arrival condition is often the worst case because consumables burn off low down.</li><li>Too much GM is also a hazard: violent rolling, lashing failure and injuries.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>What is a good GM for a cargo ship?</summary><p>There is no single figure. It must satisfy the IS Code criteria (initial GM of at least 0.15 m along with the GZ curve criteria), any cargo-specific code such as the Grain Code, and the limits in the ship&#x27;s approved stability booklet. Within those limits, aim to avoid an excessively stiff ship, especially with deck cargo or containers.</p></details><details><summary>What is the difference between solid GM and fluid GM?</summary><p>Solid GM is KM − KG, assuming no liquid moves in the tanks. Fluid (effective) GM subtracts the free surface correction, the total free surface moment divided by displacement. Compliance and list calculations must use fluid GM.</p></details><details><summary>Can GM be negative and the ship still float upright?</summary><p>A ship with negative GM will not stay upright. She heels until the shape of the immersed hull brings B far enough out to give zero GZ. This is the angle of loll. She may flop from side to side and is in a dangerous condition.</p></details><details><summary>Why does GM decrease as fuel is used during a voyage?</summary><p>Bunker and double-bottom tanks sit low in the ship. Burning fuel from them removes weight below G, so G rises. Partly emptied tanks also add free surface. Both effects reduce fluid GM, which is why the arrival condition must be checked.</p></details><details><summary>How can I estimate GM from the rolling period?</summary><p>Roll period is roughly inversely proportional to the square root of GM, so a longer, slower roll means smaller GM. The IS Code uses a formula relating roll period, beam and GM, but it is an approximation. Treat it as a warning sign only, never as a substitute for a calculated condition.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>A ship has KM 8.20 m, KG 7.40 m and a free surface correction of 0.25 m. What is the fluid GM?</p><button data-c="0">0.80 m</button><button data-c="1">0.55 m</button><button data-c="0">1.05 m</button><button data-c="0">0.25 m</button><div class="ex">Solid GM = 8.20 − 7.40 = 0.80 m; fluid GM = 0.80 − 0.25 = 0.55 m. Free surface always reduces GM (IS Code 2008: criteria apply to GM corrected for free surface).</div></div><div class="q"><p>Which change will increase the free surface moment of a rectangular slack tank the most?</p><button data-c="0">Doubling the depth of liquid in the tank</button><button data-c="0">Doubling the length of the tank</button><button data-c="0">Halving the density of the liquid</button><button data-c="1">Doubling the breadth of the free surface</button><div class="ex">FSM = (l × b³/12) × ρ, so doubling breadth increases FSM eightfold. Depth of liquid does not appear in the formula for a rectangular tank.</div></div><div class="q"><p>What is the minimum initial GM required by the general intact stability criteria of the 2008 IS Code?</p><button data-c="1">0.15 m</button><button data-c="0">0.30 m</button><button data-c="0">0.20 m</button><button data-c="0">0.05 m</button><div class="ex">IS Code 2008, Part A requires initial GM of at least 0.15 m. The 0.30 m figure applies to grain cargoes under the Grain Code, and 0.20 m is the minimum GZ at 30° or more.</div></div><div class="q"><p>A ship discharges 400 t of cargo from a position well below G. What happens to G?</p><button data-c="0">G moves down, towards the discharged weight</button><button data-c="0">G does not move because the weight has left the ship</button><button data-c="1">G moves up, away from the discharged weight</button><button data-c="0">G moves to the centre of buoyancy</button><div class="ex">When a weight is removed, G moves directly away from that weight&#x27;s centre of gravity. Removing low weight raises G and reduces GM.</div></div><div class="q"><p>Why is GZ = GM × sin θ not used for heel angles of 30°?</p><button data-c="0">Because KG changes as the ship heels</button><button data-c="1">Because M is no longer fixed at large angles, so GZ must come from KN or cross curves</button><button data-c="0">Because free surface effect disappears at large angles</button><button data-c="0">Because displacement changes when the ship heels</button><div class="ex">The metacentre can be treated as fixed only at small angles. At larger angles, GZ is found from KN values (GZ = KN − KG sin θ) in the stability booklet.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/stability-cargo/free-surface-effect/">Free surface effect</a><a href="/guides/stability-cargo/angle-of-loll-vs-list/">Angle of loll vs list</a><a href="/guides/stability-cargo/trim-and-trim-calculations/">Trim and trim calculations</a><a href="/guides/stability-cargo/grain-stability-and-the-grain-code/">Grain stability and the Grain Code</a><a href="/guides/operations/ship-stability-basics-gm-free-surface-effect/">Ship stability basics (GM, free surface effect)</a><a href="/guides/career/how-to-prepare-for-mmd-oral-exams/">How to prepare for MMD oral exams</a></div><p class="src"><strong>References:</strong> International Code on Intact Stability, 2008 (2008 IS Code), Part A, Chapter 2; SOLAS 1974 as amended, Chapter II-1, Regulation 5 (Intact stability); SOLAS 1974 as amended, Chapter II-1, Regulation 5-1 (Stability information to be supplied to the master); MARPOL 73/78, Annex I, Regulation 28 (Subdivision, damage stability and stability instruments); International Code for the Construction and Equipment of Ships Carrying Dangerous Chemicals in Bulk (IBC Code); International Code for the Construction and Equipment of Ships Carrying Liquefied Gases in Bulk (IGC Code); International Code for the Safe Carriage of Grain in Bulk (International Grain Code); STCW Code, Table A-II/1 and Table A-II/2</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centrifugal Pumps: Priming, Cavitation and NPSH Explained | Ocean Link</title><meta name="description" content="Why centrifugal pumps need priming, how cavitation damages them, and how NPSH available vs required decides it. Practical marine engineer guide with orals."><link rel="canonical" href="https://card.oceanlinkai.com/guides/engineering/centrifugal-pumps-priming-cavitation-and-npsh/">
+<meta property="og:title" content="Centrifugal Pumps: Priming, Cavitation and NPSH Explained | Ocean Link"><meta property="og:description" content="Why centrifugal pumps need priming, how cavitation damages them, and how NPSH available vs required decides it. Practical marine engineer guide with orals."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/engineering/centrifugal-pumps-priming-cavitation-and-npsh/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Centrifugal Pumps: Priming, Cavitation and NPSH Explained", "description": "Why centrifugal pumps need priming, how cavitation damages them, and how NPSH available vs required decides it. Practical marine engineer guide with orals.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/engineering/centrifugal-pumps-priming-cavitation-and-npsh/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does a centrifugal pump need priming?", "acceptedAnswer": {"@type": "Answer", "text": "The pump develops head proportional to the density of the fluid in the casing. With air in the casing, the pressure produced is far too small to draw liquid up the suction line, so the casing and suction must first be filled with liquid. Running it dry also damages the mechanical seal."}}, {"@type": "Question", "name": "What is the difference between NPSH available and NPSH required?", "acceptedAnswer": {"@type": "Answer", "text": "NPSH available is a property of the system: absolute suction pressure head minus the liquid's vapour pressure head, after allowing for static head and line losses. NPSH required is a property of the pump, given by the manufacturer from tests, and it increases with flow. NPSH available must stay above NPSH required with a margin to avoid cavitation."}}, {"@type": "Question", "name": "How do I know if my pump is cavitating?", "acceptedAnswer": {"@type": "Answer", "text": "Typical signs are a gravel-like crackling noise, vibration, and a fluctuating or falling discharge pressure and ammeter reading. Check the suction pressure and liquid temperature. If the pump is opened up, cavitation shows as pitting near the inlet region of the impeller vanes."}}, {"@type": "Question", "name": "Should I close the suction valve to stop cavitation noise?", "acceptedAnswer": {"@type": "Answer", "text": "No. Throttling the suction adds losses and lowers NPSH available, which makes cavitation worse. Keep the suction fully open and clean the strainer. If needed, reduce flow by throttling the discharge, raise the tank level or reduce the liquid temperature."}}, {"@type": "Question", "name": "Why are boiler feed pumps placed below the hot well?", "acceptedAnswer": {"@type": "Answer", "text": "Feed water is hot, so its vapour pressure is high and NPSH available is small. Placing the hot well or deaerator above the pump adds positive static head at the suction, keeping NPSH available above what the pump needs."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Marine engineering", "item": "https://card.oceanlinkai.com/guides/engineering/"}, {"@type": "ListItem", "position": 3, "name": "Centrifugal pumps: priming, cavitation and NPSH", "item": "https://card.oceanlinkai.com/guides/engineering/centrifugal-pumps-priming-cavitation-and-npsh/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/engineering/">Marine engineering</a></div><h1>Centrifugal pumps: priming, cavitation and NPSH</h1><div class="card sum"><div class="label">Quick answer</div><p>A centrifugal pump cannot lift air, so it must be primed with liquid before it will pump. It runs safely only while the net positive suction head available at its inlet stays above the NPSH the manufacturer says it requires; if NPSH available falls below that, the liquid flashes to vapour at the impeller eye and cavitation follows, with noise, falling output and pitted impellers. Many shipboard centrifugal pump problems on the suction side come down to air getting in, liquid not reaching the pump, or suction pressure dropping too low.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">How a centrifugal pump works, and why it will not prime itself</a><a href="#s2">Priming methods you will meet on board</a><a href="#s3">Cavitation: what actually happens</a><a href="#s4">NPSH available versus NPSH required</a><a href="#s5">Starting, running and stopping: step by step</a><a href="#s6">Faults, symptoms and worked scenarios</a><a href="#s7">Maintenance checks and safety</a><a href="#s8">Oral exam questions examiners like</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">How a centrifugal pump works, and why it will not prime itself</h2><p>Liquid enters at the <strong>eye</strong> of the impeller. The rotating vanes throw it outwards and give it velocity. The <strong>volute</strong> or diffuser then turns most of that velocity into pressure. The impeller seals against the casing at the <strong>wear rings</strong>, and the shaft passes out through a <strong>gland packing</strong> or <strong>mechanical seal</strong>.</p>
+<p>The key exam point is that a centrifugal pump develops <strong>head</strong>, meaning metres of whatever fluid it is spinning. The pressure it produces equals density × g × head.</p>
+<ul>
+<li>Water is roughly 800 times denser than air.</li>
+<li>A casing full of air therefore produces almost no pressure difference, so there is nothing to pull liquid up the suction line.</li>
+<li>A dry centrifugal pump just churns air, and the mechanical seal runs dry and overheats.</li>
+</ul>
+<p>That is why a centrifugal pump must have liquid in the casing and suction line before it can deliver. It also needs a way to get rid of any air that comes in later.</p>
+<p>A positive displacement pump behaves differently. A reciprocating or screw pump physically sweeps a volume, so it can draw air out of a suction line and self-prime within its design limits.</p><h2 id="s2">Priming methods you will meet on board</h2><p><strong>Flooded suction.</strong> The pump sits below the liquid level, so gravity keeps it full. Typical examples:
+- Sea water cooling pumps drawing from the sea chest.
+- Condensate and feed pumps placed below the hot well or deaerator.</p>
+<p>This is the simplest and most reliable arrangement. You only need to vent air from the casing at the vent cock before starting.</p>
+<p><strong>Priming pump fitted to the main pump.</strong> Bilge, ballast, general service and some fire pumps often carry an air pump driven from the main shaft or by its own motor. It draws air out of the suction line until liquid arrives, then disengages or is isolated. Common types are:
+- a liquid ring (water ring) vacuum pump,
+- a small reciprocating air pump.</p>
+<p>The disengagement is often by a float or pressure-operated clutch.</p>
+<p><strong>Central priming system.</strong> One vacuum pump and tank serve several pumps through priming lines. A float valve or separator on each line stops water being carried over into the vacuum pump.</p>
+<p><strong>Ejector priming.</strong> Water or air is driven through an ejector to pull a vacuum on the suction line. Ejectors are common for bilge and emergency duties because they have no moving parts.</p>
+<p><strong>Self-priming centrifugal designs.</strong> The casing keeps a charge of liquid after stopping. On starting, the pump recirculates that liquid internally and separates out air until suction is established. It must be filled the first time, and after any draining.</p>
+<p>For which pumps must be self-priming or fitted with priming arrangements, check the bilge pumping rules in SOLAS Chapter II-1 and your class rules. Emergency fire pump suction performance is covered in SOLAS Chapter II-2 and the FSS Code. The exact requirement depends on ship type and administration.</p><h2 id="s3">Cavitation: what actually happens</h2><p>As liquid speeds up into the impeller eye, its static pressure falls. It falls further through friction and entry losses at the vane leading edges, so the lowest pressure in the pump is just inside the impeller inlet.</p>
+<p>If that local pressure drops below the <strong>vapour pressure</strong> of the liquid at its temperature, the liquid boils there and vapour bubbles form. The bubbles are carried outwards into higher pressure, where they collapse violently. Bubbles collapsing next to metal give tiny high-energy jets. Over time these knock out material and leave the characteristic spongy <strong>pitting</strong> near the inlet part of the vanes.</p>
+<p><strong>Symptoms:</strong>
+- A crackling noise, like gravel or marbles passing through the pump.
+- Vibration, and sometimes a hammering sound.
+- Discharge pressure that falls and fluctuates.
+- A flickering, usually falling, ammeter reading.
+- Reduced flow. In severe cases the pump loses suction completely (vapour locking).
+- Later on, pitted impellers, seal damage and bearing wear from the vibration.</p>
+<p><strong>Do not confuse cavitation with air ingress.</strong> Air drawn in through a leaking gland, a joint or a vortex at a low tank level also gives noise and erratic pressure. The causes and cures are different, though:
+- Air ingress is a leak problem.
+- Cavitation is a suction pressure problem.</p>
+<p>A pump can suffer both at once.</p>
+<p>Running far <strong>below</strong> the best efficiency point can also damage a pump through internal recirculation at the eye or vane tips. The damage can look like cavitation even when the suction conditions are fine.</p><figure><svg aria-label="Simplified centrifugal impeller with six curved vanes and the eye at the centre. Labels show that the eye has the lowest pressure. Bubbles form there if pressure drops below the liquid&#x27;s vapour pressure. The bubbles collapse further out in higher pressure, leaving pitting near the vane inlet." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img"><rect x="0" y="0" width="800" height="520" rx="12" fill="#0F1217" /><text x="400" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7">Where cavitation happens</text><circle cx="260" cy="300" r="175" fill="none" stroke="#00B0D2" stroke-width="3" /><circle cx="260" cy="300" r="150" fill="#161C24" stroke="#00B0D2" stroke-width="2" /><g fill="none" stroke="#00E5FF" stroke-width="4" stroke-linecap="round"><path d="M310 300 Q368.3 319.1 356.4 414.9" /><path d="M285 343.3 Q297.6 403.4 208.7 441" /><path d="M235 343.3 Q189.3 384.3 112.3 326.1" /><path d="M210 300 Q151.7 280.9 163.6 185.1" /><path d="M235 256.7 Q222.4 196.6 311.3 159" /><path d="M285 256.7 Q330.7 215.7 407.7 273.9" /></g><circle cx="260" cy="300" r="45" fill="#1B2430" stroke="#00E5FF" stroke-width="3" /><text x="260" y="309" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Eye</text><g fill="none" stroke="#F2F4F7" stroke-width="2"><circle cx="328" cy="284" r="6" /><circle cx="343" cy="292" r="5" /><circle cx="335" cy="270" r="5" /></g><g stroke="#F5A524" stroke-width="3" stroke-linecap="round"><path d="M372 293 l10 10 M382 293 l-10 10 M377 290 v16 M369 298 h16" /><path d="M366 314 l10 10 M376 314 l-10 10 M371 311 v16 M363 319 h16" /></g><g fill="#F5A524"><circle cx="318" cy="303" r="4" /><circle cx="326" cy="307" r="3" /><circle cx="321" cy="311" r="3" /></g><g stroke="#00B0D2" stroke-width="2"><line x1="458" y1="172" x2="298" y2="272" /><line x1="458" y1="255" x2="347" y2="290" /><line x1="458" y1="350" x2="386" y2="310" /><line x1="458" y1="447" x2="324" y2="314" /></g><g font-family="Inter, sans-serif" font-size="26"><text x="464" y="181" fill="#00E5FF">Lowest pressure here</text><text x="464" y="249" fill="#F2F4F7">Bubbles form if</text><text x="464" y="281" fill="#F2F4F7">p &lt; vapour pressure</text><text x="464" y="347" fill="#F5A524">Bubbles collapse</text><text x="464" y="379" fill="#F5A524">in higher pressure</text><text x="464" y="456" fill="#F5A524">Pitting at vane inlet</text></g></svg><figcaption>Vapour bubbles form at the impeller eye, where pressure is lowest. They collapse as they move outward into higher pressure, and this pits the vane inlets.</figcaption></figure><h2 id="s4">NPSH available versus NPSH required</h2><p><strong>NPSH available (NPSHa)</strong> belongs to the system. It is the absolute pressure head at the pump suction, above the vapour pressure head of the liquid:</p>
+<p><strong>NPSHa = pressure head on the liquid surface ± static head − suction line losses − vapour pressure head</strong></p>
+<ul>
+<li>The static head is <strong>plus</strong> for a flooded suction and <strong>minus</strong> for a suction lift.</li>
+<li>Suction line losses include friction in pipes, valves, strainers and filters.</li>
+</ul>
+<p><strong>NPSH required (NPSHr)</strong> belongs to the pump. The manufacturer finds it by test and gives it on the pump curve. It rises as flow rate increases. It is usually defined at the point where a small, specified drop in head appears, so cavitation has <strong>already begun</strong> at NPSHr.</p>
+<p>The pump is safe only if <strong>NPSHa exceeds NPSHr with a margin</strong>. The margin needed depends on the liquid and the service, so follow the maker's guidance.</p>
+<p><strong>Illustrative example (rounded physical values):</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cold sea water</th>
+<th>Hot water at about 80 °C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atmospheric head</td>
+<td>about 10.3 m</td>
+<td>about 10.3 m</td>
+</tr>
+<tr>
+<td>Suction lift</td>
+<td>−4 m</td>
+<td>−4 m</td>
+</tr>
+<tr>
+<td>Line and strainer losses</td>
+<td>−1 m</td>
+<td>−1 m</td>
+</tr>
+<tr>
+<td>Vapour pressure head</td>
+<td>about −0.2 m</td>
+<td>about −4.8 m</td>
+</tr>
+<tr>
+<td><strong>NPSHa</strong></td>
+<td><strong>about 5 m</strong></td>
+<td><strong>about 0.5 m</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The pipework is identical in both columns. The hot liquid has almost no margin left. This is why hot well and feed systems put the tank <strong>above</strong> the pump, and why tankers pumping volatile cargo watch suction pressure closely.</p>
+<p><strong>Anything that lowers NPSHa:</strong>
+- Higher liquid temperature.
+- Greater suction lift, or a falling tank level.
+- A dirty strainer or a throttled suction valve.
+- A long or undersized suction line.
+- A vacuum in the source tank.</p>
+<p><strong>Anything that raises NPSHr:</strong>
+- Pushing the pump to higher flow, for example by opening the discharge wide against low system resistance.</p><figure><svg aria-label="Two head columns, each starting from about 10.3 m of atmospheric head. Each column subtracts a 4 m suction lift and 1 m of line and strainer losses. Cold sea water then loses about 0.2 m to vapour pressure, leaving about 5 m NPSHa. Hot water at about 80 °C loses about 4.8 m to vapour pressure, leaving only about 0.5 m NPSHa." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><rect x="0" y="0" width="800" height="560" rx="12" fill="#0F1217" /><text x="400" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7">Same pipework, different NPSHa</text><g font-family="Inter, sans-serif" font-size="26" text-anchor="middle"><text x="265" y="132" fill="#F2F4F7">Cold sea water</text><text x="535" y="132" fill="#F2F4F7">Hot ~80 °C</text></g><rect x="200" y="150" width="130" height="128" fill="#2A3340" /><rect x="200" y="278" width="130" height="32" fill="#46556A" /><rect x="200" y="310" width="130" height="6" fill="#F5A524" /><rect x="200" y="316" width="130" height="164" fill="#00E5FF" /><rect x="470" y="150" width="130" height="128" fill="#2A3340" /><rect x="470" y="278" width="130" height="32" fill="#46556A" /><rect x="470" y="310" width="130" height="154" fill="#F5A524" /><rect x="470" y="464" width="130" height="16" fill="#00E5FF" /><rect x="200" y="150" width="130" height="330" fill="none" stroke="#F2F4F7" stroke-width="3" /><rect x="470" y="150" width="130" height="330" fill="none" stroke="#F2F4F7" stroke-width="3" /><line x1="170" y1="480" x2="630" y2="480" stroke="#00B0D2" stroke-width="3" /><g font-family="Inter, sans-serif" font-size="26"><text x="265" y="223" text-anchor="middle" fill="#F2F4F7">Lift 4 m</text><text x="535" y="223" text-anchor="middle" fill="#F2F4F7">Lift 4 m</text><text x="265" y="408" text-anchor="middle" font-weight="700" fill="#0F1217">≈5 m</text><text x="535" y="396" text-anchor="middle" font-weight="700" fill="#0F1217">4.8 m</text><text x="188" y="170" text-anchor="end" fill="#F2F4F7">Atm 10.3 m</text><text x="188" y="303" text-anchor="end" fill="#F2F4F7">Losses 1 m</text><text x="188" y="345" text-anchor="end" fill="#F5A524">Vapour 0.2 m</text><text x="612" y="396" fill="#F5A524">Vapour head</text><text x="265" y="522" text-anchor="middle" font-weight="700" fill="#00E5FF">NPSHa ≈5 m</text><text x="535" y="522" text-anchor="middle" font-weight="700" fill="#F5A524">NPSHa ≈0.5 m</text></g></svg><figcaption>With identical pipework, hot water at about 80 °C has far less NPSH available than cold sea water because its vapour pressure head is much larger.</figcaption></figure><h2 id="s5">Starting, running and stopping: step by step</h2><p>Always follow the company procedure and the maker's instruction manual. A typical sequence for a conventional radial-flow pump is:</p>
+<ol>
+<li><strong>Check the line-up.</strong> Suction valve fully open. Sea chest valve or tank valve open. Strainer clean. Discharge set as the procedure requires.</li>
+<li><strong>Prime and vent.</strong> Open the casing vent until solid liquid appears, or engage the priming system and confirm it reaches vacuum. Fill self-priming casings if they have been drained.</li>
+<li><strong>Seal and gland.</strong> Make sure any seal flushing or sealing water is supplied. On a suction lift, the lantern ring sealing water is what stops air being drawn in through the packing.</li>
+<li><strong>Start with the discharge closed or nearly closed</strong> (radial-flow pumps). Power demand is lowest at shut-off, so the motor starts on a light load. Axial-flow pumps behave the opposite way: power is highest at shut-off, so do not start those against a closed discharge.</li>
+<li><strong>Open the discharge steadily</strong> once discharge pressure builds. Watch the ammeter, suction and discharge gauges.</li>
+<li><strong>Do not run for long against a closed discharge.</strong> All the power goes into heating the trapped liquid. That can make the liquid flash to vapour, damage the seal and distort the parts.</li>
+<li><strong>While running,</strong> check:<ul>
+<li>pressures, current, bearing temperature, vibration and noise;</li>
+<li>the gland: a little steady drip from packing is normal and needed for lubrication, while a mechanical seal should show no visible leak.</li>
+</ul>
+</li>
+<li><strong>Stopping.</strong> For radial-flow pumps it is common practice to close or throttle the discharge first. This limits backflow and water hammer, although non-return valves help as well. Then stop the motor and close the suction if you are isolating the pump.</li>
+</ol><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s6">Faults, symptoms and worked scenarios</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely causes</th>
+<th>First checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No discharge pressure at start</td>
+<td>Not primed, air lock, closed suction, wrong rotation</td>
+<td>Vent casing, check priming system, check valves, check rotation after electrical work</td>
+</tr>
+<tr>
+<td>Pressure builds then drops off</td>
+<td>Air ingress, suction blocked, tank emptying, vortexing</td>
+<td>Strainer, tank level, gland sealing water, joints on suction line</td>
+</tr>
+<tr>
+<td>Crackling noise, pressure fluctuating</td>
+<td>Cavitation</td>
+<td>Suction gauge, liquid temperature, strainer, suction valve fully open</td>
+</tr>
+<tr>
+<td>Low output, normal noise</td>
+<td>Worn wear rings (internal leakage), worn impeller, partly blocked impeller</td>
+<td>Compare against pump curve, open up and measure ring clearances</td>
+</tr>
+<tr>
+<td>High motor current</td>
+<td>Running beyond design flow, rubbing parts, wrong liquid density/viscosity</td>
+<td>Discharge throttling, alignment, bearings</td>
+</tr>
+<tr>
+<td>Vibration</td>
+<td>Misalignment, bearing wear, unbalanced or damaged impeller, cavitation</td>
+<td>Coupling alignment, bearing condition</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scenario 1: sea water cooling pump in heavy weather, light ship.</strong> The ship is rolling and pitching in ballast. The sea water pump discharge pressure starts dipping and the low-pressure alarm comes on intermittently.</p>
+<p>The sea chest is coming near the surface as the ship rolls and pitches, so air gets in. Also check whether the strainer is choking with debris. Suitable actions:</p>
+<ul>
+<li>Change over to the low sea chest if there is one.</li>
+<li>Start the standby pump if procedure allows.</li>
+<li>Clean the strainer.</li>
+<li>Inform the bridge. A course or speed alteration may help.</li>
+</ul>
+<p><strong>Scenario 2: boiler feed pump noisy after a plant upset.</strong> The hot well temperature has risen and the level is low. Both conditions cut NPSHa: the vapour pressure is higher and the static head is smaller. Restore the hot well level and bring down the temperature by checking condenser or drain cooler performance. Do not throttle the feed pump suction to quieten it, because that makes cavitation worse.</p>
+<p><strong>Scenario 3: cavitating pump on deck or in the engine room.</strong> Never cure cavitation by closing in the <strong>suction</strong> valve. Instead:
+- Open the suction fully.
+- Clean the strainer.
+- Reduce flow by throttling the <strong>discharge</strong>.
+- Raise the source level, or lower the liquid temperature.</p><h2 id="s7">Maintenance checks and safety</h2><p><strong>Routine checks under the planned maintenance system:</strong>
+- <strong>Wear ring clearances.</strong> Measure them and compare with the maker's limits. Excess clearance lets discharge leak back to suction, so output falls with no other obvious sign.
+- <strong>Impeller.</strong> Look for pitting (cavitation), erosion (abrasive or high-velocity flow) and corrosion. Check how tightly the impeller is secured on the shaft.
+- <strong>Mechanical seal faces and secondary seals,</strong> or the gland packing condition and the sleeve under it.
+- <strong>Bearings and lubrication.</strong> Check bearing condition and confirm the correct grease or oil level.
+- <strong>Coupling alignment.</strong> Re-check it after any motor or pump removal.
+- <strong>Priming system.</strong> Check the vacuum pump, float valves and non-return valves. A priming system that cannot hold vacuum will keep a bilge pump from ever lifting.
+- <strong>Strainers, sea chest gratings, vent cocks and gauges.</strong> Keep them working.</p>
+<p><strong>Safety when opening up a pump:</strong>
+- Isolate electrically under lock-out tag-out. Remote and automatic starts (standby, fire, cooling pumps) are a real hazard.
+- Close and secure the suction and discharge valves. For sea-connected pumps, the sea chest and overboard valves must hold.
+- Relieve pressure and drain before slacking any covers. Treat a sea-connected pump as a flooding risk.
+- Hot liquids, such as feed and thermal oil, need cooling down and extra care.
+- After reassembly:
+    - check rotation after any electrical work;
+    - prime the pump properly;
+    - never run it dry to 'test' it.
+- Fire pumps and emergency fire pumps are safety-critical equipment. Inform the bridge and follow the company SMS before taking one out of service.</p><h2 id="s8">Oral exam questions examiners like</h2><p><strong>Why can a centrifugal pump not prime itself?</strong> It develops head in metres of the fluid it is handling. Air has very low density, so the pressure difference is negligible and it cannot pull liquid up the suction.</p>
+<p><strong>Why start against a closed discharge?</strong> For a radial-flow pump, power is minimum at zero flow, so the motor starts lightly loaded. Then say that this does not apply to axial-flow pumps, and that a pump must not run long at shut-off.</p>
+<p><strong>Define NPSHa and NPSHr.</strong> NPSHa is the absolute suction head above vapour pressure, and it is set by the system. NPSHr is the minimum the pump needs, found by test, and it rises with flow. Safe running requires NPSHa above NPSHr with a margin.</p>
+<p><strong>Where does cavitation damage appear and why?</strong> Near the inlet region of the impeller vanes. Bubbles form at the lowest pressure point just inside the eye, then collapse as pressure rises.</p>
+<p><strong>How do you tell air ingress from cavitation?</strong> Check the suction gauge and the liquid temperature against the conditions. Look for leaking glands and joints, a low tank level or vortexing. Cavitation follows from low suction pressure or hot liquid. Air ingress follows from a leak or vortex.</p>
+<p><strong>Why is the hot well above the feed pump?</strong> To give positive static head. Hot feed water has high vapour pressure, so NPSHa would otherwise be too low.</p>
+<p><strong>What happens as wear rings wear?</strong> Internal recirculation increases, so capacity and efficiency fall.</p>
+<p>Expect the examiner to hand you a pump curve or a scenario and ask what you would do. Talk through it step by step: safety, isolation, likely cause, check, remedy.</p><div class="card kp"><div class="label">Key points</div><ul><li>A centrifugal pump develops head in metres of the fluid it handles, so it cannot lift air and must be primed.</li><li>Priming is achieved by flooded suction, attached or central vacuum priming, ejectors, or self-priming casing designs.</li><li>Cavitation occurs when pressure at the impeller eye falls below the liquid&#x27;s vapour pressure. Bubbles form and then collapse, pitting the impeller.</li><li>Safe running requires NPSH available to exceed the maker&#x27;s NPSH required with a margin. NPSHr rises with flow.</li><li>Hot liquid, high suction lift, dirty strainers, throttled suction and low tank levels all reduce NPSH available.</li><li>Cure cavitation by opening the suction, cleaning strainers, throttling the discharge or raising the source level, never by closing in the suction.</li><li>Start radial-flow pumps against a closed discharge, but never run them long at shut-off or dry.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>Why does a centrifugal pump need priming?</summary><p>The pump develops head proportional to the density of the fluid in the casing. With air in the casing, the pressure produced is far too small to draw liquid up the suction line, so the casing and suction must first be filled with liquid. Running it dry also damages the mechanical seal.</p></details><details><summary>What is the difference between NPSH available and NPSH required?</summary><p>NPSH available is a property of the system: absolute suction pressure head minus the liquid&#x27;s vapour pressure head, after allowing for static head and line losses. NPSH required is a property of the pump, given by the manufacturer from tests, and it increases with flow. NPSH available must stay above NPSH required with a margin to avoid cavitation.</p></details><details><summary>How do I know if my pump is cavitating?</summary><p>Typical signs are a gravel-like crackling noise, vibration, and a fluctuating or falling discharge pressure and ammeter reading. Check the suction pressure and liquid temperature. If the pump is opened up, cavitation shows as pitting near the inlet region of the impeller vanes.</p></details><details><summary>Should I close the suction valve to stop cavitation noise?</summary><p>No. Throttling the suction adds losses and lowers NPSH available, which makes cavitation worse. Keep the suction fully open and clean the strainer. If needed, reduce flow by throttling the discharge, raise the tank level or reduce the liquid temperature.</p></details><details><summary>Why are boiler feed pumps placed below the hot well?</summary><p>Feed water is hot, so its vapour pressure is high and NPSH available is small. Placing the hot well or deaerator above the pump adds positive static head at the suction, keeping NPSH available above what the pump needs.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>Why is a conventional centrifugal pump unable to draw water up a dry suction line?</p><button data-c="0">Its impeller turns too slowly to create suction</button><button data-c="0">Its non-return valve blocks air from leaving</button><button data-c="1">The head it produces in air gives negligible pressure difference</button><button data-c="0">The wear rings only seal when they are wet</button><div class="ex">Pressure developed equals density × g × head. Air&#x27;s very low density means almost no suction is produced, so priming is required.</div></div><div class="q"><p>A radial-flow centrifugal pump is normally started with the discharge valve closed mainly because:</p><button data-c="1">Power demand is lowest at zero flow, easing the motor start</button><button data-c="0">It prevents cavitation during the first few minutes</button><button data-c="0">It allows the priming pump to clear the discharge line</button><button data-c="0">It keeps the mechanical seal faces lubricated</button><div class="ex">On a radial-flow pump curve, absorbed power is minimum at shut-off. Axial-flow pumps behave the opposite way.</div></div><div class="q"><p>Which change will reduce NPSH available at a pump suction?</p><button data-c="0">Raising the level in the source tank</button><button data-c="0">Cleaning a partly choked suction strainer</button><button data-c="0">Cooling the liquid being pumped</button><button data-c="1">Increasing the temperature of the liquid</button><div class="ex">Higher temperature raises vapour pressure, which is subtracted in the NPSH available calculation. The other three changes all increase NPSHa.</div></div><div class="q"><p>A pump is cavitating. Which action is correct?</p><button data-c="0">Partly close the suction valve to steady the flow</button><button data-c="1">Throttle the discharge to reduce flow rate</button><button data-c="0">Open the discharge fully to increase flow</button><button data-c="0">Shut off the gland sealing water</button><div class="ex">Reducing flow lowers NPSH required and suction losses. Throttling the suction or increasing flow worsens cavitation.</div></div><div class="q"><p>Where is cavitation pitting typically found in a centrifugal pump?</p><button data-c="0">On the outer tip of the vanes at the volute tongue</button><button data-c="0">Mainly on the discharge flange face</button><button data-c="1">Near the inlet region of the impeller vanes</button><button data-c="0">On the bearing races at the drive end</button><div class="ex">Vapour forms at the lowest pressure point just inside the impeller eye. The bubbles collapse nearby as pressure rises, pitting the vane inlet area.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/engineering/positive-displacement-pumps/">Positive displacement pumps</a><a href="/guides/systems/central-cooling-water-system/">Central cooling water system</a><a href="/guides/systems/bilge-system/">Bilge system</a><a href="/guides/systems/emergency-fire-pump/">Emergency fire pump</a><a href="/guides/systems/cargo-pumps-on-tankers/">Cargo pumps on tankers</a><a href="/guides/career/meo-class-4-exam-process-for-marine-engineers/">MEO Class 4 exam: process for marine engineers</a></div><p class="src"><strong>References:</strong> STCW Code, Section A-III/1 (Table A-III/1, operation of pumping systems); SOLAS 1974 as amended, Chapter II-1, Regulation 35-1 (Bilge pumping arrangements); SOLAS 1974 as amended, Chapter II-2, Regulation 10 (Fire fighting); International Code for Fire Safety Systems (FSS Code), Chapter 12 (Fixed emergency fire pumps)</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

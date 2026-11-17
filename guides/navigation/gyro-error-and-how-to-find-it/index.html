@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gyro Error and How to Find It: Methods and Worked Examples | Ocean Link</title><meta name="description" content="Gyro error is true bearing minus gyro bearing, named High or Low. Learn transit, azimuth and amplitude methods, worked examples and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/navigation/gyro-error-and-how-to-find-it/">
+<meta property="og:title" content="Gyro Error and How to Find It: Methods and Worked Examples | Ocean Link"><meta property="og:description" content="Gyro error is true bearing minus gyro bearing, named High or Low. Learn transit, azimuth and amplitude methods, worked examples and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/navigation/gyro-error-and-how-to-find-it/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Gyro Error and How to Find It: Methods and Worked Examples", "description": "Gyro error is true bearing minus gyro bearing, named High or Low. Learn transit, azimuth and amplitude methods, worked examples and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/navigation/gyro-error-and-how-to-find-it/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I know if gyro error is high or low?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract the gyro bearing from the true bearing. If the result is negative, the gyro reads more than true and the error is High. If it is positive, the error is Low. To get true, subtract a High error and add a Low error."}}, {"@type": "Question", "name": "How often should gyro error be checked?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single worldwide figure; the company SMS and the Master's standing orders set it. A common expectation, in line with industry bridge guidance, is at least once a watch when conditions allow. Also check after major course alterations and whenever the heading looks suspect."}}, {"@type": "Question", "name": "What is the most accurate way to find gyro error?", "acceptedAnswer": {"@type": "Answer", "text": "In coastal waters, a well-charted transit is usually the most accurate and needs no calculation. At sea, a careful azimuth of a low-altitude body, or an amplitude at sunrise or sunset, is the standard method. Accuracy depends on good timing, a correct position and a steady ship."}}, {"@type": "Question", "name": "Can I use the satellite compass to check gyro error?", "acceptedAnswer": {"@type": "Answer", "text": "A GNSS (satellite) compass is a useful cross-check and helps spot a gyro that is drifting. Whether it counts as the formal compass error check depends on your company procedures. Many still require a terrestrial or celestial observation, so follow your SMS."}}, {"@type": "Question", "name": "Why does gyro error change when the ship changes course or speed?", "acceptedAnswer": {"@type": "Answer", "text": "The main reason is speed (steaming) error, which depends on the north–south component of the ship's speed and on latitude. If the speed and latitude inputs are wrong or not updated, the residual error will vary with course and speed. Ballistic effects after big alterations can also cause temporary errors."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Navigation", "item": "https://card.oceanlinkai.com/guides/navigation/"}, {"@type": "ListItem", "position": 3, "name": "Gyro error and how to find it", "item": "https://card.oceanlinkai.com/guides/navigation/gyro-error-and-how-to-find-it/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/navigation/">Navigation</a></div><h1>Gyro error and how to find it</h1><div class="card sum"><div class="label">Quick answer</div><p>Gyro error is the difference between the true direction and what the gyrocompass shows. It is named High if the gyro reads more than true and Low if it reads less. You find it by comparing a gyro bearing against a known true bearing, such as a charted transit or the computed azimuth or amplitude of a celestial body. Most company procedures expect a check every watch where possible, and the result must be logged and applied.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What gyro error is and how it is named</a><a href="#s2">Why a gyro has an error at all</a><a href="#s3">Methods of finding gyro error</a><a href="#s4">Step-by-step: taking a gyro error check</a><a href="#s5">Worked examples</a><a href="#s6">Common mistakes on the bridge and in the exam</a><a href="#s7">Oral exam questions you should be ready for</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What gyro error is and how it is named</h2><p>A gyrocompass seeks true north, but it never points there perfectly. The difference between true and gyro is the <strong>gyro error</strong>.</p>
+<p>It is named in one of two ways:</p>
+<ul>
+<li><strong>High (H):</strong> the gyro reads <em>more</em> than true. Subtract the error from the gyro reading to get true.</li>
+<li><strong>Low (L):</strong> the gyro reads <em>less</em> than true. Add the error to the gyro reading to get true.</li>
+</ul>
+<p>The simplest way to keep it straight:</p>
+<p><strong>Error = True − Gyro</strong></p>
+<ul>
+<li>A negative result means the gyro is High.</li>
+<li>A positive result means the gyro is Low.</li>
+</ul>
+<p>Some officers and older texts name gyro error East or West, like magnetic compass error. A gyro reading high corresponds to a westerly error and a gyro reading low to an easterly error. In the exam room and the log book, High and Low is the clearest convention. Use whatever your company's compass error book specifies, but never mix the two in the same entry.</p>
+<p>Gyro error applies to everything taken off that gyro:</p>
+<ul>
+<li>the heading display;</li>
+<li>bearing repeaters on the bridge wings;</li>
+<li>radar and ARPA heading input;</li>
+<li>ECDIS heading and the heading line;</li>
+<li>autopilot heading;</li>
+<li>AIS heading output.</li>
+</ul>
+<p>An uncorrected 2° error therefore affects collision avoidance and position fixing, not just the course recorder.</p><h2 id="s2">Why a gyro has an error at all</h2><p>You will be asked this in orals. Know the causes in principle, even though modern gyros compensate for most of them.</p>
+<ul>
+<li><strong>Speed (steaming) error.</strong> The gyro settles relative to the combined motion of the earth's rotation and the ship's own motion over the ground. The north–south component of the ship's speed tilts that resultant.<ul>
+<li>The error is <strong>westerly (gyro reads high) on northerly courses</strong> and <strong>easterly (gyro reads low) on southerly courses</strong>.</li>
+<li>It is greatest on north–south headings, at high speed and in high latitudes.</li>
+<li>It is removed by a speed/latitude corrector, set manually or fed automatically from the log and GNSS.</li>
+</ul>
+</li>
+<li><strong>Latitude (damping) error.</strong> This occurs in gyros damped by offsetting the pendulous force. The error varies with latitude and is again handled by the latitude correction.</li>
+<li><strong>Ballistic deflection.</strong> A rapid change of speed or course makes the gyro swing temporarily. Designs minimise it, but readings straight after a big alteration or crash stop are less reliable.</li>
+<li><strong>Rolling and intercardinal errors.</strong> These are caused by the ship's motion in a seaway and are largely eliminated by design, for example by twin gyros or a liquid ballistic.</li>
+<li><strong>Settling and mechanical errors.</strong> A gyro started recently may not have settled. The manufacturer's manual states the settling time; it is a matter of hours, not minutes. Other mechanical errors include a misaligned lubber line, follow-up faults and repeaters out of step with the master.</li>
+</ul>
+<p>The practical point is this. If the speed and latitude inputs are wrong, for example a manual corrector left on the last voyage's settings or a failed log input, the error will change with course and speed. That is why one check per voyage is not enough.</p><h2 id="s3">Methods of finding gyro error</h2><p>Every method follows the same principle: obtain a <strong>true bearing</strong> you can trust, take a <strong>gyro bearing</strong> of the same object at the same moment, and compare them.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Source of true bearing</th>
+<th>Best used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transit (range)</td>
+<td>Chart: two charted objects in line</td>
+<td>Coastal and pilotage waters</td>
+</tr>
+<tr>
+<td>Leading lights / leading line</td>
+<td>Chart or Admiralty List of Lights / Sailing Directions</td>
+<td>Port approaches</td>
+</tr>
+<tr>
+<td>Azimuth of a celestial body</td>
+<td>Computed from almanac, time and DR or position</td>
+<td>Any time a body is visible, ideally at low altitude</td>
+</tr>
+<tr>
+<td>Amplitude</td>
+<td>Computed when the body's centre is on the celestial horizon</td>
+<td>Sunrise and sunset</td>
+</tr>
+<tr>
+<td>Polaris</td>
+<td>Polaris azimuth table in the Nautical Almanac</td>
+<td>Northern hemisphere, twilight</td>
+</tr>
+<tr>
+<td>Alongside a berth</td>
+<td>Charted berth heading</td>
+<td>Rough cross-check only</td>
+</tr>
+</tbody>
+</table>
+<p>Notes on each method:</p>
+<ul>
+<li><strong>Transits</strong> are the most accurate and need no calculation. Take the bearing at the instant the objects come in line.</li>
+<li><strong>Azimuths</strong> can be done whenever a body is visible. Low-altitude bodies give more reliable bearings because the azimuth mirror is easier to use. Compute the true azimuth using the method your training covered, such as ABC tables, the azimuth formula or an approved calculator.</li>
+<li><strong>Amplitudes</strong> are taken when the sun's centre is on the celestial horizon. Because of refraction and dip, this is commonly taken as the moment the sun's <strong>lower limb is roughly a semi-diameter above the visible horizon</strong>.</li>
+<li><strong>Berth headings</strong> are only a sanity check. Fenders, quay curvature and how the ship is lying all add uncertainty.</li>
+</ul>
+<p>A satellite (GNSS) compass, where fitted, is useful for spotting drift between watches. It is not a substitute for an independent check unless your company's procedures say it may be used that way.</p><h2 id="s4">Step-by-step: taking a gyro error check</h2><ol>
+<li><strong>Check the gyro first.</strong><ul>
+<li>Confirm the speed and latitude inputs are correct, or that the auto inputs are live.</li>
+<li>Confirm the repeater you will use agrees with the master gyro heading.</li>
+</ul>
+</li>
+<li><strong>Choose your object.</strong> Pick a charted transit, a low-altitude sun or star, or plan an amplitude at sunrise or sunset.</li>
+<li><strong>Prepare the instrument.</strong><ul>
+<li>Fit the azimuth mirror or circle and level it.</li>
+<li>On a wing repeater, sight through the correct side and wait for the ship to settle on heading.</li>
+</ul>
+</li>
+<li><strong>Take the bearing and note the exact time</strong> (UTC for celestial work). Take two or three bearings if the ship is yawing, then average them.</li>
+<li><strong>Obtain the true bearing.</strong><ul>
+<li>For a transit, measure it from the chart.</li>
+<li>For a celestial body, compute the azimuth or amplitude for that time and position.</li>
+</ul>
+</li>
+<li><strong>Compute the error.</strong> Error = True − Gyro. Name it High or Low.</li>
+<li><strong>Derive magnetic compass deviation</strong> if the procedure requires it. Use the same moment's heading, and take variation from the chart.</li>
+<li><strong>Record it</strong> in the compass error book or deck log, with time, position, method, body, heading and result.</li>
+<li><strong>Apply it and tell people.</strong><ul>
+<li>Correct bearings and courses as needed.</li>
+<li>Inform the Master if the error is larger than usual or has changed significantly.</li>
+<li>Follow your SMS on when the gyro must be adjusted or reported as defective.</li>
+</ul>
+</li>
+</ol>
+<p>How often depends on the company SMS and the Master's standing orders. The common expectation, reflected in industry bridge guidance, is at least once a watch where conditions allow. Also check after a large alteration of course and whenever something looks wrong.</p><figure><svg aria-label="A six-step flow chart in a snake layout. Down the left: 1 check gyro inputs and repeater, 2 choose a transit or celestial body, 3 take the bearing and note the exact time. Then across to the right and upwards: 4 get the true bearing from the chart or by computation, 5 Error = True minus Gyro, named High or Low, 6 log, apply and inform the Master." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" font-family="Inter, sans-serif" role="img"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#00E5FF" /></marker></defs><rect x="0" y="0" width="800" height="540" rx="12" fill="#0F1217" /><text x="400" y="55" text-anchor="middle" font-size="30" font-weight="700" fill="#F2F4F7">Gyro error check: steps</text><rect x="30" y="90" width="340" height="105" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="50" y="132" font-size="26" font-weight="700" fill="#00E5FF">1 Check gyro</text><text x="50" y="172" font-size="26" fill="#F2F4F7">inputs, repeater</text><rect x="30" y="235" width="340" height="105" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="50" y="277" font-size="26" font-weight="700" fill="#00E5FF">2 Choose object</text><text x="50" y="317" font-size="26" fill="#F2F4F7">transit or body</text><rect x="30" y="380" width="340" height="105" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="50" y="422" font-size="26" font-weight="700" fill="#00E5FF">3 Take bearing</text><text x="50" y="462" font-size="26" fill="#F2F4F7">note exact time</text><rect x="430" y="380" width="340" height="105" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="450" y="422" font-size="26" font-weight="700" fill="#00E5FF">4 Get true bearing</text><text x="450" y="462" font-size="26" fill="#F2F4F7">chart or compute</text><rect x="430" y="235" width="340" height="105" rx="10" fill="none" stroke="#F5A524" stroke-width="3" /><text x="450" y="277" font-size="26" font-weight="700" fill="#F5A524">5 Error = T − G</text><text x="450" y="317" font-size="26" fill="#F2F4F7">name High or Low</text><rect x="430" y="90" width="340" height="105" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="450" y="132" font-size="26" font-weight="700" fill="#00E5FF">6 Log, apply,</text><text x="450" y="172" font-size="26" fill="#F2F4F7">inform Master</text><line x1="200" y1="197" x2="200" y2="231" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><line x1="200" y1="342" x2="200" y2="376" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><line x1="372" y1="432" x2="426" y2="432" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><line x1="600" y1="378" x2="600" y2="344" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><line x1="600" y1="233" x2="600" y2="199" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /></svg><figcaption>A gyro error check runs from checking the gyro inputs through to logging the result, applying it and informing the Master.</figcaption></figure><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s5">Worked examples</h2><p><strong>Example 1: Transit</strong></p>
+<ul>
+<li>Two beacons are charted in line on a true bearing of <strong>047.5°</strong>.</li>
+<li>As they come in line, the gyro repeater reads <strong>048.5°</strong>.</li>
+<li>Error = 047.5 − 048.5 = <strong>−1.0°</strong>.</li>
+<li>The gyro reads more than true, so the error is <strong>1.0° High</strong>.</li>
+<li>To correct any gyro reading, subtract 1.0°.</li>
+</ul>
+<p><strong>Example 2: Amplitude of the sun</strong></p>
+<ul>
+<li>DR latitude is 20°N and the sun's declination is 15°N. The sun is rising.</li>
+<li>sin amplitude = sin dec ÷ cos lat = 0.2588 ÷ 0.9397 = 0.2754</li>
+<li>Amplitude = <strong>16.0°</strong>. Rising sun with north declination gives <strong>E 16.0° N</strong>.</li>
+<li>True bearing = 090° − 16.0° = <strong>074.0°</strong>.</li>
+<li>Gyro bearing observed = <strong>075.0°</strong>.</li>
+<li>Error = 074.0 − 075.0 = <strong>−1.0°</strong>, so the error is <strong>1.0° High</strong>.</li>
+</ul>
+<p><strong>Example 3: Using gyro error to find magnetic compass deviation</strong></p>
+<p>The gyro error is 1.0° High, as above. At the same moment:</p>
+<ul>
+<li>the gyro heading is <strong>090°</strong>;</li>
+<li>the standard magnetic compass reads <strong>093°</strong>;</li>
+<li>chart variation is <strong>3° W</strong>.</li>
+</ul>
+<p>Work it through:</p>
+<ul>
+<li>True heading = 090 − 1 = <strong>089°</strong>.</li>
+<li>Magnetic heading = true + westerly variation = 089 + 3 = <strong>092°</strong>.</li>
+<li>The compass reads 093°, so it reads 1° more than magnetic. Deviation is <strong>1° W</strong>.</li>
+<li>Check (east positive, west negative): 093 − 1 (dev) − 3 (var) = 089°T. ✓</li>
+</ul>
+<p>Always close the loop with a check like the last line. It catches sign errors before they reach the log book.</p><figure><svg aria-label="Diagram of own ship with a north line and a transit line running to two beacons in line on a charted true bearing of 047.5 degrees. A panel shows True 047.5, Gyro 048.5, Error = True minus Gyro = minus 1.0 degrees, which is 1.0 degree High: the gyro reads more, so subtract 1.0 degrees." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="Inter, sans-serif" role="img"><rect x="0" y="0" width="800" height="520" rx="12" fill="#0F1217" /><text x="400" y="50" text-anchor="middle" font-size="30" font-weight="700" fill="#F2F4F7">Transit: Error = True − Gyro</text><line x1="110" y1="450" x2="110" y2="110" stroke="#F2F4F7" stroke-width="2" stroke-dasharray="8 6" /><text x="110" y="98" text-anchor="middle" font-size="26" font-weight="700" fill="#F2F4F7">N</text><line x1="110" y1="450" x2="400" y2="184" stroke="#00E5FF" stroke-width="3" /><path d="M110 370 A80 80 0 0 1 169 396" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="185" y="428" font-size="26" fill="#00E5FF">047.5°T</text><polygon points="268,307 292,307 280,280" fill="#F5A524" /><polygon points="341,239 365,239 353,206" fill="#F5A524" /><text x="150" y="160" font-size="26" fill="#F2F4F7">Beacons in line</text><polygon points="110,432 124,466 96,466" fill="#00B0D2" stroke="#F2F4F7" stroke-width="2" /><text x="40" y="500" font-size="26" fill="#F2F4F7">Own ship</text><rect x="440" y="90" width="340" height="400" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="465" y="140" font-size="26" fill="#F2F4F7">True (chart) 047.5°</text><text x="465" y="185" font-size="26" fill="#F2F4F7">Gyro reads 048.5°</text><line x1="460" y1="210" x2="760" y2="210" stroke="#00B0D2" stroke-width="2" /><text x="465" y="252" font-size="26" fill="#00E5FF">047.5 − 048.5</text><text x="465" y="295" font-size="26" fill="#00E5FF">= −1.0°</text><text x="465" y="350" font-size="30" font-weight="700" fill="#F5A524">1.0° HIGH</text><text x="465" y="405" font-size="26" fill="#F2F4F7">Gyro reads more:</text><text x="465" y="445" font-size="26" fill="#F2F4F7">subtract 1.0°</text></svg><figcaption>In the transit example, the true bearing comes from the chart and the gyro reads one degree more, so the error is 1.0° High.</figcaption></figure><h2 id="s6">Common mistakes on the bridge and in the exam</h2><ul>
+<li><strong>Reversing the sign.</strong> If you work out "gyro minus true" and then name it, you will get High and Low the wrong way round. Write <em>Error = True − Gyro</em> at the top of every calculation.</li>
+<li><strong>Applying the error the wrong way.</strong> High means subtract to get true. Low means add.</li>
+<li><strong>Timing errors in celestial work.</strong><ul>
+<li>A few minutes' error in time changes the computed azimuth, especially near the meridian.</li>
+<li>For amplitudes, if you observe when the lower limb touches the visible horizon, you must apply the visible-horizon correction from the tables; using the uncorrected celestial-horizon amplitude at that moment gives the wrong true bearing.</li>
+</ul>
+</li>
+<li><strong>Using the wrong position.</strong> A grossly wrong DR latitude affects the computed azimuth and amplitude.</li>
+<li><strong>Taking bearings while the ship is yawing</strong>, or straight after a large alteration when ballistic effects may remain.</li>
+<li><strong>Unchecked repeaters.</strong> A repeater one degree out of step with the master gyro gives a false error.</li>
+<li><strong>Stale corrector settings.</strong> On gyros with manual speed and latitude correctors, the settings must be updated as the voyage progresses.</li>
+<li><strong>Not passing the result on.</strong> An error found but never applied to radar or ECDIS heading, or never mentioned at handover, is little better than no check at all.</li>
+</ul><h2 id="s7">Oral exam questions you should be ready for</h2><ul>
+<li><strong>Define gyro error and how it is named.</strong> It is the difference between true and gyro. It is High if the gyro reads more than true, Low if less.</li>
+<li><strong>What is speed (steaming) error and on which courses is it greatest?</strong> It is caused by the north–south component of the ship's speed. It is greatest on northerly and southerly courses, at high speed and in high latitudes. It is westerly (high) on northerly courses and easterly (low) on southerly courses.</li>
+<li><strong>How is speed error corrected?</strong> By the speed/latitude corrector, set manually or fed automatically from the log and position inputs.</li>
+<li><strong>Which methods do you use to find gyro error at sea and in coastal waters?</strong> Azimuths, amplitudes and Polaris at sea. Transits and leading lines on the coast.</li>
+<li><strong>When do you observe an amplitude, and why not when the lower limb touches the horizon?</strong> The basic amplitude calculation assumes the body's centre is on the celestial horizon. Refraction and dip mean the sun's centre is on the celestial horizon when the lower limb is roughly a semi-diameter above the visible horizon. If you observe with the lower limb on the visible horizon, you must apply the tabulated visible-horizon correction.</li>
+<li><strong>Why prefer a low-altitude body for an azimuth?</strong> The bearing can be taken more accurately with an azimuth mirror or circle.</li>
+<li><strong>The gyro error has suddenly increased from 0.5° to 3°. What do you do?</strong> Re-check with another method. Compare the repeaters with the master gyro. Check the speed and latitude inputs and the magnetic compass. Inform the Master. Treat the gyro heading with caution on radar, ECDIS and autopilot until resolved, and follow the SMS defect procedure.</li>
+<li><strong>What equipment takes the gyro heading?</strong> Radar and ARPA, ECDIS, autopilot, AIS, VDR and the bearing repeaters. One error affects them all.</li>
+</ul>
+<p>Examiners usually start simple and then push. Expect "and if it's still wrong after that?"</p><div class="card kp"><div class="label">Key points</div><ul><li>Gyro error = True − Gyro; High if the gyro reads more than true (subtract), Low if it reads less (add).</li><li>Find it by comparing a gyro bearing with a trusted true bearing: a transit, leading line, azimuth, amplitude or Polaris.</li><li>Observe amplitudes when the sun&#x27;s lower limb is about a semi-diameter above the visible horizon, or apply the visible-horizon correction if observed touching it.</li><li>Speed error is westerly (high) on northerly courses and easterly (low) on southerly courses, and is corrected by speed/latitude inputs.</li><li>Check frequency is set by your company SMS and standing orders, commonly once a watch where possible and after large alterations.</li><li>Gyro error affects radar, ECDIS, autopilot and AIS heading, not just the steering repeater.</li><li>Always log the method, time, position and result, and close the loop with a True/Compass check.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>How do I know if gyro error is high or low?</summary><p>Subtract the gyro bearing from the true bearing. If the result is negative, the gyro reads more than true and the error is High. If it is positive, the error is Low. To get true, subtract a High error and add a Low error.</p></details><details><summary>How often should gyro error be checked?</summary><p>There is no single worldwide figure; the company SMS and the Master&#x27;s standing orders set it. A common expectation, in line with industry bridge guidance, is at least once a watch when conditions allow. Also check after major course alterations and whenever the heading looks suspect.</p></details><details><summary>What is the most accurate way to find gyro error?</summary><p>In coastal waters, a well-charted transit is usually the most accurate and needs no calculation. At sea, a careful azimuth of a low-altitude body, or an amplitude at sunrise or sunset, is the standard method. Accuracy depends on good timing, a correct position and a steady ship.</p></details><details><summary>Can I use the satellite compass to check gyro error?</summary><p>A GNSS (satellite) compass is a useful cross-check and helps spot a gyro that is drifting. Whether it counts as the formal compass error check depends on your company procedures. Many still require a terrestrial or celestial observation, so follow your SMS.</p></details><details><summary>Why does gyro error change when the ship changes course or speed?</summary><p>The main reason is speed (steaming) error, which depends on the north–south component of the ship&#x27;s speed and on latitude. If the speed and latitude inputs are wrong or not updated, the residual error will vary with course and speed. Ballistic effects after big alterations can also cause temporary errors.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>A charted transit bears 120.0°T. At the moment of the transit the gyro bearing is 121.5°. What is the gyro error?</p><button data-c="1">1.5° High</button><button data-c="0">1.5° Low</button><button data-c="0">1.5° East</button><button data-c="0">3.0° High</button><div class="ex">Error = True − Gyro = 120.0 − 121.5 = −1.5°, meaning the gyro reads more than true, so it is 1.5° High. (STCW Code, Table A-II/1: determine errors of the gyro-compass.)</div></div><div class="q"><p>The gyro error is 2° Low and the gyro course is 245°. What is the true course?</p><button data-c="0">243°</button><button data-c="0">245°</button><button data-c="1">247°</button><button data-c="0">249°</button><div class="ex">A Low gyro reads less than true, so the error is added: 245° + 2° = 247°T. (STCW Code, Table A-II/1.)</div></div><div class="q"><p>When should the bearing of the sun be taken for an amplitude worked with the basic celestial-horizon formula (no visible-horizon correction)?</p><button data-c="0">When the lower limb is just touching the visible horizon</button><button data-c="1">When the lower limb is roughly a semi-diameter above the visible horizon</button><button data-c="0">When the upper limb has just disappeared below the horizon</button><button data-c="0">When the sun&#x27;s altitude is about 10°</button><div class="ex">The basic amplitude formula assumes the sun&#x27;s centre is on the celestial horizon. Allowing for refraction and dip, that is when the lower limb is about a semi-diameter above the visible horizon. (STCW Code, Table A-II/1: celestial means of finding compass error.)</div></div><div class="q"><p>On which headings is gyro speed (steaming) error greatest?</p><button data-c="0">East and west</button><button data-c="0">The intercardinal headings (NE, SE, SW, NW)</button><button data-c="0">It is the same on all headings</button><button data-c="1">North and south</button><div class="ex">Speed error depends on the north–south component of the ship&#x27;s speed, so it is greatest on northerly and southerly headings and nil on east–west. (STCW Code, Table A-II/1: knowledge of the principles of gyro-compasses and their errors.)</div></div><div class="q"><p>Gyro error is 1° High. The gyro heading is 180°, the magnetic compass heading is 184° and variation is 2°W. What is the deviation?</p><button data-c="0">1° E</button><button data-c="0">2° E</button><button data-c="0">1° W</button><button data-c="1">3° W</button><div class="ex">True heading = 180 − 1 = 179°. Magnetic = 179 + 2 = 181°. The compass reads 184°, which is 3° more than magnetic, so deviation is 3°W. (STCW Code, Table A-II/1.)</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/navigation/azimuth-and-amplitude-observations/">Azimuth and amplitude observations</a><a href="/guides/navigation/compass-error-deviation-and-variation/">Compass error: deviation and variation</a><a href="/guides/systems/gyrocompass/">Gyrocompass</a><a href="/guides/systems/magnetic-compass/">Magnetic compass</a><a href="/guides/operations/bridge-watchkeeping/">Bridge watchkeeping</a><a href="/guides/career/how-to-prepare-for-mmd-oral-exams/">How to prepare for MMD oral exams</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter V, Regulation 19 (carriage requirements for shipborne navigational systems and equipment); STCW Code, Table A-II/1 (competence: determine errors of the magnetic and gyro-compasses); STCW Code, Section A-VIII/2 (watchkeeping arrangements and principles); IMO Resolution A.424(XI), Performance standards for gyro-compasses</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

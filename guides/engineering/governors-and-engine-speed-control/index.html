@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marine Engine Governors and Speed Control Explained | Ocean Link</title><meta name="description" content="A governor holds engine speed steady by adjusting the fuel index as load changes. Types, droop, limiters, faults, maintenance and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/engineering/governors-and-engine-speed-control/">
+<meta property="og:title" content="Marine Engine Governors and Speed Control Explained | Ocean Link"><meta property="og:description" content="A governor holds engine speed steady by adjusting the fuel index as load changes. Types, droop, limiters, faults, maintenance and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/engineering/governors-and-engine-speed-control/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Marine Engine Governors and Speed Control Explained", "description": "A governor holds engine speed steady by adjusting the fuel index as load changes. Types, droop, limiters, faults, maintenance and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/engineering/governors-and-engine-speed-control/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between droop and isochronous governor mode?", "acceptedAnswer": {"@type": "Answer", "text": "In droop mode the steady speed falls slightly as load increases, which allows stable load sharing between parallel generators. In isochronous mode speed stays the same at any load. Isochronous sets in parallel need electronic load sharing or a PMS to divide the kW."}}, {"@type": "Question", "name": "Why does a diesel generator hunt and how do I stop it?", "acceptedAnswer": {"@type": "Answer", "text": "Common causes are air or dirty oil in a hydraulic governor, wrong compensation setting, a sticking linkage, a faulty speed pickup or uneven fuel pumps. Check oil level and condition and the linkage first, then re-set compensation as the maker describes. If it will not settle, take the set off the board in a controlled way after informing the bridge."}}, {"@type": "Question", "name": "Is the overspeed trip part of the governor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Class rules (IACS UR M3) require a separate overspeed protective device, independent of the governor, on generator engines of 220 kW and above and on declutchable or CPP main engines of 220 kW and above, and most main engines have one in practice. This means a governor fault that drives fuel up cannot also disable the protection. It must be tested at the intervals set by the PMS and class."}}, {"@type": "Question", "name": "Why won't the main engine pick up rpm quickly after manoeuvring?", "acceptedAnswer": {"@type": "Answer", "text": "Usually a limiter or load-up programme is working as designed. The scavenge air limiter caps fuel until the turbocharger builds boost, and the load-up programme ramps rpm slowly in the upper range. Check whether a limiter is active before suspecting a fault."}}, {"@type": "Question", "name": "Can I change electronic governor parameters myself?", "acceptedAnswer": {"@type": "Answer", "text": "Only with the Chief Engineer's authority and in line with the maker's instructions. Back up the existing settings, record every change and test under controlled conditions. Some changes may need maker or class involvement depending on the system and company SMS."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Marine engineering", "item": "https://card.oceanlinkai.com/guides/engineering/"}, {"@type": "ListItem", "position": 3, "name": "Governors and Engine Speed Control on Ships", "item": "https://card.oceanlinkai.com/guides/engineering/governors-and-engine-speed-control/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/engineering/">Marine engineering</a></div><h1>Governors and Engine Speed Control on Ships</h1><div class="card sum"><div class="label">Quick answer</div><p>A governor senses engine speed, compares it with the set speed and moves the fuel rack or fuel index to correct the difference. It does this whether the load changes because a pump starts or because the propeller lifts out of the water. Marine engineers must understand droop and isochronous control, compensation, fuel limiters and the separate overspeed trip, and must be able to diagnose hunting and poor load sharing in the engine room and at the oral exam.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What a governor does and why the engine needs one</a><a href="#s2">How it works step by step: mechanical-hydraulic and electronic</a><a href="#s3">Droop, load sharing and limiters in practice</a><a href="#s4">Checks and maintenance</a><a href="#s5">Faults, symptoms and likely causes</a><a href="#s6">Worked scenarios</a><a href="#s7">Safety points</a><a href="#s8">Oral exam questions you should be ready for</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What a governor does and why the engine needs one</h2><p>A diesel engine has no natural speed control. With the fuel rack fixed, a drop in load makes the engine speed up and a rise in load makes it slow down. The governor closes that loop automatically. It does four things:</p>
+<ul>
+<li><strong>Senses</strong> actual speed, through flyweights or a magnetic pickup.</li>
+<li><strong>Compares</strong> actual speed with the speed setting.</li>
+<li><strong>Corrects</strong> by moving the fuel linkage, actuator or electronic fuel index.</li>
+<li><strong>Limits</strong> fuel so the engine is not overloaded, smoked up or driven outside safe limits.</li>
+</ul>
+<p>The job is different on different engines:</p>
+<ul>
+<li><strong>Main engine (fixed pitch propeller):</strong> holds the rpm ordered from the bridge or ECR. It resists speed swings in a seaway and keeps out of the barred speed range.</li>
+<li><strong>Generator engines:</strong> hold frequency within class limits. They also share kW with other sets running in parallel.</li>
+<li><strong>Main engine with a shaft generator or CPP:</strong> often runs at constant speed, so control behaves more like a generator governor.</li>
+</ul>
+<p>The governor is not the overspeed protection. SOLAS II-1/27 requires that, where risk from overspeeding exists, means are provided to ensure the safe speed is not exceeded. Class rules (IACS UR M3) require a separate overspeed protective device, <strong>independent</strong> of the governor, on generator engines of 220 kW and above and on main engines of 220 kW and above that can be declutched or drive a CPP. In practice most main engines are also fitted with an independent overspeed trip. If the governor sticks at full fuel, the overspeed trip is what saves the engine.</p><figure><svg aria-label="Block diagram of the governor control loop. A set speed box feeds a compare box. The compare box feeds a move fuel index box, which passes through a limiters box to the engine. A sense speed box takes the actual rpm from the engine and feeds it back to the compare box. An amber overspeed trip box, labelled separate device, is linked to the engine by a dashed line, showing that it is independent of the governor loop." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img"><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="600" fill="#0F1217" rx="12" /><text x="400" y="55" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Governor control loop</text><rect x="30" y="110" width="180" height="70" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="120" y="154" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Set speed</text><rect x="290" y="110" width="180" height="70" rx="10" fill="none" stroke="#00E5FF" stroke-width="3" /><text x="380" y="154" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Compare</text><rect x="550" y="110" width="220" height="70" rx="10" fill="none" stroke="#00E5FF" stroke-width="3" /><text x="660" y="154" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Move fuel index</text><rect x="550" y="240" width="220" height="70" rx="10" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="660" y="284" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Limiters</text><rect x="550" y="360" width="220" height="70" rx="10" fill="#00B0D2" stroke="#00E5FF" stroke-width="3" /><text x="660" y="404" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#0F1217" text-anchor="middle">Engine</text><rect x="290" y="360" width="180" height="70" rx="10" fill="none" stroke="#00E5FF" stroke-width="3" /><text x="380" y="404" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Sense speed</text><line x1="210" y1="145" x2="284" y2="145" stroke="#00E5FF" stroke-width="3" marker-end="url(#a)" /><line x1="470" y1="145" x2="544" y2="145" stroke="#00E5FF" stroke-width="3" marker-end="url(#a)" /><line x1="660" y1="180" x2="660" y2="234" stroke="#00E5FF" stroke-width="3" marker-end="url(#a)" /><line x1="660" y1="310" x2="660" y2="354" stroke="#00E5FF" stroke-width="3" marker-end="url(#a)" /><line x1="550" y1="395" x2="476" y2="395" stroke="#00E5FF" stroke-width="3" marker-end="url(#a)" /><line x1="380" y1="360" x2="380" y2="186" stroke="#00E5FF" stroke-width="3" marker-end="url(#a)" /><text x="365" y="280" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" text-anchor="end">actual rpm</text><line x1="660" y1="430" x2="660" y2="474" stroke="#F5A524" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#b)" /><rect x="420" y="480" width="350" height="90" rx="10" fill="none" stroke="#F5A524" stroke-width="3" /><text x="595" y="518" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F5A524" text-anchor="middle">Overspeed trip</text><text x="595" y="553" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">separate device</text></svg><figcaption>The governor closes the speed loop: it senses actual speed, compares it with the set speed and moves the fuel index, with limiters capping fuel. The overspeed trip is a separate, independent device.</figcaption></figure><h2 id="s2">How it works step by step: mechanical-hydraulic and electronic</h2><p><strong>Mechanical-hydraulic governor (Woodward UG/PG style principle)</strong></p>
+<ol>
+<li>A drive from the engine turns the flyweight ballhead.</li>
+<li>Centrifugal force on the flyweights is balanced against the speeder spring. The spring's compression is the speed setting.</li>
+<li>Suppose load increases and speed falls. Flyweights move in, the pilot valve plunger moves down and oil is ported to the power piston.</li>
+<li>The power piston moves the terminal shaft and linkage towards more fuel.</li>
+<li>The <strong>compensation (buffer) system</strong> moves the pilot valve back towards centre before speed has fully recovered. A buffer piston, springs and a needle valve do this. Without it, the governor would overshoot and hunt.</li>
+<li>Oil leaks through the needle valve and the compensation dissipates. The engine settles at the set speed (isochronous) or at a slightly lower speed (droop), depending on the setting.</li>
+</ol>
+<p><strong>Electronic / digital governor</strong></p>
+<ol>
+<li>Magnetic pickups read flywheel or gear teeth and give a frequency signal proportional to rpm. There is usually more than one pickup for redundancy.</li>
+<li>The controller compares this with the setpoint. On the main engine the setpoint comes from the remote control system. On a generator it comes from the switchboard raise/lower or the PMS.</li>
+<li>A control algorithm, typically PID, calculates the required fuel position.</li>
+<li>An electric or electro-hydraulic actuator moves the fuel linkage. On electronically controlled two-strokes, the fuel index goes straight to the engine control system. There is no mechanical rack linkage.</li>
+<li>Limiters cap the output before it is sent. These include scavenge air limiter, torque limiter, maximum fuel index, load-up programme and barred-range passage.</li>
+</ol>
+<p><strong>Terms examiners expect you to know</strong></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed droop</td>
+<td>Planned fall in steady speed from no load to full load, expressed as a percentage of rated speed</td>
+</tr>
+<tr>
+<td>Isochronous</td>
+<td>Same steady speed at any load (zero droop)</td>
+</tr>
+<tr>
+<td>Sensitivity</td>
+<td>Smallest speed change the governor responds to</td>
+</tr>
+<tr>
+<td>Stability</td>
+<td>Ability to settle without hunting</td>
+</tr>
+<tr>
+<td>Promptness</td>
+<td>How quickly it restores speed after a load change</td>
+</tr>
+<tr>
+<td>Hunting</td>
+<td>Continuous oscillation of speed around the setpoint</td>
+</tr>
+</tbody>
+</table><h2 id="s3">Droop, load sharing and limiters in practice</h2><p><strong>Why droop matters for generators</strong></p>
+<p>Two isochronous mechanical governors in parallel would fight each other. Each tries to be the one holding frequency, so the load swings between them. Droop solves this. Each set drops speed slightly as it takes load, so sets with similar droop settings share load in proportion.</p>
+<p>Modern installations often run isochronous with electronic load sharing. The PMS or load-sharing units share kW, and frequency is held constant. In either case, check that kW (not just amps) is shared as intended after paralleling.</p>
+<p><strong>Normal parameters, in general terms</strong></p>
+<p>The actual figures come from the maker's manual, the shipyard settings and class rules. Do not change them on guesswork. In general:</p>
+<ul>
+<li>Generator frequency stays within class limits for steady running and for sudden load changes.</li>
+<li>Main engine speed follows the telegraph setting without sustained oscillation. The barred speed range is passed through quickly.</li>
+<li>Fuel index at a given rpm stays consistent over time. A creeping index for the same speed and draught is a trend worth investigating.</li>
+</ul>
+<p><strong>Limiters on the main engine</strong></p>
+<ul>
+<li><strong>Scavenge air (charge air) limiter:</strong> caps fuel against scavenge pressure during acceleration. This prevents black smoke, fouling and thermal overload while the turbocharger catches up.</li>
+<li><strong>Torque / fuel index limiter:</strong> protects against overload, for example in heavy weather or with a fouled hull.</li>
+<li><strong>Load-up programme:</strong> ramps rpm slowly in the upper range after manoeuvring.</li>
+<li><strong>Heavy weather / constant torque modes:</strong> some electronic governors offer these to stop the governor chasing speed every time the propeller races. Availability and naming depend on the maker.</li>
+</ul><figure><svg aria-label="Graph of speed against load running from no load to full load. A solid cyan horizontal line labelled isochronous shows the same steady speed at all loads. A dashed line labelled droop starts at the same speed at no load and slopes gently down towards full load. A vertical amber arrow at the right marks the fall in speed. A note at the bottom says droop lets parallel sets share load." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img"><defs><marker id="c" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2F4F7" /></marker><marker id="d" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="500" fill="#0F1217" rx="12" /><text x="400" y="50" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Droop vs isochronous</text><line x1="120" y1="400" x2="120" y2="96" stroke="#F2F4F7" stroke-width="3" marker-end="url(#c)" /><line x1="120" y1="400" x2="734" y2="400" stroke="#F2F4F7" stroke-width="3" marker-end="url(#c)" /><text x="75" y="260" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle" transform="rotate(-90 75 260)">Speed</text><text x="120" y="440" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="start">No load</text><text x="720" y="440" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="end">Full load</text><line x1="120" y1="170" x2="710" y2="170" stroke="#00E5FF" stroke-width="4" /><line x1="120" y1="170" x2="710" y2="280" stroke="#00B0D2" stroke-width="4" stroke-dasharray="14 8" /><text x="140" y="150" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" text-anchor="start">Isochronous: steady speed</text><text x="700" y="330" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2" text-anchor="end">Droop: speed falls</text><line x1="745" y1="172" x2="745" y2="274" stroke="#F5A524" stroke-width="3" marker-end="url(#d)" /><text x="400" y="482" font-family="Inter, sans-serif" font-size="26" fill="#F5A524" text-anchor="middle">Droop lets parallel sets share load</text></svg><figcaption>In isochronous mode speed stays the same at any load, while in droop mode speed falls slightly as load rises, which lets parallel generators share load stably.</figcaption></figure><h2 id="s4">Checks and maintenance</h2><p>Intervals come from the PMS and the maker's manual. Typical routine:</p>
+<p><strong>Mechanical-hydraulic governors</strong></p>
+<ul>
+<li>Check the oil level in the sight glass daily or every watch. Use only the oil grade the maker specifies.</li>
+<li>Change the oil per PMS, or sooner if it is dirty, emulsified or burnt. Sludge in the pilot valve is a classic cause of sluggishness.</li>
+<li>After an oil change or opening up, purge air and re-set compensation. Open the needle valve to let the engine hunt briefly and clear air. Then close it gradually until hunting stops, following the maker's procedure.</li>
+<li>Check linkages for free movement, worn pins and lost motion. Lubricate the joints.</li>
+<li>Confirm that the fuel rack reaches zero on stop and does not bind at any position.</li>
+</ul>
+<p><strong>Electronic governors</strong></p>
+<ul>
+<li>Check the pickup gap and mounting, and look for metal debris on magnetic pickups.</li>
+<li>Inspect cable connectors, screens and earthing. Intermittent speed signals cause erratic behaviour.</li>
+<li>Check that actuator feedback agrees with the actual rack or index position.</li>
+<li>Keep a backup of the parameter settings. Note changes in the log, and only let authorised persons make them.</li>
+<li>Check the power supply and the changeover to backup supply where fitted.</li>
+</ul>
+<p><strong>For both types</strong></p>
+<ul>
+<li>Test the overspeed trip as required by PMS and class, using the maker's method. Record the trip speed.</li>
+<li>Test the alarms: speed pickup failure, governor failure and actuator fault.</li>
+</ul><h2 id="s5">Faults, symptoms and likely causes</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely causes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hunting (steady oscillation)</td>
+<td>Air in governor oil, compensation mis-set, worn or sticky linkage, low or dirty oil, bad PID tuning, faulty pickup, uneven fuel pumps or a misfiring unit</td>
+</tr>
+<tr>
+<td>Sluggish response, big speed dip on load</td>
+<td>Dirty oil, sticking pilot valve, limiter active (scavenge air low), compensation too slow, worn actuator</td>
+</tr>
+<tr>
+<td>Speed drifts with no load change</td>
+<td>Speeder spring/setting drift, leaking internal valves, setpoint signal fault</td>
+</tr>
+<tr>
+<td>Generators not sharing load</td>
+<td>Unequal droop settings, load-sharing line or PMS fault, one governor sticking</td>
+</tr>
+<tr>
+<td>Engine will not reach set rpm</td>
+<td>Fuel limiter or torque limiter active, fuel supply problem, heavy running (fouled hull, weather), rack stop mis-set</td>
+</tr>
+<tr>
+<td>Overspeed on load rejection</td>
+<td>Governor too slow, rack sticking, compensation too sluggish. Overspeed trip must act if speed reaches trip setting</td>
+</tr>
+<tr>
+<td>Sudden shutdown or fuel to zero</td>
+<td>Pickup failure, governor power loss, actuator fault. Fail-safe action depends on design and engine type</td>
+</tr>
+</tbody>
+</table>
+<p>Not every "governor fault" is in the governor. Before blaming it, check the fuel pumps and racks, fuel viscosity and temperature, the turbocharger, and the load itself.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s6">Worked scenarios</h2><p><strong>Scenario 1: generator hunting after paralleling</strong></p>
+<p>No. 2 DG comes on line and kW swings between the two sets.</p>
+<ol>
+<li>Check whether the swing is on one set or both. A set that hunts alone points to its own governor or fuel system.</li>
+<li>Check the governor oil level and condition on that set, and look for a sticking linkage.</li>
+<li>Compare the droop settings, or check the load-sharing/PMS status if the sets run isochronous.</li>
+<li>If you cannot settle it quickly, take the problem set off the board in a controlled way. Inform the bridge first if the power reserve will be tight.</li>
+<li>After rectification, re-set compensation per the manual and run it in parallel under observation.</li>
+</ol>
+<p><strong>Scenario 2: main engine speed swinging in heavy weather</strong></p>
+<p>The ship is pitching and rpm overshoots each time the propeller emerges.</p>
+<ul>
+<li>This is racing. The governor is doing its job, but the engine is being thrashed and repeated overspeeds may approach the trip setting.</li>
+<li>Inform the bridge and agree reduced rpm. Use the heavy weather or torque mode if the system has one.</li>
+<li>Watch the exhaust temperatures, scavenge pressure and the overspeed margin. Log the events.</li>
+</ul><h2 id="s7">Safety points</h2><ul>
+<li><strong>Never bypass or gag the overspeed trip.</strong> Never run an engine with the governor disconnected except under the maker's emergency procedure with someone standing at the fuel stop.</li>
+<li>A <strong>runaway</strong> engine needs an immediate fuel cut-off. Use the emergency stop, and know where the local fuel shut-off is before you need it.</li>
+<li>Isolate and lock out the actuator power and hydraulic supply before working on the linkage. A governor can move the rack suddenly.</li>
+<li>Tell the bridge before any test or adjustment that may affect propulsion or electrical supply.</li>
+<li>Parameter changes on electronic governors need the Chief Engineer's authority. Record them. Many systems also require maker or class involvement.</li>
+</ul><h2 id="s8">Oral exam questions you should be ready for</h2><ul>
+<li><em>Draw and explain a hydraulic governor. What is the purpose of the compensating system?</em> Describe the flyweights, speeder spring, pilot valve and power piston, then show how the buffer and needle valve prevent overshoot.</li>
+<li><em>Difference between a governor and an overspeed trip?</em> The governor controls speed continuously. The overspeed trip is an independent protective device that stops the engine at a set limit.</li>
+<li><em>What is droop and why do parallel generators need it?</em> Give the definition and explain stable load sharing.</li>
+<li><em>Why is a scavenge air limiter fitted?</em> It prevents overfuelling before boost builds: smoke, fouling, high exhaust temperatures.</li>
+<li><em>Engine hunting. List your checks in order.</em> Cover oil level and air, linkage, compensation, pickups, fuel pumps and individual units.</li>
+<li><em>What happens if the speed pickup fails on an electronic governor?</em> Explain redundancy, the alarm, and the design-specific fail-safe action.</li>
+<li><em>How do you test an overspeed trip?</em> Follow the maker's method and the PMS, record the trip speed, and get permission and inform the bridge first.</li>
+</ul>
+<p>Examiners want logical sequence and safety awareness, not memorised numbers.</p><div class="card kp"><div class="label">Key points</div><ul><li>A governor senses speed, compares it with the setpoint and adjusts fuel to hold speed as load changes.</li><li>The overspeed trip is a separate, independent protective device and must never be bypassed.</li><li>Compensation stops overshoot and hunting; re-set it per the maker&#x27;s manual after any oil change.</li><li>Droop lets parallel generators share load; isochronous sets need electronic load sharing.</li><li>Scavenge air and torque limiters deliberately cap fuel, so not every slow response is a fault.</li><li>Hunting is often caused by air or dirty governor oil, wrong compensation, a sticky linkage or a fuel pump problem, so check the simple causes before suspecting the governor mechanism or tuning.</li><li>Settings and limits come from the maker, shipyard and class; never adjust on guesswork.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>What is the difference between droop and isochronous governor mode?</summary><p>In droop mode the steady speed falls slightly as load increases, which allows stable load sharing between parallel generators. In isochronous mode speed stays the same at any load. Isochronous sets in parallel need electronic load sharing or a PMS to divide the kW.</p></details><details><summary>Why does a diesel generator hunt and how do I stop it?</summary><p>Common causes are air or dirty oil in a hydraulic governor, wrong compensation setting, a sticking linkage, a faulty speed pickup or uneven fuel pumps. Check oil level and condition and the linkage first, then re-set compensation as the maker describes. If it will not settle, take the set off the board in a controlled way after informing the bridge.</p></details><details><summary>Is the overspeed trip part of the governor?</summary><p>No. Class rules (IACS UR M3) require a separate overspeed protective device, independent of the governor, on generator engines of 220 kW and above and on declutchable or CPP main engines of 220 kW and above, and most main engines have one in practice. This means a governor fault that drives fuel up cannot also disable the protection. It must be tested at the intervals set by the PMS and class.</p></details><details><summary>Why won&#x27;t the main engine pick up rpm quickly after manoeuvring?</summary><p>Usually a limiter or load-up programme is working as designed. The scavenge air limiter caps fuel until the turbocharger builds boost, and the load-up programme ramps rpm slowly in the upper range. Check whether a limiter is active before suspecting a fault.</p></details><details><summary>Can I change electronic governor parameters myself?</summary><p>Only with the Chief Engineer&#x27;s authority and in line with the maker&#x27;s instructions. Back up the existing settings, record every change and test under controlled conditions. Some changes may need maker or class involvement depending on the system and company SMS.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>What is the main purpose of the compensating (buffer) system in a hydraulic governor?</p><button data-c="0">To increase the maximum fuel available at full load</button><button data-c="1">To prevent overshoot and give stable speed recovery</button><button data-c="0">To act as a backup overspeed trip</button><button data-c="0">To keep governor oil at the correct temperature</button><div class="ex">Compensation returns the pilot valve towards centre before speed fully recovers, preventing overshoot and hunting (maker&#x27;s governor manual principle).</div></div><div class="q"><p>Why is speed droop used on generators running in parallel with mechanical governors?</p><button data-c="0">To raise frequency as load increases</button><button data-c="0">To let the generator with the larger rating take all the load</button><button data-c="1">To allow stable, proportional load sharing between sets</button><button data-c="0">To reduce fuel consumption at low load</button><div class="ex">With similar droop settings, each set lowers speed slightly as load rises, so the sets settle into stable load sharing instead of fighting each other.</div></div><div class="q"><p>A governor sticks at full fuel and the engine speed rises. Which device should stop the engine?</p><button data-c="1">The independent overspeed protective device</button><button data-c="0">The scavenge air limiter</button><button data-c="0">The governor compensation needle valve</button><button data-c="0">The load-up programme</button><div class="ex">The overspeed trip is a separate protective device, independent of the governor, intended for exactly this case. IACS UR M3 requires it on generator engines and on declutchable/CPP main engines of 220 kW and above.</div></div><div class="q"><p>What is the function of the scavenge air limiter on a main engine?</p><button data-c="0">It keeps the engine out of the barred speed range</button><button data-c="0">It shuts the engine down on low scavenge pressure</button><button data-c="0">It controls the auxiliary blowers</button><button data-c="1">It caps fuel index relative to scavenge air pressure during acceleration</button><div class="ex">The limiter prevents overfuelling before boost builds, avoiding smoke, fouling and thermal overload (engine maker&#x27;s control system description).</div></div><div class="q"><p>A generator hunts immediately after its governor oil was changed. What is the most likely cause?</p><button data-c="0">Worn crankshaft main bearings</button><button data-c="1">Air in the governor and compensation not re-set</button><button data-c="0">Incorrect generator voltage setting</button><button data-c="0">Reverse power relay set too low</button><div class="ex">After an oil change, air must be purged and compensation re-adjusted as the maker&#x27;s manual describes, or the governor will hunt.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/engineering/generator-synchronising-and-load-sharing/">Generator synchronising and load sharing</a><a href="/guides/engineering/fuel-injection-system-and-injectors/">Fuel injection system and injectors</a><a href="/guides/systems/main-engine-two-stroke-slow-speed-diesel/">Main engine (two-stroke slow-speed diesel)</a><a href="/guides/systems/four-stroke-auxiliary-engines-and-generators/">Four-stroke auxiliary engines and generators</a><a href="/guides/engineering/turbocharger-operation-and-surging/">Turbocharger operation and surging</a><a href="/guides/career/meo-class-4-exam-process-for-marine-engineers/">MEO Class 4 exam: process for marine engineers</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter II-1, Part C, Regulation 27 (Machinery); SOLAS 1974 as amended, Chapter II-1, Part E (Periodically unattended machinery spaces); STCW Code, Section A-III/1 and Table A-III/1 (operate main and auxiliary machinery and associated control systems); STCW Code, Section A-III/2 and Table A-III/2; IACS Unified Requirement M3 (Speed governor and overspeed protective device)</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

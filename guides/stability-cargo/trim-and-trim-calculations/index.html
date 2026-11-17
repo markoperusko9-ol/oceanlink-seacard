@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trim and Trim Calculations: Formulas and Worked Example | Ocean Link</title><meta name="description" content="Trim is the difference between aft and forward drafts. Learn MCTC, LCF, change of trim, sinkage and how to calculate final drafts, with exam-style examples."><link rel="canonical" href="https://card.oceanlinkai.com/guides/stability-cargo/trim-and-trim-calculations/">
+<meta property="og:title" content="Trim and Trim Calculations: Formulas and Worked Example | Ocean Link"><meta property="og:description" content="Trim is the difference between aft and forward drafts. Learn MCTC, LCF, change of trim, sinkage and how to calculate final drafts, with exam-style examples."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/stability-cargo/trim-and-trim-calculations/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Trim and Trim Calculations: Formulas and Worked Example", "description": "Trim is the difference between aft and forward drafts. Learn MCTC, LCF, change of trim, sinkage and how to calculate final drafts, with exam-style examples.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/stability-cargo/trim-and-trim-calculations/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between trim and list?", "acceptedAnswer": {"@type": "Answer", "text": "Trim is the longitudinal inclination: the difference between the drafts aft and forward. List is a transverse inclination caused by G being off the centreline, such as uneven cargo, ballast or fuel. They are calculated with different quantities: MCTC and LCF for trim, GM and transverse moments for list."}}, {"@type": "Question", "name": "How do I calculate MCTC if it is not in the tables?", "acceptedAnswer": {"@type": "Answer", "text": "MCTC can be approximated as displacement × GM_L ÷ (100 × LBP). In practice you should always take MCTC from the ship's approved hydrostatic tables or loading computer. The approximation is for exam derivations and rough checks."}}, {"@type": "Question", "name": "Why do the forward and aft drafts change by different amounts?", "acceptedAnswer": {"@type": "Answer", "text": "Because the ship pivots about the LCF, which is usually not at midships. The end farther from the LCF moves more. Each end's share is the change of trim multiplied by that end's distance from the LCF, divided by LBP."}}, {"@type": "Question", "name": "Is there a legal maximum trim for a ship?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single trim figure that applies to all ships. Limits come from the approved stability booklet and loading conditions, SOLAS bridge visibility requirements, port and terminal rules, and company SMS instructions. Check your own ship's documentation rather than relying on a general number."}}, {"@type": "Question", "name": "What is the difference between mean draft and draft at the LCF?", "acceptedAnswer": {"@type": "Answer", "text": "The mean draft is simply the average of the forward and aft drafts. The draft at the LCF, sometimes called the true mean draft, allows for the LCF not being at midships. Use the draft at the LCF to enter hydrostatic tables, especially when the ship has significant trim."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Stability & cargo work", "item": "https://card.oceanlinkai.com/guides/stability-cargo/"}, {"@type": "ListItem", "position": 3, "name": "Trim and Trim Calculations: A Practical Guide for Officers and Cadets", "item": "https://card.oceanlinkai.com/guides/stability-cargo/trim-and-trim-calculations/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/stability-cargo/">Stability &amp; cargo work</a></div><h1>Trim and Trim Calculations: A Practical Guide for Officers and Cadets</h1><div class="card sum"><div class="label">Quick answer</div><p>Trim is the difference between the draft aft and the draft forward. Loading, discharging or shifting weight changes it, and the ship pivots about the centre of flotation (LCF). To find the new drafts, calculate bodily sinkage (weight ÷ TPC) and change of trim (trimming moment about LCF ÷ MCTC), then split the change of trim between the ends in proportion to each end&#x27;s distance from the LCF.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What trim is and why it matters</a><a href="#s2">Key terms and formulas</a><a href="#s3">Worked example: loading a weight forward</a><a href="#s4">Worked example: correcting trim with ballast</a><a href="#s5">On-board procedure: reading and using drafts</a><a href="#s6">Common mistakes</a><a href="#s7">Oral exam questions you should be ready for</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What trim is and why it matters</h2><p><strong>Trim</strong> is the difference between the draft aft and the draft forward, measured at the perpendiculars.</p>
+<ul>
+<li><strong>Trim by the stern</strong>: aft draft is greater than forward draft. This is normal for most ships at sea.</li>
+<li><strong>Trim by the head</strong>: forward draft is greater than aft draft.</li>
+<li><strong>Even keel</strong>: both drafts are equal.</li>
+</ul>
+<p>Trim affects nearly everything you do on board:</p>
+<ul>
+<li><strong>Propeller and rudder immersion</strong>: too little stern trim in ballast means poor propulsion and steering, plus racing in a seaway.</li>
+<li><strong>Forward draft and slamming</strong>: a shallow forefoot in heavy weather invites bottom slamming. Many ships set a minimum forward draft in their ballast condition.</li>
+<li><strong>Bridge visibility</strong>: SOLAS requires a minimum view of the sea surface ahead under all conditions of draught, trim and deck cargo. Excessive stern trim can breach this.</li>
+<li><strong>Under keel clearance and squat</strong>: the deepest draft governs UKC. Squat can change trim when underway in shallow water.</li>
+<li><strong>Port and berth limits</strong>: maximum draft alongside, air draft and loading-arm reach on tankers all depend on trim.</li>
+<li><strong>Cargo and tank work</strong>: tank stripping, sounding corrections and ullage tables are all trim-sensitive.</li>
+<li><strong>Fuel efficiency</strong>: many operators trim for the best hull performance at a given draft and speed. The optimum value comes from ship-specific data, not a rule of thumb.</li>
+</ul><h2 id="s2">Key terms and formulas</h2><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LCF</strong></td>
+<td>Longitudinal centre of flotation: the centroid of the waterplane. The ship trims about this point.</td>
+</tr>
+<tr>
+<td><strong>LCB / LCG</strong></td>
+<td>Longitudinal positions of the centre of buoyancy and the centre of gravity.</td>
+</tr>
+<tr>
+<td><strong>TPC</strong></td>
+<td>Tonnes per centimetre immersion: the weight that changes mean draft by 1 cm (at the LCF).</td>
+</tr>
+<tr>
+<td><strong>MCTC</strong></td>
+<td>Moment to change trim 1 cm, in tonne-metres per cm.</td>
+</tr>
+<tr>
+<td><strong>COT</strong></td>
+<td>Change of trim.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Core formulas</strong> (take TPC, MCTC and LCF from the ship's approved hydrostatic tables at the correct displacement or draft):</p>
+<ul>
+<li><strong>Bodily sinkage or rise (cm)</strong> = w ÷ TPC</li>
+<li><strong>Trimming moment (t·m)</strong> = w × distance of the weight from the LCF</li>
+<li><strong>Change of trim (cm)</strong> = trimming moment ÷ MCTC</li>
+<li><strong>Change of draft aft</strong> = COT × (distance of LCF from aft perpendicular ÷ LBP)</li>
+<li><strong>Change of draft forward</strong> = COT × (distance of LCF from forward perpendicular ÷ LBP)</li>
+</ul>
+<p>For a <strong>shift</strong> of weight already on board, displacement does not change. There is therefore no sinkage, and the trimming moment is simply w × distance shifted.</p>
+<p>For the <strong>total trim</strong> of a condition, use the separation of G and B: trim (cm) = displacement × (LCB − LCG) ÷ MCTC. If G is aft of B, the ship trims by the stern. Stability booklets and loading computers often use this method, with their own sign conventions. Always check whether the book measures from midships or the AP, and which direction is positive.</p>
+<p>MCTC is closely approximated by Δ × GM_L ÷ (100 × LBP). Because GM_L is so large, the small vertical GM_L correction for free surface is usually negligible for trim purposes.</p><figure><svg aria-label="Vertical flow chart with five boxes joined by arrows. Box 1: sinkage equals w divided by TPC. Box 2: moment equals w times the lever from the LCF. Box 3: change of trim equals moment divided by MCTC. Box 4: split the change of trim by distance from the LCF. Box 5: final draft equals initial draft plus sinkage plus or minus the share of the change of trim. An amber warning below the chart says a shift of weight causes no sinkage." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" role="img"><defs><marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker></defs><rect x="0" y="0" width="800" height="580" rx="12" fill="#0F1217" /><text x="400" y="45" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Finding the final drafts</text><rect x="80" y="70" width="640" height="58" rx="8" fill="#16202B" stroke="#00E5FF" stroke-width="3" /><text x="400" y="108" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">1  Sinkage = w ÷ TPC</text><line x1="400" y1="130" x2="400" y2="150" stroke="#00E5FF" stroke-width="3" marker-end="url(#b1)" /><rect x="80" y="154" width="640" height="58" rx="8" fill="#16202B" stroke="#00E5FF" stroke-width="3" /><text x="400" y="192" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">2  Moment = w × lever from LCF</text><line x1="400" y1="214" x2="400" y2="234" stroke="#00E5FF" stroke-width="3" marker-end="url(#b1)" /><rect x="80" y="238" width="640" height="58" rx="8" fill="#16202B" stroke="#00E5FF" stroke-width="3" /><text x="400" y="276" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">3  COT (cm) = moment ÷ MCTC</text><line x1="400" y1="298" x2="400" y2="318" stroke="#00E5FF" stroke-width="3" marker-end="url(#b1)" /><rect x="80" y="322" width="640" height="58" rx="8" fill="#16202B" stroke="#00E5FF" stroke-width="3" /><text x="400" y="360" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">4  Split COT by distance from LCF</text><line x1="400" y1="382" x2="400" y2="402" stroke="#00E5FF" stroke-width="3" marker-end="url(#b1)" /><rect x="80" y="406" width="640" height="58" rx="8" fill="#16202B" stroke="#00B0D2" stroke-width="3" /><text x="400" y="444" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">5  Final = initial + sinkage ± share</text><rect x="150" y="496" width="500" height="58" rx="8" fill="#0F1217" stroke="#F5A524" stroke-width="3" /><text x="400" y="534" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F5A524" text-anchor="middle">Shift of weight: no sinkage</text></svg><figcaption>Final drafts come from five steps: sinkage, a moment about the LCF, change of trim, a split by distance from the LCF, and then adding the results to the initial drafts.</figcaption></figure><h2 id="s3">Worked example: loading a weight forward</h2><p><strong>Data</strong>: LBP 150 m. Present drafts F 7.20 m, A 7.80 m (trim 0.60 m by the stern). TPC 22. MCTC 180 t·m/cm. LCF 3.0 m aft of midships. Load <strong>400 t</strong> with its LCG 40 m forward of midships.</p>
+<p><strong>Step 1 – Sinkage</strong>
+400 ÷ 22 = <strong>18.2 cm</strong>, added to both ends.</p>
+<p><strong>Step 2 – Lever about LCF</strong>
+The weight is 40 m forward of midships and the LCF is 3 m aft of midships. The lever is 40 + 3 = <strong>43 m forward of LCF</strong>.</p>
+<p><strong>Step 3 – Trimming moment and COT</strong>
+400 × 43 = 17,200 t·m.
+17,200 ÷ 180 = <strong>95.6 cm by the head</strong>.</p>
+<p><strong>Step 4 – Split the COT</strong>
+Midships is 75 m from the AP, so the LCF is 72 m from the AP and 78 m from the FP.</p>
+<ul>
+<li>Change aft = 95.6 × 72/150 = <strong>45.9 cm</strong> (decrease)</li>
+<li>Change forward = 95.6 × 78/150 = <strong>49.7 cm</strong> (increase)</li>
+<li>Check: 45.9 + 49.7 = 95.6 ✓</li>
+</ul>
+<p><strong>Step 5 – Final drafts</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Forward</th>
+<th>Aft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial</td>
+<td>7.200</td>
+<td>7.800</td>
+</tr>
+<tr>
+<td>Sinkage</td>
+<td>+0.182</td>
+<td>+0.182</td>
+</tr>
+<tr>
+<td>COT</td>
+<td>+0.497</td>
+<td>−0.459</td>
+</tr>
+<tr>
+<td><strong>Final</strong></td>
+<td><strong>7.879</strong></td>
+<td><strong>7.523</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The final trim is 0.356 m <strong>by the head</strong>. Cross-check: initial 0.60 m by the stern minus a 0.956 m change by the head gives 0.356 m by the head ✓.</p>
+<p>This method assumes TPC, MCTC and LCF stay constant through the change. That is fine for moderate weights. For large changes, enter the hydrostatics at the mean draft or final displacement, or use the full LCG–LCB method or the approved loading computer.</p><figure><svg aria-label="Ship profile with the aft perpendicular on the left and the forward perpendicular on the right. The LCF sits on the waterline 3 m aft of midships. A 400 t weight is loaded 40 m forward of midships, which gives a 43 m lever from the LCF. Dimension lines show 72 m from the AP to the LCF and 78 m from the LCF to the FP. The final drafts are forward 7.879 m and aft 7.523 m." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img"><defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="500" rx="12" fill="#0F1217" /><text x="400" y="45" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Loading 400 t forward</text><polygon points="80,200 725,200 690,290 110,290" fill="#1B2430" stroke="#00B0D2" stroke-width="3" /><line x1="40" y1="245" x2="760" y2="245" stroke="#00E5FF" stroke-width="2" stroke-dasharray="10 6" /><line x1="100" y1="190" x2="100" y2="385" stroke="#F2F4F7" stroke-width="2" /><line x1="700" y1="190" x2="700" y2="385" stroke="#F2F4F7" stroke-width="2" /><line x1="388" y1="120" x2="388" y2="385" stroke="#F5A524" stroke-width="2" stroke-dasharray="6 5" /><circle cx="388" cy="245" r="9" fill="#F5A524" /><rect x="515" y="140" width="90" height="45" fill="#F5A524" rx="4" /><text x="560" y="172" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#0F1217" text-anchor="middle">400 t</text><line x1="560" y1="185" x2="560" y2="225" stroke="#F5A524" stroke-width="3" marker-end="url(#a2)" /><line x1="392" y1="118" x2="556" y2="118" stroke="#00E5FF" stroke-width="3" marker-end="url(#a1)" /><text x="474" y="103" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" text-anchor="middle">Lever 43 m</text><text x="100" y="330" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">AP</text><text x="700" y="330" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">FP</text><text x="388" y="330" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F5A524" text-anchor="middle">LCF</text><line x1="104" y1="370" x2="384" y2="370" stroke="#00E5FF" stroke-width="2" marker-start="url(#a1)" marker-end="url(#a1)" /><line x1="392" y1="370" x2="696" y2="370" stroke="#00E5FF" stroke-width="2" marker-start="url(#a1)" marker-end="url(#a1)" /><text x="244" y="410" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">72 m</text><text x="544" y="410" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">78 m</text><text x="400" y="465" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#00E5FF" text-anchor="middle">Final: F 7.879 m  A 7.523 m</text></svg><figcaption>In the worked example, the 400 t weight&#x27;s trimming lever is measured from the LCF, and the change of trim is shared 72:78 between the aft and forward ends.</figcaption></figure><h2 id="s4">Worked example: correcting trim with ballast</h2><p><strong>Situation</strong>: Same ship. Trim is 1.20 m by the stern and the Master wants 0.40 m by the stern before arrival. MCTC is 180.</p>
+<ol>
+<li><strong>Required COT</strong> = 120 − 40 = 80 cm by the head.</li>
+<li><strong>Required moment</strong> = 80 × 180 = 14,400 t·m.</li>
+<li><strong>Choose the tanks.</strong> Suppose you transfer from an aft peak or aft double bottom tank to a forward tank whose centroids are 96 m apart.</li>
+<li><strong>Weight to transfer</strong> = 14,400 ÷ 96 = <strong>150 t</strong>.</li>
+</ol>
+<p>Because this is an internal transfer, displacement is unchanged and there is no sinkage. The 80 cm splits as before: about 38.4 cm off aft and 41.6 cm on forward, with the LCF 72 m from the AP.</p>
+<p>If you <strong>pump in</strong> from sea instead, you must add sinkage. Measure the lever from the LCF, not from the other tank.</p>
+<p>On board, the tank choice is also limited by:</p>
+<ul>
+<li><strong>Free surface</strong>: slack tanks reduce GM.</li>
+<li><strong>Shear force and bending moment limits</strong>.</li>
+<li><strong>The ship's Ballast Water Management Plan</strong> if exchange or treatment is involved.</li>
+</ul>
+<p>Run the final condition through the loading computer before you open a valve.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s5">On-board procedure: reading and using drafts</h2><ul>
+<li><strong>Read all six marks</strong> where possible: forward, midships and aft on both sides. Port and starboard averages remove the effect of a list.</li>
+<li><strong>Correct to the perpendiculars.</strong> Draft marks are rarely exactly at the FP and AP. The correction depends on trim and the mark's distance from the perpendicular. The ship's draft survey tables or stability booklet give the method.</li>
+<li><strong>Compare the midship mean with the mean of forward and aft.</strong> A difference indicates hogging (midships shallower) or sagging (midships deeper). Draft surveys apply a recognised correction for this. Do not just ignore it.</li>
+<li><strong>Use the draft at the LCF for hydrostatics</strong>, not the simple mean. With trim by the stern and the LCF aft of midships: draft at LCF = draft aft − (trim × distance of LCF from AP ÷ LBP).</li>
+<li><strong>Account for water density.</strong> Hydrostatic tables are usually for salt water. In dock or river water, a density correction applies, and the ship's FWA/DWA data is relevant.</li>
+<li><strong>Plan the final trim before loading starts.</strong> Hold the last cargo parcels or ballast adjustments in reserve for trimming. Tanker and bulk carrier cargo plans normally leave a final trimming quantity for exactly this reason.</li>
+<li><strong>Follow the company SMS and the approved stability booklet.</strong> Required trim limits, minimum forward drafts and loading computer checks vary by ship and operator.</li>
+</ul><h2 id="s6">Common mistakes</h2><ul>
+<li><strong>Measuring the lever from midships instead of the LCF.</strong> This is the commonest exam error. The only exception is when the LCF is actually at midships.</li>
+<li><strong>Splitting the COT equally between forward and aft.</strong> This is only correct when the LCF is at midships.</li>
+<li><strong>Mixing units.</strong> MCTC gives centimetres of trim. Convert to metres before adding to drafts.</li>
+<li><strong>Getting the sign wrong.</strong> Weight loaded forward of the LCF trims the ship by the head. Weight discharged forward of the LCF trims her by the stern.</li>
+<li><strong>Adding sinkage for a shift of weight.</strong> A shift does not change displacement, so there is no sinkage.</li>
+<li><strong>Entering hydrostatics at the wrong draft</strong>, for example the forward or aft draft rather than the draft at the LCF.</li>
+<li><strong>Treating hand calculation as final.</strong> The approved loading computer and stability booklet govern the condition. Your hand calculation is a cross-check, and examiners like to hear you say so.</li>
+</ul><h2 id="s7">Oral exam questions you should be ready for</h2><p><strong>Q: About which point does a ship trim, and why?</strong>
+The LCF, the centroid of the waterplane. A small change of trim pivots the waterplane about its centroid, so the volumes of the immersed and emerged wedges balance.</p>
+<p><strong>Q: Where would you load a weight so that the aft draft does not change?</strong>
+Forward of the LCF, at the point where the decrease aft from trim exactly cancels the bodily sinkage. The condition is d = MCTC × LBP ÷ (TPC × distance of LCF from AP). In the worked example: 180 × 150 ÷ (22 × 72) ≈ <strong>17.0 m forward of the LCF</strong>, or about 14 m forward of midships.</p>
+<p><strong>Q: Why does a ship resist longitudinal inclination far more than transverse inclination?</strong>
+Because GM_L is very large, often of the order of the ship's length, compared with transverse GM. The moment to trim the ship 1° (Δ × GM_L × sin 1°) is therefore many times the moment to heel her 1° (Δ × GM × sin 1°). MCTC looks modest only because 1 cm of trim is a very small angle.</p>
+<p><strong>Q: What happens to trim when a ship goes from sea water into fresh water?</strong>
+She sinks bodily. Trim may also change slightly, because the LCB shifts with the new underwater volume. Examiners usually want the bodily sinkage first, then an acknowledgement of the trim effect.</p>
+<p><strong>Q: How do you check your final drafts in port?</strong>
+Read the drafts, correct them to the perpendiculars and for hog/sag, then compare them with the loading computer prediction. Investigate any significant difference before departure, for example unrecorded ballast, a sounding error or a density error.</p>
+<p><strong>Q: Why trim by the stern in ballast?</strong>
+For propeller and rudder immersion, steering, and reduced racing. It must be balanced against bridge visibility, the minimum forward draft for slamming, and any port draft limits.</p><div class="card kp"><div class="label">Key points</div><ul><li>Trim is draft aft minus draft forward. A positive value means trim by the stern.</li><li>The ship trims about the LCF, so always measure trimming levers from the LCF, not midships.</li><li>Change of trim (cm) = trimming moment ÷ MCTC. Bodily sinkage (cm) = weight ÷ TPC.</li><li>Split the change of trim in proportion to each end&#x27;s distance from the LCF, not 50/50.</li><li>A shift of weight on board causes a change of trim but no sinkage.</li><li>Enter hydrostatics at the draft at the LCF, and correct observed drafts to the perpendiculars and for hog/sag.</li><li>The approved loading computer and stability booklet govern. Hand calculations are your cross-check.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>What is the difference between trim and list?</summary><p>Trim is the longitudinal inclination: the difference between the drafts aft and forward. List is a transverse inclination caused by G being off the centreline, such as uneven cargo, ballast or fuel. They are calculated with different quantities: MCTC and LCF for trim, GM and transverse moments for list.</p></details><details><summary>How do I calculate MCTC if it is not in the tables?</summary><p>MCTC can be approximated as displacement × GM_L ÷ (100 × LBP). In practice you should always take MCTC from the ship&#x27;s approved hydrostatic tables or loading computer. The approximation is for exam derivations and rough checks.</p></details><details><summary>Why do the forward and aft drafts change by different amounts?</summary><p>Because the ship pivots about the LCF, which is usually not at midships. The end farther from the LCF moves more. Each end&#x27;s share is the change of trim multiplied by that end&#x27;s distance from the LCF, divided by LBP.</p></details><details><summary>Is there a legal maximum trim for a ship?</summary><p>There is no single trim figure that applies to all ships. Limits come from the approved stability booklet and loading conditions, SOLAS bridge visibility requirements, port and terminal rules, and company SMS instructions. Check your own ship&#x27;s documentation rather than relying on a general number.</p></details><details><summary>What is the difference between mean draft and draft at the LCF?</summary><p>The mean draft is simply the average of the forward and aft drafts. The draft at the LCF, sometimes called the true mean draft, allows for the LCF not being at midships. Use the draft at the LCF to enter hydrostatic tables, especially when the ship has significant trim.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>A weight is loaded exactly at the LCF. What happens to the ship&#x27;s drafts?</p><button data-c="1">Both drafts increase by the bodily sinkage only</button><button data-c="0">The ship trims by the head because the weight is forward of the AP</button><button data-c="0">The aft draft increases more than the forward draft</button><button data-c="0">Only the draft at midships changes</button><div class="ex">With no lever about the LCF there is no trimming moment, so the ship sinks bodily by w ÷ TPC at both ends.</div></div><div class="q"><p>A trimming moment of 9,000 t·m acts on a ship with MCTC 150 t·m/cm. What is the change of trim?</p><button data-c="0">6.0 cm</button><button data-c="1">60 cm</button><button data-c="0">600 cm</button><button data-c="0">1.35 m</button><div class="ex">Change of trim = moment ÷ MCTC = 9,000 ÷ 150 = 60 cm. MCTC is in tonne-metres per centimetre, so the answer comes out in centimetres.</div></div><div class="q"><p>50 t of ballast is transferred between two tanks within the ship. Which statement is correct?</p><button data-c="0">Sinkage equals 50 ÷ TPC</button><button data-c="0">The lever is measured from midships to the receiving tank</button><button data-c="1">Displacement is unchanged, so there is a change of trim but no sinkage</button><button data-c="0">The change of trim is always split equally fore and aft</button><div class="ex">A shift of weight inside the ship does not alter displacement. The trimming moment is weight × distance shifted, divided by MCTC to give the change of trim.</div></div><div class="q"><p>LBP is 120 m and the LCF is 56 m from the aft perpendicular. The change of trim is 60 cm by the stern. By how much does the aft draft change from trim alone?</p><button data-c="0">30 cm</button><button data-c="0">32 cm</button><button data-c="0">60 cm</button><button data-c="1">28 cm</button><div class="ex">Change aft = COT × (LCF from AP ÷ LBP) = 60 × 56/120 = 28 cm. The forward end changes by the remaining 32 cm.</div></div><div class="q"><p>Which draft should you use to enter the hydrostatic tables for a trimmed ship?</p><button data-c="0">The forward draft</button><button data-c="1">The draft at the LCF</button><button data-c="0">The deepest draft observed</button><button data-c="0">The midship draft without any correction</button><div class="ex">Hydrostatic particulars are tabulated for the ship&#x27;s displacement, which corresponds to the draft at the LCF when trimmed. The ship&#x27;s approved hydrostatic tables and loading computer are entered this way. A simple mean draft gives the wrong displacement when the LCF is not at midships.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/stability-cargo/gm-and-metacentric-height-explained/">GM and metacentric height explained</a><a href="/guides/stability-cargo/draft-survey-basics/">Draft survey basics</a><a href="/guides/stability-cargo/hogging-and-sagging/">Hogging and sagging</a><a href="/guides/stability-cargo/ballast-exchange-and-stability-during-ballast-operations/">Ballast exchange and stability during ballast operations</a><a href="/guides/operations/squat-and-shallow-water-effect/">Squat and shallow-water effect</a><a href="/guides/stability-cargo/load-lines-and-freeboard-marks/">Load lines and freeboard marks</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter II-1, Regulation 5-1 (Stability information to be supplied to the master); SOLAS 1974 as amended, Chapter V, Regulation 22 (Navigation bridge visibility); International Convention on Load Lines 1966, as amended; International Code on Intact Stability 2008 (2008 IS Code); STCW Code, Table A-II/1 and Table A-II/2 (competence in trim, stability and stress)</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

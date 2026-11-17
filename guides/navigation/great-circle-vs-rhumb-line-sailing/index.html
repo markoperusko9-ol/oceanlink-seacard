@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Great Circle vs Rhumb Line Sailing: Method and Example | Ocean Link</title><meta name="description" content="A great circle is the shortest route between two points. A rhumb line holds one course. Formulas, a worked example and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/navigation/great-circle-vs-rhumb-line-sailing/">
+<meta property="og:title" content="Great Circle vs Rhumb Line Sailing: Method and Example | Ocean Link"><meta property="og:description" content="A great circle is the shortest route between two points. A rhumb line holds one course. Formulas, a worked example and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/navigation/great-circle-vs-rhumb-line-sailing/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Great Circle vs Rhumb Line Sailing: Method and Example", "description": "A great circle is the shortest route between two points. A rhumb line holds one course. Formulas, a worked example and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/navigation/great-circle-vs-rhumb-line-sailing/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why do ships not always follow the great circle if it is shortest?", "acceptedAnswer": {"@type": "Answer", "text": "The great circle bends towards the pole, which can lead into heavy weather, ice, the wrong load line zone or near hazards. The master may choose a composite great circle, a rhumb line or a weather-routed track instead. Distance is only one factor in the passage plan."}}, {"@type": "Question", "name": "What is the difference between a gnomonic and a Mercator chart for great circle sailing?", "acceptedAnswer": {"@type": "Answer", "text": "On a gnomonic chart every great circle is a straight line, so it is used to draw the GC and pick off waypoints. On a Mercator chart rhumb lines are straight and angles are true, so it is used to lay off the courses actually steered between those waypoints."}}, {"@type": "Question", "name": "How do I find the vertex of a great circle?", "acceptedAnswer": {"@type": "Answer", "text": "Use Napier's rules: cos (vertex latitude) = cos (departure latitude) × sin (initial course). Then find the d.long from departure to the vertex with cos d.long = tan (departure latitude) ÷ tan (vertex latitude). Always check whether the vertex falls between departure and arrival or outside the track."}}, {"@type": "Question", "name": "Is mid-latitude sailing accurate enough for a rhumb line across an ocean?", "acceptedAnswer": {"@type": "Answer", "text": "Not for long legs with a large change of longitude. Use Mercator sailing with the difference of meridional parts from your nautical tables. Mid-latitude sailing is a reasonable approximation only over shorter distances."}}, {"@type": "Question", "name": "Does ECDIS calculate great circle routes automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Most ECDIS units let you set a route leg as great circle or rhumb line. How they display the track and handle cross-track limits varies by manufacturer. Learn the system during type-specific familiarisation, and cross-check the distance and initial course against your own calculation."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Navigation", "item": "https://card.oceanlinkai.com/guides/navigation/"}, {"@type": "ListItem", "position": 3, "name": "Great Circle vs Rhumb Line Sailing: A Practical and Exam Guide", "item": "https://card.oceanlinkai.com/guides/navigation/great-circle-vs-rhumb-line-sailing/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/navigation/">Navigation</a></div><h1>Great Circle vs Rhumb Line Sailing: A Practical and Exam Guide</h1><div class="card sum"><div class="label">Quick answer</div><p>A great circle is the shortest distance between two points on the earth, but its course changes continuously. A rhumb line crosses every meridian at the same angle, so you can steer one course, but the route is longer. On long ocean passages with a large change of longitude, especially in higher latitudes and on courses near east–west, the great circle saving can be hundreds of miles. Navigators usually follow it as a series of rhumb line legs between waypoints.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">The two tracks in plain terms</a><a href="#s2">When the great circle saving is worth having</a><a href="#s3">Step-by-step: great circle calculation</a><a href="#s4">Worked example: off Japan to off San Francisco</a><a href="#s5">Composite great circle and practical use on ECDIS</a><a href="#s6">Common mistakes (in the exam room and on the bridge)</a><a href="#s7">Oral exam style questions</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">The two tracks in plain terms</h2><p><strong>Great circle (GC):</strong> A great circle is any circle on the earth's surface whose plane passes through the earth's centre. The shorter arc of the great circle through two points is the shortest distance between them.</p>
+<ul>
+<li>Except along a meridian or the equator, the course along a GC changes continuously.</li>
+<li>On a <strong>gnomonic</strong> chart a GC plots as a straight line.</li>
+<li>On a <strong>Mercator</strong> chart a GC plots as a curve. That curve bows towards the nearer pole.</li>
+<li>The point on a GC nearest the pole is the <strong>vertex</strong>. At the vertex the course is exactly 090° or 270°.</li>
+</ul>
+<p><strong>Rhumb line (loxodrome):</strong> A rhumb line crosses every meridian at the same angle.</p>
+<ul>
+<li>You can steer a rhumb line on a single course.</li>
+<li>On a Mercator chart a rhumb line is a straight line. Mercator charts are built to give exactly this property.</li>
+<li>Apart from meridians and parallels, a rhumb line spirals towards the pole without ever reaching it.</li>
+</ul>
+<p><strong>Lines that are both:</strong> Meridians and the equator are both great circles and rhumb lines. Steaming north–south, or along the equator, there is no saving to be had. A parallel of latitude other than the equator is a rhumb line but <strong>not</strong> a great circle. It is a small circle.</p><h2 id="s2">When the great circle saving is worth having</h2><p>The difference between the two tracks grows with three things:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Effect on GC saving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larger d.long</td>
+<td>Larger saving</td>
+</tr>
+<tr>
+<td>Higher latitudes</td>
+<td>Larger saving</td>
+</tr>
+<tr>
+<td>Course nearer east–west</td>
+<td>Larger saving</td>
+</tr>
+<tr>
+<td>Course nearer north–south</td>
+<td>Saving shrinks towards zero</td>
+</tr>
+<tr>
+<td>Near the equator</td>
+<td>Saving is small</td>
+</tr>
+</tbody>
+</table>
+<p>On a short coastal passage the difference is negligible. You plan rhumb lines on the Mercator chart and get on with it.</p>
+<p>The saving matters on trans-ocean legs such as the North Pacific, the North Atlantic, or the Southern Ocean.</p>
+<p><strong>Shortest is not always best.</strong> The GC takes you poleward. That can mean:</p>
+<ul>
+<li>heavier weather;</li>
+<li>ice limits;</li>
+<li>load line zone boundaries;</li>
+<li>land or navigational hazards close to the track.</li>
+</ul>
+<p>This is why <strong>composite great circle</strong> sailing exists. It is also why weather routing often overrides the pure GC.</p>
+<p>Under SOLAS Chapter V the master must ensure the voyage is planned. IMO's voyage planning guidelines expect the whole route to be appraised. The GC is a starting point for that planning, not the plan itself.</p><h2 id="s3">Step-by-step: great circle calculation</h2><p><strong>Data needed:</strong> departure latitude (L1), arrival latitude (L2) and d.long.</p>
+<p>Work d.long carefully across the 180° meridian. If the figure comes out over 180°, subtract it from 360° and reverse its direction.</p>
+<p><strong>1. Distance</strong></p>
+<p>cos D = sin L1 sin L2 + cos L1 cos L2 cos d.long</p>
+<ul>
+<li>Treat a southern latitude as negative when using this formula.</li>
+<li>If d.long exceeds 90°, cos d.long is negative. This is the classic sign trap.</li>
+<li>The haversine form avoids most sign errors: hav D = hav d.lat + cos L1 cos L2 hav d.long.</li>
+<li>Convert D from degrees to arc minutes. One minute is taken as one nautical mile.</li>
+</ul>
+<p><strong>2. Initial course</strong></p>
+<p>Use the formula tan C = sin d.long ÷ (cos L1 tan L2 − sin L1 cos d.long).</p>
+<p>Alternatively, use the ABC method, treating L2 as declination and d.long as hour angle.</p>
+<p>Name the result from L1's name towards the d.long direction, for example N55°E. Then check the quadrant with common sense.</p>
+<p><strong>3. Vertex</strong></p>
+<p>Use Napier's rules on the right-angled triangle formed by the pole, the vertex and the departure point:</p>
+<ul>
+<li>cos Lv = cos L1 × sin C</li>
+<li>cos d.long(vertex) = tan L1 ÷ tan Lv</li>
+</ul>
+<p>If the initial course and the final course are both poleward of east–west, or both equatorward of it, the vertex lies outside the track between departure and arrival.</p>
+<p><strong>4. Waypoints</strong></p>
+<p>Pick meridians at regular intervals. Your company or the passage plan sets the interval, often 5° or 10° of longitude. For each meridian:</p>
+<p>tan Lat = tan Lv × cos (d.long from vertex)</p>
+<p>Join the waypoints with rhumb lines on the Mercator chart. Those rhumb lines are the courses you actually steer.</p>
+<p><strong>Rhumb line for comparison (Mercator sailing)</strong></p>
+<ul>
+<li>tan Co = d.long ÷ DMP, using the difference of meridional parts from the nautical tables.</li>
+<li>Distance = d.lat × sec Co.</li>
+</ul>
+<p>Do not use mid-latitude sailing for long legs with large d.long. It loses accuracy.</p><h2 id="s4">Worked example: off Japan to off San Francisco</h2><p><strong>Departure (A):</strong> 35°00'N 140°00'E. <strong>Arrival (B):</strong> 37°00'N 123°00'W.</p>
+<p><strong>D.long:</strong> 40° from 140°E to 180°, plus 57° from 180° to 123°W, gives <strong>97°E</strong>. D.lat is 2°N, which is 120'.</p>
+<p><strong>GC distance</strong></p>
+<p>The working, with figures rounded to six places:</p>
+<ul>
+<li>sin35 × sin37 = 0.5736 × 0.6018 = 0.345191</li>
+<li>cos35 × cos37 × cos97 = 0.654204 × (−0.121869) = −0.079727</li>
+<li>cos D = 0.265464</li>
+</ul>
+<p>This gives <strong>D ≈ 74.61° ≈ 4,476 nm</strong>.</p>
+<p><strong>Initial course (ABC check)</strong></p>
+<p>d.long is over 90°, so A is named the same as L1.</p>
+<ul>
+<li>A = tan35 ÷ tan97 = 0.0860 N</li>
+<li>B = tan37 ÷ sin97 = 0.7592 N</li>
+<li>C = A + B = 0.8452 N</li>
+<li>tan Az = 1 ÷ (C × cos35) = 1.444</li>
+</ul>
+<p>This gives Az = N55.3°E, so the <strong>initial course is about 055°</strong>. The direct formula gives the same answer.</p>
+<p><strong>Vertex</strong></p>
+<ul>
+<li>cos Lv = cos35 × sin55.3 = 0.6735, so <strong>Lv ≈ 47.7°N</strong>.</li>
+<li>cos d.long(v) = tan35 ÷ tan47.7 ≈ 0.638, so d.long(v) ≈ 50.4°E of A.</li>
+<li>The vertex longitude is therefore about <strong>169.6°W</strong>.</li>
+</ul>
+<p><strong>Check from the vertex</strong></p>
+<ul>
+<li>The arc from A to the vertex is about 39.1°.</li>
+<li>The arc from the vertex to B is about 35.5°.</li>
+<li>Together these give 74.6°, which agrees with the distance.</li>
+<li>The <strong>final course is about 122.5°</strong> (S57.5°E).</li>
+</ul>
+<p><strong>A waypoint on 180°</strong></p>
+<p>The 180° meridian is 10.4° from the vertex.</p>
+<p>tan Lat = tan47.7 × cos10.4, which gives <strong>Lat ≈ 47.2°N</strong>.</p>
+<p><strong>Rhumb line</strong></p>
+<ul>
+<li>Meridional parts are about 2,231.1 for 35° and about 2,378.8 for 37°, so DMP ≈ 147.7.</li>
+<li>tan Co = 5,820 ÷ 147.7 ≈ 39.4, giving a <strong>course of about 088.5°</strong>.</li>
+<li>Distance = 120' × sec 88.5° ≈ <strong>4,730 nm</strong>.</li>
+</ul>
+<p>With a course this close to 090°, d.lat × sec Co is very sensitive to rounding. Carry DMP and the course to full precision, or check using departure (d.long × cos mean lat) for a near-E–W leg.</p>
+<p><strong>Saving: roughly 250 nm, about 5%.</strong></p>
+<p>The price of that saving is a vertex near 48°N in the North Pacific. In winter, the master may choose a composite track with a lower limiting latitude, or a weather-routed track.</p>
+<p>Small differences in the last figure are normal. They depend on your meridional parts table and on rounding.</p><figure><svg aria-label="Mercator-style sketch from A at 35°N 140°E to B at 37°N 123°W. A nearly straight rhumb line on course 088.5° covers 4,730 nm. A curved great circle of 4,476 nm bows north to a vertex at 47.7°N, crossing the dashed 180° meridian near the vertex. An amber note shows a saving of about 250 nm, or 5%." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img"><rect x="0" y="0" width="800" height="520" rx="12" fill="#0F1217" /><text x="400" y="48" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Japan to San Francisco</text><text x="400" y="100" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#00E5FF" text-anchor="middle">Great circle 4,476 nm</text><line x1="344" y1="155" x2="344" y2="410" stroke="#F2F4F7" stroke-width="2" stroke-dasharray="6 8" opacity="0.6" /><text x="344" y="145" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">180°</text><path d="M80 400 C 180 300, 300 248, 413 248 C 530 248, 650 300, 720 376" fill="none" stroke="#00E5FF" stroke-width="4" /><line x1="80" y1="400" x2="720" y2="376" stroke="#00B0D2" stroke-width="3" /><circle cx="413" cy="248" r="8" fill="#00E5FF" /><circle cx="344" cy="253" r="6" fill="#F2F4F7" /><text x="430" y="230" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Vertex 47.7°N</text><circle cx="80" cy="400" r="8" fill="#F2F4F7" /><circle cx="720" cy="376" r="8" fill="#F2F4F7" /><text x="40" y="442" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">A 35°N 140°E</text><text x="770" y="420" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="end">B 37°N 123°W</text><text x="400" y="442" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2" text-anchor="middle">Rhumb 088.5° · 4,730 nm</text><text x="400" y="495" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#F5A524" text-anchor="middle">Saving ≈ 250 nm (5%)</text></svg><figcaption>In the worked example on a Mercator chart, the great circle bows poleward to a vertex near 47.7°N and saves about 250 nm over the straight rhumb line.</figcaption></figure><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s5">Composite great circle and practical use on ECDIS</h2><p><strong>Composite great circle</strong></p>
+<p>Use a composite great circle when the GC vertex would take you beyond a safe <strong>limiting latitude</strong>. Reasons include ice, weather, a load line zone, or land.</p>
+<p>The composite track has three parts:</p>
+<ol>
+<li>A GC from departure that just touches the limiting parallel. Its vertex lies on that parallel.</li>
+<li>A <strong>parallel sailing</strong> run east or west along the limiting latitude.</li>
+<li>A GC from the limiting parallel to the destination. Its vertex also lies on the parallel.</li>
+</ol>
+<p>This gives the shortest track that stays equatorward of the limit.</p>
+<p><strong>On ECDIS</strong></p>
+<p>Most ECDIS route planning lets you set a leg as GC or as rhumb line. The display may then generate intermediate points or show the curved track.</p>
+<p>The exact behaviour differs between manufacturers, so your type-specific familiarisation matters. Know what your system does with:</p>
+<ul>
+<li>the cross-track distance (XTD) corridor on a GC leg;</li>
+<li>course-to-steer on a GC leg;</li>
+<li>route checking against the safety contour along the curve.</li>
+</ul>
+<p><strong>Good practice</strong></p>
+<ul>
+<li>Cross-check the ECDIS GC distance and initial course against your own calculation, or against a second source.</li>
+<li>An ECDIS cannot spot a wrong waypoint name, such as E entered instead of W.</li>
+<li>On paper, plot the GC on a gnomonic chart, transfer the waypoints by latitude and longitude to the Mercator chart, then join them with rhumb lines.</li>
+</ul><figure><svg aria-label="Diagram of a composite great circle from A to B. A dashed grey pure great circle rises above an amber dashed limiting latitude line. The cyan composite track has three parts: leg 1 is a great circle from A that just touches the limit, leg 2 is parallel sailing along the limit, and leg 3 is a great circle down to B. A legend explains the numbered legs." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><rect x="0" y="0" width="800" height="560" rx="12" fill="#0F1217" /><text x="400" y="48" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Composite great circle</text><path d="M90 400 C 200 40, 600 40, 710 400" fill="none" stroke="#8A93A3" stroke-width="3" stroke-dasharray="8 8" /><text x="400" y="112" font-family="Inter, sans-serif" font-size="26" fill="#8A93A3" text-anchor="middle">Pure GC</text><line x1="40" y1="180" x2="760" y2="180" stroke="#F5A524" stroke-width="3" stroke-dasharray="12 8" /><text x="760" y="160" font-family="Inter, sans-serif" font-size="26" fill="#F5A524" text-anchor="end">Limit latitude</text><path d="M90 400 C 150 260, 210 180, 300 180 L 500 180 C 590 180, 650 260, 710 400" fill="none" stroke="#00E5FF" stroke-width="4" /><circle cx="90" cy="400" r="8" fill="#F2F4F7" /><circle cx="710" cy="400" r="8" fill="#F2F4F7" /><text x="90" y="445" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F2F4F7" text-anchor="middle">A</text><text x="710" y="445" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F2F4F7" text-anchor="middle">B</text><circle cx="240" cy="290" r="20" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="240" y="299" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F2F4F7" text-anchor="middle">1</text><circle cx="400" cy="225" r="20" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="400" y="234" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F2F4F7" text-anchor="middle">2</text><circle cx="560" cy="290" r="20" fill="none" stroke="#00B0D2" stroke-width="3" /><text x="560" y="299" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F2F4F7" text-anchor="middle">3</text><text x="400" y="495" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" text-anchor="middle">1 and 3: great circle legs</text><text x="400" y="535" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" text-anchor="middle">2: parallel sailing on limit</text></svg><figcaption>A composite great circle runs a great circle up to the limiting latitude, sails along that parallel, then takes a second great circle to the destination.</figcaption></figure><h2 id="s6">Common mistakes (in the exam room and on the bridge)</h2><ul>
+<li><strong>D.long across 180°.</strong> With longitudes of opposite names, add them. If the sum exceeds 180°, subtract it from 360° and reverse the direction (E↔W). Draw a quick sketch every time.</li>
+<li><strong>Sign of cos d.long when d.long &gt; 90°.</strong> The value goes negative. Missing that makes cos D too large, so the distance comes out hundreds of miles too short.</li>
+<li><strong>Latitudes of contrary names.</strong> For a south latitude, use a negative value, or switch to the haversine form with d.lat.</li>
+<li><strong>Course quadrant.</strong> If you take the course from an inverse cosine or tangent, sense-check it against the sketch. Is it going NE or SE?</li>
+<li><strong>Assuming the vertex lies between A and B.</strong> Check the initial and final courses first.</li>
+<li><strong>Drawing a GC as a straight line on Mercator.</strong> Straight lines on a Mercator chart are rhumb lines. Straight lines on a gnomonic chart are great circles.</li>
+<li><strong>Mid-latitude sailing on long legs.</strong> Use Mercator sailing with meridional parts.</li>
+<li><strong>Chasing the shortest track blindly.</strong> Check the vertex latitude against ice limits, weather, the load line zone and hazards before you accept a GC.</li>
+</ul><h2 id="s7">Oral exam style questions</h2><p>Examiners usually test understanding rather than arithmetic. Be ready for these:</p>
+<ul>
+<li><strong>Define a great circle and a rhumb line.</strong> Can a line be both? Yes: meridians and the equator.</li>
+<li><strong>Why is the GC the shortest route?</strong> It is the arc of the largest possible circle through both points, so it has the least curvature between them.</li>
+<li><strong>What is the vertex?</strong> What is the course there? The vertex is the point on the GC nearest the pole. The course there is 090° or 270°.</li>
+<li><strong>On which side of the rhumb line does the GC lie?</strong> The poleward side.</li>
+<li><strong>When is the saving greatest, and when is it negligible?</strong> It is greatest with high latitude, large d.long and an E–W course. It is negligible with a N–S course or near the equator.</li>
+<li><strong>What chart shows a GC as a straight line, and why do we still navigate on Mercator?</strong> A gnomonic chart shows a GC as a straight line. We navigate on Mercator because angles are true on it and rhumb lines are straight, so courses can be laid off directly.</li>
+<li><strong>Explain composite great circle sailing.</strong> When and why is it used? It is used when the GC vertex would take the ship beyond a safe limiting latitude.</li>
+<li><strong>How do you follow a GC in practice?</strong> Calculate waypoints, then steer the rhumb lines between them. Verify the result on ECDIS.</li>
+<li><strong>Does a rhumb line ever reach the pole?</strong> No. It spirals towards the pole without reaching it.</li>
+</ul>
+<p>Keep answers short. Draw a sketch if the examiner gives you paper, and relate your answer to passage planning.</p><div class="card kp"><div class="label">Key points</div><ul><li>A great circle is the shortest route between two points, but its course changes continuously except on meridians and the equator.</li><li>A rhumb line crosses every meridian at the same angle and plots as a straight line on a Mercator chart.</li><li>The great circle always lies on the poleward side of the rhumb line; its vertex is the point nearest the pole, where the course is 090° or 270°.</li><li>Savings are largest with high latitude, large d.long and courses near east–west, and negligible near north–south or near the equator.</li><li>In practice, a GC is followed as rhumb line legs between waypoints calculated from the vertex.</li><li>Composite great circle sailing keeps the track equatorward of a limiting latitude set for ice, weather or load line reasons.</li><li>Most exam errors come from d.long across 180°, missed negative cosines and wrong course quadrants.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>Why do ships not always follow the great circle if it is shortest?</summary><p>The great circle bends towards the pole, which can lead into heavy weather, ice, the wrong load line zone or near hazards. The master may choose a composite great circle, a rhumb line or a weather-routed track instead. Distance is only one factor in the passage plan.</p></details><details><summary>What is the difference between a gnomonic and a Mercator chart for great circle sailing?</summary><p>On a gnomonic chart every great circle is a straight line, so it is used to draw the GC and pick off waypoints. On a Mercator chart rhumb lines are straight and angles are true, so it is used to lay off the courses actually steered between those waypoints.</p></details><details><summary>How do I find the vertex of a great circle?</summary><p>Use Napier&#x27;s rules: cos (vertex latitude) = cos (departure latitude) × sin (initial course). Then find the d.long from departure to the vertex with cos d.long = tan (departure latitude) ÷ tan (vertex latitude). Always check whether the vertex falls between departure and arrival or outside the track.</p></details><details><summary>Is mid-latitude sailing accurate enough for a rhumb line across an ocean?</summary><p>Not for long legs with a large change of longitude. Use Mercator sailing with the difference of meridional parts from your nautical tables. Mid-latitude sailing is a reasonable approximation only over shorter distances.</p></details><details><summary>Does ECDIS calculate great circle routes automatically?</summary><p>Most ECDIS units let you set a route leg as great circle or rhumb line. How they display the track and handle cross-track limits varies by manufacturer. Learn the system during type-specific familiarisation, and cross-check the distance and initial course against your own calculation.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>Which of these lines is a rhumb line but NOT a great circle?</p><button data-c="0">The equator</button><button data-c="0">A meridian</button><button data-c="1">The parallel of 40°N</button><button data-c="0">The track from a gnomonic chart&#x27;s straight line</button><div class="ex">A parallel other than the equator is a small circle, crossing every meridian at 90° but not centred on the earth&#x27;s centre. Meridians and the equator are both great circles and rhumb lines (standard navigation texts; Mercator and great circle sailing).</div></div><div class="q"><p>On a Mercator chart, where does the great circle track between two points in the northern hemisphere lie relative to the rhumb line?</p><button data-c="1">On the poleward (northern) side</button><button data-c="0">On the equatorward (southern) side</button><button data-c="0">Exactly on the rhumb line</button><button data-c="0">It depends on whether the course is easterly or westerly</button><div class="ex">The great circle always bows towards the nearer pole, which is why its vertex latitude must be checked during planning (great circle sailing principles).</div></div><div class="q"><p>What is the course of a ship at the vertex of a great circle?</p><button data-c="0">The same as the initial course</button><button data-c="0">The same as the rhumb line course</button><button data-c="0">000° or 180°</button><button data-c="1">090° or 270°</button><div class="ex">The vertex is the point nearest the pole, where the great circle runs momentarily east–west, crossing the meridian at a right angle (Napier&#x27;s rules, right-angled spherical triangle).</div></div><div class="q"><p>In the great circle distance formula, departure and arrival are 97° of longitude apart. What is the most likely error?</p><button data-c="0">Using sine instead of cosine of latitude</button><button data-c="1">Treating cos 97° as positive</button><button data-c="0">Using d.lat instead of d.long</button><button data-c="0">Converting degrees to miles at 60 nm per degree</button><div class="ex">The cosine of an angle greater than 90° is negative. Treating it as positive makes cos D too large and D too small, so the distance is understated by several hundred miles (about 580 nm in a 97° d.long example at 35°N/37°N). Converting at 60 nm per degree is correct practice (spherical trigonometry, cosine formula).</div></div><div class="q"><p>When is composite great circle sailing used?</p><button data-c="0">When the d.long is less than 30°</button><button data-c="0">When the ship must cross the equator</button><button data-c="1">When the vertex of the great circle lies beyond a safe limiting latitude</button><button data-c="0">When the route runs north–south along a meridian</button><div class="ex">A composite track keeps the ship equatorward of a limiting latitude chosen for ice, weather, load line or hazard reasons, in line with appraising the route during voyage planning (SOLAS Chapter V, Regulation 34; IMO Resolution A.893(21)).</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/operations/passage-planning-appraisal-planning-execution-monitoring/">Passage planning (appraisal, planning, execution, monitoring)</a><a href="/guides/navigation/weather-routing-basics/">Weather routing basics</a><a href="/guides/navigation/dead-reckoning-and-estimated-position/">Dead reckoning and estimated position</a><a href="/guides/navigation/chartwork-basics-position-fixing-methods/">Chartwork basics: position fixing methods</a><a href="/guides/systems/ecdis/">ECDIS</a><a href="/guides/career/second-mate-fg-exam-in-india-process-and-phases/">Second Mate (FG) exam in India: process and phases</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter V, Regulation 34 (Safe navigation and avoidance of dangerous situations); IMO Resolution A.893(21), Guidelines for voyage planning; STCW Code, Table A-II/1 (Plan and conduct a passage and determine position)</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>
