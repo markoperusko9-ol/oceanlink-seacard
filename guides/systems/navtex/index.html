@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAVTEX on Ships: How It Works, Checks and Faults | Ocean Link</title><meta name="description" content="NAVTEX delivers navigational and weather warnings to ships on 518 kHz. How it works, message codes, routine checks, common faults and exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/systems/navtex/">
+<meta property="og:title" content="NAVTEX on Ships: How It Works, Checks and Faults | Ocean Link"><meta property="og:description" content="NAVTEX delivers navigational and weather warnings to ships on 518 kHz. How it works, message codes, routine checks, common faults and exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/systems/navtex/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "NAVTEX on Ships: How It Works, Checks and Faults", "description": "NAVTEX delivers navigational and weather warnings to ships on 518 kHz. How it works, message codes, routine checks, common faults and exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/systems/navtex/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the range of NAVTEX?", "acceptedAnswer": {"@type": "Answer", "text": "NAVTEX is a coastal service. An MF station's practical range is a few hundred nautical miles, depending on transmitter power and propagation. Published station data in the lists of radio signals show each station's coverage area. Beyond that, rely on EGC."}}, {"@type": "Question", "name": "Can I switch off weather forecasts on NAVTEX?", "acceptedAnswer": {"@type": "Answer", "text": "Subject E (meteorological forecasts) can be deselected on the receiver. Most ships keep it on because it is useful. Meteorological warnings (B), navigational warnings (A and L) and SAR information (D) cannot be rejected."}}, {"@type": "Question", "name": "Why did my NAVTEX print old messages again?", "acceptedAnswer": {"@type": "Answer", "text": "After a power loss or reset, the receiver may lose its stored list of message identifiers, so it treats repeated broadcasts as new. The reprints are harmless. Check that your station and subject selections were not reset to defaults."}}, {"@type": "Question", "name": "What is the difference between 518 kHz and 490 kHz NAVTEX?", "acceptedAnswer": {"@type": "Answer", "text": "518 kHz carries the international service in English and is the one required for SOLAS ships. 490 kHz is used for national NAVTEX broadcasts, often in a local language. Many modern receivers can monitor both at once."}}, {"@type": "Question", "name": "Is NAVTEX required in every sea area?", "acceptedAnswer": {"@type": "Answer", "text": "SOLAS Chapter IV requires ships to be able to receive maritime safety information throughout their voyage. In areas where the international NAVTEX service is provided, this is done with a NAVTEX receiver. Where there is no NAVTEX coverage, MSI is normally received via EGC from a recognised mobile satellite service (and, in some areas, HF MSI broadcasts). Check your ship's radio equipment certificate and flag requirements for the specific arrangement."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Ship systems & equipment", "item": "https://card.oceanlinkai.com/guides/systems/"}, {"@type": "ListItem", "position": 3, "name": "NAVTEX: A Practical Guide for Deck Officers and Cadets", "item": "https://card.oceanlinkai.com/guides/systems/navtex/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/systems/">Ship systems &amp; equipment</a></div><h1>NAVTEX: A Practical Guide for Deck Officers and Cadets</h1><div class="card sum"><div class="label">Quick answer</div><p>NAVTEX is the automated MF service that delivers maritime safety information (navigational warnings, weather warnings, forecasts and search and rescue information) to ships in coastal waters, mainly on 518 kHz in English. SOLAS Chapter IV requires ships to be able to receive maritime safety information throughout their voyage, and where the international NAVTEX service is provided this is done with a NAVTEX receiver. The OOW has to select the right stations and message types, read and act on what prints, and know what the four-character message identifier means.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What NAVTEX is and why it matters</a><a href="#s2">Frequencies, stations and the message identifier</a><a href="#s3">Main components and how it works, step by step</a><a href="#s4">Bridge routine: setting up and using NAVTEX</a><a href="#s5">Routine checks and maintenance</a><a href="#s6">Common faults and their symptoms</a><a href="#s7">Regulations in brief</a><a href="#s8">Oral exam: questions examiners actually ask</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What NAVTEX is and why it matters</h2><p>NAVTEX is an international direct-printing service for broadcasting <strong>maritime safety information (MSI)</strong> to ships. It forms part of the GMDSS and of the World-Wide Navigational Warning Service run jointly by IMO and IHO, with WMO responsible for the meteorological content.</p>
+<p>On the bridge it is the main source of coastal navigational warnings, such as:</p>
+<ul>
+<li>an unlit wreck</li>
+<li>a buoy off station</li>
+<li>a drilling rig moving into a TSS</li>
+<li>a light that has failed</li>
+<li>a gale warning</li>
+<li>a vessel overdue or a person in the water</li>
+</ul>
+<p>The receiver runs unattended and prints or displays messages as they arrive. Coverage is coastal. The practical range of an MF NAVTEX station is a few hundred nautical miles and varies with propagation, so it does not reach the open ocean. Outside NAVTEX coverage, MSI is received by Enhanced Group Call (EGC) through a recognised mobile satellite service, for example SafetyNET.</p>
+<p>If the receiver is set up wrongly, you can sail straight into a hazard that has been broadcast for days. That is why examiners keep asking about it.</p><h2 id="s2">Frequencies, stations and the message identifier</h2><p><strong>Frequencies</strong></p>
+<table>
+<thead>
+<tr>
+<th>Frequency</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>518 kHz</td>
+<td>International NAVTEX, in English. This is the core service.</td>
+</tr>
+<tr>
+<td>490 kHz</td>
+<td>National NAVTEX, often in a local language</td>
+</tr>
+<tr>
+<td>4209.5 kHz</td>
+<td>HF NAVTEX, used in some areas (notably tropical) where MF reception is poor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Time-sharing.</strong> Many stations share 518 kHz. Interference is avoided by geographic spacing and by time-sharing. Each station gets a letter (A to X) and transmits in a 10-minute slot every four hours. Vital warnings may also go out at the first available opportunity outside the routine schedule.</p>
+<p><strong>The message identifier (B1 B2 B3 B4).</strong> Every message begins with ZCZC, followed by four characters:</p>
+<ul>
+<li><strong>B1: transmitter identity.</strong> A letter identifying the station within its NAVAREA.</li>
+<li><strong>B2: subject indicator.</strong> The type of message.</li>
+<li><strong>B3 B4: serial number.</strong> Runs 01 to 99. The special number <strong>00</strong> means the message is always printed, even if an identical one was received earlier.</li>
+</ul>
+<p><strong>Common subject indicators (B2)</strong></p>
+<table>
+<thead>
+<tr>
+<th>B2</th>
+<th>Message type</th>
+<th>Can it be deselected?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Navigational warnings</td>
+<td>No</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Meteorological warnings</td>
+<td>No</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Ice reports</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>D</td>
+<td>SAR information and piracy/armed attack warnings</td>
+<td>No</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Meteorological forecasts</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Navigational warnings additional to A</td>
+<td>No</td>
+</tr>
+<tr>
+<td>J</td>
+<td>GNSS messages</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>No messages on hand</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>A, B, D and L cannot be rejected by the receiver. The others can be switched off, but you should only do so with a good reason. Forecasts (E) are useful to most ships, so think carefully before turning them off.</p>
+<p>Station letters, schedules and coverage areas are published in the national and Admiralty lists of radio signals and in IMO's NAVTEX publications. Always use the current edition, because stations do change.</p><figure><svg aria-label="Diagram of the NAVTEX message identifier. A row of boxes reads ZCZC, B1, B2, B3, B4, labelled Start, Station, Subject and Serial 01 to 99. Below are two panels. The left panel, Cannot deselect, shows subjects A, B, D and L. The right panel, Can deselect, shows C, E, J and Z. An amber note at the bottom says serial 00 is always printed." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="Inter, sans-serif" role="img"><rect x="0" y="0" width="800" height="520" rx="12" fill="#0F1217" /><text x="400" y="52" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">NAVTEX message identifier</text><rect x="40" y="90" width="150" height="70" rx="8" fill="#1A2029" stroke="#00B0D2" stroke-width="3" /><text x="115" y="136" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">ZCZC</text><rect x="210" y="90" width="110" height="70" rx="8" fill="#1A2029" stroke="#00E5FF" stroke-width="3" /><text x="265" y="136" font-size="30" fill="#00E5FF" text-anchor="middle" font-weight="700">B1</text><rect x="340" y="90" width="110" height="70" rx="8" fill="#1A2029" stroke="#00E5FF" stroke-width="3" /><text x="395" y="136" font-size="30" fill="#00E5FF" text-anchor="middle" font-weight="700">B2</text><rect x="470" y="90" width="110" height="70" rx="8" fill="#1A2029" stroke="#00E5FF" stroke-width="3" /><text x="525" y="136" font-size="30" fill="#00E5FF" text-anchor="middle" font-weight="700">B3</text><rect x="600" y="90" width="110" height="70" rx="8" fill="#1A2029" stroke="#00E5FF" stroke-width="3" /><text x="655" y="136" font-size="30" fill="#00E5FF" text-anchor="middle" font-weight="700">B4</text><text x="115" y="204" font-size="26" fill="#F2F4F7" text-anchor="middle">Start</text><text x="265" y="204" font-size="26" fill="#F2F4F7" text-anchor="middle">Station</text><text x="395" y="204" font-size="26" fill="#F2F4F7" text-anchor="middle">Subject</text><path d="M480 172 L480 180 L700 180 L700 172" fill="none" stroke="#00B0D2" stroke-width="2" /><text x="590" y="212" font-size="26" fill="#F2F4F7" text-anchor="middle">Serial 01–99</text><rect x="40" y="240" width="350" height="160" rx="10" fill="#14202A" stroke="#00B0D2" stroke-width="2" /><text x="215" y="280" font-size="26" fill="#F2F4F7" text-anchor="middle" font-weight="700">Cannot deselect</text><rect x="60" y="310" width="60" height="60" rx="6" fill="#00B0D2" /><text x="90" y="350" font-size="30" fill="#0F1217" text-anchor="middle" font-weight="700">A</text><rect x="140" y="310" width="60" height="60" rx="6" fill="#00B0D2" /><text x="170" y="350" font-size="30" fill="#0F1217" text-anchor="middle" font-weight="700">B</text><rect x="220" y="310" width="60" height="60" rx="6" fill="#00B0D2" /><text x="250" y="350" font-size="30" fill="#0F1217" text-anchor="middle" font-weight="700">D</text><rect x="300" y="310" width="60" height="60" rx="6" fill="#00B0D2" /><text x="330" y="350" font-size="30" fill="#0F1217" text-anchor="middle" font-weight="700">L</text><rect x="410" y="240" width="350" height="160" rx="10" fill="#14202A" stroke="#5A6573" stroke-width="2" /><text x="585" y="280" font-size="26" fill="#F2F4F7" text-anchor="middle" font-weight="700">Can deselect</text><rect x="430" y="310" width="60" height="60" rx="6" fill="none" stroke="#F2F4F7" stroke-width="2" /><text x="460" y="350" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">C</text><rect x="510" y="310" width="60" height="60" rx="6" fill="none" stroke="#F2F4F7" stroke-width="2" /><text x="540" y="350" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">E</text><rect x="590" y="310" width="60" height="60" rx="6" fill="none" stroke="#F2F4F7" stroke-width="2" /><text x="620" y="350" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">J</text><rect x="670" y="310" width="60" height="60" rx="6" fill="none" stroke="#F2F4F7" stroke-width="2" /><text x="700" y="350" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">Z</text><rect x="40" y="425" width="720" height="70" rx="10" fill="#1A2029" stroke="#F5A524" stroke-width="3" /><text x="400" y="470" font-size="28" fill="#F5A524" text-anchor="middle" font-weight="700">Serial 00 = always printed</text></svg><figcaption>Every NAVTEX message starts with ZCZC and a four-character identifier: B1 is the station, B2 the subject and B3 B4 the serial number. Subjects A, B, D and L can never be deselected, and serial 00 always prints.</figcaption></figure><h2 id="s3">Main components and how it works, step by step</h2><p><strong>Components</strong></p>
+<ul>
+<li><strong>Antenna.</strong> Usually a short whip, often an active antenna with a pre-amplifier, mounted clear of the funnel and other aerials.</li>
+<li><strong>Antenna cable and any lightning/surge protection.</strong></li>
+<li><strong>Receiver unit.</strong> Contains one or more dedicated receivers. Modern sets often receive 518 kHz and 490 kHz at the same time.</li>
+<li><strong>Display and/or printer.</strong> Older sets print on paper. Modern sets have a screen, message storage and sometimes an output to INS or ECDIS.</li>
+<li><strong>Power supply.</strong> Normally arranged with the other GMDSS equipment so it keeps running when main power fails. Check your ship's GMDSS supply arrangement.</li>
+<li><strong>Alarm.</strong> Sounds for SAR (D) messages and, depending on the model, for other priority traffic.</li>
+</ul>
+<p><strong>How a message reaches you</strong></p>
+<ol>
+<li>The coordinator (NAVAREA, sub-area or national) issues a warning and passes it to the NAVTEX station.</li>
+<li>The station transmits in its time slot using narrow-band direct printing in forward error correction (FEC) mode. This is one-way: the ship never acknowledges.</li>
+<li>The receiver decodes the message and reads the identifier.</li>
+<li>It checks the B1 and B2 settings. Messages from a station that has not been selected are discarded. Messages from a selected station are discarded only if their subject has been deselected. Subjects A, B, D and L can never be deselected.</li>
+<li>It checks the identifier against its memory. If the message was already received correctly, it is not printed again. This is why one warning repeated every four hours only appears once.</li>
+<li>If the message is new, or garbled the first time, it is printed or displayed and the identifier is stored. Stored identifiers are cleared automatically after a set period, typically about three days.</li>
+<li>A D message triggers the alarm.</li>
+</ol><figure><svg aria-label="Flowchart of how a NAVTEX receiver handles a message. Decode message ID. Is the station B1 selected? If no, discard. Is the subject B2 allowed? If no, discard. Was it already received correctly? If yes, it is not printed. Otherwise print or display it and store the ID. If B2 is D, the alarm sounds." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="Inter, sans-serif" role="img"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#00E5FF" /></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8A94A3" /></marker></defs><rect x="0" y="0" width="800" height="600" rx="12" fill="#0F1217" /><text x="400" y="46" font-size="30" fill="#F2F4F7" text-anchor="middle" font-weight="700">How the receiver filters</text><rect x="60" y="70" width="440" height="56" rx="8" fill="#1A2029" stroke="#00B0D2" stroke-width="3" /><text x="280" y="107" font-size="26" fill="#F2F4F7" text-anchor="middle">Decode message ID</text><line x1="280" y1="126" x2="280" y2="158" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><rect x="60" y="160" width="440" height="56" rx="8" fill="#1A2029" stroke="#00B0D2" stroke-width="3" /><text x="280" y="197" font-size="26" fill="#F2F4F7" text-anchor="middle">Station (B1) selected?</text><line x1="280" y1="216" x2="280" y2="248" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><text x="296" y="242" font-size="26" fill="#00E5FF">Yes</text><rect x="60" y="250" width="440" height="56" rx="8" fill="#1A2029" stroke="#00B0D2" stroke-width="3" /><text x="280" y="287" font-size="26" fill="#F2F4F7" text-anchor="middle">Subject (B2) allowed?</text><line x1="280" y1="306" x2="280" y2="338" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><text x="296" y="332" font-size="26" fill="#00E5FF">Yes</text><rect x="60" y="340" width="440" height="56" rx="8" fill="#1A2029" stroke="#00B0D2" stroke-width="3" /><text x="280" y="377" font-size="26" fill="#F2F4F7" text-anchor="middle">Already received OK?</text><line x1="280" y1="396" x2="280" y2="428" stroke="#00E5FF" stroke-width="3" marker-end="url(#ah)" /><text x="296" y="422" font-size="26" fill="#00E5FF">No</text><rect x="60" y="430" width="440" height="56" rx="8" fill="#00B0D2" /><text x="280" y="467" font-size="26" fill="#0F1217" text-anchor="middle" font-weight="700">Print / display, store ID</text><line x1="280" y1="486" x2="280" y2="518" stroke="#F5A524" stroke-width="3" /><text x="296" y="512" font-size="26" fill="#F5A524">If B2 = D</text><rect x="60" y="520" width="440" height="56" rx="8" fill="#1A2029" stroke="#F5A524" stroke-width="3" /><text x="280" y="557" font-size="26" fill="#F5A524" text-anchor="middle" font-weight="700">Alarm sounds</text><line x1="500" y1="188" x2="573" y2="188" stroke="#8A94A3" stroke-width="3" marker-end="url(#ag)" /><text x="537" y="178" font-size="26" fill="#8A94A3" text-anchor="middle">No</text><rect x="575" y="160" width="190" height="56" rx="8" fill="none" stroke="#8A94A3" stroke-width="2" /><text x="670" y="197" font-size="26" fill="#F2F4F7" text-anchor="middle">Discard</text><line x1="500" y1="278" x2="573" y2="278" stroke="#8A94A3" stroke-width="3" marker-end="url(#ag)" /><text x="537" y="268" font-size="26" fill="#8A94A3" text-anchor="middle">No</text><rect x="575" y="250" width="190" height="56" rx="8" fill="none" stroke="#8A94A3" stroke-width="2" /><text x="670" y="287" font-size="26" fill="#F2F4F7" text-anchor="middle">Discard</text><line x1="500" y1="368" x2="573" y2="368" stroke="#8A94A3" stroke-width="3" marker-end="url(#ag)" /><text x="537" y="358" font-size="26" fill="#8A94A3" text-anchor="middle">Yes</text><rect x="575" y="340" width="190" height="56" rx="8" fill="none" stroke="#8A94A3" stroke-width="2" /><text x="670" y="377" font-size="26" fill="#F2F4F7" text-anchor="middle">Not printed</text></svg><figcaption>The receiver discards messages from stations that are not selected or with deselected subjects, suppresses repeats it has already received correctly, and prints new messages, sounding the alarm for D messages.</figcaption></figure><h2 id="s4">Bridge routine: setting up and using NAVTEX</h2><p><strong>At passage planning</strong></p>
+<ul>
+<li>Identify the NAVTEX stations covering the route, including their B1 letters and schedules.</li>
+<li>Note the change-over points in the passage plan, for example: "Select station X from abeam point Y."</li>
+<li>Note where NAVTEX coverage ends and EGC takes over.</li>
+</ul>
+<p><strong>Before departure / on entering a new area</strong></p>
+<ul>
+<li>Select the stations along the route. Selecting only your current station means you will miss warnings for waters ahead.</li>
+<li>Deselecting unwanted distant stations is acceptable. It cuts clutter and stops irrelevant warnings from distant stations heard at night.</li>
+<li>Check the date and time on the receiver.</li>
+</ul>
+<p><strong>On watch</strong></p>
+<ul>
+<li>Read every new message.</li>
+<li>Plot navigational warnings that affect the route on the chart or ECDIS.</li>
+<li>Brief the Master on anything significant.</li>
+<li>Respond as required to SAR (D) messages and record your actions.</li>
+<li>Keep and file messages, and record cancellations, as your company SMS requires. Most companies want in-force warnings kept in a file or folder on the bridge.</li>
+</ul>
+<p><strong>Worked scenario.</strong> You are the 3rd Officer on a bulk carrier heading towards a coastal TSS. Two days ago the receiver was reset after a power interruption. Since then it has reprinted a batch of old messages, and the C/O asks why. A reset can clear the stored identifiers, so warnings already received are treated as new and print again.</p>
+<p>In this case the reprinting is harmless. The real risk is a different one: check that your station selection survived the reset. Some receivers fall back to a default setting. If the station covering the TSS approaches is no longer selected, you will miss the rig move notice published for it.</p><h2 id="s5">Routine checks and maintenance</h2><p>Actual intervals come from the maker's manual, your company SMS and the flag administration's GMDSS requirements. Typical checks are:</p>
+<ul>
+<li><strong>Daily:</strong> Receiver on and displaying recent traffic. Station and subject selection correct for the area. Paper stock and printing quality (paper sets). Clock correct.</li>
+<li><strong>Self-test:</strong> Run the built-in test as required and record the result in the GMDSS radio log or as the SMS specifies.</li>
+<li><strong>Antenna:</strong> Inspect for physical damage, loose mountings, corroded connectors and broken or chafed cables. Do this at the intervals set by the PMS.</li>
+<li><strong>Power:</strong> Confirm the receiver stays operational on its alternative/emergency supply as arranged on your ship, as part of the GMDSS power checks.</li>
+<li><strong>Records:</strong> Keep printed or saved messages in line with the SMS. If equipment is defective, record it and report it according to company and flag requirements.</li>
+</ul>
+<p>Radio surveys and shore-based maintenance arrangements cover the wider GMDSS installation. The NAVTEX receiver is inspected as part of the Cargo Ship Safety Radio survey, or its equivalent.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s6">Common faults and their symptoms</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely causes</th>
+<th>First actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No messages at all for many hours in a covered area</td>
+<td>Station deselected, receiver off or frozen, antenna or cable fault, power fault</td>
+<td>Check the selection against the station list. Check the schedule, since the station only sends every four hours. Inspect the antenna and connections. Run the self-test.</td>
+</tr>
+<tr>
+<td>Garbled text, many error characters</td>
+<td>Weak signal, interference from onboard equipment, night-time skywave interference from distant stations on the same frequency, damaged antenna</td>
+<td>Check the antenna and earthing. Note whether the problem is worse at night. Compare with the next scheduled broadcast.</td>
+</tr>
+<tr>
+<td>Old messages reprinting</td>
+<td>Identifier memory cleared by a reset or power loss</td>
+<td>Check that the settings are intact. The reprints are not dangerous in themselves.</td>
+</tr>
+<tr>
+<td>Messages from far-off stations, local ones missing</td>
+<td>Wrong B1 selection, possibly night propagation</td>
+<td>Reselect stations for the area and passage ahead.</td>
+</tr>
+<tr>
+<td>Nothing printed but the display shows messages</td>
+<td>Printer fault or paper out</td>
+<td>Restore the paper. Read the stored messages on screen meanwhile.</td>
+</tr>
+<tr>
+<td>Wrong date/time on messages</td>
+<td>Clock not set or GNSS input lost</td>
+<td>Correct the clock and check the interface.</td>
+</tr>
+</tbody>
+</table>
+<p>If the receiver is out of service, tell the Master. Use alternative sources of MSI, such as EGC, coast radio stations and local VTS. Record the defect, and arrange repair according to the ship's GMDSS maintenance arrangements.</p><h2 id="s7">Regulations in brief</h2><ul>
+<li><strong>SOLAS Chapter IV (Radiocommunications)</strong> requires ships to be able to receive maritime safety information throughout their voyage. In areas where the international NAVTEX service is provided, this is done with a NAVTEX receiver. The same chapter covers the continuous watch for MSI, GMDSS power supplies and maintenance arrangements.</li>
+<li><strong>SOLAS Chapter V</strong> deals with the provision of navigational warnings by governments and with passage planning, which in practice includes using MSI.</li>
+<li><strong>IMO performance standards for NAVTEX receivers</strong> (Resolution MSC.148(77)) set how the receiver must behave. This covers message rejection rules, identifier storage and alarms.</li>
+<li>The <strong>IMO NAVTEX Manual</strong> and the <strong>Joint IMO/IHO/WMO Manual on MSI</strong> describe how the service is run.</li>
+</ul>
+<p>Logbook entries, radio log format and who on board is designated for GMDSS duties all depend on the flag state and company SMS.</p><h2 id="s8">Oral exam: questions examiners actually ask</h2><ul>
+<li><strong>What is NAVTEX and what frequency is the international service on?</strong> It is an MF direct-printing MSI service, on 518 kHz in English. Also mention 490 kHz national and 4209.5 kHz HF.</li>
+<li><strong>Explain B1 B2 B3 B4.</strong> B1 is the station, B2 the subject, and B3 B4 the serial number. Be ready to give A, B, D, E and L from memory.</li>
+<li><strong>Which messages can't you reject, and why?</strong> A, B, D and L. These are navigational warnings, met warnings and SAR/piracy information, which are essential to safety.</li>
+<li><strong>What does serial 00 mean?</strong> The message is always printed and is not suppressed as a repeat.</li>
+<li><strong>Why doesn't the same warning print every four hours?</strong> The receiver stores the identifiers of messages received correctly and suppresses repeats.</li>
+<li><strong>How do you choose which stations to select?</strong> From the passage plan, covering the current area and the areas ahead, using the current list of radio signals.</li>
+<li><strong>What do you do if NAVTEX fails at sea?</strong> Inform the Master. Use EGC and other MSI sources. Log the defect and report it per the SMS.</li>
+<li><strong>Where does NAVTEX coverage stop, and what replaces it?</strong> It covers coastal waters only. Beyond that, MSI comes by EGC through a recognised mobile satellite service.</li>
+</ul>
+<p>Examiners like candidates who connect the equipment to the passage plan, not just recite codes.</p><div class="card kp"><div class="label">Key points</div><ul><li>NAVTEX broadcasts coastal maritime safety information; the international service is on 518 kHz in English.</li><li>The message identifier B1 B2 B3 B4 gives the station, subject and serial number.</li><li>Subject indicators A, B, D and L cannot be deselected; serial 00 always prints.</li><li>Stations share frequencies by time-slot, each transmitting for 10 minutes every four hours.</li><li>Select stations from the passage plan, covering the areas ahead as well as your current area.</li><li>Beyond NAVTEX range, MSI is received via EGC through a recognised mobile satellite service.</li><li>SOLAS Chapter IV requires ships to receive MSI throughout the voyage; logging and checks follow flag and SMS requirements.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>What is the range of NAVTEX?</summary><p>NAVTEX is a coastal service. An MF station&#x27;s practical range is a few hundred nautical miles, depending on transmitter power and propagation. Published station data in the lists of radio signals show each station&#x27;s coverage area. Beyond that, rely on EGC.</p></details><details><summary>Can I switch off weather forecasts on NAVTEX?</summary><p>Subject E (meteorological forecasts) can be deselected on the receiver. Most ships keep it on because it is useful. Meteorological warnings (B), navigational warnings (A and L) and SAR information (D) cannot be rejected.</p></details><details><summary>Why did my NAVTEX print old messages again?</summary><p>After a power loss or reset, the receiver may lose its stored list of message identifiers, so it treats repeated broadcasts as new. The reprints are harmless. Check that your station and subject selections were not reset to defaults.</p></details><details><summary>What is the difference between 518 kHz and 490 kHz NAVTEX?</summary><p>518 kHz carries the international service in English and is the one required for SOLAS ships. 490 kHz is used for national NAVTEX broadcasts, often in a local language. Many modern receivers can monitor both at once.</p></details><details><summary>Is NAVTEX required in every sea area?</summary><p>SOLAS Chapter IV requires ships to be able to receive maritime safety information throughout their voyage. In areas where the international NAVTEX service is provided, this is done with a NAVTEX receiver. Where there is no NAVTEX coverage, MSI is normally received via EGC from a recognised mobile satellite service (and, in some areas, HF MSI broadcasts). Check your ship&#x27;s radio equipment certificate and flag requirements for the specific arrangement.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>On which frequency is the international NAVTEX service broadcast in English?</p><button data-c="0">490 kHz</button><button data-c="1">518 kHz</button><button data-c="0">2182 kHz</button><button data-c="0">156.525 MHz</button><div class="ex">International NAVTEX is on 518 kHz and 490 kHz is national NAVTEX. 2182 kHz is the MF radiotelephony distress frequency and 156.525 MHz (VHF Ch 70) is the VHF DSC frequency (IMO NAVTEX Manual).</div></div><div class="q"><p>Which subject indicator may be deselected on a NAVTEX receiver?</p><button data-c="0">A – navigational warnings</button><button data-c="0">B – meteorological warnings</button><button data-c="0">D – SAR information</button><button data-c="1">E – meteorological forecasts</button><div class="ex">A, B, D and L cannot be rejected; E may be deselected (IMO Resolution MSC.148(77)).</div></div><div class="q"><p>A NAVTEX message carries serial number 00. What does this mean?</p><button data-c="1">It is always printed and not suppressed as a repeat</button><button data-c="0">It is a test transmission and can be ignored</button><button data-c="0">It cancels all previous messages from that station</button><button data-c="0">It is the first message of the day</button><div class="ex">Serial 00 marks a message that must always be printed regardless of earlier reception (IMO NAVTEX Manual).</div></div><div class="q"><p>In the identifier B1 B2 B3 B4, what does B1 represent?</p><button data-c="0">The subject of the message</button><button data-c="0">The NAVAREA number</button><button data-c="1">The transmitting station&#x27;s identity letter</button><button data-c="0">The message priority</button><div class="ex">B1 identifies the transmitter; B2 is the subject and B3 B4 the serial number (IMO NAVTEX Manual).</div></div><div class="q"><p>A ship is on an ocean passage well beyond NAVTEX coverage. How is maritime safety information received?</p><button data-c="0">Via VHF DSC from coast stations</button><button data-c="1">Via Enhanced Group Call from a recognised mobile satellite service</button><button data-c="0">Via AIS safety-related messages only</button><button data-c="0">It is not available until within NAVTEX range</button><div class="ex">Outside NAVTEX coverage, MSI is broadcast via EGC, e.g. SafetyNET (SOLAS Chapter IV; Joint IMO/IHO/WMO Manual on MSI).</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/systems/gmdss-equipment/">GMDSS equipment</a><a href="/guides/certificates/gmdss-general-operators-certificate-goc/">GMDSS General Operator&#x27;s Certificate (GOC)</a><a href="/guides/operations/passage-planning-appraisal-planning-execution-monitoring/">Passage planning (appraisal, planning, execution, monitoring)</a><a href="/guides/operations/bridge-watchkeeping/">Bridge watchkeeping</a><a href="/guides/systems/ecdis/">ECDIS</a><a href="/guides/ranks/2nd-officer-on-a-merchant-ship/">2nd Officer on a merchant ship</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter IV (Radiocommunications); SOLAS 1974 as amended, Chapter V (Safety of Navigation); IMO Resolution MSC.148(77) – Revised performance standards for narrow-band direct-printing telegraph equipment for the reception of navigational and meteorological warnings and urgent information to ships (NAVTEX); IMO Resolution A.1051(27) as amended – IMO/IHO World-Wide Navigational Warning Service; IMO NAVTEX Manual; Joint IMO/IHO/WMO Manual on Maritime Safety Information</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

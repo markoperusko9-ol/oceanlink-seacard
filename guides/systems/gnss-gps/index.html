@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GNSS / GPS on Ships: How It Works, Checks and Faults | Ocean Link</title><meta name="description" content="Shipboard GNSS/GPS explained: components, how a fix is made, accuracy and datum, routine checks, jamming and spoofing, and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/systems/gnss-gps/">
+<meta property="og:title" content="GNSS / GPS on Ships: How It Works, Checks and Faults | Ocean Link"><meta property="og:description" content="Shipboard GNSS/GPS explained: components, how a fix is made, accuracy and datum, routine checks, jamming and spoofing, and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/systems/gnss-gps/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GNSS / GPS on Ships: How It Works, Checks and Faults", "description": "Shipboard GNSS/GPS explained: components, how a fix is made, accuracy and datum, routine checks, jamming and spoofing, and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/systems/gnss-gps/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between GPS and GNSS on a ship?", "acceptedAnswer": {"@type": "Answer", "text": "GNSS is the general term for satellite navigation systems. GPS is the American one; GLONASS, Galileo and BeiDou are the others. Many modern marine receivers track several constellations together, which improves availability and geometry, although the unit is still commonly called the GPS."}}, {"@type": "Question", "name": "Is a GPS receiver mandatory on merchant ships?", "acceptedAnswer": {"@type": "Answer", "text": "SOLAS Chapter V, Regulation 19 requires all ships to carry a GNSS receiver, a terrestrial radionavigation receiver or other means to establish and update position automatically throughout the voyage. In practice that is a GNSS receiver. The number of receivers fitted, and how they integrate with ECDIS, depends on the equipment fit, the flag administration and the company SMS."}}, {"@type": "Question", "name": "Why does my GPS position not match my radar fix on the chart?", "acceptedAnswer": {"@type": "Answer", "text": "Common reasons are a datum mismatch on a paper chart, a wrongly entered antenna offset, or a chart surveyed long ago with limited accuracy. Multipath near structures is another. A sudden or growing difference may indicate spoofing, so treat the independent radar or visual fix as the check and investigate before you trust either."}}, {"@type": "Question", "name": "How can I tell if GPS is being jammed or spoofed?", "acceptedAnswer": {"@type": "Answer", "text": "Jamming usually shows as all signal strengths dropping, followed by loss of fix and position alarms. Spoofing is harder to spot: the fix looks valid, but the position, speed or time does not agree with radar, soundings, visual bearings or the ship's clock. AIS targets that cluster at one spot or appear on land are another warning sign."}}, {"@type": "Question", "name": "Should I use GPS speed (SOG) on ARPA for collision avoidance?", "acceptedAnswer": {"@type": "Answer", "text": "For collision avoidance, a sea-stabilised presentation using log speed through the water and gyro heading gives the true aspect of other vessels. Ground stabilisation using GNSS SOG/COG is useful for navigation and parallel indexing. In a strong current, however, it can give a misleading picture of another vessel's heading."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Ship systems & equipment", "item": "https://card.oceanlinkai.com/guides/systems/"}, {"@type": "ListItem", "position": 3, "name": "GNSS / GPS on Merchant Ships: A Practical Guide for Officers and Cadets", "item": "https://card.oceanlinkai.com/guides/systems/gnss-gps/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/systems/">Ship systems &amp; equipment</a></div><h1>GNSS / GPS on Merchant Ships: A Practical Guide for Officers and Cadets</h1><div class="card sum"><div class="label">Quick answer</div><p>A shipboard GNSS receiver works out the ship&#x27;s position, speed and course over ground, and UTC time, from satellite signals. It feeds ECDIS, radar/ARPA, AIS, GMDSS, VDR and the autopilot. It is accurate when it is working properly, but it can be jammed or spoofed and it can fail without warning, so the watchkeeper must keep cross-checking it with radar, visual fixes, soundings and DR.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What GNSS does on board and where it sits in the rules</a><a href="#s2">Main components and what the receiver feeds</a><a href="#s3">How a position fix is produced, step by step</a><a href="#s4">Accuracy, errors, datum and antenna offset</a><a href="#s5">Routine checks and maintenance</a><a href="#s6">Common faults, jamming and spoofing</a><a href="#s7">Oral exam questions you should be ready for</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What GNSS does on board and where it sits in the rules</h2><p>GNSS (Global Navigation Satellite System) is the general term. GPS is one GNSS, owned by the United States. The others are:</p>
+<ul>
+<li><strong>GLONASS</strong> (Russia)</li>
+<li><strong>Galileo</strong> (European Union)</li>
+<li><strong>BeiDou</strong> (China)</li>
+</ul>
+<p>There are also regional systems such as <strong>NavIC</strong> (India) and <strong>QZSS</strong> (Japan). Most new bridge receivers are multi-constellation, but everyone on board still calls the unit "the GPS".</p>
+<p>The receiver gives you four things:</p>
+<ul>
+<li>Latitude and longitude</li>
+<li>Speed over ground (SOG)</li>
+<li>Course over ground (COG)</li>
+<li>Accurate UTC time</li>
+</ul>
+<p>The time output matters as much as the position. AIS, GMDSS DSC, the VDR and ECDIS all use it.</p>
+<p><strong>Regulation.</strong> SOLAS Chapter V, Regulation 19 requires every ship, whatever her size, to carry a means of establishing and updating position automatically throughout the intended voyage. That means can be a GNSS receiver, a terrestrial radionavigation receiver or other means. Regulation 18 of the same chapter covers type approval and IMO performance standards for navigation equipment.</p>
+<p>SOLAS does not say "two GPS receivers". Most ships carry two, often feeding ECDIS through a sensor selector, but that comes from equipment fit, flag and company SMS, and ECDIS backup arrangements.</p>
+<p>On the watchkeeping side, STCW Code Section A-VIII/2 requires the OOW to make full use of all navigational equipment and to check the position frequently. You may not treat one aid as the only aid.</p><h2 id="s2">Main components and what the receiver feeds</h2><p>A typical installation has these parts:</p>
+<ul>
+<li><strong>Antenna:</strong> a small radome on the monkey island or a mast. It contains a low-noise pre-amplifier, powered through the coaxial cable.</li>
+<li><strong>Coaxial cable and connectors:</strong> the weakest physical link. Water ingress at a connector is a classic cause of failure.</li>
+<li><strong>Receiver/display unit:</strong> on the bridge. It shows the position, the satellites in view, signal strength, DOP, fix mode and alarms.</li>
+<li><strong>Optional differential input:</strong> an IALA beacon receiver for DGPS, or built-in SBAS reception. Beacon DGPS coverage is regional and has been discontinued in some areas. Check current national publications or the list of radio signals.</li>
+<li><strong>Data outputs:</strong> serial sentences to the IEC 61162 (NMEA 0183) standard, or a network interface on newer integrated bridges.</li>
+</ul>
+<p>The receiver usually feeds:</p>
+<table>
+<thead>
+<tr>
+<th>Equipment</th>
+<th>What it takes from GNSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECDIS</td>
+<td>Position, COG/SOG, time</td>
+</tr>
+<tr>
+<td>Radar/ARPA</td>
+<td>Position for chart overlay and ground stabilisation</td>
+</tr>
+<tr>
+<td>AIS</td>
+<td>Position, COG/SOG (AIS also has its own internal GNSS for timing)</td>
+</tr>
+<tr>
+<td>GMDSS MF/HF and VHF DSC</td>
+<td>Position and time for distress alerts</td>
+</tr>
+<tr>
+<td>VDR</td>
+<td>Position and time</td>
+</tr>
+<tr>
+<td>Gyrocompass</td>
+<td>Speed and latitude for automatic speed/latitude correction, where fitted</td>
+</tr>
+<tr>
+<td>Autopilot / track control</td>
+<td>Position for track keeping</td>
+</tr>
+<tr>
+<td>SSAS, LRIT terminal</td>
+<td>Position reports (often via their own GNSS)</td>
+</tr>
+</tbody>
+</table>
+<p>This is why one bad GNSS input does damage in many places at once. A false position can appear on ECDIS, go out on AIS, be sent in a DSC distress alert and be recorded in the VDR, all at the same time.</p><figure><svg aria-label="Schematic showing an antenna on top connected by coaxial cable to the bridge receiver. The receiver outputs position, SOG, COG and UTC time along a common line to six systems: ECDIS, Radar/ARPA, AIS, DSC (GMDSS), VDR and autopilot. An amber warning box at the bottom reads that one false fix shows up everywhere." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker></defs><rect x="0" y="0" width="800" height="560" rx="12" fill="#0F1217" /><text x="400" y="48" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">One receiver feeds many systems</text><text x="150" y="98" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Antenna</text><path d="M115,150 A35,35 0 0 1 185,150 Z" fill="#1B2430" stroke="#00E5FF" stroke-width="3" /><line x1="105" y1="150" x2="195" y2="150" stroke="#00E5FF" stroke-width="3" /><line x1="150" y1="150" x2="150" y2="228" stroke="#00B0D2" stroke-width="4" /><text x="166" y="200" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Coax</text><rect x="40" y="230" width="220" height="80" rx="10" fill="#1B2430" stroke="#00E5FF" stroke-width="3" /><text x="150" y="279" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#F2F4F7" text-anchor="middle">Receiver</text><text x="150" y="350" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF" text-anchor="middle">Pos, SOG, COG, UTC</text><line x1="260" y1="270" x2="360" y2="270" stroke="#00E5FF" stroke-width="3" /><line x1="360" y1="106" x2="360" y2="426" stroke="#00E5FF" stroke-width="3" /><g stroke="#00E5FF" stroke-width="3" marker-end="url(#a1)"><line x1="360" y1="106" x2="426" y2="106" /><line x1="360" y1="170" x2="426" y2="170" /><line x1="360" y1="234" x2="426" y2="234" /><line x1="360" y1="298" x2="426" y2="298" /><line x1="360" y1="362" x2="426" y2="362" /><line x1="360" y1="426" x2="426" y2="426" /></g><g fill="#1B2430" stroke="#00B0D2" stroke-width="2"><rect x="430" y="80" width="330" height="52" rx="8" /><rect x="430" y="144" width="330" height="52" rx="8" /><rect x="430" y="208" width="330" height="52" rx="8" /><rect x="430" y="272" width="330" height="52" rx="8" /><rect x="430" y="336" width="330" height="52" rx="8" /><rect x="430" y="400" width="330" height="52" rx="8" /></g><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle"><text x="595" y="115">ECDIS</text><text x="595" y="179">Radar / ARPA</text><text x="595" y="243">AIS</text><text x="595" y="307">DSC (GMDSS)</text><text x="595" y="371">VDR</text><text x="595" y="435">Autopilot</text></g><rect x="40" y="476" width="720" height="60" rx="10" fill="#0F1217" stroke="#F5A524" stroke-width="3" /><text x="400" y="515" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F5A524" text-anchor="middle">One false fix shows up everywhere</text></svg><figcaption>One GNSS receiver feeds many bridge systems, so a single bad input can corrupt them all at once.</figcaption></figure><h2 id="s3">How a position fix is produced, step by step</h2><ol>
+<li><strong>Satellites transmit.</strong> Each satellite continuously broadcasts a coded signal. The signal carries the satellite's precise orbit data (the ephemeris), a rough almanac of the whole constellation and a time stamp from its onboard atomic clock. The GPS constellation nominally has 24 or more satellites in medium Earth orbit, at roughly 20,200 km.</li>
+<li><strong>The receiver acquires satellites.</strong> It searches for signals, using the stored almanac to predict which satellites should be above the horizon. Start-up time depends on what it has in memory:<ul>
+<li>A <strong>hot start</strong> with a recent almanac and ephemeris is fast.</li>
+<li>A <strong>cold start</strong>, after long power-off or a big position change, takes longer.</li>
+</ul>
+</li>
+<li><strong>It measures range.</strong> The receiver compares the time stamp with its own clock and multiplies the travel time by the speed of light. This gives a <em>pseudorange</em>. It is called "pseudo" because the receiver's cheap clock is not exact.</li>
+<li><strong>It solves for position and clock error.</strong> There are four unknowns: latitude, longitude, height and receiver clock error. So the receiver needs at least four satellites for a full 3D fix. At sea some receivers can give a 2D fix from three satellites by assuming a known antenna height.</li>
+<li><strong>It applies corrections.</strong> If SBAS (such as WAAS, EGNOS, MSAS or India's GAGAN) or beacon DGPS is available, the receiver applies corrections for satellite clock, orbit and ionospheric errors. It then shows the mode, for example "D" or "DGPS".</li>
+<li><strong>It computes velocity.</strong> SOG and COG come from successive positions and/or Doppler measurements.</li>
+<li><strong>It outputs and checks integrity.</strong> The data goes out at the set update rate. Many receivers also run integrity checks such as RAIM, which compares redundant satellite measurements to flag a bad one, and they raise an alarm when the fix is lost or degraded.</li>
+</ol><h2 id="s4">Accuracy, errors, datum and antenna offset</h2><p><strong>Main error sources</strong></p>
+<ul>
+<li><strong>Ionospheric and tropospheric delay:</strong> the signal slows down passing through the atmosphere.</li>
+<li><strong>Multipath:</strong> signals reflect off the funnel, cranes or containers before reaching the antenna.</li>
+<li><strong>Satellite geometry:</strong> shown as DOP (Dilution of Precision). A <em>low</em> HDOP means the satellites are well spread and the horizontal fix is strong. A high HDOP means they are bunched together and the fix is weak. The alarm threshold is set by the user or the company.</li>
+<li><strong>Satellite clock and orbit errors:</strong> largely removed by SBAS or DGPS corrections.</li>
+</ul>
+<p><strong>Datum.</strong> GNSS positions are worked in WGS 84, and ENCs are compiled on WGS 84.</p>
+<ul>
+<li>With ECDIS, keep the receiver output on WGS 84 and let the ECDIS handle display.</li>
+<li>With an older paper chart on a local datum, apply the datum shift note printed on the chart.</li>
+<li>Do not change the receiver datum just to suit one chart. Every connected system will then be fed shifted positions.</li>
+</ul>
+<p><strong>Antenna offset.</strong> The position is the position of the <em>antenna</em>, not of the bridge or the bow. On a large ship that difference can be significant when berthing or in a narrow channel. ECDIS and radar use a consistent common reference point (CCRP), so the antenna position must be entered correctly at installation. Check it after any antenna relocation.</p>
+<p><strong>SOG is not speed through the water.</strong> GNSS gives ground-referenced motion. For ARPA collision avoidance, a sea-stabilised picture using log speed and gyro heading gives the true aspect of other vessels. A ground-stabilised picture in a strong current can show a misleading aspect.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s5">Routine checks and maintenance</h2><p><strong>Every watch:</strong></p>
+<ul>
+<li>Compare the positions from both receivers if two are fitted, and check them against an independent fix: radar ranges, visual bearings, a sounding against the charted depth.</li>
+<li>Look at the fix mode (3D/2D, differential or not), the number of satellites and the HDOP.</li>
+<li>Check that the receiver is <strong>not</strong> in DR, simulation or demo mode. A unit left in simulation mode will happily show a moving position.</li>
+<li>Compare GNSS time with an independent ship's clock or other independent time source. An unexplained time offset can be a sign of interference.</li>
+<li>Check that alarms are active and audible, not muted.</li>
+</ul>
+<p><strong>Periodically, per the planned maintenance system:</strong></p>
+<ul>
+<li>Inspect the antenna radome for cracks and salt build-up. Wipe it with fresh water and do <strong>not</strong> paint it.</li>
+<li>Check that the antenna mounting is secure and has a clear sky view. It should be away from radar scanner beams, Inmarsat/VSAT antennas and HF whips.</li>
+<li>Check the cable runs and outdoor connectors for corrosion and water ingress, and check the self-amalgamating tape and weatherproofing.</li>
+<li>Check the configuration: antenna offsets, datum (WGS 84), output sentences and baud rate to each connected system, and alarm limits.</li>
+<li>Record the software version. Older receivers have failed after GPS week-number rollovers, the best-known being in April 2019. Apply manufacturer updates through the proper channel.</li>
+</ul><h2 id="s6">Common faults, jamming and spoofing</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>First action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"No fix" or position lost alarm, satellites shown but weak</td>
+<td>Antenna or cable fault, water in connector, pre-amp supply lost</td>
+<td>Switch to the second receiver, check connections, report to ETO</td>
+</tr>
+<tr>
+<td>Position jumps when passing cranes or alongside</td>
+<td>Multipath or masking</td>
+<td>Cross-check visually and by radar, expect it to clear</td>
+</tr>
+<tr>
+<td>High HDOP, fix flagged degraded</td>
+<td>Poor satellite geometry or masking</td>
+<td>Use other fixing methods, monitor</td>
+</tr>
+<tr>
+<td>ECDIS shows "sensor lost" but the GPS display is fine</td>
+<td>Interface or cable fault, wrong baud rate or sentence after a configuration change</td>
+<td>Check outputs and sensor selection</td>
+</tr>
+<tr>
+<td>All signal strengths drop together, fix lost, time drifts</td>
+<td><strong>Jamming</strong></td>
+<td>Navigate by radar, visual and DR, report</td>
+</tr>
+<tr>
+<td>Strong signals, valid-looking fix, but position wrong or drifting, speed odd, time wrong</td>
+<td><strong>Spoofing</strong></td>
+<td>Cross-check at once, deselect GNSS where the system allows, report</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Worked scenario: suspected spoofing.</strong> You are on the 0000-0400 watch in a sea area with known interference. ECDIS suddenly shows own ship 15 miles inland. Several AIS targets appear clustered at one point, and the second receiver agrees with the first.</p>
+<ol>
+<li>Do not alter course on the ECDIS picture. Look outside and at the radar.</li>
+<li>Take a radar fix from coastline ranges and bearings and check the depth against the chart.</li>
+<li>Recognise that both receivers can be spoofed together, so "two agree" proves nothing.</li>
+<li>Switch ECDIS to DR or the position source your SMS prescribes. Use radar parallel indexing and visual fixes.</li>
+<li>Remember the knock-on effects. AIS is transmitting a false position, DSC alerts would carry the wrong position, and any gyro speed correction may be fed false data.</li>
+<li>Inform the Master. Log times and positions, and report through the channels set out in your company SMS and to the relevant authority.</li>
+<li>When the signal appears to return, confirm it against an independent fix before you trust it again.</li>
+</ol><figure><svg aria-label="Two side-by-side panels. Left panel, Jamming: low signal-strength bars, with the notes all signals drop, fix lost, time drifts. Right panel, Spoofing: tall signal-strength bars, with the notes strong signals, fix looks valid, position wrong. A box below gives the response for both: navigate by radar, visual and DR, inform the Master and report." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><rect x="0" y="0" width="800" height="560" rx="12" fill="#0F1217" /><text x="400" y="48" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Jamming vs spoofing</text><rect x="30" y="80" width="355" height="300" rx="10" fill="#161C24" stroke="#F5A524" stroke-width="3" /><rect x="415" y="80" width="355" height="300" rx="10" fill="#161C24" stroke="#F5A524" stroke-width="3" /><text x="207" y="122" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#F5A524" text-anchor="middle">JAMMING</text><text x="592" y="122" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#F5A524" text-anchor="middle">SPOOFING</text><line x1="115" y1="222" x2="300" y2="222" stroke="#00B0D2" stroke-width="2" /><line x1="500" y1="222" x2="685" y2="222" stroke="#00B0D2" stroke-width="2" /><g fill="#5A6270"><rect x="125" y="202" width="24" height="20" /><rect x="160" y="207" width="24" height="15" /><rect x="195" y="200" width="24" height="22" /><rect x="230" y="210" width="24" height="12" /><rect x="265" y="204" width="24" height="18" /></g><g fill="#00E5FF"><rect x="510" y="152" width="24" height="70" /><rect x="545" y="147" width="24" height="75" /><rect x="580" y="150" width="24" height="72" /><rect x="615" y="144" width="24" height="78" /><rect x="650" y="148" width="24" height="74" /></g><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle"><text x="207" y="270">All signals drop</text><text x="207" y="315">Fix lost</text><text x="207" y="360">Time drifts</text><text x="592" y="270">Strong signals</text><text x="592" y="315">Fix looks valid</text><text x="592" y="360">Position wrong</text></g><rect x="30" y="405" width="740" height="130" rx="10" fill="#1B2430" stroke="#00E5FF" stroke-width="3" /><text x="400" y="455" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#00E5FF" text-anchor="middle">Navigate by radar, visual, DR</text><text x="400" y="505" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">Inform Master and report</text></svg><figcaption>Jamming kills the signal, while spoofing gives strong signals and a convincing but false fix; the response for both is to navigate by independent means and report.</figcaption></figure><h2 id="s7">Oral exam questions you should be ready for</h2><ul>
+<li><strong>Why does a receiver need four satellites for a 3D fix?</strong> There are four unknowns: three position coordinates plus the receiver clock error.</li>
+<li><strong>What is HDOP and what does a high value mean?</strong> It is the effect of satellite geometry on horizontal accuracy. A high value means poor geometry and a less reliable fix.</li>
+<li><strong>What datum does GPS use and why does it matter?</strong> WGS 84. If you plot it on a chart drawn to another datum without applying the shift, the position is wrong.</li>
+<li><strong>Which bridge equipment depends on the GNSS input?</strong> ECDIS, ARPA, AIS, DSC, VDR, autopilot track mode, and gyro speed correction where fitted.</li>
+<li><strong>How would you detect spoofing, and what would you do?</strong> Cross-check with independent means, look for time and speed anomalies, and treat the outputs to all connected systems as suspect. Then navigate by radar, visual and DR, inform the Master and report.</li>
+<li><strong>Should ARPA be ground- or sea-stabilised for collision avoidance?</strong> Sea-stabilised, for the true aspect. Ground stabilisation can mislead in a current.</li>
+<li><strong>What does SOLAS require?</strong> Chapter V, Regulation 19: an automatic position-fixing means suitable for the whole voyage, on all ships.</li>
+<li><strong>Where on the ship is the GNSS position?</strong> At the antenna. Offsets must be set so ECDIS and radar show the CCRP correctly.</li>
+</ul><div class="card kp"><div class="label">Key points</div><ul><li>GPS is one GNSS; modern receivers often use GPS, GLONASS, Galileo and BeiDou together.</li><li>SOLAS Chapter V, Regulation 19 requires all ships to have an automatic position-fixing means for the whole voyage.</li><li>A 3D fix needs at least four satellites because the receiver clock error is a fourth unknown.</li><li>GNSS position is in WGS 84 and refers to the antenna, so datum and antenna offsets must be right.</li><li>Low HDOP means good satellite geometry; high HDOP means a weak fix.</li><li>Jamming kills the signal; spoofing gives a convincing but false position and time, often on both receivers at once.</li><li>Always cross-check with radar, visual bearings, soundings and DR; never rely on GNSS alone.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>What is the difference between GPS and GNSS on a ship?</summary><p>GNSS is the general term for satellite navigation systems. GPS is the American one; GLONASS, Galileo and BeiDou are the others. Many modern marine receivers track several constellations together, which improves availability and geometry, although the unit is still commonly called the GPS.</p></details><details><summary>Is a GPS receiver mandatory on merchant ships?</summary><p>SOLAS Chapter V, Regulation 19 requires all ships to carry a GNSS receiver, a terrestrial radionavigation receiver or other means to establish and update position automatically throughout the voyage. In practice that is a GNSS receiver. The number of receivers fitted, and how they integrate with ECDIS, depends on the equipment fit, the flag administration and the company SMS.</p></details><details><summary>Why does my GPS position not match my radar fix on the chart?</summary><p>Common reasons are a datum mismatch on a paper chart, a wrongly entered antenna offset, or a chart surveyed long ago with limited accuracy. Multipath near structures is another. A sudden or growing difference may indicate spoofing, so treat the independent radar or visual fix as the check and investigate before you trust either.</p></details><details><summary>How can I tell if GPS is being jammed or spoofed?</summary><p>Jamming usually shows as all signal strengths dropping, followed by loss of fix and position alarms. Spoofing is harder to spot: the fix looks valid, but the position, speed or time does not agree with radar, soundings, visual bearings or the ship&#x27;s clock. AIS targets that cluster at one spot or appear on land are another warning sign.</p></details><details><summary>Should I use GPS speed (SOG) on ARPA for collision avoidance?</summary><p>For collision avoidance, a sea-stabilised presentation using log speed through the water and gyro heading gives the true aspect of other vessels. Ground stabilisation using GNSS SOG/COG is useful for navigation and parallel indexing. In a strong current, however, it can give a misleading picture of another vessel&#x27;s heading.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>What is the minimum number of satellites a receiver needs for a full 3D position fix?</p><button data-c="0">Three, one for each coordinate</button><button data-c="1">Four, to solve position and receiver clock error</button><button data-c="0">Six, for redundancy</button><button data-c="0">Twenty-four, the full constellation</button><div class="ex">The receiver has four unknowns: latitude, longitude, height and its own clock error. It therefore needs at least four satellites.</div></div><div class="q"><p>The GPS display shows a high HDOP value. What does this indicate?</p><button data-c="0">Differential corrections are being received</button><button data-c="0">The receiver is in simulation mode</button><button data-c="0">The ship&#x27;s speed is too high for the receiver</button><button data-c="1">Poor satellite geometry and a weaker horizontal fix</button><div class="ex">HDOP measures how satellite geometry affects horizontal accuracy. A low value is good and a high value means a less reliable fix.</div></div><div class="q"><p>Which geodetic datum do GNSS receivers and ENCs use?</p><button data-c="1">WGS 84</button><button data-c="0">The local chart datum of each country</button><button data-c="0">Lowest Astronomical Tide</button><button data-c="0">Mean Sea Level</button><div class="ex">GNSS positions are worked in WGS 84 and ENCs are compiled on WGS 84. LAT and MSL are vertical datums for depths and heights, not horizontal datums.</div></div><div class="q"><p>Which observation most strongly suggests GNSS spoofing rather than an antenna fault?</p><button data-c="0">The receiver shows &#x27;no fix&#x27; and zero satellites</button><button data-c="0">Signal strength drops slowly over several days</button><button data-c="1">A valid-looking fix places own ship and several AIS targets on land</button><button data-c="0">The position wanders by a few metres alongside a container crane</button><div class="ex">Spoofing produces strong signals and a valid-looking but false position, often affecting several ships alike. Loss of fix points to a fault or jamming, and small jumps near cranes are typical multipath.</div></div><div class="q"><p>What does SOLAS Chapter V, Regulation 19 require regarding position fixing?</p><button data-c="0">Two independent GPS receivers on every ship over 500 GT</button><button data-c="1">A means to establish and update position automatically throughout the voyage, on all ships</button><button data-c="0">A DGPS beacon receiver on all cargo ships</button><button data-c="0">A GNSS receiver only on ships fitted with ECDIS</button><div class="ex">SOLAS V/19 requires all ships to carry a GNSS receiver, a terrestrial radionavigation receiver or other means for automatic position fixing. It does not specify two GPS units or DGPS.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/systems/ecdis/">ECDIS</a><a href="/guides/systems/ais/">AIS</a><a href="/guides/systems/radar-and-arpa/">Radar and ARPA</a><a href="/guides/systems/gyrocompass/">Gyrocompass</a><a href="/guides/operations/bridge-watchkeeping/">Bridge watchkeeping</a><a href="/guides/operations/parallel-indexing/">Parallel indexing</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter V, Regulation 18; SOLAS 1974 as amended, Chapter V, Regulation 19; STCW Code, Section A-VIII/2</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

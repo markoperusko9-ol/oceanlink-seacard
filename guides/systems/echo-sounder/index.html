@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Echo Sounder on Ships: How It Works, Checks and Faults | Ocean Link</title><meta name="description" content="An echo sounder times a sound pulse to the seabed and back to give depth. Components, offsets, routine checks, common faults and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/systems/echo-sounder/">
+<meta property="og:title" content="Echo Sounder on Ships: How It Works, Checks and Faults | Ocean Link"><meta property="og:description" content="An echo sounder times a sound pulse to the seabed and back to give depth. Components, offsets, routine checks, common faults and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/systems/echo-sounder/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Echo Sounder on Ships: How It Works, Checks and Faults", "description": "An echo sounder times a sound pulse to the seabed and back to give depth. Components, offsets, routine checks, common faults and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/systems/echo-sounder/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is an echo sounder mandatory on all merchant ships?", "acceptedAnswer": {"@type": "Answer", "text": "SOLAS Chapter V Regulation 19 requires an echo-sounding device, or other electronic means to measure the available depth, on ships of 300 GT and upwards and on all passenger ships irrespective of size. Smaller non-passenger ships fall under flag-state rules. Check your flag administration's requirements."}}, {"@type": "Question", "name": "What speed of sound does a ship's echo sounder use?", "acceptedAnswer": {"@type": "Answer", "text": "Most sets use a nominal calibration value of around 1,500 m/s for seawater. The actual speed varies with temperature, salinity and pressure, so there is always a small error. For merchant-ship depths this is usually minor compared with offset or draught errors."}}, {"@type": "Question", "name": "Why does my echo sounder show a second bottom line?", "acceptedAnswer": {"@type": "Answer", "text": "It is usually a multiple echo. The pulse has bounced from the seabed to the hull and back down again, producing a trace at about twice the true depth. It is most common in shallow water over a hard bottom. Read the shallower trace and reduce the gain."}}, {"@type": "Question", "name": "Does the echo sounder show depth below the keel or below the surface?", "acceptedAnswer": {"@type": "Answer", "text": "It can show either, or depth below the transducer, depending on how it is set. The below-keel and below-surface readings rely on the offset and draught entered. Confirm the datum on the display and update the draught whenever it changes."}}, {"@type": "Question", "name": "Can I paint over the echo sounder transducer in dry dock?", "acceptedAnswer": {"@type": "Answer", "text": "Not with ordinary hull paint or antifouling. A coating on the face can attenuate the signal badly. Follow the manufacturer's instructions, which may permit a specific coating or require the face to be left clean. Mark the transducer so the paint gang avoids it."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Ship systems & equipment", "item": "https://card.oceanlinkai.com/guides/systems/"}, {"@type": "ListItem", "position": 3, "name": "Echo Sounder on Merchant Ships: A Practical Guide for Officers and Cadets", "item": "https://card.oceanlinkai.com/guides/systems/echo-sounder/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/systems/">Ship systems &amp; equipment</a></div><h1>Echo Sounder on Merchant Ships: A Practical Guide for Officers and Cadets</h1><div class="card sum"><div class="label">Quick answer</div><p>An echo sounder measures the depth of water by sending a sound pulse from a hull-mounted transducer and timing the echo from the seabed. Depth equals half the round-trip time multiplied by the speed of sound in water. SOLAS Chapter V requires one on ships of 300 GT and upwards and on all passenger ships. Its reading is only as good as its offset setting, sound speed value and transducer condition, so cross-check it against the chart.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What the echo sounder is for</a><a href="#s2">Main components</a><a href="#s3">How it works, step by step</a><a href="#s4">Getting the datum right: transducer, keel or surface</a><a href="#s5">Routine checks and maintenance</a><a href="#s6">Common faults and their symptoms</a><a href="#s7">Regulation and safety precautions</a><a href="#s8">Oral exam questions you should be ready for</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What the echo sounder is for</h2><p>The echo sounder is the only bridge instrument that measures the water actually under the ship. GNSS tells you where you are. ECDIS tells you what the chart says. The echo sounder tells you what is really there.</p>
+<p>On a merchant ship it is used for:</p>
+<ul>
+<li><strong>Under-keel clearance (UKC) monitoring</strong> in pilotage waters, channels, port approaches and shallow passages.</li>
+<li><strong>Position checking</strong> by comparing soundings with charted depths, which is useful where contour lines are distinct.</li>
+<li><strong>Anchoring</strong>, to confirm depth at the planned anchor position before letting go.</li>
+<li><strong>Early warning of grounding</strong> through the shallow-depth alarm.</li>
+<li><strong>Evidence</strong>, because depth data is fed to the VDR and is often logged in the deck log during pilotage, as your company SMS requires.</li>
+</ul>
+<p>Do not confuse it with the speed log. A Doppler log also uses acoustic pulses, but it measures speed, not depth. Some multi-function units do both, but they are separate functions with separate settings.</p><h2 id="s2">Main components</h2><p>A typical installation has these parts:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transmitter</td>
+<td>Generates a short electrical pulse at the operating frequency</td>
+</tr>
+<tr>
+<td>Transducer</td>
+<td>Converts the electrical pulse to sound and the returning echo back to an electrical signal. Usually piezoelectric ceramic; older sets used magnetostrictive types</td>
+</tr>
+<tr>
+<td>Transducer housing / tank</td>
+<td>Mounted in the bottom plating, often well forward. May sit in a small cofferdam or tank, and some have a gate valve so the transducer can be withdrawn afloat</td>
+</tr>
+<tr>
+<td>Junction box and cable</td>
+<td>Connects the transducer to the bridge unit. A common source of faults</td>
+</tr>
+<tr>
+<td>Receiver / amplifier</td>
+<td>Amplifies the weak echo and applies gain and time-varied gain (TVG), which increases gain with elapsed time to compensate for signal loss with depth and reduces strong near-surface clutter</td>
+</tr>
+<tr>
+<td>Processor and display</td>
+<td>Calculates depth and shows a digital value plus a scrolling depth profile. Older sets used paper recorders</td>
+</tr>
+<tr>
+<td>Alarm</td>
+<td>Shallow-depth alarm, set by the officer of the watch (OOW)</td>
+</tr>
+<tr>
+<td>Interfaces</td>
+<td>Digital output to ECDIS, VDR, conning display and sometimes the integrated bridge system</td>
+</tr>
+</tbody>
+</table>
+<p>Many ships have <strong>two transducers</strong>, forward and aft, with a selector. Some deep-sea units are <strong>dual-frequency</strong>. A lower frequency gives more range and a wider beam. A higher frequency gives better resolution in shallow water.</p><h2 id="s3">How it works, step by step</h2><ol>
+<li><strong>Transmit.</strong> The transmitter sends a short burst of electrical energy to the transducer.</li>
+<li><strong>Pulse goes down.</strong> The transducer face vibrates and sends a cone-shaped beam of sound vertically down through the water.</li>
+<li><strong>Reflection.</strong> The pulse hits the seabed, and part of the energy reflects back up. Hard bottoms such as rock and sand reflect strongly. Soft mud gives a weaker, fuzzier echo.</li>
+<li><strong>Receive.</strong> The same transducer, now acting as a receiver, picks up the echo and converts it into an electrical signal.</li>
+<li><strong>Time and calculate.</strong> The processor measures the time between transmission and the echo and applies: <strong>depth = (speed of sound × time) ÷ 2</strong>. It divides by two because the sound travelled down and back.</li>
+<li><strong>Apply offset.</strong> The raw figure is depth below the transducer. The set then applies the offset you have entered to show depth below the keel or below the surface.</li>
+<li><strong>Display and output.</strong> The depth is shown, recorded, compared with the alarm setting, and sent to other equipment.</li>
+</ol>
+<p><strong>Speed of sound.</strong> Sets are calibrated with a nominal value, commonly around 1,500 m/s for seawater. The real speed changes with temperature, salinity and pressure, so readings carry a small error. That error is usually small at merchant-ship depths, but it is one reason the echo sounder is never treated as exact.</p>
+<p><strong>Worked example.</strong> The echo returns 0.04 s after transmission. Taking 1,500 m/s, depth below transducer = 1,500 × 0.04 ÷ 2 = 30 m. If the transducer sits 0.5 m above the keel line and the display is set to read below the keel, it should show 29.5 m.</p><figure><svg aria-label="Side view of a ship&#x27;s hull with a transducer in the bottom plating. A cone-shaped sound beam goes down to the seabed, with a downward arrow labelled pulse down and an upward arrow labelled echo up. The speed of sound is shown as about 1,500 metres per second. Below, the formula depth equals speed times time divided by two, with the worked example 1,500 times 0.04 divided by 2 equals 30 metres." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" role="img"><defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="580" fill="#0F1217" rx="12" /><text x="400" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7">How echo sounding works</text><path d="M60,80 L540,80 L540,180 Q540,200 520,200 L110,200 Q60,200 60,150 Z" fill="#1C2530" stroke="#00B0D2" stroke-width="3" /><line x1="20" y1="115" x2="780" y2="115" stroke="#00B0D2" stroke-width="2" stroke-dasharray="10 8" /><rect x="290" y="200" width="40" height="12" fill="#00E5FF" /><line x1="335" y1="206" x2="550" y2="206" stroke="#F2F4F7" stroke-width="2" /><text x="560" y="215" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Transducer</text><polygon points="310,212 220,425 400,425" fill="#00E5FF" fill-opacity="0.12" stroke="#00E5FF" stroke-width="2" /><line x1="295" y1="225" x2="295" y2="410" stroke="#00E5FF" stroke-width="4" marker-end="url(#a1)" /><line x1="325" y1="410" x2="325" y2="228" stroke="#F5A524" stroke-width="4" marker-end="url(#a2)" /><text x="235" y="325" text-anchor="end" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">Pulse down</text><text x="380" y="325" font-family="Inter, sans-serif" font-size="26" fill="#F5A524">Echo up</text><text x="560" y="325" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">≈ 1,500 m/s</text><path d="M20,428 Q120,415 220,425 T420,425 T620,422 T780,428 L780,460 L20,460 Z" fill="#3A3226" stroke="#F2F4F7" stroke-width="2" /><text x="600" y="405" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Seabed</text><text x="400" y="510" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#00E5FF">Depth = speed × time ÷ 2</text><text x="400" y="552" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" fill="#F2F4F7">1,500 × 0.04 ÷ 2 = 30 m</text></svg><figcaption>The transducer sends a sound pulse down to the seabed and times the returning echo, then halves the round-trip distance to give depth.</figcaption></figure><h2 id="s4">Getting the datum right: transducer, keel or surface</h2><p>The most common way to misread an echo sounder is to forget what it is measuring from. Check which datum the display is set to:</p>
+<ul>
+<li><strong>Below transducer.</strong> This is the raw measurement.</li>
+<li><strong>Below keel.</strong> Raw depth minus the transducer-to-keel offset. This is the one that matters for UKC.</li>
+<li><strong>Below surface.</strong> Raw depth plus the depth of the transducer below the waterline (draught at the transducer position minus the transducer's height above the keel). Use it to compare with charted depth after allowing for tide.</li>
+</ul>
+<p>The below-surface setting depends on the draught entered. <strong>If the ship loads or discharges and nobody updates the draught, the reading is wrong by the change in draught.</strong> Make the offset check part of the departure and arrival checklists.</p>
+<p><strong>Transducer position matters too.</strong> A transducer near the bow measures clearance at the bow. With trim by the stern, or in shallow water where squat changes trim, the least clearance may be aft. Use the aft transducer if one is fitted. Otherwise, apply the trim correction yourself.</p><figure><svg aria-label="Side view of a hull floating at a dashed waterline, with a keel bar along the bottom and a transducer in the bottom plating just above the keel line. Dashed reference lines run from the waterline, the transducer face and the keel to the right. Three vertical arrows go down to the seabed: below surface from the waterline, below transducer from the transducer face, and below keel (UKC) from the keel line. Notes underneath: below keel equals raw minus offset; below surface equals raw plus transducer depth." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img"><defs><marker id="b1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#00B0D2" /></marker><marker id="b2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker><marker id="b3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="600" fill="#0F1217" rx="12" /><text x="400" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7">Which datum is displayed?</text><path d="M40,80 L440,80 L440,220 Q440,236 424,236 L80,236 Q40,236 40,196 Z" fill="#1C2530" stroke="#00B0D2" stroke-width="3" /><rect x="70" y="236" width="350" height="16" fill="#2C3644" stroke="#F5A524" stroke-width="2" /><rect x="230" y="226" width="40" height="10" fill="#00E5FF" /><line x1="20" y1="130" x2="760" y2="130" stroke="#00B0D2" stroke-width="2" stroke-dasharray="10 8" /><text x="60" y="120" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Waterline</text><text x="60" y="200" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">Transducer</text><line x1="270" y1="236" x2="760" y2="236" stroke="#00E5FF" stroke-width="2" stroke-dasharray="6 6" /><line x1="420" y1="252" x2="760" y2="252" stroke="#F5A524" stroke-width="2" stroke-dasharray="6 6" /><path d="M20,472 Q200,460 400,470 T780,470 L780,495 L20,495 Z" fill="#3A3226" stroke="#F2F4F7" stroke-width="2" /><line x1="520" y1="133" x2="520" y2="462" stroke="#00B0D2" stroke-width="3" marker-end="url(#b1)" /><text x="508" y="300" text-anchor="middle" transform="rotate(-90 508 300)" font-family="Inter, sans-serif" font-size="26" fill="#00B0D2">Below surface</text><line x1="630" y1="239" x2="630" y2="462" stroke="#00E5FF" stroke-width="3" marker-end="url(#b2)" /><text x="618" y="352" text-anchor="middle" transform="rotate(-90 618 352)" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">Below transducer</text><line x1="740" y1="255" x2="740" y2="462" stroke="#F5A524" stroke-width="3" marker-end="url(#b3)" /><text x="728" y="360" text-anchor="middle" transform="rotate(-90 728 360)" font-family="Inter, sans-serif" font-size="26" fill="#F5A524">Below keel (UKC)</text><text x="400" y="540" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Below keel = raw − offset</text><text x="400" y="578" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Below surface = raw + transducer depth</text></svg><figcaption>The same echo can be displayed as depth below the transducer, below the keel (the figure for UKC) or below the surface, depending on the datum and offsets set.</figcaption></figure><h2 id="s5">Routine checks and maintenance</h2><p><strong>Bridge checks (OOW):</strong></p>
+<ul>
+<li>Switch on and test well before entering shallow or pilotage waters. Record this in the pre-arrival checklist.</li>
+<li>Confirm the range, gain, datum, offset and draught settings, and set the shallow alarm to a value from the passage plan.</li>
+<li>Compare the reading with charted depth corrected for tide at a known position. A consistent difference points to an offset or calibration error.</li>
+<li>Check that depth is reaching ECDIS and the VDR without an interface alarm.</li>
+<li>Keep a hand lead line available as an independent backup, if your vessel carries one.</li>
+</ul>
+<p><strong>Technical and dry-dock items:</strong></p>
+<ul>
+<li><strong>Transducer face.</strong> Inspect and clean marine growth in dry dock. Never coat the face with ordinary paint or antifouling. Use only what the manufacturer allows, because the wrong coating can weaken or kill the signal. Mark it off before painting starts.</li>
+<li><strong>Do not transmit in air.</strong> Many manufacturers warn that energising the transducer out of water can damage it. Isolate the set while the ship is in dry dock.</li>
+<li><strong>Transducer tank or cofferdam.</strong> Check for water ingress, corrosion and the condition of the cable gland.</li>
+<li><strong>Gate valve</strong> (where fitted). Follow the maker's procedure only. A wrong sequence means seawater entering the hull.</li>
+<li><strong>Junction box and cable.</strong> Look for moisture, corrosion and chafe.</li>
+</ul>
+<p>Maintenance intervals and records belong in your planned maintenance system and follow the manufacturer's instructions.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s6">Common faults and their symptoms</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reading jumps or drops out while going astern, in heavy weather or when thrusters run</td>
+<td>Aeration: air bubbles under the transducer block the pulse</td>
+<td>Expect it. Rely on the chart and other means until the water clears</td>
+</tr>
+<tr>
+<td>Weak or no echo in normal depths</td>
+<td>Fouled or painted transducer face, too little gain, damaged cable, wet junction box</td>
+<td>Adjust gain, then investigate the hardware</td>
+</tr>
+<tr>
+<td>Steady error against chart at all depths</td>
+<td>Wrong offset or draught entered, wrong datum selected</td>
+<td>Re-enter the settings and verify again</td>
+</tr>
+<tr>
+<td>Two bottom traces, the second at twice the depth</td>
+<td>Multiple echo: the pulse bounced seabed–hull–seabed, mainly in shallow water with a hard bottom</td>
+<td>Read the first trace. Reduce gain</td>
+</tr>
+<tr>
+<td>Shallow trace that comes and goes in deep water</td>
+<td>Deep scattering layer (plankton), fish shoals, thermoclines</td>
+<td>Recognise it as a false bottom. Compare with chart depth</td>
+</tr>
+<tr>
+<td>Shoal reading on a steep slope</td>
+<td>Side echo from the nearest part of a sloping bottom within the beam</td>
+<td>Treat it as real until proven otherwise</td>
+</tr>
+<tr>
+<td>Erratic or noisy trace</td>
+<td>Interference from another sounder, electrical noise, poor earthing</td>
+<td>Check whether another sounder is running. Report to the ETO</td>
+</tr>
+<tr>
+<td>False shallow trace when the selected range is shallower than the actual depth</td>
+<td>Second-trace echo: the echo from the previous pulse arrives after the next pulse is transmitted because the true depth exceeds the selected range</td>
+<td>Select a deeper range scale. A true shoal stays at the same depth when the range changes; a second-trace echo shifts</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> if the echo sounder shows less water than expected, treat it as true and slow down until you have checked. Assume equipment error only after you have proven it.</p><h2 id="s7">Regulation and safety precautions</h2><p><strong>Carriage.</strong> SOLAS Chapter V, Regulation 19 requires ships of 300 GT and upwards, and all passenger ships regardless of size, to have an echo-sounding device or other electronic means to measure and display the available depth of water. The equipment must meet IMO performance standards. For newer installations these are in Resolution MSC.74(69), Annex 4, as amended by MSC.224(82), which cover range, display, depth recording and the shallow alarm. Your flag state may add requirements, and the type-approval certificate and equipment records will show the standard your set meets.</p>
+<p><strong>VDR.</strong> Depth information is among the data recorded by the VDR under SOLAS Chapter V. A dead echo sounder can therefore also mean a VDR input alarm.</p>
+<p><strong>Defects.</strong> A defective echo sounder must be reported to the master. It is often noted for port state control or class, depending on flag. How long you may sail with it and what you must record follow flag-state and company SMS procedures.</p>
+<p><strong>Safety precautions:</strong></p>
+<ul>
+<li>If the transducer is in a tank or cofferdam, accessing it may be an <strong>enclosed space entry</strong>. Use a permit, gas test and rescue arrangements under your SMS.</li>
+<li>Treat any hull penetration work as <strong>watertight-integrity work</strong>, under a permit and with the master's knowledge.</li>
+<li><strong>Isolate electrically</strong> (lock-out tag-out) before opening the junction box or transceiver.</li>
+<li>Do not let the echo sounder lull you. It shows depth under one point of the hull, not ahead. It warns you only once the shoal is already beneath you.</li>
+</ul><h2 id="s8">Oral exam questions you should be ready for</h2><p><strong>Q: How does an echo sounder measure depth?</strong>
+It times a sound pulse from the transducer to the seabed and back. Depth equals the speed of sound multiplied by the time, divided by two. The set then applies the offset to give depth below keel or surface.</p>
+<p><strong>Q: Why might the reading differ from the charted depth?</strong>
+Possible reasons are tide, a wrong draught or offset, the sound-speed error, a chart that is out of date or poorly surveyed, squat and trim, and false echoes.</p>
+<p><strong>Q: What is a multiple echo and how do you recognise it?</strong>
+It is a second trace at roughly twice the true depth, caused by the pulse bouncing between seabed and hull. It is common in shallow water over a hard bottom. Read the first trace.</p>
+<p><strong>Q: Why does the echo sounder fail when going astern?</strong>
+Propeller wash pushes aerated water under the transducer. The bubbles absorb and scatter the pulse.</p>
+<p><strong>Q: What precautions apply to the transducer in dry dock?</strong>
+Do not paint or antifoul the face except as the manufacturer allows, clean off growth, and do not transmit out of water. Also inspect the tank, the gland and the cable.</p>
+<p><strong>Q: Your transducer is forward and the ship is trimmed by the stern in a channel. Is the displayed UKC your minimum?</strong>
+No. The deepest point is aft, so correct for trim or use the aft transducer. Squat in shallow water can change the trim further.</p><div class="card kp"><div class="label">Key points</div><ul><li>Depth = speed of sound × echo time ÷ 2, measured from the transducer face.</li><li>Always confirm the datum (transducer, keel or surface) and update draught and offset after cargo work.</li><li>SOLAS Chapter V Regulation 19 requires an echo sounder on ships of 300 GT and upwards and on all passenger ships.</li><li>Aeration, the deep scattering layer, multiple echoes and side echoes are the classic false readings.</li><li>Never paint the transducer face or transmit it out of water in dry dock unless the manufacturer allows it.</li><li>The echo sounder shows depth under one point of the hull, not ahead, so it confirms the passage plan but does not replace it.</li><li>Treat a shoaler-than-expected reading as real until proven otherwise.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>Is an echo sounder mandatory on all merchant ships?</summary><p>SOLAS Chapter V Regulation 19 requires an echo-sounding device, or other electronic means to measure the available depth, on ships of 300 GT and upwards and on all passenger ships irrespective of size. Smaller non-passenger ships fall under flag-state rules. Check your flag administration&#x27;s requirements.</p></details><details><summary>What speed of sound does a ship&#x27;s echo sounder use?</summary><p>Most sets use a nominal calibration value of around 1,500 m/s for seawater. The actual speed varies with temperature, salinity and pressure, so there is always a small error. For merchant-ship depths this is usually minor compared with offset or draught errors.</p></details><details><summary>Why does my echo sounder show a second bottom line?</summary><p>It is usually a multiple echo. The pulse has bounced from the seabed to the hull and back down again, producing a trace at about twice the true depth. It is most common in shallow water over a hard bottom. Read the shallower trace and reduce the gain.</p></details><details><summary>Does the echo sounder show depth below the keel or below the surface?</summary><p>It can show either, or depth below the transducer, depending on how it is set. The below-keel and below-surface readings rely on the offset and draught entered. Confirm the datum on the display and update the draught whenever it changes.</p></details><details><summary>Can I paint over the echo sounder transducer in dry dock?</summary><p>Not with ordinary hull paint or antifouling. A coating on the face can attenuate the signal badly. Follow the manufacturer&#x27;s instructions, which may permit a specific coating or require the face to be left clean. Mark the transducer so the paint gang avoids it.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>An echo returns 0.06 s after transmission. Using 1,500 m/s, what is the depth below the transducer?</p><button data-c="1">45 m</button><button data-c="0">90 m</button><button data-c="0">25 m</button><button data-c="0">180 m</button><div class="ex">Depth = 1,500 × 0.06 ÷ 2 = 45 m. The division by two allows for the pulse&#x27;s round trip (basic echo-sounding principle).</div></div><div class="q"><p>After loading, the echo sounder set to &#x27;below surface&#x27; disagrees with the tide-corrected chart depth by roughly the change in draught. Most likely cause?</p><button data-c="0">Deep scattering layer</button><button data-c="0">Aeration under the transducer</button><button data-c="1">Draught setting not updated after loading</button><button data-c="0">Wrong sound-speed calibration</button><div class="ex">The below-surface reading adds the transducer&#x27;s depth below the waterline, worked out from the entered draught, so a stale draught produces a steady error equal to the draught change (manufacturer&#x27;s operating principle).</div></div><div class="q"><p>While going astern on the berth, the depth readings become erratic and drop out. Why?</p><button data-c="0">The shallow alarm has inhibited the display</button><button data-c="1">Propeller wash has put aerated water under the transducer</button><button data-c="0">The sound speed has changed because of the harbour water temperature</button><button data-c="0">The transducer has switched to the low-frequency channel</button><div class="ex">Air bubbles from propeller or thruster wash absorb and scatter the acoustic pulse, a recognised cause of echo loss.</div></div><div class="q"><p>SOLAS Chapter V Regulation 19 requires an echo-sounding device on which ships?</p><button data-c="0">All ships of 500 GT and upwards only</button><button data-c="0">Only tankers and passenger ships</button><button data-c="0">All ships of 150 GT and upwards</button><button data-c="1">Ships of 300 GT and upwards and all passenger ships irrespective of size</button><div class="ex">SOLAS Chapter V Regulation 19 sets the threshold at 300 GT and upwards, plus all passenger ships regardless of size.</div></div><div class="q"><p>In deep water a faint trace appears at a few hundred metres, then fades, while the chart shows several thousand metres. Most likely explanation?</p><button data-c="0">A multiple echo from the seabed</button><button data-c="0">A side echo from a steep slope</button><button data-c="1">A deep scattering layer of plankton or fish</button><button data-c="0">A wrong transducer offset</button><div class="ex">The deep scattering layer of marine organisms gives a false mid-water trace that varies over time. It is a known echo sounder limitation.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/operations/squat-and-shallow-water-effect/">Squat and shallow-water effect</a><a href="/guides/operations/passage-planning-appraisal-planning-execution-monitoring/">Passage planning (appraisal, planning, execution, monitoring)</a><a href="/guides/operations/bridge-watchkeeping/">Bridge watchkeeping</a><a href="/guides/systems/ecdis/">ECDIS</a><a href="/guides/systems/speed-log/">Speed log</a><a href="/guides/systems/vdr-voyage-data-recorder/">VDR (voyage data recorder)</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter V, Regulation 19; SOLAS 1974 as amended, Chapter V, Regulation 20; IMO Resolution MSC.74(69), Annex 4 – Performance standards for echo-sounding equipment; IMO Resolution MSC.224(82) – Amendments to performance standards for echo-sounding equipment</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

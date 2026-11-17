@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Main Switchboard and Power Management on Ships | Ocean Link</title><meta name="description" content="How a ship&#x27;s main switchboard and PMS work: components, synchronising, load sharing, checks, common faults, safety and oral exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/systems/main-switchboard-and-power-management/">
+<meta property="og:title" content="Main Switchboard and Power Management on Ships | Ocean Link"><meta property="og:description" content="How a ship&#x27;s main switchboard and PMS work: components, synchronising, load sharing, checks, common faults, safety and oral exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/systems/main-switchboard-and-power-management/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Main Switchboard and Power Management on Ships", "description": "How a ship's main switchboard and PMS work: components, synchronising, load sharing, checks, common faults, safety and oral exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/systems/main-switchboard-and-power-management/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens if you synchronise a generator out of phase?", "acceptedAnswer": {"@type": "Answer", "text": "There is a large current surge and a sudden mechanical torque on both machines as they are pulled into step. This can trip breakers, black out the ship and damage couplings or windings. A check-synchronising relay, where fitted, blocks closing outside safe limits."}}, {"@type": "Question", "name": "Why does a ship's main switchboard not trip on a single earth fault?", "acceptedAnswer": {"@type": "Answer", "text": "Most ships use an insulated neutral system. With no earthed neutral, one phase touching earth does not complete a fault circuit, so supply continues and only the insulation alarm operates. This keeps essential services running, but the fault must be traced and cleared before a second one creates a short circuit."}}, {"@type": "Question", "name": "What is the difference between the main switchboard and the emergency switchboard?", "acceptedAnswer": {"@type": "Answer", "text": "The main switchboard is fed by the main generators and supplies the whole ship. The emergency switchboard is in a separate space and supplies essential emergency services. Normally it is fed from the main switchboard; on loss of main power it is fed from the emergency generator or emergency batteries, as required by SOLAS Chapter II-1."}}, {"@type": "Question", "name": "What does a power management system do on a ship?", "acceptedAnswer": {"@type": "Answer", "text": "It automatically starts, synchronises and connects generators as load demands, and shares load between them. It controls heavy-consumer starts, sheds non-essential loads on overload, and restores power after a blackout. Functions and settings vary with the maker and installation."}}, {"@type": "Question", "name": "Can a cadet or junior engineer work on the main switchboard?", "acceptedAnswer": {"@type": "Answer", "text": "Only under supervision, under the permit-to-work and lock-out procedure, and as allowed by the company SMS and the chief engineer. High-voltage switchboards need specific training and authorisation. Watchkeeping duties such as taking readings and paralleling on low-voltage boards are a normal part of an engineer's training."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Ship systems & equipment", "item": "https://card.oceanlinkai.com/guides/systems/"}, {"@type": "ListItem", "position": 3, "name": "Main Switchboard and Power Management on Merchant Ships", "item": "https://card.oceanlinkai.com/guides/systems/main-switchboard-and-power-management/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/systems/">Ship systems &amp; equipment</a></div><h1>Main Switchboard and Power Management on Merchant Ships</h1><div class="card sum"><div class="label">Quick answer</div><p>The main switchboard collects power from the ship&#x27;s generators and distributes it to every consumer. It also carries the breakers, protection and synchronising gear that keep the system stable. The power management system (PMS) automates starting, synchronising, load sharing and load shedding, but the engineers and ETO must still be able to do it all by hand, read the faults and work on it safely.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What the main switchboard does</a><a href="#s2">Main components</a><a href="#s3">How power management works</a><a href="#s4">Step by step: manual synchronising and paralleling</a><a href="#s5">Routine checks and maintenance</a><a href="#s6">Common faults and their symptoms</a><a href="#s7">Safety precautions and the regulations behind them</a><a href="#s8">Oral exam questions you should expect</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What the main switchboard does</h2><p>Every generator on board, whether diesel alternators, a shaft generator or a turbo generator, feeds a common set of busbars in the main switchboard (MSB). From those busbars, breakers send power out to motors, transformers, distribution boards and the emergency switchboard.</p>
+<p>The MSB has four jobs:</p>
+<ul>
+<li><strong>Collect</strong> power from one or more generators running in parallel.</li>
+<li><strong>Distribute</strong> it through protected feeders.</li>
+<li><strong>Protect</strong> generators, cables and consumers from overload, short circuit and abnormal conditions.</li>
+<li><strong>Monitor</strong> voltage, current, frequency, power, power factor and insulation.</li>
+</ul>
+<p>Most merchant ships run a three-phase insulated-neutral system for low-voltage distribution. Common low-voltage supplies are 440 V 60 Hz or 380/400 V 50 Hz, with lighting and small power at a lower voltage through transformers. Larger ships often generate at high voltage (3.3, 6.6 or 11 kV) and step down for low-voltage services. HV systems are often earthed through a high-resistance neutral earthing arrangement instead; check your ship's design. Always check your own ship's single-line diagram rather than assuming.</p><figure><svg aria-label="Single-line schematic of a main switchboard. Two generators, G1 and G2, each connect through an ACB breaker to a horizontal busbar. A bus-tie breaker splits the busbar into left and right sections. Four feeder breakers below the busbar supply motors, steering, LV boards and the emergency switchboard. A footer lists the four jobs: collect, distribute, protect, monitor." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img"><rect x="0" y="0" width="800" height="520" rx="12" fill="#0F1217" /><text x="400" y="46" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Main switchboard layout</text><circle cx="200" cy="112" r="34" fill="none" stroke="#00E5FF" stroke-width="4" /><text x="200" y="121" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">G1</text><circle cx="600" cy="112" r="34" fill="none" stroke="#00E5FF" stroke-width="4" /><text x="600" y="121" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">G2</text><line x1="200" y1="146" x2="200" y2="175" stroke="#00E5FF" stroke-width="3" /><rect x="185" y="175" width="30" height="30" fill="none" stroke="#F2F4F7" stroke-width="3" /><line x1="200" y1="205" x2="200" y2="246" stroke="#00E5FF" stroke-width="3" /><text x="226" y="200" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">ACB</text><line x1="600" y1="146" x2="600" y2="175" stroke="#00E5FF" stroke-width="3" /><rect x="585" y="175" width="30" height="30" fill="none" stroke="#F2F4F7" stroke-width="3" /><line x1="600" y1="205" x2="600" y2="246" stroke="#00E5FF" stroke-width="3" /><text x="626" y="200" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">ACB</text><text x="60" y="234" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">Busbars</text><rect x="60" y="246" width="325" height="8" fill="#00E5FF" /><rect x="415" y="246" width="325" height="8" fill="#00E5FF" /><rect x="385" y="235" width="30" height="30" fill="none" stroke="#F5A524" stroke-width="3" /><text x="400" y="224" font-family="Inter, sans-serif" font-size="26" fill="#F5A524" text-anchor="middle">Bus-tie</text><g stroke="#00B0D2" stroke-width="3"><line x1="120" y1="254" x2="120" y2="290" /><line x1="120" y1="310" x2="120" y2="340" /><line x1="280" y1="254" x2="280" y2="290" /><line x1="280" y1="310" x2="280" y2="340" /><line x1="520" y1="254" x2="520" y2="290" /><line x1="520" y1="310" x2="520" y2="340" /><line x1="680" y1="254" x2="680" y2="290" /><line x1="680" y1="310" x2="680" y2="340" /></g><g fill="none" stroke="#F2F4F7" stroke-width="3"><rect x="110" y="290" width="20" height="20" /><rect x="270" y="290" width="20" height="20" /><rect x="510" y="290" width="20" height="20" /><rect x="670" y="290" width="20" height="20" /></g><g fill="none" stroke="#00B0D2" stroke-width="3"><rect x="45" y="340" width="150" height="60" rx="8" /><rect x="205" y="340" width="150" height="60" rx="8" /><rect x="445" y="340" width="150" height="60" rx="8" /><rect x="605" y="340" width="150" height="60" rx="8" /></g><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle"><text x="120" y="379">Motors</text><text x="280" y="379">Steering</text><text x="520" y="379">LV boards</text><text x="680" y="379">Emerg. SB</text></g><text x="400" y="470" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#00E5FF" text-anchor="middle">Collect · Distribute · Protect · Monitor</text></svg><figcaption>Each generator feeds the common busbars through its air circuit breaker, a bus-tie splits the busbars into sections, and protected feeders send power out to consumers and the emergency switchboard.</figcaption></figure><h2 id="s2">Main components</h2><p>Layouts differ by maker and yard, but you will usually find these sections:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>What it contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generator panels</td>
+<td>Air circuit breaker (ACB), ammeter, voltmeter, kW meter, power factor meter, frequency meter, protection relays, governor raise/lower switch</td>
+</tr>
+<tr>
+<td>Synchronising panel</td>
+<td>Synchroscope and/or synchronising lamps, double voltmeter and frequency meter, check-synchronising relay, generator selector</td>
+</tr>
+<tr>
+<td>Bus-tie breaker(s)</td>
+<td>Splits the busbars into sections, so one fault does not take out everything</td>
+</tr>
+<tr>
+<td>Main feeder panels</td>
+<td>Moulded-case or air circuit breakers (depending on rating) to large motors, steering gear, pumps, compressors, thrusters and group starter panels</td>
+</tr>
+<tr>
+<td>Low-voltage section</td>
+<td>Supplies via transformers to lighting and small-power distribution boards</td>
+</tr>
+<tr>
+<td>Shore connection panel</td>
+<td>Shore supply breaker, phase sequence indicator, usually interlocked against the ship's generators</td>
+</tr>
+<tr>
+<td>Earth fault monitoring</td>
+<td>Insulation monitor and/or earth indicator lamps, for both main and low-voltage systems</td>
+</tr>
+<tr>
+<td>Preferential trip</td>
+<td>Sheds non-essential loads when the generators are overloaded</td>
+</tr>
+</tbody>
+</table>
+<p>Typical generator protection covers:</p>
+<ul>
+<li>overcurrent (time-delayed) and short circuit (instantaneous)</li>
+<li>reverse power</li>
+<li>undervoltage</li>
+<li>on many installations, under- and over-frequency</li>
+</ul>
+<p>The actual settings come from the maker and class. Do not alter them without proper authority.</p><h2 id="s3">How power management works</h2><p>The PMS is a controller, PLC-based on most modern ships, that watches bus load and generator status. It acts without anyone touching the board. Its usual functions are:</p>
+<ul>
+<li><strong>Blackout recovery.</strong> On loss of the bus, it starts the standby generator and closes its breaker onto the dead bus. It then restarts essential motors in sequence, so their starting currents are not all drawn at once.</li>
+<li><strong>Load-dependent start/stop.</strong> When load stays above a set level for a set time, it starts and connects another set. When load falls, it offloads and stops one.</li>
+<li><strong>Heavy consumer request.</strong> Large motors such as bow thrusters, cargo pumps and big compressors ask the PMS for permission to start. If there is not enough spare capacity, it starts another generator first and then allows the start.</li>
+<li><strong>Auto-synchronising and load sharing.</strong> It matches the incoming set to the bus, closes the breaker and balances the load.</li>
+<li><strong>Preferential tripping.</strong> On overload, it sheds non-essential loads in stages before the generator protection trips. Typical non-essential loads are galley equipment, air conditioning and some ventilation.</li>
+</ul>
+<p><strong>Load sharing in one line:</strong> active power (kW) is shared through the governors, which control fuel. Reactive power (kVAr) is shared through the AVRs, which control excitation. If kW is unbalanced, look at the governors. If the currents are unbalanced but kW is equal, look at the AVRs and excitation.</p><h2 id="s4">Step by step: manual synchronising and paralleling</h2><p><strong>Scenario:</strong> one generator is on load, manoeuvring is coming and the bow thruster will be needed. The PMS is in manual, or you are asked to demonstrate. Follow your ship's procedure; the general sequence is:</p>
+<ol>
+<li><strong>Prepare the incoming set.</strong> Do the pre-start checks, start it and let it run up to rated speed. Check lube oil pressure, cooling and that there are no alarms.</li>
+<li><strong>Compare voltage.</strong> Select the incoming set on the synchronising panel. Its voltage should match the bus; adjust with the AVR or voltage trim if fitted.</li>
+<li><strong>Adjust frequency.</strong> Use the governor control to bring the incoming frequency very slightly above bus frequency. The synchroscope pointer will then turn slowly in the 'fast' (clockwise) direction.</li>
+<li><strong>Confirm phase sequence.</strong> This is fixed at installation and normally only needs checking after work on cables or the alternator. You can confirm it on the lamps: all lamps going bright and dark together (dark-lamp method), not rotating.</li>
+<li><strong>Close the breaker.</strong> With the pointer moving slowly clockwise, close just before the 12 o'clock (in-phase) position, commonly around 11 o'clock. This allows for the breaker's closing time. The check-synchronising relay, if fitted, will block a close made too far out of phase.</li>
+<li><strong>Share the load.</strong> Raise the governor on the incoming set and lower it on the running set until kW is shared as required. Keep the frequency at rated value. Check that the power factors are similar.</li>
+<li><strong>Switch off the synchroscope</strong> if it is not rated for continuous use, and record the readings.</li>
+</ol>
+<p><strong>Taking a generator off:</strong> reduce its load with the governor while picking it up on the other set. Do not let it go into reverse power. Open its breaker at a low load, then let it run unloaded to cool down as per the maker before stopping.</p>
+<p>Closing badly out of phase gives a heavy current surge and mechanical shock to both sets. It can trip the breakers and black out the ship, and in a bad case damage the couplings or windings.</p><figure><svg aria-label="Synchroscope dial with 12 o&#x27;clock marked as in phase. A curved arrow shows the pointer turning slowly clockwise, labelled Fast. The pointer is at 11 o&#x27;clock, marked by an amber dot labelled Close here. On the right, four steps: voltage equal, incoming slightly fast, slow clockwise turn, close near 11. An amber warning reads: badly out of phase gives a surge, trip or blackout." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" role="img"><defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#00E5FF" /></marker></defs><rect x="0" y="0" width="800" height="540" rx="12" fill="#0F1217" /><text x="400" y="48" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">Synchroscope: when to close</text><circle cx="220" cy="310" r="150" fill="none" stroke="#00B0D2" stroke-width="4" /><g stroke="#F2F4F7" stroke-width="4"><line x1="220" y1="160" x2="220" y2="182" /><line x1="370" y1="310" x2="350" y2="310" /><line x1="220" y1="460" x2="220" y2="440" /><line x1="70" y1="310" x2="90" y2="310" /></g><text x="220" y="212" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">12</text><text x="220" y="428" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle">6</text><line x1="220" y1="310" x2="158" y2="202" stroke="#00E5FF" stroke-width="4" /><circle cx="220" cy="310" r="8" fill="#00E5FF" /><circle cx="145" cy="180" r="9" fill="#F5A524" /><text x="24" y="140" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F5A524">Close here</text><path d="M265.3 141 A175 175 0 0 1 371.6 222.5" fill="none" stroke="#00E5FF" stroke-width="4" marker-end="url(#ah)" /><text x="292" y="124" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#00E5FF">Fast</text><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7"><text x="430" y="200">1 Voltage equal</text><text x="430" y="256">2 Incoming slightly fast</text><text x="430" y="312">3 Slow clockwise turn</text><text x="430" y="368">4 Close near 11</text></g><text x="430" y="424" font-family="Inter, sans-serif" font-size="26" fill="#00E5FF">12 o'clock = in phase</text><text x="430" y="478" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#F5A524">Badly out of phase:</text><text x="430" y="512" font-family="Inter, sans-serif" font-size="26" fill="#F5A524">surge, trip, blackout</text></svg><figcaption>With the incoming set slightly fast, the synchroscope pointer turns slowly clockwise, and the breaker is closed just before 12 o&#x27;clock, around 11, to allow for its closing time.</figcaption></figure><h2 id="s5">Routine checks and maintenance</h2><p><strong>Every watch or daily round:</strong></p>
+<ul>
+<li>Log kW, current, voltage, frequency and power factor for each running set.</li>
+<li>Check the insulation monitor or earth lamps on every system.</li>
+<li>Look for alarms, unusual noise, smell of overheating and indicator lamp failures.</li>
+<li>Make sure the switchboard front is clear, rubber mats are in place, and the room's ventilation or air conditioning is working.</li>
+</ul>
+<p><strong>Planned maintenance, per maker and the company PMS:</strong></p>
+<ul>
+<li><strong>ACB servicing:</strong> clean and inspect the main and arcing contacts, the closing spring mechanism, the undervoltage release and the racking mechanism. Do functional trip tests.</li>
+<li><strong>Protection testing:</strong> test the reverse power, overcurrent and preferential trip functions. This is often done by secondary injection or the method the maker specifies.</li>
+<li><strong>Connection tightness:</strong> check busbar and cable connections during a full shutdown, typically at dry dock.</li>
+<li><strong>Thermographic surveys:</strong> done under load to find hot joints. Many companies require these periodically.</li>
+<li><strong>Cleaning:</strong> vacuum, not compressed air, which drives dust and carbon deeper inside.</li>
+<li><strong>Blackout and emergency tests:</strong> test the emergency generator and the automatic changeover to the emergency switchboard as required by the company SMS and flag.</li>
+</ul>
+<p>Test intervals differ by company, class and flag, so follow your planned maintenance system and class records.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s6">Common faults and their symptoms</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>First actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low insulation alarm, one earth lamp dim or dark</td>
+<td>Earth fault on that phase somewhere in the system</td>
+<td>Identify the system, then trace the faulty circuit (see below)</td>
+</tr>
+<tr>
+<td>kW unequal between parallel sets</td>
+<td>Governor setting or droop mismatch, governor or actuator fault</td>
+<td>Check governor settings and fuel rack response</td>
+</tr>
+<tr>
+<td>kW equal but amps unequal, power factors differ</td>
+<td>AVR or excitation problem, causing circulating reactive current</td>
+<td>Check AVR settings, droop or compensation, excitation circuit</td>
+</tr>
+<tr>
+<td>Incoming breaker will not close</td>
+<td>Closing spring not charged, undervoltage release not energised, check-sync relay blocking, interlock</td>
+<td>Check spring indicator, voltage present, sync conditions, interlocks</td>
+</tr>
+<tr>
+<td>Generator breaker trips on reverse power</td>
+<td>Prime mover losing power (fuel starvation, governor fault) so the set is motoring</td>
+<td>Check fuel supply, filters, governor</td>
+</tr>
+<tr>
+<td>Hunting of frequency and load</td>
+<td>Governor instability or fuel problem</td>
+<td>Check governor, fuel pressure and quality</td>
+</tr>
+<tr>
+<td>Blackout on starting a large motor</td>
+<td>Not enough running capacity, or the heavy-consumer interlock bypassed or faulty</td>
+<td>Restore power, then investigate the PMS logic</td>
+</tr>
+<tr>
+<td>Discoloured busbar or hot spot on thermography</td>
+<td>Loose or corroded connection</td>
+<td>Plan a shutdown, isolate, clean and re-torque to the maker's values</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tracing an earth fault on an insulated system:</strong> a single earth fault does not trip anything, which is why it gets ignored. A second earth fault on a different phase makes a phase-to-phase short circuit through the hull.</p>
+<ol>
+<li>Tell the bridge and the chief engineer.</li>
+<li>Open non-essential feeders one at a time, watching the insulation monitor.</li>
+<li>Only switch off essential consumers in coordination, for example changing over to the standby steering or pump first.</li>
+<li>When the reading recovers, you have found the circuit. Go down to the individual consumers on that circuit.</li>
+</ol>
+<p>Some installations have per-feeder earth fault monitoring, which saves time.</p><h2 id="s7">Safety precautions and the regulations behind them</h2><p><strong>On the board:</strong></p>
+<ul>
+<li>Isolate and lock out under the permit-to-work and lock-out/tag-out procedure.</li>
+<li>Prove dead with an approved tester, and check the tester on a known live source before and after.</li>
+<li>Remember that a generator breaker may be dead on one side and live on the other.</li>
+<li>Watch for back-feeds from the shore connection, the emergency switchboard interconnector, and control or heater supplies from other sources.</li>
+<li>Never rack out an ACB that is closed or on load.</li>
+<li>Do not defeat interlocks or the check-sync relay to get a breaker in.</li>
+<li>Keep insulating mats, suitable PPE and approved tools at the board. Do not wear rings or watches.</li>
+<li>On high-voltage systems, follow the company's HV safety rules: authorised persons, sanction-to-test, and earthing of the circuit before work. Only trained, authorised personnel may switch or work on HV.</li>
+</ul>
+<p><strong>Regulations, at the level you need to know:</strong></p>
+<ul>
+<li><strong>SOLAS Chapter II-1, Part D</strong> covers electrical installations.</li>
+<li><strong>Regulation 41</strong> covers the main source of electrical power. It requires enough generating sets that essential and habitable services are maintained with any one set out of action. It also sets requirements for the main switchboard's location relative to the main generating station.</li>
+<li><strong>Regulations 42 and 43</strong> cover the emergency source for passenger and cargo ships respectively. On a cargo ship, if the emergency source is a generator, it must start and connect automatically within 45 seconds of losing main power. If it cannot, a transitional source is needed. The emergency switchboard must not be in the same space as the main switchboard.</li>
+<li><strong>Regulation 45</strong> covers precautions against shock, fire and other electrical hazards.</li>
+<li><strong>Class rules</strong> add detailed requirements for protection, insulation monitoring and switchboard construction.</li>
+<li><strong>STCW</strong> sets the competence standards for operating and maintaining this equipment. The ETO competences are in Section A-III/6. Management of high-voltage installations is covered at management level in Section A-III/2.</li>
+</ul><h2 id="s8">Oral exam questions you should expect</h2><p><strong>Q: What conditions must be met before paralleling two alternators?</strong>
+Equal voltage, equal frequency (incoming slightly fast), the same phase sequence, and the two in phase at the moment of closing.</p>
+<p><strong>Q: Why close at around 11 o'clock and not exactly at 12?</strong>
+The breaker takes a short time to close. Closing just before the in-phase point, with the incoming set slightly fast, means the contacts make at or very near synchronism. The incoming set then picks up a little load instead of motoring.</p>
+<p><strong>Q: Why is reverse power protection fitted?</strong>
+If a prime mover loses power, its alternator runs as a motor, driven by the other sets. This loads the healthy sets and can damage the prime mover. The relay trips the faulty set off the bus.</p>
+<p><strong>Q: Why do ships commonly use an insulated neutral system?</strong>
+A single earth fault does not trip the circuit, so essential services such as steering keep running. The trade-off is that the fault must be found and cleared quickly, before a second one occurs.</p>
+<p><strong>Q: How are kW and kVAr shared between parallel sets?</strong>
+kW through the governors (fuel). kVAr through the AVRs (excitation).</p>
+<p><strong>Q: What is preferential tripping and why is it needed?</strong>
+It is automatic shedding of non-essential loads on generator overload. It keeps essential services running and avoids a blackout.</p>
+<p><strong>Q: Describe the sequence after a blackout.</strong>
+The emergency generator starts and supplies the emergency switchboard. The PMS starts the standby main generator and closes it onto the dead bus. Essential motors restart in sequence. Then you investigate the cause, restore normal configuration and record the event as per the SMS.</p>
+<p>Examiners want the reasons, not only the steps. Be ready to walk through your own ship's single-line diagram.</p><div class="card kp"><div class="label">Key points</div><ul><li>The main switchboard collects generator output, distributes it through protected feeders and monitors the whole system.</li><li>To parallel: match voltage and frequency (incoming slightly fast), same phase sequence, close just before in-phase on the synchroscope.</li><li>kW sharing is controlled by the governors; kVAr sharing by the AVRs.</li><li>Reverse power, overcurrent, short circuit and undervoltage protection guard the generators; preferential trips shed non-essential load first.</li><li>On an insulated system, one earth fault gives only an alarm, but a second on another phase is a short circuit, so trace it promptly.</li><li>SOLAS Chapter II-1 Part D (Regulations 40 to 45) sets the main and emergency power requirements; class rules add the detail.</li><li>Isolate, lock out and prove dead, watching for back-feeds; HV work only by trained, authorised persons.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>What happens if you synchronise a generator out of phase?</summary><p>There is a large current surge and a sudden mechanical torque on both machines as they are pulled into step. This can trip breakers, black out the ship and damage couplings or windings. A check-synchronising relay, where fitted, blocks closing outside safe limits.</p></details><details><summary>Why does a ship&#x27;s main switchboard not trip on a single earth fault?</summary><p>Most ships use an insulated neutral system. With no earthed neutral, one phase touching earth does not complete a fault circuit, so supply continues and only the insulation alarm operates. This keeps essential services running, but the fault must be traced and cleared before a second one creates a short circuit.</p></details><details><summary>What is the difference between the main switchboard and the emergency switchboard?</summary><p>The main switchboard is fed by the main generators and supplies the whole ship. The emergency switchboard is in a separate space and supplies essential emergency services. Normally it is fed from the main switchboard; on loss of main power it is fed from the emergency generator or emergency batteries, as required by SOLAS Chapter II-1.</p></details><details><summary>What does a power management system do on a ship?</summary><p>It automatically starts, synchronises and connects generators as load demands, and shares load between them. It controls heavy-consumer starts, sheds non-essential loads on overload, and restores power after a blackout. Functions and settings vary with the maker and installation.</p></details><details><summary>Can a cadet or junior engineer work on the main switchboard?</summary><p>Only under supervision, under the permit-to-work and lock-out procedure, and as allowed by the company SMS and the chief engineer. High-voltage switchboards need specific training and authorisation. Watchkeeping duties such as taking readings and paralleling on low-voltage boards are a normal part of an engineer&#x27;s training.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>When synchronising manually, in what condition should the incoming generator breaker be closed?</p><button data-c="0">Pointer rotating quickly anticlockwise, at 6 o&#x27;clock</button><button data-c="0">Pointer stationary at 3 o&#x27;clock</button><button data-c="1">Pointer rotating slowly clockwise, just before 12 o&#x27;clock</button><button data-c="0">Any time the voltages are equal, regardless of pointer position</button><div class="ex">Slow clockwise rotation means the incoming set is slightly fast, and closing just before 12 allows for breaker closing time. Equal voltage alone is not enough; frequency and phase must also match.</div></div><div class="q"><p>Two alternators in parallel show equal kW but unequal current and different power factors. Where should you look first?</p><button data-c="1">The AVRs and excitation</button><button data-c="0">The governors</button><button data-c="0">The preferential trip settings</button><button data-c="0">The reverse power relays</button><div class="ex">Equal kW shows active power sharing (governors) is correct. Unequal current with different power factors points to reactive power sharing, which is controlled by the AVRs.</div></div><div class="q"><p>What is the main purpose of the reverse power relay on a generator?</p><button data-c="0">To trip the generator when the bus voltage is too high</button><button data-c="0">To prevent the generator being overloaded by too many consumers</button><button data-c="0">To detect earth faults on the generator windings</button><button data-c="1">To trip the generator off the bus if it starts motoring because its prime mover has lost power</button><div class="ex">If the prime mover fails, the alternator is driven as a motor by the other sets. The reverse power relay trips it to protect the prime mover and the healthy sets. Overload is handled by overcurrent protection and preferential trips.</div></div><div class="q"><p>On an insulated neutral system, the earth lamp for one phase goes dark while the other two glow brighter. What does this indicate?</p><button data-c="0">The lamp has blown and needs replacing</button><button data-c="1">An earth fault on the phase whose lamp is dark</button><button data-c="0">A short circuit between the other two phases</button><button data-c="0">The system is overloaded and preferential trips are about to operate</button><div class="ex">An earthed phase sits near hull potential, so its lamp dims or goes out while the others rise towards line voltage. Always confirm with the insulation monitor.</div></div><div class="q"><p>According to SOLAS Chapter II-1, where must the emergency switchboard be located?</p><button data-c="0">In the engine control room next to the main switchboard, for ease of changeover</button><button data-c="0">Anywhere in the engine room, provided it is behind a fire screen</button><button data-c="1">In a separate space from the main switchboard, so a single casualty does not disable both</button><button data-c="0">In the steering gear room, because steering is the most important emergency load</button><div class="ex">SOLAS II-1 (Regulations 42/43) requires the emergency switchboard to be separate from the main switchboard and main generating station, so one fire or flood cannot take out both.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/systems/four-stroke-auxiliary-engines-and-generators/">Four-stroke auxiliary engines and generators</a><a href="/guides/systems/emergency-generator/">Emergency generator</a><a href="/guides/systems/shaft-generator/">Shaft generator</a><a href="/guides/operations/lock-out-tag-out/">Lock-out tag-out</a><a href="/guides/certificates/high-voltage-training/">High Voltage Training</a><a href="/guides/ranks/electrical-officer-eto-on-a-merchant-ship/">Electrical Officer (ETO) on a merchant ship</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter II-1, Part D, Regulation 40; SOLAS 1974 as amended, Chapter II-1, Part D, Regulation 41; SOLAS 1974 as amended, Chapter II-1, Part D, Regulation 42; SOLAS 1974 as amended, Chapter II-1, Part D, Regulation 43; SOLAS 1974 as amended, Chapter II-1, Part D, Regulation 45; STCW Code, Section A-III/1; STCW Code, Section A-III/2; STCW Code, Section A-III/6</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

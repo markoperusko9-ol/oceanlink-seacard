@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECDIS on Ships: Components, Checks, Faults and Oral Exam | Ocean Link</title><meta name="description" content="ECDIS is the type-approved electronic chart system required on many ships under SOLAS V/19. How it works, checks, common faults and exam questions."><link rel="canonical" href="https://card.oceanlinkai.com/guides/systems/ecdis/">
+<meta property="og:title" content="ECDIS on Ships: Components, Checks, Faults and Oral Exam | Ocean Link"><meta property="og:description" content="ECDIS is the type-approved electronic chart system required on many ships under SOLAS V/19. How it works, checks, common faults and exam questions."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/systems/ecdis/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ECDIS on Ships: Components, Checks, Faults and Oral Exam", "description": "ECDIS is the type-approved electronic chart system required on many ships under SOLAS V/19. How it works, checks, common faults and exam questions.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/systems/ecdis/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is ECDIS mandatory on all merchant ships?", "acceptedAnswer": {"@type": "Answer", "text": "No. SOLAS Chapter V, Regulation 19 phased in carriage between 2012 and 2018 for passenger ships, tankers and cargo ships above set tonnage thresholds. Smaller or exempted ships may still use paper charts. Check your ship's Record of Equipment and flag requirements."}}, {"@type": "Question", "name": "What is the difference between generic and type-specific ECDIS training?", "acceptedAnswer": {"@type": "Answer", "text": "Generic training covers ECDIS principles, data, limitations and safe use, and is the STCW competence requirement. Type-specific training or familiarisation covers the actual make and model fitted on board. The company must ensure you are familiar with it before you keep a watch, and many flags and companies require a formal course."}}, {"@type": "Question", "name": "What should the back-up for ECDIS be?", "acceptedAnswer": {"@type": "Answer", "text": "Either a second ECDIS with independent power and position input, or an appropriate folio of up-to-date paper charts. The arrangement accepted for your ship is set by the flag state and recorded in ship documents. Whatever it is, the back-up must be updated and ready for immediate changeover."}}, {"@type": "Question", "name": "Why does ECDIS show a safety contour different from the value I entered?", "acceptedAnswer": {"@type": "Answer", "text": "ECDIS can only use contours that exist in the ENC. If your value is not charted, it automatically selects the next deeper contour. This is a conservative design feature, so plan around it rather than lowering your setting."}}, {"@type": "Question", "name": "Can I use RNC raster charts on ECDIS?", "acceptedAnswer": {"@type": "Answer", "text": "Only where ENCs are not available, and the system then runs in RCDS mode with reduced functionality. Raster charts carry no depth or object information that the system can alarm on. They must be used with an appropriate folio of up-to-date paper charts."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Ship systems & equipment", "item": "https://card.oceanlinkai.com/guides/systems/"}, {"@type": "ListItem", "position": 3, "name": "ECDIS: How the Electronic Chart System Works, Checks, Faults and Exam Questions", "item": "https://card.oceanlinkai.com/guides/systems/ecdis/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/systems/">Ship systems &amp; equipment</a></div><h1>ECDIS: How the Electronic Chart System Works, Checks, Faults and Exam Questions</h1><div class="card sum"><div class="label">Quick answer</div><p>ECDIS (Electronic Chart Display and Information System) is a type-approved navigation system. It displays official electronic charts together with live position, heading and target data. It can be used for route planning and monitoring, and it raises alarms when the ship approaches danger. Under SOLAS Chapter V it can meet the chart carriage requirement only if it uses up-to-date official charts and has an approved back-up arrangement. Officers using it must be trained to STCW standards and familiarised with the specific equipment on board.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What ECDIS is and why it is on the bridge</a><a href="#s2">Main components and data</a><a href="#s3">How it works: setting up for a passage, step by step</a><a href="#s4">Routine checks and maintenance</a><a href="#s5">Common faults and their symptoms</a><a href="#s6">Safety precautions and good practice</a><a href="#s7">Oral exam: what examiners ask about ECDIS</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What ECDIS is and why it is on the bridge</h2><p>ECDIS is not simply a chart plotter. It is equipment built and type-approved to the IMO performance standards. It must display official chart data issued by or on behalf of a government-authorised hydrographic office.</p>
+<p>It does three jobs:</p>
+<ul>
+<li><strong>Route planning</strong>: building and checking a passage plan against your own ship's safety settings.</li>
+<li><strong>Route monitoring</strong>: showing the ship's position and movement in real time against the chart, with automatic alarms.</li>
+<li><strong>Information display</strong>: combining chart, sensor, radar and AIS information on one screen.</li>
+</ul>
+<p>Carriage was phased in under SOLAS Chapter V, Regulation 19 between 2012 and 2018. The dates depended on ship type, size and whether the ship was new or existing. Whether ECDIS is the <em>primary</em> means of navigation on your ship is shown in the Record of Equipment attached to the ship's safety certificate (Form E for cargo ships, Form P for passenger ships) and in the company SMS.</p>
+<p>If ECDIS is the primary means, the ship sails without a full paper chart folio. The approved back-up then becomes critical.</p><h2 id="s2">Main components and data</h2><p><strong>Hardware</strong></p>
+<ul>
+<li><strong>Workstations</strong>: usually a master and a back-up unit, each with a processor, a type-approved display and a control panel or trackball.</li>
+<li><strong>Power supply</strong>: main and emergency supply, normally through a UPS. Each unit should be able to keep running during a blackout until the emergency source cuts in.</li>
+<li><strong>Network and interfaces</strong>: links to sensors, the radar, the VDR and the BNWAS where they are integrated.</li>
+</ul>
+<p><strong>Sensor inputs</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>What ECDIS uses it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GNSS</td>
+<td>Position, COG, SOG, time</td>
+</tr>
+<tr>
+<td>Gyrocompass</td>
+<td>Heading, radar overlay orientation</td>
+</tr>
+<tr>
+<td>Speed log</td>
+<td>Speed through the water, dead reckoning</td>
+</tr>
+<tr>
+<td>Echo sounder</td>
+<td>Depth display (if fitted)</td>
+</tr>
+<tr>
+<td>AIS</td>
+<td>Target identity and vectors</td>
+</tr>
+<tr>
+<td>Radar/ARPA</td>
+<td>Radar overlay and tracked targets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chart data</strong></p>
+<ul>
+<li><strong>ENC (Electronic Navigational Chart)</strong>: vector data to the IHO S-57 standard, encrypted under S-63. It is supplied as cells with permits and is converted on board to SENC, the system's internal format.</li>
+<li><strong>RNC (Raster Navigational Chart)</strong>: a scanned image of a paper chart. When ECDIS displays RNC it runs in <strong>RCDS mode</strong>, which has fewer functions and no automatic depth alarms. Where RCDS is used, the performance standards require it to be used together with an appropriate folio of up-to-date paper charts.</li>
+<li><strong>Permits and updates</strong>: a user permit is tied to the system's hardware ID, and each cell has its own permit. Updates arrive as base CDs, weekly update media or online delivery, depending on the chart service.</li>
+</ul>
+<p>Chart presentation, symbols and colours follow IHO S-52. That is why the same ENC looks the same on any approved make.</p><figure><svg aria-label="Schematic diagram. Six sensor boxes on the left (GNSS, Gyrocompass, Speed log, Echo sounder, AIS and Radar/ARPA) each send an arrow into a central ECDIS master workstation box. Inside that box, ENC data is converted to SENC. An Official ENCs box below feeds into it. On the right, a UPS power box feeds the master unit, and a dashed line links it to a back-up ECDIS unit." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker></defs><rect x="0" y="0" width="800" height="560" rx="12" fill="#0F1217" /><text x="400" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7">ECDIS inputs and support</text><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle"><rect x="30" y="80" width="220" height="52" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="140" y="115">GNSS</text><rect x="30" y="144" width="220" height="52" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="140" y="179">Gyrocompass</text><rect x="30" y="208" width="220" height="52" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="140" y="243">Speed log</text><rect x="30" y="272" width="220" height="52" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="140" y="307">Echo sounder</text><rect x="30" y="336" width="220" height="52" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="140" y="371">AIS</text><rect x="30" y="400" width="220" height="52" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="140" y="435">Radar/ARPA</text></g><g stroke="#00E5FF" stroke-width="3" marker-end="url(#a1)"><line x1="252" y1="106" x2="336" y2="106" /><line x1="252" y1="170" x2="336" y2="170" /><line x1="252" y1="234" x2="336" y2="234" /><line x1="252" y1="298" x2="336" y2="298" /><line x1="252" y1="362" x2="336" y2="362" /><line x1="252" y1="426" x2="336" y2="426" /></g><rect x="340" y="86" width="200" height="370" rx="10" fill="#0B3340" stroke="#00E5FF" stroke-width="4" /><g font-family="Inter, sans-serif" text-anchor="middle" fill="#F2F4F7"><text x="440" y="200" font-size="30" font-weight="700">ECDIS</text><text x="440" y="250" font-size="26">Master</text><text x="440" y="284" font-size="26">workstation</text><text x="440" y="370" font-size="26" fill="#00E5FF">ENC → SENC</text></g><rect x="340" y="488" width="200" height="56" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="440" y="525" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Official ENCs</text><line x1="440" y1="486" x2="440" y2="462" stroke="#00E5FF" stroke-width="3" marker-end="url(#a1)" /><rect x="590" y="110" width="180" height="100" rx="8" fill="#14202A" stroke="#00B0D2" stroke-width="3" /><text x="680" y="152" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">Back-up</text><text x="680" y="186" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">ECDIS</text><line x1="542" y1="160" x2="588" y2="160" stroke="#00B0D2" stroke-width="3" stroke-dasharray="8 6" /><rect x="590" y="320" width="180" height="100" rx="8" fill="#14202A" stroke="#F5A524" stroke-width="3" /><text x="680" y="362" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">UPS</text><text x="680" y="396" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7">power</text><line x1="588" y1="370" x2="546" y2="370" stroke="#00E5FF" stroke-width="3" marker-end="url(#a1)" /></svg><figcaption>ECDIS combines inputs from the ship&#x27;s sensors with official ENC chart data on the master workstation, which is supported by a back-up unit and a UPS power supply.</figcaption></figure><h2 id="s3">How it works: setting up for a passage, step by step</h2><p><strong>1. Check the system and data.</strong> Confirm the chart database is updated to the latest week. Check that permits are valid for the whole route and that all sensors show valid, non-degraded inputs.</p>
+<p><strong>2. Set the safety values.</strong> These come from the passage plan and the company UKC policy.</p>
+<ul>
+<li><strong>Safety contour</strong>: the depth contour dividing safe from unsafe water.</li>
+<li><strong>Safety depth</strong>: soundings at or shallower than this value are emphasised.</li>
+<li><strong>Shallow and deep contours</strong>: these give the four-shade depth display.</li>
+<li><strong>Look-ahead</strong>: an antigrounding cone, sector or time-based zone, depending on the maker.</li>
+</ul>
+<p><strong>3. Build the route.</strong> Enter waypoints, turn radii, cross-track limits and planned speed on charts of suitable scale.</p>
+<p><strong>4. Run the route check.</strong> ECDIS scans the route corridor for:</p>
+<ul>
+<li>crossings of the safety contour,</li>
+<li>isolated dangers,</li>
+<li>specified areas such as TSS, anchorages, restricted areas and environmentally sensitive areas.</li>
+</ul>
+<p>Do not just click through the results list. Inspect every flagged item visually along the whole leg at an appropriate scale.</p>
+<p><strong>5. Add mariner's notes and information.</strong> Typical entries are wheel-over points, abort points, parallel index lines, reporting points, tidal windows and a no-go area overlay.</p>
+<p><strong>6. Get the plan approved.</strong> The master approves it, and the OOWs familiarise themselves with it before sailing.</p>
+<p><strong>7. Monitor the route.</strong> During the passage the system compares position against the route and the chart. It alarms for:</p>
+<ul>
+<li>cross-track deviation,</li>
+<li>approaching the safety contour within the look-ahead time,</li>
+<li>entering specified areas,</li>
+<li>approaching critical points,</li>
+<li>sensor failure.</li>
+</ul>
+<p><strong>Worked scenario: choosing the safety contour</strong></p>
+<p>The ship has an 11.2 m deep draught. Predicted squat is 0.8 m and the company minimum UKC is 1.0 m. The required depth is therefore 13.0 m. Whether you may take credit for height of tide depends on your SMS.</p>
+<p>The ENC carries only the 10 m, 15 m and 20 m contours. You enter 13 m as the safety contour, and the system automatically uses the <strong>next deeper available contour, 15 m</strong>. The water between 10 m and 15 m now shows as unsafe. That is correct and conservative.</p>
+<p>Set the safety depth to 13 m so that individual soundings of 13 m or less stand out. Never lower the safety contour just to make a route check alarm disappear.</p><figure><svg aria-label="Two-panel diagram. On the left, a stacked bar adds draught 11.2 m, squat 0.8 m and UKC 1.0 m to give a required depth of 13.0 m. On the right, depth bands show the ENC contours at 10, 15 and 20 m. A dashed amber line marks the entered 13 m value, and an arrow moves it down to the 15 m contour, which is drawn bold as the safety contour. Water shallower than 15 m is shaded as unsafe and deeper water as safe." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="560" rx="12" fill="#0F1217" /><text x="400" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7">Choosing the safety contour</text><rect x="60" y="100" width="80" height="280" fill="#0B3340" stroke="#00E5FF" stroke-width="3" /><rect x="60" y="380" width="80" height="20" fill="#00B0D2" stroke="#00E5FF" stroke-width="2" /><rect x="60" y="400" width="80" height="25" fill="#F5A524" stroke="#F5A524" stroke-width="2" /><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7"><text x="155" y="250">Draught 11.2 m</text><text x="155" y="392">Squat 0.8 m</text><text x="155" y="434">UKC 1.0 m</text><text x="60" y="490" font-weight="700" fill="#00E5FF">Need 13.0 m</text></g><rect x="480" y="100" width="290" height="200" fill="#3A2A0A" /><rect x="480" y="300" width="290" height="180" fill="#0B3340" /><g stroke="#00B0D2" stroke-width="2"><line x1="480" y1="150" x2="770" y2="150" /><line x1="480" y1="450" x2="770" y2="450" /></g><line x1="480" y1="300" x2="770" y2="300" stroke="#00E5FF" stroke-width="4" /><line x1="480" y1="240" x2="770" y2="240" stroke="#F5A524" stroke-width="3" stroke-dasharray="10 7" /><line x1="740" y1="246" x2="740" y2="292" stroke="#F5A524" stroke-width="3" marker-end="url(#a2)" /><g font-family="Inter, sans-serif" font-size="26"><text x="405" y="159" fill="#F2F4F7">10 m</text><text x="405" y="249" fill="#F5A524">13 m</text><text x="405" y="309" fill="#00E5FF" font-weight="700">15 m</text><text x="405" y="459" fill="#F2F4F7">20 m</text><text x="610" y="205" text-anchor="middle" fill="#F5A524">Unsafe</text><text x="625" y="345" text-anchor="middle" fill="#F2F4F7">Safety contour</text><text x="625" y="410" text-anchor="middle" fill="#F2F4F7">Safe water</text></g></svg><figcaption>With an 11.2 m draught, 0.8 m squat and 1.0 m UKC the required depth is 13.0 m, and because the ENC has no 13 m contour ECDIS uses the next deeper contour, 15 m.</figcaption></figure><h2 id="s4">Routine checks and maintenance</h2><p>Exact routines are set by the maker's manual and the company SMS. Typical practice is as follows.</p>
+<p><strong>Every watch</strong></p>
+<ul>
+<li>Cross-check the ECDIS position against an independent method. Use a radar range and bearing, visual bearings or parallel indexing. Do not rely only on a second GNSS.</li>
+<li>Check that the radar overlay sits on the charted coastline. If it is offset, suspect the heading, the position or the antenna offset settings.</li>
+<li>Confirm the display mode and the safety contour are set as per the plan, and that no alarms are silenced or disabled without the master's knowledge.</li>
+</ul>
+<p><strong>Daily or weekly</strong></p>
+<ul>
+<li>Compare heading against the gyro repeater and steering stand, and SOG/COG against the log and GNSS.</li>
+<li>Check that system time agrees with GNSS time and the ship's clocks.</li>
+<li>Apply weekly ENC updates, then check the update log and review what changed on the charts for your route.</li>
+<li>Apply temporary and preliminary notices. Depending on your chart service, these may come as a separate overlay rather than in the ENC update.</li>
+<li>Confirm the back-up unit is running, updated and loaded with the same route.</li>
+</ul>
+<p><strong>Periodic</strong></p>
+<ul>
+<li>Check that permits are not close to expiry.</li>
+<li>Check the software version against the maker's notices. ECDIS must remain compatible with current IHO standards; the IMO good-practice guidance (MSC.1/Circ.1503) covers this.</li>
+<li>Back up routes and settings.</li>
+<li>Test alarms and the UPS as per the maker's schedule.</li>
+<li>Only install software updates through the approved maker or agent process.</li>
+</ul><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s5">Common faults and their symptoms</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>First action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Own ship drifting across land on screen, radar overlay offset</td>
+<td>GNSS error or jamming, wrong antenna offset, heading error</td>
+<td>Fix by radar or visual means; switch position source; inform master</td>
+</tr>
+<tr>
+<td>"DR" or position-lost indication</td>
+<td>GNSS input lost</td>
+<td>Check GNSS receiver and cabling; use the second source; plot fixes manually</td>
+</tr>
+<tr>
+<td>Radar overlay rotated relative to coastline</td>
+<td>Gyro error or wrong heading input</td>
+<td>Compare with magnetic compass and gyro repeaters; check the gyro</td>
+</tr>
+<tr>
+<td>Cells blank or "no permit" warning</td>
+<td>Expired or missing permits</td>
+<td>Load permits; switch to the back-up or paper charts for that area</td>
+</tr>
+<tr>
+<td>Datum warning</td>
+<td>Chart or position data not on WGS 84</td>
+<td>Verify GNSS output is set to WGS 84; treat the chart with caution</td>
+</tr>
+<tr>
+<td>Overscale indication or pattern</td>
+<td>Zoomed beyond the compilation scale</td>
+<td>Zoom out; load a larger-scale cell if one exists</td>
+</tr>
+<tr>
+<td>No safety contour alarms when expected</td>
+<td>Wrong safety settings, look-ahead too short, wrong display mode, alarm disabled</td>
+<td>Recheck the settings against the passage plan</td>
+</tr>
+<tr>
+<td>Freezing or slow redraw</td>
+<td>Hardware fault, full disk, corrupted SENC</td>
+<td>Change over to the back-up; report to the master or ETO; follow the maker's restart procedure</td>
+</tr>
+</tbody>
+</table>
+<p>Remember that a working screen does not mean correct data. The most dangerous failure is a confident display of a wrong position.</p><h2 id="s6">Safety precautions and good practice</h2><ul>
+<li><strong>Know the data quality.</strong> S-57 ENCs carry zones of confidence (CATZOC A1, A2, B, C, D, U). An ENC of a poorly surveyed area is only as good as the survey behind it, however sharp it looks. Allow extra margins in CATZOC C, D and U areas.</li>
+<li><strong>Use the right display.</strong> Display Base is the minimum and cannot be removed. It is not intended for route monitoring on its own. Use Standard Display or more, and check that critical objects are not hidden.</li>
+<li><strong>Manage alarms, do not mute them.</strong> Alarm fatigue is a recognised accident factor. Set sensible cross-track and look-ahead values instead of switching alarms off.</li>
+<li><strong>Scale matters.</strong> Navigate on the best-scale ENC available. Some dangers and objects only appear at their intended scale.</li>
+<li><strong>Cyber hygiene.</strong> Use only company-approved, scanned media for updates. Do not charge phones from ECDIS USB ports. The SMS should address cyber risk in line with IMO Resolution MSC.428(98).</li>
+<li><strong>Back-up readiness.</strong> Know how to change over and how quickly. Know which paper charts, if any, are carried and for which areas.</li>
+<li><strong>Training.</strong> STCW requires competence in ECDIS for navigating officers, delivered through generic training. Under the ISM Code and STCW Regulation I/14, the company must also ensure familiarisation with the specific make and model on board. Many flags and companies require type-specific training before you keep a watch.</li>
+</ul><h2 id="s7">Oral exam: what examiners ask about ECDIS</h2><p><strong>Q: When can ECDIS be used in place of paper charts?</strong>
+When it is type-approved, uses up-to-date official ENCs and has an approved back-up arrangement. The back-up is either a second independent ECDIS or an appropriate folio of up-to-date paper charts.</p>
+<p><strong>Q: Difference between ENC and RNC?</strong>
+ENC is vector data with intelligence behind each object, so the system can alarm on depths and areas. RNC is a scanned image, used in RCDS mode with no automatic depth alarms, alongside appropriate paper charts.</p>
+<p><strong>Q: How do you set the safety contour?</strong>
+Use draught plus squat plus the company UKC requirement, adjusted for tide only if the SMS permits. Then state that ECDIS selects the next deeper contour available in the ENC.</p>
+<p><strong>Q: What is in Display Base?</strong>
+The minimum layer that cannot be removed. It includes coastline, the own-ship safety contour, isolated dangers in safe water, scale and units, and the display mode. It is not sufficient for safe navigation.</p>
+<p><strong>Q: Your GNSS fails during coastal passage. Actions?</strong>
+1. Note the alarm and confirm DR mode.
+2. Fix by radar or visual means immediately.
+3. Switch to an alternative position source if available.
+4. Inform the master.
+5. Plot manual fixes on ECDIS or paper as per the SMS.
+6. Increase the frequency of fixing.
+7. Log the event.</p>
+<p><strong>Q: What does CATZOC tell you?</strong>
+The assessed accuracy and completeness of the survey data behind the ENC. It affects the UKC margins and passing distances you choose.</p>
+<p>Examiners want to see that you treat ECDIS as an aid to be checked, not an answer to be trusted.</p><div class="card kp"><div class="label">Key points</div><ul><li>ECDIS meets SOLAS chart carriage only with official, up-to-date ENCs and an approved back-up.</li><li>ENC is intelligent vector data; RNC runs in RCDS mode without depth alarms and needs paper charts alongside.</li><li>If the exact safety contour is not in the ENC, the system uses the next deeper available contour.</li><li>Always cross-check ECDIS position by radar or visual means, not just a second GNSS.</li><li>Apply weekly updates and T&amp;P notices, and keep permits and software current.</li><li>Generic training is required under STCW; ship-specific familiarisation is a company duty under ISM and STCW I/14.</li><li>Manage alarms by sensible settings; never disable them to silence a route check.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>Is ECDIS mandatory on all merchant ships?</summary><p>No. SOLAS Chapter V, Regulation 19 phased in carriage between 2012 and 2018 for passenger ships, tankers and cargo ships above set tonnage thresholds. Smaller or exempted ships may still use paper charts. Check your ship&#x27;s Record of Equipment and flag requirements.</p></details><details><summary>What is the difference between generic and type-specific ECDIS training?</summary><p>Generic training covers ECDIS principles, data, limitations and safe use, and is the STCW competence requirement. Type-specific training or familiarisation covers the actual make and model fitted on board. The company must ensure you are familiar with it before you keep a watch, and many flags and companies require a formal course.</p></details><details><summary>What should the back-up for ECDIS be?</summary><p>Either a second ECDIS with independent power and position input, or an appropriate folio of up-to-date paper charts. The arrangement accepted for your ship is set by the flag state and recorded in ship documents. Whatever it is, the back-up must be updated and ready for immediate changeover.</p></details><details><summary>Why does ECDIS show a safety contour different from the value I entered?</summary><p>ECDIS can only use contours that exist in the ENC. If your value is not charted, it automatically selects the next deeper contour. This is a conservative design feature, so plan around it rather than lowering your setting.</p></details><details><summary>Can I use RNC raster charts on ECDIS?</summary><p>Only where ENCs are not available, and the system then runs in RCDS mode with reduced functionality. Raster charts carry no depth or object information that the system can alarm on. They must be used with an appropriate folio of up-to-date paper charts.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>The safety contour is set to 13 m but the ENC only contains 10 m, 15 m and 20 m contours. Which contour does ECDIS display as the safety contour?</p><button data-c="0">10 m contour</button><button data-c="0">20 m contour</button><button data-c="1">15 m contour</button><button data-c="0">A computed 13 m line</button><div class="ex">Where the entered value is not in the ENC, ECDIS uses the next deeper available contour. Ref: IMO ECDIS performance standards, Resolution MSC.232(82).</div></div><div class="q"><p>What is the main limitation when ECDIS displays RNC raster charts?</p><button data-c="1">No automatic alarms for the safety contour or charted depths</button><button data-c="0">No display of own ship&#x27;s position</button><button data-c="0">No ability to plan a route</button><button data-c="0">No radar overlay possible at all</button><div class="ex">RNCs are images without object data, so the system runs in RCDS mode without depth-based alarms. Ref: Resolution MSC.232(82).</div></div><div class="q"><p>Which is the best method to verify the ECDIS position during a coastal passage?</p><button data-c="0">Compare with the second GNSS receiver</button><button data-c="0">Check that the ship symbol stays on the route line</button><button data-c="0">Rely on the position-lost alarm staying silent</button><button data-c="1">Take a radar range and bearing of a charted object</button><div class="ex">Both GNSS receivers can share the same error or interference, so an independent radar or visual fix is the best check. Ref: STCW Code, Table A-II/1 (position fixing competence); MSC.1/Circ.1503.</div></div><div class="q"><p>Which statement about Display Base is correct?</p><button data-c="0">It is the recommended layer for route monitoring</button><button data-c="1">It is the minimum display that cannot be removed but is not sufficient for safe navigation</button><button data-c="0">It shows all soundings and all charted objects</button><button data-c="0">It can be switched off at the operator&#x27;s discretion</button><div class="ex">Display Base is the permanent minimum layer and is not intended for safe navigation on its own. Ref: IHO S-52 and Resolution MSC.232(82).</div></div><div class="q"><p>Under which instrument is carriage of ECDIS required for certain ship types and sizes?</p><button data-c="0">MARPOL Annex VI</button><button data-c="0">STCW Convention, Regulation II/1</button><button data-c="1">SOLAS Chapter V, Regulation 19</button><button data-c="0">SOLAS Chapter III</button><div class="ex">ECDIS carriage requirements are in SOLAS Chapter V, Regulation 19; STCW covers competence, not carriage.</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/certificates/ecdis-generic-training/">ECDIS Generic Training</a><a href="/guides/certificates/ecdis-type-specific-training/">ECDIS Type-Specific Training</a><a href="/guides/operations/passage-planning-appraisal-planning-execution-monitoring/">Passage planning (appraisal, planning, execution, monitoring)</a><a href="/guides/systems/radar-and-arpa/">Radar and ARPA</a><a href="/guides/systems/gnss-gps/">GNSS / GPS</a><a href="/guides/systems/gyrocompass/">Gyrocompass</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter V, Regulation 18; SOLAS 1974 as amended, Chapter V, Regulation 19; SOLAS 1974 as amended, Chapter V, Regulation 27; IMO Resolution MSC.232(82) – Revised performance standards for ECDIS; IMO MSC.1/Circ.1503 – ECDIS guidance for good practice; STCW Code, Table A-II/1; STCW Convention, Regulation I/14; ISM Code, Section 6; IMO Resolution MSC.428(98) – Maritime cyber risk management in SMS; IHO S-52, S-57 and S-63</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BNWAS on Ships: Alarm Stages, Checks and Faults | Ocean Link</title><meta name="description" content="BNWAS checks the OOW is alert by requiring periodic resets and escalates alarms to the master and others if none comes. Stages, checks, faults and exam Qs."><link rel="canonical" href="https://card.oceanlinkai.com/guides/systems/bnwas/">
+<meta property="og:title" content="BNWAS on Ships: Alarm Stages, Checks and Faults | Ocean Link"><meta property="og:description" content="BNWAS checks the OOW is alert by requiring periodic resets and escalates alarms to the master and others if none comes. Stages, checks, faults and exam Qs."><meta property="og:type" content="article"><meta property="og:url" content="https://card.oceanlinkai.com/guides/systems/bnwas/"><meta property="og:site_name" content="Ocean Link">
+<meta property="og:image" content="https://card.oceanlinkai.com/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">
+<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#050609;color:#F2F4F7;font:400 17px/1.7 Inter,system-ui,sans-serif;letter-spacing:-.011em}
+a{color:#00E5FF;text-decoration:none}a:hover{text-decoration:underline}
+.bar{background:#0A0C10;border-bottom:1px solid #FFFFFF0F;position:sticky;top:0;z-index:5}
+.bar .in{max-width:980px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.025em;color:#F2F4F7}.brand b{color:#00E5FF;font-weight:600}
+.btn{display:inline-block;background:#00E5FF;color:#050609;font-weight:600;border-radius:10px;padding:10px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:#F2F4F7;border:1px solid #FFFFFF24}
+.wrap{max-width:760px;margin:auto;padding:28px 20px 60px}
+.crumbs{font-size:14px;color:#5F6672}.crumbs a{color:#8B93A0}
+h1{font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:14px 0 16px}
+h2{font-size:24px;line-height:1.3;font-weight:600;letter-spacing:-.025em;margin:44px 0 12px}
+h3{font-size:18px;font-weight:600;margin:24px 0 8px}
+p,li{color:#D5D9E0}strong{color:#F2F4F7;font-weight:600}
+.card{background:#0F1217;border:1px solid #FFFFFF14;border-radius:12px;padding:20px 22px;margin:22px 0}
+.sum{border-color:#00E5FF1A}.label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#4FD9EE;font-weight:600}
+.toc a{color:#8B93A0;display:block;padding:3px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{border-bottom:1px solid #FFFFFF14;padding:8px 6px;text-align:left;vertical-align:top}th{color:#8B93A0;font-weight:500}
+.kp li{margin:4px 0}
+details{border-bottom:1px solid #FFFFFF0A;padding:12px 0}summary{cursor:pointer;font-weight:500;color:#F2F4F7}details p{margin:8px 0 0}
+.q{margin:18px 0}.q p{margin:0 0 8px;font-weight:500;color:#F2F4F7}
+.q button{display:block;width:100%;text-align:left;background:#08090C;color:#D5D9E0;border:1px solid #FFFFFF14;border-radius:10px;padding:10px 14px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer}
+.q button.ok{border-color:#00B0D2;color:#F2F4F7}.q button.no{border-color:#F2555A}.q .ex{display:none;font-size:15px;color:#8B93A0;margin-top:6px}.q.done .ex{display:block}
+.cta{border-color:#00E5FF40;text-align:left}.cta h3{margin-top:0;font-size:20px}.feat{font-size:14px;color:#8B93A0;margin:10px 0 16px}
+.rel a{display:block;padding:10px 0;border-bottom:1px solid #FFFFFF0A}
+figure{margin:26px 0}@media(max-width:600px){figure{margin:22px -14px}}figure svg{width:100%;height:auto;display:block;border-radius:12px}figcaption{font-size:14px;color:#8B93A0;margin-top:8px}
+.src{font-size:14px;color:#8B93A0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.grid a{background:#0F1217;border:1px solid #FFFFFF14;border-radius:10px;padding:14px 16px;color:#F2F4F7}
+.grid small{display:block;color:#8B93A0;margin-top:4px}
+footer{border-top:1px solid #FFFFFF0F;color:#5F6672;font-size:14px;text-align:center;padding:26px 20px}footer a{color:#8B93A0}
+@media(max-width:600px){h1{font-size:28px}body{font-size:16px}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "BNWAS on Ships: Alarm Stages, Checks and Faults", "description": "BNWAS checks the OOW is alert by requiring periodic resets and escalates alarms to the master and others if none comes. Stages, checks, faults and exam Qs.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://card.oceanlinkai.com/guides/systems/bnwas/", "author": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "publisher": {"@type": "Organization", "name": "Ocean Link", "url": "https://oceanlinkai.com", "sameAs": ["https://www.linkedin.com/company/oceanlinkapp", "https://www.instagram.com/oceanlink_ai", "https://play.google.com/store/apps/details?id=com.oceanlinkai.app"]}, "image": ["https://card.oceanlinkai.com/press/img/og.jpg"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is BNWAS mandatory on all ships?", "acceptedAnswer": {"@type": "Answer", "text": "SOLAS Chapter V Regulation 19 requires it on cargo ships of 150 GT and upwards and on passenger ships of any size engaged on international voyages. It was phased in from 2011. Ships outside SOLAS, such as some domestic craft or fishing vessels, depend on their flag Administration's national rules."}}, {"@type": "Question", "name": "Can BNWAS be switched off when the pilot is on board?", "acceptedAnswer": {"@type": "Answer", "text": "SOLAS requires the system to operate whenever the ship is under way at sea. Practice in pilotage waters, ports and anchorages varies by company SMS and the master's orders. The mode is the master's decision, it should be logged, and the OOW should never change it on their own authority."}}, {"@type": "Question", "name": "What is the difference between Automatic and Manual ON mode?", "acceptedAnswer": {"@type": "Answer", "text": "In Automatic mode the system runs only when heading or track control (the autopilot) is engaged, and it stops in hand steering. Manual ON keeps it running all the time. Many companies require Manual ON at sea so that BNWAS stays active when someone is hand steering."}}, {"@type": "Question", "name": "Can a motion sensor be used to reset BNWAS?", "acceptedAnswer": {"@type": "Answer", "text": "Some type-approved systems use motion sensors as reset devices, but they must be positioned and set up so they genuinely detect the watchkeeper. Badly placed sensors can be triggered by curtains, fans or draughts and keep the system silent. Check the sensor coverage during full-sequence tests."}}, {"@type": "Question", "name": "Who receives the second-stage alarm?", "acceptedAnswer": {"@type": "Answer", "text": "The second stage goes to the locations of the master and/or the nominated back-up officer, usually their cabins. If the alarm is not cancelled on the bridge in time, the third stage alerts other crew who can take corrective action. Make sure the back-up selection is updated after crew changes."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Guides", "item": "https://card.oceanlinkai.com/guides/"}, {"@type": "ListItem", "position": 2, "name": "Ship systems & equipment", "item": "https://card.oceanlinkai.com/guides/systems/"}, {"@type": "ListItem", "position": 3, "name": "BNWAS (Bridge Navigational Watch Alarm System): A Practical Guide", "item": "https://card.oceanlinkai.com/guides/systems/bnwas/"}]}</script></head><body>
+<div class="bar"><div class="in"><a class="brand" href="/guides/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/><rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/><rect x="19.6" y="6.6" width="6.6" height="6.6" rx="2" fill="#00E5FF"/><rect x="23.4" y="13.8" width="5.4" height="5.4" rx="1.7" fill="#00B0D2"/><rect x="18.4" y="18.6" width="4.8" height="4.8" rx="1.5" fill="#0E86A6"/></svg><span>OCEAN <b>LINK</b></span></a><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get the app</a></div></div>
+<main class="wrap"><div class="crumbs"><a href="/guides/">Guides</a> › <a href="/guides/systems/">Ship systems &amp; equipment</a></div><h1>BNWAS (Bridge Navigational Watch Alarm System): A Practical Guide</h1><div class="card sum"><div class="label">Quick answer</div><p>The Bridge Navigational Watch Alarm System (BNWAS) monitors bridge activity and detects when the officer of the watch (OOW) is incapacitated or asleep. The OOW must reset it at set intervals. If no reset is made, it raises a staged alarm on the bridge first, then in the master&#x27;s or back-up officer&#x27;s cabin, then to other crew. SOLAS Chapter V requires it on most seagoing ships, and it must be in operation whenever the ship is under way at sea.</p></div><div class="card toc"><div class="label">On this page</div><a href="#s1">What BNWAS is for</a><a href="#s2">Main components</a><a href="#s3">How it works, step by step</a><a href="#s4">Worked scenario: a night watch</a><a href="#s5">Routine checks and maintenance</a><a href="#s6">Common faults and their symptoms</a><a href="#s7">Safety precautions and regulation</a><a href="#s8">Oral exam: questions you should be ready for</a><a href="#faq">FAQ</a><a href="#quiz">Test yourself</a></div><h2 id="s1">What BNWAS is for</h2><p>Accident investigations into groundings with a sleeping or incapacitated OOW keep raising the same question: why did nobody notice? BNWAS answers it. It is a dead-man system for the bridge. If the watchkeeper stops showing signs of life for a set period, the system raises the alarm and keeps escalating until someone responds.</p>
+<p>Its purposes, as set out in the IMO performance standards, are:</p>
+<ul>
+<li><strong>Monitor bridge activity</strong> and detect operator disability that could lead to a marine accident.</li>
+<li><strong>Alert the master or another qualified officer</strong> if the OOW does not respond.</li>
+<li><strong>Provide an emergency call facility</strong>, so the OOW can summon help immediately.</li>
+</ul>
+<p>BNWAS does not replace a proper look-out under COLREG Rule 5 or the watch arrangements required by STCW. It is a safety net. It does not count as a member of the watch.</p><h2 id="s2">Main components</h2><p>Makers differ, but a type-approved system usually has the following parts:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main control unit</td>
+<td>Runs the timer and the alarm logic. It also holds the mode selector and the dormant-period setting.</td>
+</tr>
+<tr>
+<td>Mode selector (key or password protected)</td>
+<td>Selects Automatic, Manual ON or Manual OFF. Access should be limited to the master.</td>
+</tr>
+<tr>
+<td>Reset units</td>
+<td>Push-buttons placed at the conning position, radar/ECDIS and other workstations. Some systems also use motion sensors.</td>
+</tr>
+<tr>
+<td>Bridge visual and audible alarms</td>
+<td>Flashing indicator and buzzer for the first stage.</td>
+</tr>
+<tr>
+<td>Remote alarm units</td>
+<td>Sounders in the master's and back-up officers' cabins, mess rooms, offices and similar spaces, for the second and third stages.</td>
+</tr>
+<tr>
+<td>Emergency call button</td>
+<td>Sends the remote alarm straight away.</td>
+</tr>
+<tr>
+<td>Interfaces</td>
+<td>Link to the autopilot or track control for Automatic mode. Many installations also send power-fail and malfunction alarms to the bridge alarm system.</td>
+</tr>
+</tbody>
+</table>
+<p>The system is powered from the ship's main source of electrical power. Loss of power or a malfunction should be indicated.</p><figure><svg aria-label="Schematic: reset units and autopilot boxes on the left with arrows into a central control unit holding the timer and modes, under master&#x27;s key. Arrows go from the control unit to a bridge alarm box and a remote alarms box for cabins and crew. An amber emergency call box has an arrow going straight to the remote alarms, labelled immediate." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img"><defs><marker id="b1" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker><marker id="b2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F5A524" /></marker></defs><rect x="0" y="0" width="800" height="560" fill="#0F1217" rx="12" /><text x="400" y="52" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">BNWAS main components</text><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7" text-anchor="middle"><rect x="20" y="120" width="220" height="70" rx="10" fill="#1A2230" stroke="#00B0D2" stroke-width="3" /><text x="130" y="164">Reset units</text><rect x="20" y="250" width="220" height="70" rx="10" fill="#1A2230" stroke="#00B0D2" stroke-width="3" /><text x="130" y="294">Autopilot</text><rect x="20" y="405" width="220" height="70" rx="10" fill="#1A2230" stroke="#F5A524" stroke-width="3" /><text x="130" y="449">Emergency call</text><rect x="300" y="130" width="200" height="240" rx="12" fill="#1A2230" stroke="#00E5FF" stroke-width="4" /><text x="400" y="205">Control</text><text x="400" y="240">unit</text><text x="400" y="290" fill="#00E5FF">Timer, modes</text><text x="400" y="330" fill="#F5A524">Master key</text><rect x="570" y="120" width="210" height="70" rx="10" fill="#1A2230" stroke="#00B0D2" stroke-width="3" /><text x="675" y="164">Bridge alarm</text><rect x="570" y="290" width="210" height="100" rx="10" fill="#1A2230" stroke="#F5A524" stroke-width="3" /><text x="675" y="332">Remote alarms</text><text x="675" y="368" fill="#F5A524">cabins, crew</text><text x="460" y="490" fill="#F5A524">Immediate</text></g><g stroke="#00E5FF" stroke-width="3" fill="none"><line x1="240" y1="155" x2="292" y2="155" marker-end="url(#b1)" /><line x1="240" y1="285" x2="292" y2="285" marker-end="url(#b1)" /><line x1="500" y1="155" x2="562" y2="155" marker-end="url(#b1)" /><line x1="500" y1="330" x2="562" y2="330" marker-end="url(#b1)" /></g><path d="M240,440 H675 V398" stroke="#F5A524" stroke-width="3" fill="none" marker-end="url(#b2)" /></svg><figcaption>Reset units and the autopilot interface feed the control unit, which drives the bridge and remote alarms, while the emergency call reaches the remote alarms immediately.</figcaption></figure><h2 id="s3">How it works, step by step</h2><p>The sequence below follows IMO Resolution MSC.128(75). The exact timer settings on your ship are fixed by the master within the permitted ranges.</p>
+<ol>
+<li><strong>Dormant period.</strong> The OOW resets the system and a timer starts. The master can set this period anywhere between <strong>3 and 12 minutes</strong>.</li>
+<li><strong>First stage, visual.</strong> At the end of the dormant period a visual indication starts on the bridge.</li>
+<li><strong>First stage, audible.</strong> If there is no reset within <strong>15 seconds</strong>, an audible alarm also sounds on the bridge.</li>
+<li><strong>Second stage.</strong> If there is still no reset after a further <strong>15 seconds</strong>, the alarm sounds at the remote locations of the master and/or the nominated back-up officer.</li>
+<li><strong>Third stage.</strong> If neither the master nor the back-up officer cancels the alarm from the bridge in time, a further alarm sounds in the locations of other crew who can take corrective action. This delay is adjustable, roughly <strong>90 seconds to 3 minutes</strong> depending on the size of the ship.</li>
+</ol>
+<p>A few points examiners like to hear:</p>
+<ul>
+<li>A reset must be <strong>a single operator action on the bridge</strong>. It cannot be done from a cabin.</li>
+<li>Holding or jamming a reset button down <strong>must not</strong> extend the dormant period or suppress the alarms.</li>
+<li>The <strong>emergency call</strong> can be used at any time. It sends the alarm to the remote stations without waiting for the sequence.</li>
+</ul>
+<p><strong>Operating modes</strong></p>
+<ul>
+<li><strong>Automatic.</strong> The system switches on automatically when heading or track control, i.e. the autopilot, is engaged. It switches off when the ship goes to hand steering.</li>
+<li><strong>Manual ON.</strong> Always running, whatever the steering mode.</li>
+<li><strong>Manual OFF.</strong> Never running.</li>
+</ul>
+<p>SOLAS requires the system to be in operation whenever the ship is under way at sea. Choose the mode with that in mind. Many companies' SMS require Manual ON at sea, so the system is not lost when the helmsman takes over. Check your own SMS.</p><figure><svg aria-label="Vertical flow of five BNWAS stages. Dormant period of 3 to 12 minutes. Bridge visual indication when the timer ends. Bridge audible alarm 15 seconds later. Master or back-up cabin alarm a further 15 seconds later. Other crew alarm after about 90 seconds to 3 minutes. A note says a reset on the bridge restarts the timer." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img"><defs><marker id="a1" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" /></marker></defs><rect x="0" y="0" width="800" height="600" fill="#0F1217" rx="12" /><text x="400" y="52" font-family="Inter, sans-serif" font-size="30" font-weight="700" fill="#F2F4F7" text-anchor="middle">BNWAS alarm escalation</text><g font-family="Inter, sans-serif" font-size="26" fill="#F2F4F7"><rect x="40" y="90" width="480" height="70" rx="10" fill="#1A2230" stroke="#00E5FF" stroke-width="3" /><text x="60" y="134">1 Dormant period</text><text x="560" y="134" fill="#00E5FF">3–12 min</text><rect x="40" y="180" width="480" height="70" rx="10" fill="#1A2230" stroke="#00B0D2" stroke-width="3" /><text x="60" y="224">2 Bridge visual</text><text x="560" y="224" fill="#00E5FF">timer ends</text><rect x="40" y="270" width="480" height="70" rx="10" fill="#1A2230" stroke="#00B0D2" stroke-width="3" /><text x="60" y="314">3 Bridge audible</text><text x="560" y="314" fill="#00E5FF">+15 s</text><rect x="40" y="360" width="480" height="70" rx="10" fill="#1A2230" stroke="#F5A524" stroke-width="3" /><text x="60" y="404">4 Master / back-up cabin</text><text x="560" y="404" fill="#F5A524">+15 s</text><rect x="40" y="450" width="480" height="70" rx="10" fill="#1A2230" stroke="#F5A524" stroke-width="3" /><text x="60" y="494">5 Other crew</text><text x="560" y="494" fill="#F5A524">+90 s–3 min</text><text x="400" y="570" text-anchor="middle" fill="#00E5FF">Bridge reset restarts the timer</text></g><g stroke="#00E5FF" stroke-width="3"><line x1="280" y1="160" x2="280" y2="174" marker-end="url(#a1)" /><line x1="280" y1="250" x2="280" y2="264" marker-end="url(#a1)" /><line x1="280" y1="340" x2="280" y2="354" marker-end="url(#a1)" /><line x1="280" y1="430" x2="280" y2="444" marker-end="url(#a1)" /></g></svg><figcaption>If the OOW does not reset, BNWAS escalates from a bridge visual indication to bridge audible, then to the master or back-up officer, then to other crew.</figcaption></figure><h2 id="s4">Worked scenario: a night watch</h2><p><strong>Situation:</strong> You are 2nd Officer on the 0000-0400 watch. The 0000 handover is done. The master has set a 9-minute dormant period, Manual ON, with the chief officer as back-up.</p>
+<p><strong>What a good OOW does:</strong></p>
+<ol>
+<li>At handover, confirm the mode and that the system is running. The mode should match the night orders and the SMS.</li>
+<li>Reset as you move around the bridge, using the reset at the workstation you are standing at.</li>
+<li>If the bridge visual indication starts while you are plotting, reset at once. That is the system working as intended, not a nuisance.</li>
+<li>If the bridge audible sounds and you cannot reach a reset, expect a cabin alarm. Inform the master when he calls or arrives, and make a log entry.</li>
+<li>If you feel unwell or need urgent help, press the <strong>emergency call</strong>. That is exactly what it is for.</li>
+</ol>
+<p><strong>What a bad OOW does:</strong> puts a weight on the reset button, tapes over the sounder or asks for the key to switch to Manual OFF "for a quiet watch". All of these are defeats of a safety system. Port State Control inspectors and vetting inspectors look for them.</p><h2 id="s5">Routine checks and maintenance</h2><p>Test frequency and method are set by your SMS and the maker's manual. Typical good practice includes:</p>
+<ul>
+<li><strong>Each watch or at handover:</strong> confirm the mode, the dormant period and that there is no fault indication. Make sure the reset units respond.</li>
+<li><strong>Periodic full-sequence test:</strong> with the master's agreement, and with the people concerned warned beforehand, let the timer run through to the remote alarms. Confirm that each cabin and public-space unit sounds and can be heard over normal noise. Record the result.</li>
+<li><strong>Emergency call test:</strong> confirm that it reaches the remote units immediately.</li>
+<li><strong>Mode change test:</strong> in Automatic mode, check that switching between autopilot and hand steering brings the system in and out correctly.</li>
+<li><strong>Power and fault alarms:</strong> where the maker's test procedure allows, check that the system indicates loss of power.</li>
+<li><strong>Records:</strong> log the tests, settings and defects. Report any defect to the master and the company under the ISM defect-reporting procedure.</li>
+</ul>
+<p>After a back-up officer change, update the remote alarm routing if the system allows it. This matters after crew change in particular. The alarm must reach the person who is actually on call.</p><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2 id="s6">Common faults and their symptoms</h2><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alarm sounds on the bridge but not in the cabin</td>
+<td>Broken wiring, a failed remote unit, the wrong cabin selected, or the volume turned down</td>
+<td>Check the back-up selection and the unit. Report the defect and arrange a temporary measure under the master's instructions.</td>
+</tr>
+<tr>
+<td>System never alarms during the watch</td>
+<td>Motion sensor triggered by curtains, a fan or an air draught. A jammed reset is also possible, though a compliant system should not be suppressed by one.</td>
+<td>Check the sensor positions and test the full sequence.</td>
+</tr>
+<tr>
+<td>System inactive under hand steering</td>
+<td>Left in Automatic mode</td>
+<td>Set the mode required by the SMS and master's orders.</td>
+</tr>
+<tr>
+<td>Frequent false first-stage alarms</td>
+<td>Reset units badly placed or faulty</td>
+<td>Report so units can be moved or repaired. Do not lengthen the dormant period just to cut down alarms.</td>
+</tr>
+<tr>
+<td>Power-fail or malfunction alarm</td>
+<td>Supply breaker tripped or internal fault</td>
+<td>Restore the supply, inform the master and log it.</td>
+</tr>
+<tr>
+<td>Remote unit buzzing continuously</td>
+<td>Faulty unit or wiring</td>
+<td>Isolate as per maker's instructions and report it. Do not leave the circuit disabled without a decision from the master.</td>
+</tr>
+</tbody>
+</table><h2 id="s7">Safety precautions and regulation</h2><p><strong>Precautions</strong></p>
+<ul>
+<li>Never tamper with, wedge or disable the system. Defeating it removes the protection against a recognised factor in many collisions and groundings: a watchkeeper who is not alert.</li>
+<li>The mode selector and timer are for the master only. Keep the key or password under the master's control.</li>
+<li>Warn the crew before a full-sequence test, especially at night.</li>
+<li>BNWAS is not a look-out and is not a reason to stand a one-person watch at night. Watch manning still follows STCW, COLREG Rule 5 and the master's standing orders.</li>
+</ul>
+<p><strong>Regulation (chapter level)</strong></p>
+<ul>
+<li><strong>SOLAS Chapter V, Regulation 19</strong> requires a BNWAS on cargo ships of 150 GT and upwards and on all passenger ships. It was phased in from 2011 for new and existing ships. The regulation also requires the system to be in operation whenever the ship is under way at sea.</li>
+<li><strong>IMO Resolution MSC.128(75)</strong> sets the performance standards, including the timings, modes and reset requirements described above.</li>
+<li>Type approval and some installation details are handled by the flag Administration and class. Expect differences in, for example, where remote units must be fitted.</li>
+</ul><h2 id="s8">Oral exam: questions you should be ready for</h2><ul>
+<li><em>What is the purpose of BNWAS and where is the requirement found?</em> Detect OOW disability and alert the master or back-up. SOLAS Chapter V, Regulation 19, with performance standards in MSC.128(75).</li>
+<li><em>Talk me through the alarm sequence.</em> Dormant period of 3–12 minutes, bridge visual, bridge audible after 15 seconds, second-stage remote alarm after a further 15 seconds, then a third stage to other crew.</li>
+<li><em>Who can change the mode and the dormant period?</em> Only the master. The controls are protected by key or password.</li>
+<li><em>You take over the watch and find it on Manual OFF at sea. What do you do?</em> Don't just accept it. Inform the master, because SOLAS requires it running under way at sea. Log it.</li>
+<li><em>What happens if someone holds the reset down?</em> A compliant system will not suppress the alarms or extend the dormant period.</li>
+<li><em>What is the emergency call for?</em> To call for help at once, for example if the OOW is ill or needs immediate support. It sends the remote alarm without waiting for the sequence.</li>
+</ul><div class="card kp"><div class="label">Key points</div><ul><li>BNWAS detects an incapacitated or sleeping OOW and escalates the alarm to the master or back-up officer, then to other crew.</li><li>The dormant period is set by the master between 3 and 12 minutes. Each later stage follows after 15 seconds, 15 seconds, then about 90 seconds to 3 minutes.</li><li>There are three modes, Automatic, Manual ON and Manual OFF, protected by key or password for the master&#x27;s use only.</li><li>SOLAS Chapter V Regulation 19 requires BNWAS to be in operation whenever the ship is under way at sea.</li><li>Resets must be a single action on the bridge, and a jammed reset must not suppress the alarm.</li><li>Test the full sequence, including the cabin units, at the intervals in your SMS and record the results.</li><li>Tampering with BNWAS is a serious safety and Port State Control issue, never a convenience.</li></ul></div><h2 id="faq">Frequently asked questions</h2><details><summary>Is BNWAS mandatory on all ships?</summary><p>SOLAS Chapter V Regulation 19 requires it on cargo ships of 150 GT and upwards and on passenger ships of any size engaged on international voyages. It was phased in from 2011. Ships outside SOLAS, such as some domestic craft or fishing vessels, depend on their flag Administration&#x27;s national rules.</p></details><details><summary>Can BNWAS be switched off when the pilot is on board?</summary><p>SOLAS requires the system to operate whenever the ship is under way at sea. Practice in pilotage waters, ports and anchorages varies by company SMS and the master&#x27;s orders. The mode is the master&#x27;s decision, it should be logged, and the OOW should never change it on their own authority.</p></details><details><summary>What is the difference between Automatic and Manual ON mode?</summary><p>In Automatic mode the system runs only when heading or track control (the autopilot) is engaged, and it stops in hand steering. Manual ON keeps it running all the time. Many companies require Manual ON at sea so that BNWAS stays active when someone is hand steering.</p></details><details><summary>Can a motion sensor be used to reset BNWAS?</summary><p>Some type-approved systems use motion sensors as reset devices, but they must be positioned and set up so they genuinely detect the watchkeeper. Badly placed sensors can be triggered by curtains, fans or draughts and keep the system silent. Check the sensor coverage during full-sequence tests.</p></details><details><summary>Who receives the second-stage alarm?</summary><p>The second stage goes to the locations of the master and/or the nominated back-up officer, usually their cabins. If the alarm is not cancelled on the bridge in time, the third stage alerts other crew who can take corrective action. Make sure the back-up selection is updated after crew changes.</p></details><h2 id="quiz">Test yourself</h2><div class="card"><div class="q"><p>Within what range can the BNWAS dormant period be set?</p><button data-c="0">1 to 5 minutes</button><button data-c="1">3 to 12 minutes</button><button data-c="0">5 to 15 minutes</button><button data-c="0">10 to 20 minutes</button><div class="ex">The performance standards allow the master to set the dormant period between 3 and 12 minutes. (IMO Res. MSC.128(75))</div></div><div class="q"><p>After the first-stage visual indication starts, when does the bridge audible alarm sound if there is no reset?</p><button data-c="0">Immediately, together with the visual indication</button><button data-c="0">After 60 seconds</button><button data-c="0">After 3 minutes</button><button data-c="1">After 15 seconds</button><div class="ex">If there is no reset within 15 seconds of the visual indication, the bridge audible alarm sounds. (IMO Res. MSC.128(75))</div></div><div class="q"><p>Who is normally allowed to change the BNWAS operating mode?</p><button data-c="1">The master only</button><button data-c="0">Any OOW holding a CoC</button><button data-c="0">The ETO during maintenance only</button><button data-c="0">The pilot when on board</button><div class="ex">The mode selector is protected by key or password so that only the master can operate it. (IMO Res. MSC.128(75))</div></div><div class="q"><p>In Automatic mode, when is the BNWAS active?</p><button data-c="0">Whenever the main engine is running</button><button data-c="0">Only at night</button><button data-c="1">Whenever heading or track control is engaged</button><button data-c="0">Whenever the radar is transmitting</button><div class="ex">Automatic mode brings the system in when the autopilot (heading or track control) is engaged and takes it out in hand steering. (IMO Res. MSC.128(75))</div></div><div class="q"><p>What should happen if a BNWAS reset button is held down continuously?</p><button data-c="0">The dormant period doubles</button><button data-c="1">The alarm sequence is not suppressed and the dormant period is not extended</button><button data-c="0">The system switches to Manual OFF</button><button data-c="0">The emergency call is triggered</button><div class="ex">Continuous activation of a reset device must not extend the dormant period or suppress the alarms, which stops the system being defeated. (IMO Res. MSC.128(75))</div></div></div><div class="card cta"><div class="label">Ocean Link — free for seafarers</div><h3>Learn on the go</h3><p>Ocean Link&#x27;s Learn tab has short video lessons with quizzes on COLREGs, ship systems and safety, made by a serving 2nd Officer.</p><div class="feat">Certificate manager with expiry alerts · Sea time tracker · Free professional CV · Jobs for your rank · One-tap apply · Micro-lessons &amp; quizzes · Seafarer network (SeaFeed) · Crew messaging</div><a class="btn" href="https://play.google.com/store/apps/details?id=com.oceanlinkai.app">Get it on Google Play</a> <a class="btn ghost" href="https://oceanlinkai.com">Open oceanlinkai.com</a></div><h2>Related guides</h2><div class="rel"><a href="/guides/operations/bridge-watchkeeping/">Bridge watchkeeping</a><a href="/guides/systems/autopilot/">Autopilot</a><a href="/guides/systems/vdr-voyage-data-recorder/">VDR (voyage data recorder)</a><a href="/guides/colregs/colreg-rule-5-look-out/">COLREG Rule 5 – Look-out</a><a href="/guides/regulations/solas-convention/">SOLAS Convention</a><a href="/guides/regulations/port-state-control/">Port State Control</a></div><p class="src"><strong>References:</strong> SOLAS 1974 as amended, Chapter V, Regulation 19; IMO Resolution MSC.128(75) – Performance standards for a bridge navigational watch alarm system (BNWAS); STCW Code, Section A-VIII/2; COLREG 1972 as amended, Rule 5</p></main>
+<footer>Ocean Link Seafarer Guides · <a href="/guides/">All guides</a> · <a href="https://oceanlinkai.com">oceanlinkai.com</a> · <a href="mailto:oceanlinksupport@gmail.com">oceanlinksupport@gmail.com</a><br>
+General guidance only. Your flag administration, company SMS and the official texts always prevail.</footer>
+<script>document.querySelectorAll('.q').forEach(q=>q.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(q.classList.contains('done'))return;q.classList.add('done');q.querySelectorAll('button').forEach(x=>{if(x.dataset.c=='1')x.classList.add('ok')});if(b.dataset.c!='1')b.classList.add('no')}))</script>
+</body></html>
