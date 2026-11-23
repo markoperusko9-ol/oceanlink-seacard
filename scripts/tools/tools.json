@@ -1,0 +1,182 @@
+[
+ {
+  "slug": "sun-compass-error-calculator",
+  "name": "Compass error by the Sun",
+  "guides": [
+   [
+    "/guides/navigation/azimuth-and-amplitude-observations/",
+    "Azimuth and amplitude observations"
+   ],
+   [
+    "/guides/navigation/compass-error-deviation-and-variation/",
+    "Compass error, deviation and variation"
+   ],
+   [
+    "/guides/navigation/gyro-error-and-how-to-find-it/",
+    "Gyro error and how to find it"
+   ]
+  ]
+ },
+ {
+  "slug": "great-circle-rhumb-line-calculator",
+  "name": "Great circle and rhumb line",
+  "guides": [
+   [
+    "/guides/navigation/great-circle-vs-rhumb-line-sailing/",
+    "Great circle vs rhumb line sailing"
+   ],
+   [
+    "/guides/operations/passage-planning-appraisal-planning-execution-monitoring/",
+    "Passage planning"
+   ]
+  ]
+ },
+ {
+  "slug": "set-and-drift-course-to-steer-calculator",
+  "name": "Set and drift, course to steer",
+  "guides": [
+   [
+    "/guides/navigation/tidal-streams-and-set-and-drift/",
+    "Tidal streams and set and drift"
+   ],
+   [
+    "/guides/navigation/dead-reckoning-and-estimated-position/",
+    "Dead reckoning and estimated position"
+   ]
+  ]
+ },
+ {
+  "slug": "eta-speed-distance-time-calculator",
+  "name": "ETA, speed, distance and time",
+  "guides": [
+   [
+    "/guides/operations/passage-planning-appraisal-planning-execution-monitoring/",
+    "Passage planning: appraisal, planning, execution, monitoring"
+   ],
+   [
+    "/guides/navigation/dead-reckoning-and-estimated-position/",
+    "Dead reckoning and estimated position"
+   ]
+  ]
+ },
+ {
+  "slug": "true-wind-calculator",
+  "name": "True wind",
+  "guides": [
+   [
+    "/guides/meteorology/beaufort-scale-and-sea-state/",
+    "Beaufort scale and sea state"
+   ],
+   [
+    "/guides/meteorology/swell-wind-waves-and-parametric-rolling/",
+    "Swell, wind waves and parametric rolling"
+   ]
+  ]
+ },
+ {
+  "slug": "cpa-tcpa-calculator",
+  "name": "CPA and TCPA from two plots",
+  "guides": [
+   [
+    "/guides/navigation/cpa-and-tcpa-explained/",
+    "CPA and TCPA explained"
+   ],
+   [
+    "/guides/navigation/radar-plotting-and-relative-motion/",
+    "Radar plotting and relative motion"
+   ],
+   [
+    "/guides/colregs/colreg-rule-7-risk-of-collision/",
+    "COLREG Rule 7: Risk of collision"
+   ]
+  ]
+ },
+ {
+  "slug": "squat-ukc-calculator",
+  "name": "Squat and UKC",
+  "guides": [
+   [
+    "/guides/operations/squat-and-shallow-water-effect/",
+    "Squat and shallow-water effect"
+   ],
+   [
+    "/guides/navigation/under-keel-clearance-ukc-calculation/",
+    "Under keel clearance (UKC) calculation"
+   ]
+  ]
+ },
+ {
+  "slug": "propeller-slip-calculator",
+  "name": "Propeller slip",
+  "guides": [
+   [
+    "/guides/systems/main-engine-two-stroke-slow-speed-diesel/",
+    "Main engine: two-stroke slow-speed diesel"
+   ],
+   [
+    "/guides/systems/controllable-pitch-propeller/",
+    "Controllable pitch propeller"
+   ]
+  ]
+ },
+ {
+  "slug": "fuel-consumption-calculator",
+  "name": "Fuel consumption and ROB",
+  "guides": [
+   [
+    "/guides/engineering/marine-fuels-hfo-vlsfo-mgo-and-lng-as-fuel/",
+    "Marine fuels: HFO, VLSFO, MGO and LNG as fuel"
+   ],
+   [
+    "/guides/operations/bunkering-operations/",
+    "Bunkering operations"
+   ]
+  ]
+ },
+ {
+  "slug": "fwa-dwa-calculator",
+  "name": "FWA and DWA",
+  "guides": [
+   [
+    "/guides/stability-cargo/load-lines-and-freeboard-marks/",
+    "Load lines and freeboard marks"
+   ],
+   [
+    "/guides/stability-cargo/draft-survey-basics/",
+    "Draft survey basics"
+   ]
+  ]
+ },
+ {
+  "slug": "list-and-gm-calculator",
+  "name": "List and GM",
+  "guides": [
+   [
+    "/guides/stability-cargo/gm-and-metacentric-height-explained/",
+    "GM and metacentric height explained"
+   ],
+   [
+    "/guides/stability-cargo/free-surface-effect/",
+    "Free surface effect"
+   ],
+   [
+    "/guides/stability-cargo/angle-of-loll-vs-list/",
+    "Angle of loll vs list"
+   ]
+  ]
+ },
+ {
+  "slug": "marine-unit-converter",
+  "name": "Marine unit converter",
+  "guides": [
+   [
+    "/guides/meteorology/beaufort-scale-and-sea-state/",
+    "Beaufort scale and sea state"
+   ],
+   [
+    "/guides/systems/anchoring-equipment/",
+    "Anchoring equipment"
+   ]
+  ]
+ }
+]

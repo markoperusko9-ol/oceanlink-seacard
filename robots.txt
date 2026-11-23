@@ -4,3 +4,5 @@ Allow: /
 Sitemap: https://card.oceanlinkai.com/sitemap.xml
 
 Sitemap: https://card.oceanlinkai.com/guides/sitemap.xml
+
+Sitemap: https://card.oceanlinkai.com/tools/sitemap.xml
