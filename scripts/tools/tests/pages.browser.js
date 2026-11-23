@@ -8,10 +8,15 @@ const SHOTS = process.argv[2];
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.xml': 'text/xml', '.jpg': 'image/jpeg' };
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]); if (p.endsWith('/')) p += 'index.html';
+  if (p === '/__app') { res.writeHead(200, { 'content-type': 'text/html' }); return res.end(HARNESS); }
   const f = path.join(ROOT, p);
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end('not found'); }
   res.writeHead(200, { 'content-type': TYPES[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(res);
 });
+// Stand-in for the Ocean Link app page that frames the tools (same script as the Bubble HTML element).
+const HARNESS = `<!DOCTYPE html><body style="margin:0;background:#050609"><div style="height:300px"></div>
+<iframe id="oltools" src="/tools/?embed=1" title="Seafarer tools" style="width:100%;height:1800px;border:0;display:block"></iframe>
+<script>(function(){var f=document.getElementById('oltools');window.addEventListener('message',function(e){if(e.origin!==location.origin||!e.data||e.data.olTools!==1)return;if(e.data.height)f.style.height=e.data.height+'px';if(e.data.nav){var t=f.getBoundingClientRect().top;if(t<0)window.scrollTo(0,window.scrollY+t-80);}});})();</script></body>`;
 let fails = 0, checks = 0;
 const ok = (cond, msg) => { checks++; if (!cond) { fails++; console.log('   FAIL: ' + msg); } };
 const eq = (got, want, msg) => ok(got === want, `${msg}: got "${got}", want "${want}"`);
@@ -26,7 +31,7 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   let errors = [];
   page.on('pageerror', e => errors.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error' && !/fonts\.g|ERR_|Failed to load resource/.test(m.text())) errors.push('console: ' + m.text()); });
-  page.on('response', r => { if (r.url().startsWith(base) && r.status() >= 400) errors.push('HTTP ' + r.status() + ' ' + r.url()); });
+  page.on('response', r => { if (r.url().startsWith(base) && r.status() >= 400 && !r.url().endsWith('/favicon.ico')) errors.push('HTTP ' + r.status() + ' ' + r.url()); });
   const set = (id, v) => page.evaluate((id, v) => { const el = document.getElementById(id); el.value = v; el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); }, id, v);
   const seg = (id, v) => page.evaluate((id, v) => document.querySelector('#' + id + ' button[data-v="' + v + '"]').click(), id, v);
   const txt = (sel) => page.evaluate(sel => { const el = document.querySelector(sel); return el ? el.textContent.replace(/\s+/g, ' ').trim() : null; }, sel);
@@ -56,6 +61,26 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   await open('', true);
   ok(await page.evaluate(() => getComputedStyle(document.querySelector('.bar')).display === 'none'), 'header hidden in the app');
   ok(await page.evaluate(() => [...document.querySelectorAll('a.tool')].every(a => a.getAttribute('href').endsWith('?embed=1'))), 'tool links keep in-app mode');
+
+  // ---- framed inside the app ----
+  errors = []; await page.goto(base + '/__app', { waitUntil: 'load' }); console.log('framed inside an app page');
+  await new Promise(r => setTimeout(r, 400));
+  const frame = () => page.frames().find(f => f.url().includes('/tools/'));
+  const hubH = await page.evaluate(() => parseInt(document.getElementById('oltools').style.height));
+  const hubReal = await frame().evaluate(() => Math.ceil(document.body.getBoundingClientRect().height));
+  ok(hubH === hubReal && hubH > 800, 'frame takes the hub height: ' + hubH + ' vs ' + hubReal);
+  ok(await frame().evaluate(() => getComputedStyle(document.querySelector('h1')).display === 'none'), 'hub heading hidden in the app');
+  await page.evaluate(() => window.scrollTo(0, 900));
+  await frame().evaluate(() => document.querySelector('a.tool[href*="true-wind"]').click());
+  await new Promise(r => setTimeout(r, 900));
+  ok(frame().url().includes('true-wind-calculator/?embed=1'), 'tool opens inside the frame: ' + frame().url());
+  const toolH = await page.evaluate(() => parseInt(document.getElementById('oltools').style.height));
+  const toolReal = await frame().evaluate(() => Math.ceil(document.body.getBoundingClientRect().height));
+  ok(toolH === toolReal && toolH !== hubH, 'frame resizes to the tool: ' + toolH + ' vs ' + toolReal);
+  ok(await page.evaluate(() => Math.abs(document.getElementById('oltools').getBoundingClientRect().top - 80) < 3), 'app scrolls back to the top of the tool');
+  eq(await frame().evaluate(() => document.getElementById('r_main').textContent), '135°T', 'tool works inside the frame');
+  ok(await frame().evaluate(() => [...document.querySelectorAll('a[href^="/guides/"]')].every(a => a.target === '_blank')), 'guide links open outside the frame');
+  ok(errors.length === 0, 'errors: ' + errors.join(' | '));
 
   // ---- Sun compass error ----
   await open('sun-compass-error-calculator');

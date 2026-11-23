@@ -9,7 +9,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 SITE = 'https://card.oceanlinkai.com'
 PLAY = 'https://play.google.com/store/apps/details?id=com.oceanlinkai.app'
-V = '1'            # bump to refresh cached css/js
+V = '2'            # bump to refresh cached css/js
 TODAY = '2026-11-23'
 
 LOGO = ('<svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/>'
@@ -91,8 +91,8 @@ def head(title, desc, path, ld):
             '<meta property="og:image" content="%s/press/img/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050609">\n'
             '<link rel="icon" type="image/svg+xml" href="/press/img/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
             '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/tools/assets/tools.css?v=%s">\n'
-            '<script>if(/[?&]embed=1/.test(location.search))document.documentElement.className="embed"</script>\n%s</head><body>\n'
-            % (e(title), e(desc), url, e(title), e(desc), url, SITE, V,
+            '<script src="/tools/assets/embed.js?v=%s"></script>\n%s</head><body>\n'
+            % (e(title), e(desc), url, e(title), e(desc), url, SITE, V, V,
                ''.join('<script type="application/ld+json">%s</script>' % json.dumps(x, ensure_ascii=False) for x in ld)))
 
 
@@ -153,7 +153,7 @@ def hub_page(tools):
               {"@type": "ListItem", "position": i + 1, "name": t['name'], "url": SITE + '/tools/%s/' % t['slug']}
               for i, t in enumerate(tools)]}]
     p = [head('Seafarer Tools: Free Marine Calculators | Ocean Link', desc, '/tools/', ld), BAR,
-         '<main class="wrap wide"><h1>Seafarer tools</h1><p class="lead">Free calculators for the bridge, the engine room and the cargo office. '
+         '<main class="wrap wide"><h1 class="hubhead">Seafarer tools</h1><p class="lead hubhead">Free calculators for the bridge, the engine room and the cargo office. '
          'Every tool shows its formula and its limits, and its maths is tested against reference data before it goes live.</p>\n']
     for c in CATEGORIES:
         ts = [t for t in tools if t['cat'] == c]
@@ -171,7 +171,7 @@ def hub_page(tools):
     p.append(CTA)
     p.append('<h2>Seafarer guides</h2><div class="rel"><a href="/guides/">Browse all Ocean Link seafarer guides</a></div>')
     p.append(FOOT)
-    p.append('<script>if(/[?&]embed=1/.test(location.search))document.querySelectorAll(\'a[href^="/tools/"]\').forEach(function(a){a.href=a.getAttribute("href")+"?embed=1"})</script>\n</body></html>\n')
+    p.append('</body></html>\n')
     return ''.join(p)
 
 

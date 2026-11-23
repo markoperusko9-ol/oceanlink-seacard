@@ -4,16 +4,6 @@
   var C = window.OLCalc;
   var $ = function (id) { return document.getElementById(id); };
 
-  // Inside the app the page is shown without its own header, and tool links keep that mode.
-  if (/[?&]embed=1/.test(location.search)) {
-    document.documentElement.classList.add('embed');
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('a[href^="/tools/"]').forEach(function (a) {
-        a.setAttribute('href', a.getAttribute('href').split('?')[0] + '?embed=1');
-      });
-    });
-  }
-
   /* Number from an input; accepts a decimal comma. NaN when empty or not a number. */
   function num(id) {
     var el = $(id); if (!el) return NaN;
