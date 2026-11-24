@@ -5,7 +5,7 @@
   if (!/[?&]embed=1/.test(location.search)) return;
   document.documentElement.classList.add('embed');
   function tell(extra) {
-    var m = { olTools: 1, height: Math.ceil(document.body.getBoundingClientRect().height) };
+    var m = { olTools: 1, height: Math.ceil(document.documentElement.getBoundingClientRect().height) }; // whole document, including margins that sit outside the body box
     if (extra) m.nav = 1;
     try { window.parent.postMessage(m, '*'); } catch (e) { /* not framed */ }
   }

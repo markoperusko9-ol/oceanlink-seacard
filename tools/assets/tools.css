@@ -68,6 +68,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .tool b{display:block;font-weight:600}.tool small{display:block;color:#8B93A0;font-size:14px;line-height:1.45;margin-top:2px}
 /* inside the app */
 .embed .bar,.embed .cta,.embed footer .out,.embed .hubhead{display:none}
+html.embed{scrollbar-width:none}html.embed::-webkit-scrollbar{display:none}
 .embed .wrap{padding:0 0 8px;max-width:none}
 .embed .wrap>h2:first-of-type{margin-top:8px}
 .embed footer{padding:20px 0 4px}
