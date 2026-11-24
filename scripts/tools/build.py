@@ -9,7 +9,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 SITE = 'https://card.oceanlinkai.com'
 PLAY = 'https://play.google.com/store/apps/details?id=com.oceanlinkai.app'
-V = '3'            # bump to refresh cached css/js
+V = '4'            # bump to refresh cached css/js
 TODAY = '2026-11-23'
 
 LOGO = ('<svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/>'
@@ -122,7 +122,7 @@ def tool_page(t, tools):
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t['faq']]})
     p = [head(t['title'], t['desc'], path, ld), BAR,
-         '<main class="wrap"><div class="crumbs"><a href="/tools/">Tools</a> › %s</div><h1>%s</h1><p class="lead">%s</p>\n' % (e(t['cat']), e(t['h1']), t['lead']),
+         '<main class="wrap"><a class="back" href="/tools/">‹ All tools</a><div class="crumbs"><a href="/tools/">Tools</a> › %s</div><h1>%s</h1><p class="lead">%s</p>\n' % (e(t['cat']), e(t['h1']), t['lead']),
          '<div class="card calc">%s<div class="res" id="res" aria-live="polite"></div>%s</div>\n' % (
              t['form'], '<figure class="dia" id="dia"></figure>' if t.get('diagram') else ''),
          t['how'], '\n']

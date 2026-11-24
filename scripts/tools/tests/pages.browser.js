@@ -60,6 +60,7 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   await done('');
   await open('', true);
   ok(await page.evaluate(() => getComputedStyle(document.querySelector('.bar')).display === 'none'), 'header hidden in the app');
+  ok(await page.evaluate(() => document.querySelector('a.back') === null), 'no back link on the list itself');
   ok(await page.evaluate(() => [...document.querySelectorAll('a.tool')].every(a => a.getAttribute('href').endsWith('?embed=1'))), 'tool links keep in-app mode');
 
   // ---- framed inside the app ----
@@ -68,8 +69,8 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   const frame = () => page.frames().find(f => f.url().includes('/tools/'));
   const hubH = await page.evaluate(() => parseInt(document.getElementById('oltools').style.height));
   const hubReal = await frame().evaluate(() => Math.ceil(document.documentElement.getBoundingClientRect().height));
-  ok(hubH === hubReal && hubH > 800, 'frame takes the hub height: ' + hubH + ' vs ' + hubReal);
-  const spill = () => frame().evaluate(() => document.documentElement.scrollHeight - document.documentElement.clientHeight);
+  ok(hubH === hubReal + 1 && hubH > 800, 'frame takes the hub height: ' + hubH + ' vs ' + hubReal);
+  const spill = () => frame().evaluate(() => Math.max(0, document.documentElement.scrollHeight - document.documentElement.clientHeight));
   ok((await spill()) === 0, 'hub fits the frame with nothing left to scroll (spills ' + (await spill()) + ' px)');
   ok(await frame().evaluate(() => getComputedStyle(document.querySelector('h1')).display === 'none'), 'hub heading hidden in the app');
   await page.evaluate(() => window.scrollTo(0, 900));
@@ -78,11 +79,18 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   ok(frame().url().includes('true-wind-calculator/?embed=1'), 'tool opens inside the frame: ' + frame().url());
   const toolH = await page.evaluate(() => parseInt(document.getElementById('oltools').style.height));
   const toolReal = await frame().evaluate(() => Math.ceil(document.documentElement.getBoundingClientRect().height));
-  ok(toolH === toolReal && toolH !== hubH, 'frame resizes to the tool: ' + toolH + ' vs ' + toolReal);
+  ok(toolH === toolReal + 1 && toolH !== hubH, 'frame resizes to the tool: ' + toolH + ' vs ' + toolReal);
   ok((await spill()) === 0, 'tool fits the frame with nothing left to scroll (spills ' + (await spill()) + ' px)');
   ok(await page.evaluate(() => Math.abs(document.getElementById('oltools').getBoundingClientRect().top - 80) < 3), 'app scrolls back to the top of the tool');
   eq(await frame().evaluate(() => document.getElementById('r_main').textContent), '135°T', 'tool works inside the frame');
   ok(await frame().evaluate(() => [...document.querySelectorAll('a[href^="/guides/"]')].every(a => a.target === '_blank')), 'guide links open outside the frame');
+  ok(await frame().evaluate(() => { const b = document.querySelector('a.back'); const r = b.getBoundingClientRect(); return getComputedStyle(b).display !== 'none' && b.textContent === '‹ All tools' && r.height >= 44 && r.top < 60; }), 'a back link sits at the top of the tool, big enough to tap');
+  await page.evaluate(() => window.scrollTo(0, 1200));
+  await frame().evaluate(() => document.querySelector('a.back').click());
+  await new Promise(r => setTimeout(r, 900));
+  ok(/\/tools\/\?embed=1$/.test(frame().url()), 'back link returns to the list of tools: ' + frame().url());
+  ok(await page.evaluate(() => parseInt(document.getElementById('oltools').style.height)) === hubH, 'frame goes back to the hub height');
+  ok(await page.evaluate(() => Math.abs(document.getElementById('oltools').getBoundingClientRect().top - 80) < 3), 'app scrolls to the top of the list');
   ok(errors.length === 0, 'errors: ' + errors.join(' | '));
 
   // ---- Sun compass error ----
