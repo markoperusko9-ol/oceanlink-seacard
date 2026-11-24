@@ -71,12 +71,15 @@
   function compassError(trueBrg, compassBrg) { return norm180(trueBrg - compassBrg); }
 
   /* ---------- True wind ---------- */
-  /* heading deg true, ship speed, relDir = apparent wind direction relative to the bow
-     (0-360 clockwise, where it comes FROM), relSpeed in the same unit as ship speed. */
-  function trueWind(heading, shipSpeed, relDir, relSpeed) {
-    var af = rad(heading + relDir), h = rad(heading);
-    var x = relSpeed * Math.sin(af) - shipSpeed * Math.sin(h);
-    var y = relSpeed * Math.cos(af) - shipSpeed * Math.cos(h);
+  /* True wind as meteorologists define it (Smith, Bourassa and Sharp 1999): the wind over the fixed earth.
+     heading deg true turns the anemometer's relative direction into a true bearing; the ship's movement
+     is her course and speed over the ground. relDir = wind direction relative to the bow (0-360
+     clockwise, where it comes FROM). course defaults to the heading when it is not given. */
+  function trueWind(heading, shipSpeed, relDir, relSpeed, course) {
+    if (course === undefined || course === null || isNaN(course)) course = heading;
+    var af = rad(heading + relDir), c = rad(course);
+    var x = relSpeed * Math.sin(af) - shipSpeed * Math.sin(c);
+    var y = relSpeed * Math.cos(af) - shipSpeed * Math.cos(c);
     var sp = hypot(x, y);
     return { dir: sp < 1e-9 ? null : dirOf(x, y), speed: sp, apparentFrom: norm360(heading + relDir) };
   }
