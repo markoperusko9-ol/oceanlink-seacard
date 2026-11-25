@@ -20,6 +20,20 @@ LINKS = {
     'stability-cargo/angle-of-loll-vs-list': ('list-and-gm-calculator', 'List and GM calculator', 'Work out the list from a weight shifted across.'),
     'operations/ship-stability-basics-gm-free-surface-effect': ('list-and-gm-calculator', 'List and GM calculator', 'Fluid GM and the list from a weight shifted across.'),
     'operations/passage-planning-appraisal-planning-execution-monitoring': ('eta-speed-distance-time-calculator', 'ETA, speed, distance and time calculator', 'ETA across time zones and the speed needed to arrive on time.'),
+    'stability-cargo/draft-survey-basics': ('draft-survey-calculator', 'Draft survey calculator', 'Mean of means, trim and density corrections with your own figures.'),
+    'stability-cargo/trim-and-trim-calculations': ('draft-survey-calculator', 'Draft survey calculator', 'Corrected draughts, true trim and the trim corrections to displacement.'),
+    'stability-cargo/hogging-and-sagging': ('draft-survey-calculator', 'Draft survey calculator', 'See the hog or sag from six draughts and the mean of means.'),
+    'operations/bunkering-operations': ('bunker-quantity-calculator', 'Bunker quantity calculator', 'Sounded volume to tonnes with the Table 54B correction.'),
+    'engineering/bunker-sampling-and-marpol-samples': ('bunker-quantity-calculator', 'Bunker quantity calculator', 'Check the delivered quantity: volume, temperature and density to tonnes.'),
+    'stability-cargo/tanker-cargo-calculations-astm-tables-vcf': ('bunker-quantity-calculator', 'Bunker and Table 54B calculator', 'Get the VCF from Table 54B and the weight in air.'),
+    'stability-cargo/gas-tanker-cargo-calculations-basics': ('lng-conversion-boil-off-calculator', 'LNG converter and boil-off calculator', 'Cubic metres of LNG to tonnes, MMBtu and gas volume, and the boil-off rate.'),
+    'navigation/celestial-navigation-basics-noon-sight': ('sunrise-sunset-twilight-calculator', 'Sunrise, sunset and twilight calculator', 'Twilight times for star sights and the time of meridian passage.'),
+    'operations/parallel-indexing': ('rate-of-turn-calculator', 'Rate of turn calculator', 'Rate of turn for a planned radius and the wheel-over distance.'),
+    'navigation/pilotage-master-pilot-information-exchange': ('rate-of-turn-calculator', 'Rate of turn calculator', 'Rate of turn, turn radius and time for a planned alteration.'),
+    'navigation/chartwork-basics-position-fixing-methods': ('distance-to-horizon-calculator', 'Horizon and light range calculator', 'Dipping range of a light for your height of eye.'),
+    'meteorology/swell-wind-waves-and-parametric-rolling': ('rolling-period-gm-calculator', 'Rolling period and GM calculator', 'Compare the wave encounter period with your rolling period.'),
+    'operations/heavy-weather-precautions': ('rolling-period-gm-calculator', 'Rolling period and GM calculator', 'Rolling period from GM and the wave encounter period.'),
+    'meteorology/fog-types-and-when-they-form': ('dew-point-calculator', 'Dew point calculator', 'Dew point and relative humidity from wet and dry bulb readings.'),
 }
 n = 0
 for g, (slug, name, line) in LINKS.items():

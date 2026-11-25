@@ -1,6 +1,6 @@
 /* Ocean Link seafarer tools: calculation library.
-   Pure functions only (no DOM). Every function here is covered by
-   scripts/tools/tests/calc.test.js. Angles in degrees, speeds in knots,
+   Pure functions only (no DOM). Every function here is covered by the tests in
+   scripts/tools/tests/ (calc, more and external). Angles in degrees, speeds in knots,
    distances in nautical miles unless a name says otherwise. */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
@@ -284,6 +284,158 @@
 
   /* ---------- Units ---------- */
   /* Each unit is its size in the base unit of its group. */
+  /* ---------- Sunrise, sunset, twilight and meridian passage ---------- */
+  /* Events of the solar day whose meridian passage falls in the 24 hours from startMs (UTC ms).
+     Limits follow the Nautical Almanac: sunrise and sunset with the Sun's centre 50' below the horizon
+     (34' refraction and 16' semi-diameter, upper limb on the sea horizon, no height of eye), civil twilight
+     at -6 degrees and nautical twilight at -12 degrees. Morning events are the last crossing before the
+     meridian passage, evening events the first one after it. A time is null when the Sun does not cross
+     that limit; transitAlt and lowAlt (altitude 12 hours either side of the passage) tell which way. */
+  var SUN_LIMITS = { rise: -50 / 60, civil: -6, naut: -12 };
+  function sunEvents(startMs, lat, lon) {
+    var STEP = 300000, k, lo, hi, mid, j;
+    function alt(ms) { return sunPosition(ms, lat, lon).alt; }
+    function lha(ms) { return norm180(sunPosition(ms, lat, lon).lha); }
+    var transit = null, prev = lha(startMs - STEP), cur;
+    for (k = 0; k <= 289 && transit === null; k++) {
+      cur = lha(startMs + k * STEP);
+      if (prev < 0 && cur >= 0 && cur - prev < 90) {
+        lo = startMs + (k - 1) * STEP; hi = startMs + k * STEP;
+        for (j = 0; j < 32; j++) { mid = (lo + hi) / 2; if (lha(mid) >= 0) hi = mid; else lo = mid; }
+        transit = (lo + hi) / 2;
+      }
+      prev = cur;
+    }
+    if (transit === null) return null;
+    var N = 144, am = [], pm = [];
+    for (k = 0; k <= N; k++) { am.push(alt(transit - k * STEP)); pm.push(alt(transit + k * STEP)); }
+    function refine(tDark, tLight, limit) { // altitude below the limit at tDark, at or above it at tLight
+      for (var i = 0; i < 32; i++) { var m = (tDark + tLight) / 2; if (alt(m) >= limit) tLight = m; else tDark = m; }
+      return (tDark + tLight) / 2;
+    }
+    function morning(limit) {
+      if (am[0] < limit) return null;
+      for (var i = 0; i < N; i++) if (am[i] >= limit && am[i + 1] < limit) return refine(transit - (i + 1) * STEP, transit - i * STEP, limit);
+      return null;
+    }
+    function evening(limit) {
+      if (pm[0] < limit) return null;
+      for (var i = 0; i < N; i++) if (pm[i] >= limit && pm[i + 1] < limit) return refine(transit + (i + 1) * STEP, transit + i * STEP, limit);
+      return null;
+    }
+    var tp = sunPosition(transit, lat, lon), out = {
+      transit: transit, transitAlt: tp.alt, transitAz: tp.az, dec: tp.dec,
+      lowAlt: Math.min(am[N], pm[N]),
+      rise: morning(SUN_LIMITS.rise), set: evening(SUN_LIMITS.rise),
+      civilBegin: morning(SUN_LIMITS.civil), civilEnd: evening(SUN_LIMITS.civil),
+      nautBegin: morning(SUN_LIMITS.naut), nautEnd: evening(SUN_LIMITS.naut)
+    };
+    out.riseAz = out.rise === null ? null : sunPosition(out.rise, lat, lon).az;
+    out.setAz = out.set === null ? null : sunPosition(out.set, lat, lon).az;
+    return out;
+  }
+
+  /* ---------- Bunkers: Petroleum Measurement Table 54B (ASTM D1250-80, API MPMS 11.1, 1980) ---------- */
+  /* Volume correction factor to 15 C for generalised products. rho15 in kg/m3 (in vacuum), tempC observed.
+     Returns null outside the density range of the table. inRange is false outside its temperature range. */
+  function vcf54B(rho15, tempC) {
+    if (!(rho15 >= 653 && rho15 <= 1075)) return null;
+    var a, group, tMax;
+    if (rho15 >= 839) { a = 186.9696 / (rho15 * rho15) + 0.4862 / rho15; group = 'Fuel oils'; }
+    else if (rho15 >= 788) { a = 594.5418 / (rho15 * rho15); group = 'Jet fuels and kerosenes'; }
+    else if (rho15 > 770) { a = -0.00336312 + 2680.3206 / (rho15 * rho15); group = 'Transition zone'; }
+    else { a = 346.4228 / (rho15 * rho15) + 0.4388 / rho15; group = 'Gasolines'; }
+    tMax = rho15 > 824 ? 150 : rho15 > 778.5 ? 125 : 90;
+    var dt = tempC - 15, v = Math.exp(-a * dt * (1 + 0.8 * a * dt));
+    return { vcf: v, alpha: a, group: group, inRange: tempC >= -18 && tempC <= tMax, tMax: tMax };
+  }
+  /* Bunker or cargo quantity the way a surveyor works it from the tables: VCF taken to four decimals,
+     standard volume = observed volume x VCF, weight in air = standard volume x (density at 15 C - 0.0011). */
+  function bunker(volume, tempC, rho15) {
+    var f = vcf54B(rho15, tempC); if (!f) return null;
+    var vcf = Math.round(f.vcf * 10000) / 10000, gsv = volume * vcf, wcf = rho15 / 1000 - 0.0011;
+    return { vcf: vcf, vcfExact: f.vcf, group: f.group, inRange: f.inRange, tMax: f.tMax, gsv: gsv, wcf: wcf, massAir: gsv * wcf, massVac: gsv * rho15 / 1000 };
+  }
+
+  /* ---------- Draught survey ---------- */
+  /* Draughts at the six marks, corrected to the perpendiculars and midships along the straight line through
+     the forward and aft marks. xf: forward marks abaft the FP (+), xm: midship marks abaft midships (+),
+     xa: aft marks forward of the AP (+); use negative values for marks on the other side.
+     Trim is positive by the stern. Deflection is positive for sag, negative for hog.
+     The corrected draughts are rounded to 0.1 mm, as they are carried on a survey sheet, before the trim
+     and the mean of means are taken from them. */
+  function draftSurvey(fp, fs, mp, ms, ap, as, lbp, xf, xm, xa) {
+    var F = (fp + fs) / 2, M = (mp + ms) / 2, A = (ap + as) / 2, lbm = lbp - xf - xa;
+    var slope = (F - A) / lbm; // change of draught per metre going forward
+    function r4(x) { return Math.round(x * 10000) / 10000; }
+    var fc = r4(F + slope * xf), mc = r4(M + slope * xm), ac = r4(A - slope * xa);
+    return { fm: F, mm: M, am: A, lbm: lbm, apparentTrim: A - F, fCorr: fc - F, mCorr: mc - M, aCorr: ac - A,
+      fc: fc, mc: mc, ac: ac, trim: ac - fc, mmm: (fc + 6 * mc + ac) / 8, deflection: mc - (fc + ac) / 2 };
+  }
+  /* Displacement corrected for trim and density. trim in metres (+ by the stern), lcfAft: LCF from midships,
+     positive aft. mtcPlus and mtcMinus: MTC (t-m/cm) at the mean draught plus and minus 0.5 m. */
+  function draftSurveyDisp(trim, lbp, disp, tpc, lcfAft, mtcPlus, mtcMinus, rhoDock, rhoTable) {
+    var ftc = trim * 100 * tpc * lcfAft / lbp, stc = trim * trim * 50 * (mtcPlus - mtcMinus) / lbp;
+    var dt = disp + ftc + stc;
+    return { ftc: ftc, stc: stc, dispTrim: dt, dispTrue: dt * rhoDock / rhoTable, densityCorr: dt * rhoDock / rhoTable - dt };
+  }
+
+  /* ---------- LNG quantities and boil-off ---------- */
+  var MJ_PER_MMBTU = 1055.05585262, NM3_PER_SM3 = 0.9476; // ISO 13443: Sm3 (15 C) x 0.9476 = Nm3 (0 C)
+  /* qty in unit 'm3' (liquid), 't', 'mmbtu' or 'nm3'. density kg/m3, heat in MMBtu per tonne, gas in Nm3 per tonne. */
+  function lng(qty, unit, density, mmbtuPerT, nm3PerT) {
+    var t = unit === 't' ? qty : unit === 'm3' ? qty * density / 1000 : unit === 'mmbtu' ? qty / mmbtuPerT : qty / nm3PerT;
+    var nm3 = t * nm3PerT;
+    return { t: t, m3: t * 1000 / density, mmbtu: t * mmbtuPerT, nm3: nm3, sm3: nm3 / NM3_PER_SM3, gj: t * mmbtuPerT * MJ_PER_MMBTU / 1000 };
+  }
+  /* Boil-off between two cargo volumes (m3 of liquid) taken hours apart. Percent per day is of the first volume. */
+  function boilOff(v0, v1, hours, density) {
+    var perDay = (v0 - v1) / hours * 24;
+    return { m3Day: perDay, pctDay: perDay / v0 * 100, tDay: perDay * density / 1000, lost: v0 - v1 };
+  }
+
+  /* ---------- Dew point from a wet and dry bulb (US National Weather Service form of the psychrometer formula) ---------- */
+  /* Temperatures in C, pressure in hPa. Returns null when the readings are not physically possible. */
+  function satVp(t) { return 6.112 * Math.exp(17.67 * t / (t + 243.5)); }
+  function psychro(dry, wet, pressure) {
+    pressure = pressure || 1013.25;
+    if (wet > dry) return null;
+    var es = satVp(dry), e = satVp(wet) - pressure * 0.00066 * (dry - wet) * (1 + 0.00115 * wet);
+    if (!(e > 0)) return null;
+    var l = Math.log(e / 6.112);
+    return { e: e, es: es, rh: 100 * e / es, dew: 243.5 * l / (17.67 - l) };
+  }
+
+  /* ---------- Rate of turn ---------- */
+  /* Degrees per minute for a speed in knots on a radius in nautical miles: (V / R) x 57.2958 / 60. */
+  function rateOfTurn(speed, radius) { return speed / radius * R2D / 60; }
+  function turnRadius(speed, rot) { return speed / rot * R2D / 60; }
+  /* A turn of angle degrees on that radius: length of the arc, time, and how far before the intersection
+     of the two tracks the arc begins (geometry only, the ship's own delay is not included). */
+  function turn(speed, radius, angle) {
+    var arc = radius * rad(angle);
+    return { arc: arc, minutes: arc / speed * 60, wheelOver: radius * Math.tan(rad(angle) / 2) };
+  }
+
+  /* ---------- Horizon ---------- */
+  /* Distance in nautical miles = k x square root of the height in metres. */
+  var HORIZON = { visible: 2.08, radar: 2.21, low: 2.03, high: 2.12 };
+  function horizon(height, k) { return (k === undefined ? HORIZON.visible : k) * Math.sqrt(height); }
+
+  /* ---------- Rolling period and waves ---------- */
+  /* 2008 IS Code, Part A 2.3: T = 2 C B / sqrt(GM), C = 0.373 + 0.023 (B/d) - 0.043 (Lwl/100). Metres and seconds. */
+  function rollCoeff(beam, draught, lwl) { return 0.373 + 0.023 * (beam / draught) - 0.043 * (lwl / 100); }
+  function rollPeriod(beam, draught, lwl, gm) { return 2 * rollCoeff(beam, draught, lwl) * beam / Math.sqrt(gm); }
+  function gmFromRoll(beam, draught, lwl, period) { var x = 2 * rollCoeff(beam, draught, lwl) * beam / period; return x * x; }
+  /* MSC.1/Circ.1228: wave length (m) = 1.56 Tw^2; encounter period = 3 Tw^2 / (3 Tw + V cos a), V in knots,
+     a = angle between the keel and the wave direction, 0 = head sea, 180 = following sea.
+     Returns Infinity when the ship keeps pace with the waves and a negative value when she overtakes them. */
+  function waveLength(tw) { return 1.56 * tw * tw; }
+  function encounterPeriod(tw, speed, angle) {
+    var d = 3 * tw + speed * Math.cos(rad(angle));
+    return Math.abs(d) < 1e-9 ? Infinity : 3 * tw * tw / d;
+  }
+
   var UNITS = {
     speed: { base: 'm/s', units: { kn: NM / 3600, 'm/s': 1, 'km/h': 1 / 3.6, mph: 1609.344 / 3600 } },
     distance: { base: 'm', units: { nm: NM, cable: NM / 10, km: 1000, m: 1, 'statute mile': 1609.344, ft: 0.3048 } },
@@ -312,6 +464,12 @@
     squat: squat, ukc: ukc,
     engineDistance: engineDistance, engineSpeed: engineSpeed, slipPercent: slipPercent,
     fuel: fuel, cubeLaw: cubeLaw, fwa: fwa, dwa: dwa, stability: stability,
-    UNITS: UNITS, convert: convert, convertTemp: convertTemp
+    UNITS: UNITS, convert: convert, convertTemp: convertTemp,
+    SUN_LIMITS: SUN_LIMITS, sunEvents: sunEvents, vcf54B: vcf54B, bunker: bunker,
+    draftSurvey: draftSurvey, draftSurveyDisp: draftSurveyDisp,
+    MJ_PER_MMBTU: MJ_PER_MMBTU, NM3_PER_SM3: NM3_PER_SM3, lng: lng, boilOff: boilOff,
+    satVp: satVp, psychro: psychro, rateOfTurn: rateOfTurn, turnRadius: turnRadius, turn: turn,
+    HORIZON: HORIZON, horizon: horizon,
+    rollCoeff: rollCoeff, rollPeriod: rollPeriod, gmFromRoll: gmFromRoll, waveLength: waveLength, encounterPeriod: encounterPeriod
   };
 });

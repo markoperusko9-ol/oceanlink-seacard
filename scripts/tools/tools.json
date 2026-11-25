@@ -60,6 +60,34 @@
   ]
  },
  {
+  "slug": "sunrise-sunset-twilight-calculator",
+  "name": "Sunrise, sunset and twilight",
+  "guides": [
+   [
+    "/guides/navigation/celestial-navigation-basics-noon-sight/",
+    "Celestial navigation basics and the noon sight"
+   ],
+   [
+    "/guides/navigation/azimuth-and-amplitude-observations/",
+    "Azimuth and amplitude observations"
+   ]
+  ]
+ },
+ {
+  "slug": "distance-to-horizon-calculator",
+  "name": "Horizon and light range",
+  "guides": [
+   [
+    "/guides/navigation/chartwork-basics-position-fixing-methods/",
+    "Chartwork basics and position fixing"
+   ],
+   [
+    "/guides/navigation/admiralty-publications-every-bridge-carries/",
+    "Admiralty publications every bridge carries"
+   ]
+  ]
+ },
+ {
   "slug": "true-wind-calculator",
   "name": "True wind",
   "guides": [
@@ -106,6 +134,24 @@
   ]
  },
  {
+  "slug": "rate-of-turn-calculator",
+  "name": "Rate of turn and radius",
+  "guides": [
+   [
+    "/guides/operations/passage-planning-appraisal-planning-execution-monitoring/",
+    "Passage planning"
+   ],
+   [
+    "/guides/operations/parallel-indexing/",
+    "Parallel indexing"
+   ],
+   [
+    "/guides/navigation/pilotage-master-pilot-information-exchange/",
+    "Pilotage and the master-pilot exchange"
+   ]
+  ]
+ },
+ {
   "slug": "propeller-slip-calculator",
   "name": "Propeller slip",
   "guides": [
@@ -130,6 +176,24 @@
    [
     "/guides/operations/bunkering-operations/",
     "Bunkering operations"
+   ]
+  ]
+ },
+ {
+  "slug": "bunker-quantity-calculator",
+  "name": "Bunker quantity",
+  "guides": [
+   [
+    "/guides/operations/bunkering-operations/",
+    "Bunkering operations"
+   ],
+   [
+    "/guides/engineering/bunker-sampling-and-marpol-samples/",
+    "Bunker sampling and MARPOL samples"
+   ],
+   [
+    "/guides/stability-cargo/tanker-cargo-calculations-astm-tables-vcf/",
+    "Tanker cargo calculations: ASTM tables and VCF"
    ]
   ]
  },
@@ -162,6 +226,70 @@
    [
     "/guides/stability-cargo/angle-of-loll-vs-list/",
     "Angle of loll vs list"
+   ]
+  ]
+ },
+ {
+  "slug": "draft-survey-calculator",
+  "name": "Draft survey",
+  "guides": [
+   [
+    "/guides/stability-cargo/draft-survey-basics/",
+    "Draft survey basics"
+   ],
+   [
+    "/guides/stability-cargo/trim-and-trim-calculations/",
+    "Trim and trim calculations"
+   ],
+   [
+    "/guides/stability-cargo/hogging-and-sagging/",
+    "Hogging and sagging"
+   ]
+  ]
+ },
+ {
+  "slug": "lng-conversion-boil-off-calculator",
+  "name": "LNG converter and boil-off",
+  "guides": [
+   [
+    "/guides/stability-cargo/gas-tanker-cargo-calculations-basics/",
+    "Gas tanker cargo calculations"
+   ],
+   [
+    "/guides/engineering/marine-fuels-hfo-vlsfo-mgo-and-lng-as-fuel/",
+    "Marine fuels, including LNG as fuel"
+   ]
+  ]
+ },
+ {
+  "slug": "dew-point-calculator",
+  "name": "Dew point and humidity",
+  "guides": [
+   [
+    "/guides/stability-cargo/liquefaction-of-solid-bulk-cargoes-imsbc-code/",
+    "Solid bulk cargoes and the IMSBC Code"
+   ],
+   [
+    "/guides/meteorology/fog-types-and-when-they-form/",
+    "Fog types and when they form"
+   ]
+  ]
+ },
+ {
+  "slug": "rolling-period-gm-calculator",
+  "name": "Rolling period and GM",
+  "guides": [
+   [
+    "/guides/meteorology/swell-wind-waves-and-parametric-rolling/",
+    "Swell, wind waves and parametric rolling"
+   ],
+   [
+    "/guides/stability-cargo/gm-and-metacentric-height-explained/",
+    "GM and metacentric height explained"
+   ],
+   [
+    "/guides/operations/heavy-weather-precautions/",
+    "Heavy weather precautions"
    ]
   ]
  },

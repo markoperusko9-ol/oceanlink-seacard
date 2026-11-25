@@ -38,7 +38,7 @@ input:focus,select:focus{border-color:#00E5FF40}
 input::placeholder{color:#4A505A}
 input[type=date],input[type=time]{color-scheme:dark;min-height:45px}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%238B93A0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
-.row{display:flex;gap:8px}.row>*{flex:1 1 0;min-width:0}.row>.sm{flex:0 0 76px}
+.row{display:flex;gap:8px}.row>*{flex:1 1 0;min-width:0}.row>.sm{flex:0 0 76px}.row>.md{flex:0 0 118px}
 .seg{display:flex;background:#08090C;border:1px solid #FFFFFF14;border-radius:10px;padding:3px;gap:3px}
 .seg button{flex:1 1 0;min-width:0;background:transparent;color:#8B93A0;border:1px solid transparent;border-radius:8px;padding:8px 6px;font:500 14px/1.25 Inter,system-ui,sans-serif;letter-spacing:-.011em;cursor:pointer}
 .seg button.on{background:#0F1217;color:#F2F4F7;border-color:#FFFFFF24}

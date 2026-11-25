@@ -144,3 +144,79 @@ test('unit constants: NIST Handbook 44 and standard definitions', () => {
   near(C.convert('mass', 1, 'long ton', 'kg'), 1016.047, 0.0005, 'long ton'); near(C.convert('mass', 1, 'short ton', 'kg'), 907.1848, 0.0005, 'short ton');
   near(C.convert('mass', 1, 'long ton', 'lb'), 2240, 1e-9, 'long ton in lb'); near(C.convertTemp(100, 'C', 'F'), 212, 1e-9, 'temperature');
 });
+
+// ---------------- second set of tools ----------------
+test('Table 54B: Measurement Canada tables (API 2540, 1980) and a published bunker survey', () => {
+  // https://ised-isde.canada.ca/site/measurement-canada/ : VCF_JetA.pdf (800 kg/m3), VCF_Gasoline_Ethanol-Blends.pdf (730), FCV_Diesel.pdf (840)
+  const tables = { 800: [[-23, 1.0349], [-20, 1.0322], [-10, 1.0231], [-2, 1.0157], [0, 1.0139], [5, 1.0093], [10, 1.0046], [15, 1], [18, 0.9972], [20, 0.9953], [22.5, 0.9930], [25, 0.9907], [30, 0.9860], [35, 0.9813], [37.3, 0.9792], [40, 0.9766]],
+    730: [[-20, 1.0432], [-10, 1.0310], [0, 1.0187], [5, 1.0125], [10, 1.0062], [15, 1], [20, 0.9937], [25, 0.9874], [30, 0.9811], [35, 0.9748], [40, 0.9684]],
+    840: [[-30, 1.0375], [-25, 1.0334], [-20, 1.0293], [-10, 1.0210], [-6, 1.0176], [-5, 1.0168], [0, 1.0126], [5, 1.0084], [10, 1.0042], [15, 1], [20, 0.9958], [25, 0.9915], [27.5, 0.9894], [30, 0.9873], [33.3, 0.9845], [35, 0.9830], [40, 0.9788]] };
+  let n = 0;
+  for (const rho in tables) for (const [t, v] of tables[rho]) { near(Math.round(C.vcf54B(+rho, t).vcf * 1e4) / 1e4, v, 1e-9, `${rho} kg/m3 at ${t} C`); n++; }
+  log(n, 'table values reproduced exactly');
+  // Bunker survey example (Scribd 463110103): 161.68 m3 at 34 C, density 0.9903 -> VCF 0.9870, WCF 0.9892, 157.85 t
+  const b = C.bunker(161.68, 34, 990.3); near(b.vcf, 0.9870, 1e-9, 'VCF'); near(b.wcf, 0.9892, 1e-9, 'WCF'); near(b.massAir, 157.85, 0.005, 'tonnes');
+});
+
+test('draught survey: UK P&I Club "Carefully to Carry" worked example and the Ocean Link guide', () => {
+  // https://www.ukpandi.com/ ... UKPI_Carefully_to_Carry_2023_16.pdf
+  let d = C.draftSurvey(4.61, 4.65, 4.93, 5.10, 5.58, 5.60, 181.8, 2.94, 1.44, 7.30);
+  near(d.lbm, 171.56, 1e-9); near(d.fCorr, -0.0165, 0.00006); near(d.mCorr, -0.0081, 0.00006); near(d.aCorr, 0.0408, 0.00006);
+  near(d.fc, 4.6135, 1e-9); near(d.mc, 5.0069, 1e-9); near(d.ac, 5.6308, 1e-9); near(d.trim, 1.0173, 1e-9); near(d.mmm, 5.0357, 0.00002);
+  let r = C.draftSurveyDisp(d.trim, 181.8, 19894.37, 42.338, -4.331, 445.89, 435.26, 1.0185, 1.025);
+  near(r.ftc, -102.61, 0.006, 'first trim correction'); near(r.stc, 3.03, 0.006, 'second trim correction'); near(r.dispTrim, 19794.79, 0.01); near(r.dispTrue, 19669.26, 0.01, 'true displacement');
+  // Ocean Link guide "Draft survey basics": 20,931.6 t corrected, 20,788.7 t at 1.018, constant 303.7 t
+  d = C.draftSurvey(5.62, 5.58, 6.47, 6.43, 7.33, 7.27, 180, 2.5, 0, 6);
+  near(d.fc, 5.575, 0.0006); near(d.ac, 7.359, 0.0006); near(d.trim, 1.784, 0.0006); near(d.mmm, 6.454, 0.0006); near(d.deflection, -0.017, 0.0006);
+  r = C.draftSurveyDisp(1.784, 180, 20861.4, 28.40, 2.10, 236.5, 224.0, 1.018, 1.025);
+  near(r.ftc, 59.1, 0.05); near(r.stc, 11.1, 0.06); near(r.dispTrim, 20931.6, 0.06); near(r.dispTrue, 20788.7, 0.1); near(r.dispTrue - 11965 - 8520, 303.7, 0.1); // the guide rounds each step to 0.1 t
+  // Scribd 456601441 sheet: trim -1.75 cm, LCF -2.934 (forward), TPC 32.37, LBP 150 -> +1.108 t; 18,988.11 t at 0.9960 -> 18,450.89 t
+  r = C.draftSurveyDisp(-0.0175, 150, 18987, 32.37, -2.934, 0, 0, 0.9960, 1.025); near(r.ftc, 1.108, 0.001); near(r.dispTrue, 18450.89, 0.01);
+  near(C.draftSurvey(2.470, 2.470, 3.980, 3.980, 5.495, 5.495, 150, 0, 0, 0).mmm, 3.981, 0.001);
+});
+
+test('LNG: International Gas Union conversion table and the S&P Global factor', () => {
+  // IGU Natural Gas Conversion Guide (table reproduced by Gasgrid Finland, Annex 13): density 450 kg/m3, 1,300 Nm3 and 53.38 MMBtu per tonne
+  let a = C.lng(1, 't', 450, 53.38, 1300); near(a.m3, 2.222, 0.0005); near(a.nm3, 1300, 1e-9); near(a.sm3, 1372, 0.5); near(a.mmbtu, 53.38, 1e-12);
+  a = C.lng(1, 'm3', 450, 53.38, 1300); near(a.t, 0.450, 1e-12); near(a.nm3, 585, 1e-9); near(a.sm3, 617, 0.5); near(a.mmbtu, 24.02, 0.005);
+  a = C.lng(1, 'nm3', 450, 53.38, 1300); near(a.t, 7.692e-4, 5e-8);
+  // S&P Global conversion factors: 1 MMBtu = 0.019230769 mt LNG
+  near(C.lng(1, 'mmbtu', 450, 52, 1300).t, 0.019230769, 5e-10);
+  // a 174,000 m3 carrier at 0.1% a day boils off 174 m3, about 78 t, a day
+  near(C.boilOff(174000, 173826, 24, 450).tDay, 78.3, 0.05);
+});
+
+test('dew point: US National Weather Service formula and published chart readings', () => {
+  // https://www.weather.gov/media/epz/wxcalc/rhTdFromWetBulb.pdf worked by hand at 1013.25 hPa
+  const f = x => (x - 32) / 1.8, F = c => c * 1.8 + 32;
+  let p = C.psychro(f(78), f(65)); near(p.rh, 50, 1.0, 'Penn State: 78/65 F -> 50%'); near(F(p.dew), 58, 0.6, 'dew point 58 F');
+  p = C.psychro(f(80), f(67)); near(p.rh, 50, 1.0, 'Nebraska: 80 F and 50% has a wet bulb of 67 F'); near(F(p.dew), 59, 1.0, 'dew point 59 F');
+  p = C.psychro(25, 20, 1000); near(p.e, 6.112 * Math.exp(17.67 * 20 / 263.5) - 1000 * 0.00066 * 5 * 1.023, 1e-9, 'formula as printed');
+});
+
+test('sunrise, sunset and twilight: almanac worked examples', () => {
+  const lmt = (ms, lon) => { const d = new Date(ms + lon / 15 * 3600000); return d.getUTCHours() * 60 + d.getUTCMinutes() + d.getUTCSeconds() / 60; };
+  // US Navy Quartermaster course (NAVEDTRA 14220): 1 Sep 1994, 36-14N 069-26W, sunset LMT 1827 from the Nautical Almanac
+  let lon = -(69 + 26 / 60), s = C.sunEvents(Date.UTC(1994, 8, 1, 5), 36 + 14 / 60, lon); log('1 Sep 1994 sunset LMT', (lmt(s.set, lon) / 60).toFixed(3));
+  near(lmt(s.set, lon), 18 * 60 + 27, 1.6, 'sunset LMT 1827');
+  // Ocean Navigator: evening civil twilight on 20 May at 16N is 1848 LMT
+  for (const y of [2010, 2026]) { s = C.sunEvents(Date.UTC(y, 4, 20), 16, 0); near(lmt(s.civilEnd, 0), 18 * 60 + 48, 2.5, `civil twilight 1848 in ${y}`); }
+});
+
+test('rate of turn, horizon, rolling and encounter period: published figures', () => {
+  // ROT = 57.3 V / (60 R): the bridge rule V/R gives 10 deg/min for 15 kn on 1.5 nm and 20 for 8 kn on 4 cables
+  near(C.rateOfTurn(15, 1.5), 57.3 * 15 / (60 * 1.5), 0.001); near(C.rateOfTurn(15, 1.5) / 10, 1, 0.05); near(C.rateOfTurn(8, 0.4) / 20, 1, 0.05);
+  near(C.rateOfTurn(12, 1), 0.955 * 12, 0.001, '0.955 x V / R'); near(C.turn(12, 1, 45).wheelOver, Math.tan(C.rad(22.5)), 1e-12, 'R tan(A/2)');
+  // Bowditch Table 12, distance of the horizon (1.169 x square root of the height in feet = 2.1175 x square root of metres)
+  const t12 = [[1.52, 2.6], [3.05, 3.7], [4.57, 4.5], [6.10, 5.2], [9.14, 6.4], [12.19, 7.4], [15.24, 8.3], [18.29, 9.1], [21.34, 9.8], [24.38, 10.5], [27.43, 11.1], [30.48, 11.7], [36.58, 12.8], [45.72, 14.3], [60.96, 16.5], [91.44, 20.3], [152.40, 26.2]];
+  // The table's own formula: d = sqrt(2 R h / (6076.1 x 0.8279)), R = 3440.1 nm, h in feet -> 1.1695 x root(ft) = 2.118 x root(m)
+  const kft = Math.sqrt(2 * 3440.1 / (6076.1 * 0.8279)), km = kft * Math.sqrt(3.28084);
+  for (const [m, nm] of t12) near(C.horizon(m, km), nm, 0.051, `Table 12 at ${m} m`);
+  near(km, C.HORIZON.high, 0.002, 'Bowditch table in metres is 2.12');
+  // Bowditch appendix B: visible horizon 2.07 x root(m), radar horizon 2.21 x root(m); RYA and Reeds use 2.08; IALA 2.03
+  near(C.HORIZON.visible, 2.07, 0.011); near(C.HORIZON.radar, 1.22 * Math.sqrt(3.28084), 0.002); near(C.horizon(9, C.HORIZON.radar), 6.63, 1e-9);
+  // 2008 IS Code: C = 0.373 + 0.023 (B/d) - 0.043 (Lwl/100), T = 2 C B / sqrt(GM)
+  near(C.rollCoeff(32.2, 12, 220), 0.373 + 0.023 * 32.2 / 12 - 0.043 * 2.2, 1e-15); near(C.rollPeriod(32.2, 12, 220, 2.5), 13.85, 0.005);
+  // MSC.1/Circ.1228: TE = 3 TW^2 / (3 TW + V cos a); wave length 1.56 TW^2
+  near(C.encounterPeriod(10, 15, 0), 300 / 45, 1e-12); near(C.encounterPeriod(8, 12, 180), 192 / 12, 1e-12); near(C.waveLength(8), 99.84, 1e-9);
+});

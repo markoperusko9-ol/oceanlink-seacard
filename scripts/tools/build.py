@@ -9,8 +9,8 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 SITE = 'https://card.oceanlinkai.com'
 PLAY = 'https://play.google.com/store/apps/details?id=com.oceanlinkai.app'
-V = '5'            # bump to refresh cached css/js
-TODAY = '2026-11-23'
+V = '6'            # bump to refresh cached css/js
+TODAY = '2026-11-25'
 
 LOGO = ('<svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/>'
         '<rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/>'
@@ -145,8 +145,8 @@ def tool_page(t, tools):
 
 
 def hub_page(tools):
-    desc = ('Free calculators for seafarers: compass error by the Sun, true wind, ETA, great circle, CPA and TCPA, set and drift, '
-            'squat and UKC, propeller slip, fuel, FWA and DWA, list and GM, unit converter. Each one tested against reference data.')
+    desc = ('Free calculators for seafarers: compass error by the Sun, sunrise and twilight, true wind, ETA, great circle, CPA and TCPA, '
+            'rate of turn, squat and UKC, bunker quantity, draft survey, LNG, dew point, list and GM and more. Each one tested against reference data.')
     ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Seafarer Tools and Calculators",
            "url": SITE + "/tools/", "description": desc, "publisher": ORG},
           {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
@@ -166,7 +166,7 @@ def hub_page(tools):
                      '<span><b>%s</b><small>%s</small></span></a>' % (t['slug'], t['icon'], e(t['name']), e(t['blurb'])))
         p.append('</div>\n')
     p.append('<div class="card checked"><div class="label">How the tools are checked</div><p>Each calculation is written once and used by both the page and an automated test. '
-             'The tests compare it with worked textbook examples and with an independent reference: an astronomical ephemeris for the Sun, '
+             'The tests compare it with published tables and worked examples, and with an independent reference: an astronomical ephemeris for the Sun, '
              'a geodesic library for distances, and brute-force simulation for wind, current and radar plots. A tool is published only when every test passes.</p></div>\n')
     p.append(CTA)
     p.append('<h2>Seafarer guides</h2><div class="rel"><a href="/guides/">Browse all Ocean Link seafarer guides</a></div>')
@@ -178,7 +178,8 @@ def hub_page(tools):
 def main():
     import src.nav as nav
     import src.ship as ship
-    tools = nav.TOOLS + ship.TOOLS
+    import src.more as more
+    tools = nav.TOOLS + ship.TOOLS + more.TOOLS
     order = {c: i for i, c in enumerate(CATEGORIES)}
     tools.sort(key=lambda t: order[t['cat']])
     for t in tools:

@@ -54,7 +54,7 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
 
   // ---- hub ----
   await open('');
-  eq(await page.evaluate(() => document.querySelectorAll('a.tool').length), 12, 'tool cards on the hub');
+  eq(await page.evaluate(() => document.querySelectorAll('a.tool').length), 20, 'tool cards on the hub');
   const links = await page.evaluate(() => [...document.querySelectorAll('a.tool')].map(a => a.getAttribute('href')));
   for (const l of links) ok(fs.existsSync(path.join(ROOT, l, 'index.html')), 'hub link target missing ' + l);
   await done('');
@@ -242,6 +242,115 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   await set('group', 'vm'); eq(await txt('#r_main'), '450 t', 'volume to mass'); await seg('dir', 'm2v'); await set('q', '450'); eq(await txt('#r_main'), '1,000 m³', 'mass to volume');
   await set('group', 'speed'); await set('value', '10'); await set('unit', 'm/s');
   await done('marine-unit-converter');
+
+  // ================= second set of tools =================
+  // ---- Bunker quantity ----
+  await open('bunker-quantity-calculator');
+  eq(await txt('#r_main'), '157.85 t', 'bunker weight in air (published survey example)'); eq(await txt('#r_vcf'), '0.9870', 'VCF'); eq(await txt('#r_gsv'), '159.578 m³', 'standard volume'); eq(await txt('#r_wcf'), '0.9892', 'weight factor');
+  await set('dens', '990.3'); eq(await txt('#r_main'), '157.85 t', 'density typed as 990.3');
+  await set('vol', '1000'); await set('temp', '40'); await set('dens', '840'); eq(await txt('#r_vcf'), '0.9788', 'diesel at 40 C (Measurement Canada table)'); ok((await res()).includes('Fuel oils'), 'fuel oil group');
+  await set('dens', '0.800'); eq(await txt('#r_vcf'), '0.9766', 'jet fuel at 40 C (Measurement Canada table)'); ok((await res()).includes('Jet fuels'), 'jet group');
+  await set('temp', '15'); eq(await txt('#r_vcf'), '1.0000', 'no correction at 15 C'); eq(await txt('#r_main'), '798.90 t', '1000 m3 at 15 C');
+  await set('temp', '-5'); await set('dens', '840'); eq(await txt('#r_vcf'), '1.0168', 'cold oil');
+  await set('temp', '160'); ok((await res()).includes('outside it'), 'temperature range warning');
+  await set('dens', '0.5'); ok((await res()).includes('0.6530 to 1.0750'), 'density range message'); await set('dens', ''); ok((await res()).includes('Enter the volume'), 'empty field message');
+  await set('vol', '161.68'); await set('temp', '34'); await set('dens', '0.9903');
+  await done('bunker-quantity-calculator');
+
+  // ---- Draft survey ----
+  await open('draft-survey-calculator');
+  eq(await txt('#r_mmm'), '5.0357 m', 'mean of means (UK P&I Club example)'); eq(await txt('#r_f'), '4.6135 m', 'forward at FP'); eq(await txt('#r_m'), '5.0069 m', 'midships'); eq(await txt('#r_a'), '5.6308 m', 'aft at AP');
+  eq(await txt('#r_trim'), '1.0173 m by the stern', 'true trim'); eq(await txt('#r_ftc'), '−102.61 t', 'first trim correction'); eq(await txt('#r_stc'), '+3.03 t', 'second trim correction');
+  eq(await txt('#r_dt'), '19,794.79 t', 'displacement corrected for trim'); eq(await txt('#r_true'), '19,669.26 t', 'true displacement'); eq(await txt('#r_disp'), '19,669.3 t', 'headline displacement');
+  await set('ded', '11000'); eq(await txt('#r_net'), '8,669.26 t', 'less deductibles'); await set('ls', '8400'); eq(await txt('#r_ls'), '269.26 t', 'less light ship');
+  await set('rho', '1018.5'); eq(await txt('#r_true'), '19,669.26 t', 'density typed as 1018.5');
+  await set('disp', ''); ok((await res()).includes('Check the hydrostatic figures'), 'partial hydrostatics message'); eq(await txt('#r_mmm'), '5.0357 m', 'mean of means still shown');
+  // the Ocean Link guide example
+  for (const [id, v] of [['fp', '5.62'], ['fs', '5.58'], ['mp', '6.47'], ['ms', '6.43'], ['ap', '7.33'], ['as', '7.27'], ['lbp', '180'], ['xf', '2.50'], ['xa', '6.00'], ['xm', '0'], ['disp', '20861.4'], ['tpc', '28.40'], ['lcf', '2.10'], ['lcfd', 'aft'], ['mtcp', '236.5'], ['mtcm', '224.0'], ['rho', '1.018'], ['ded', '11965'], ['ls', '8520']]) await set(id, v);
+  eq(await txt('#r_mmm'), '6.4543 m', 'guide: quarter mean 6.454'); eq(await txt('#r_trim'), '1.7843 m by the stern', 'guide: trim 1.784'); eq(await txt('#r_defl'), 'Hogged 1.7 cm', 'guide: hogged 17 mm');
+  const gd = C.draftSurvey(5.62, 5.58, 6.47, 6.43, 7.33, 7.27, 180, 2.5, 0, 6), gr = C.draftSurveyDisp(gd.trim, 180, 20861.4, 28.40, 2.10, 236.5, 224.0, 1.018, 1.025);
+  ok(Math.abs(gr.dispTrue - 20788.7) < 0.2 && Math.abs(gr.dispTrue - 11965 - 8520 - 303.7) < 0.2, 'guide: 20,788.7 t and constant 303.7 t');
+  ok((await txt('#r_ftc')).startsWith('+59.1'), 'guide: first trim correction +59.1');
+  await set('lcfd', 'fwd'); ok((await txt('#r_ftc')).startsWith('−59.1'), 'LCF forward reverses the sign');
+  await set('fp', '7.33'); await set('fs', '7.27'); await set('ap', '5.62'); await set('as', '5.58'); ok((await txt('#r_trim')).endsWith('by the head'), 'trim by the head'); ok((await txt('#r_ftc')).startsWith('+'), 'LCF forward, trim by the head: added');
+  ok(parseFloat(await txt('#r_f')) > 7.3, 'by the head with marks abaft the FP: deeper at the FP than at the marks'); await set('xfd', 'fwd'); ok(parseFloat(await txt('#r_f')) < 7.3, 'marks forward of the FP move the correction the other way');
+  await set('lbp', ''); ok((await res()).includes('six draughts'), 'missing LBP message');
+  await done('draft-survey-calculator');
+
+  // ---- LNG ----
+  await open('lng-conversion-boil-off-calculator');
+  eq(await txt('#r_main'), '76,500 t', '170,000 m3 at 450 kg/m3'); eq(await txt('#r_mmbtu'), '3,978,000 MMBtu', 'energy at 52 MMBtu/t'); eq(await txt('#r_nm3'), '99,450,000 Nm³', 'gas volume');
+  await set('qty', '1'); await set('unit', 't'); await set('heat', '53.38'); eq(await txt('#r_main'), '2 m³ of LNG', 'IGU: 1 t = 2.22 m3 (rounded)'); eq(await txt('#r_sm3'), '1,372 Sm³', 'IGU: 1,372 Sm3 per tonne'); eq(await txt('#r_mmbtu'), '53 MMBtu', 'IGU: 53.38 MMBtu per tonne');
+  await set('qty', '1000'); await set('unit', 'm3'); eq(await txt('#r_mmbtu'), '24,021 MMBtu', 'IGU: 24.02 MMBtu per m3'); eq(await txt('#r_nm3'), '585,000 Nm³', 'IGU: 585 Nm3 per m3'); eq(await txt('#r_sm3'), '617,349 Sm³', 'IGU: 617 Sm3 per m3');
+  await set('heatd', 'mj'); await set('heat', '54.863'); eq(await txt('#r_mmbtu'), '23,400 MMBtu', '54.863 MJ/kg = 52 MMBtu/t');
+  await set('qty', '52'); await set('unit', 'mmbtu'); await set('heatd', 'mmbtu'); await set('heat', '52'); eq(await txt('#r_t'), '1.0 t', '52 MMBtu back to one tonne');
+  await set('v0', '170000'); await set('v1', '169660'); await set('hrs', '48'); eq(await txt('#r_bor'), '0.100 % per day', 'boil-off rate'); eq(await txt('#r_bm3'), '170.0 m³', 'boil-off per day'); eq(await txt('#r_bt'), '76.5 t', 'boil-off tonnes per day');
+  await set('v1', '171000'); ok((await res()).includes('larger than at the start'), 'volume increase message');
+  await set('dens', '45'); ok((await res()).includes('between 380 and 520'), 'density range message'); await set('dens', '450');
+  await done('lng-conversion-boil-off-calculator');
+
+  // ---- Dew point ----
+  await open('dew-point-calculator');
+  const po = C.psychro(28, 25); eq(await txt('#r_dew'), po.dew.toFixed(1) + ' °C', 'dew point'); eq(await txt('#r_dew'), '23.9 °C', 'dew point of the page example'); eq(await txt('#r_rh'), '78 %', 'relative humidity');
+  await set('hdry', '24'); await set('hwet', '20'); eq(await txt('#r_hdew'), '18.0 °C', 'hold dew point'); ok((await txt('#r_rule')).includes('do not ventilate'), 'outside wetter: do not ventilate');
+  await set('dry', '18'); await set('wet', '13'); ok((await txt('#r_rule')).endsWith('ventilate.') && !(await txt('#r_rule')).includes('not'), 'outside drier: ventilate');
+  await set('hdry', '18'); await set('hwet', '13.2'); ok((await txt('#r_rule')).includes('no clear answer'), 'dew points too close to call');
+  await set('dry', '25.5556'); await set('wet', '18.3333'); eq(await txt('#r_rh'), '49 %', '78/65 F chart example: 50%');
+  await set('wet', '25.5556'); eq(await txt('#r_rh'), '100 %', 'saturated air'); eq(await txt('#r_dew'), '25.6 °C', 'dew point equals the temperature when saturated');
+  await set('wet', '27'); ok((await res()).includes('cannot read higher'), 'wet above dry message'); await set('dry', '5'); await set('wet', '-1'); ok((await res()).includes('ice'), 'freezing wet bulb message');
+  await set('dry', '40'); await set('wet', '8'); ok((await res()).includes('cannot occur together'), 'impossible pair message');
+  await set('dry', '28'); await set('wet', '25');
+  await done('dew-point-calculator');
+
+  // ---- Sunrise and twilight ----
+  await open('sunrise-sunset-twilight-calculator');
+  for (const [id, v] of [['date', '1994-09-01'], ['zone', '-5'], ['latd', '36'], ['latm', '14'], ['lath', 'N'], ['lond', '069'], ['lonm', '26'], ['lonh', 'W']]) await set(id, v);
+  eq(await txt('#r_set'), '18:06', 'sunset 1 Sep 1994 (Nautical Almanac example: LMT 1827 = 1805 zone time)'); eq(await txt('#r_rise'), '05:09', 'sunrise'); eq(await txt('#r_mp'), '11:38', 'meridian passage');
+  const sv = C.sunEvents(Date.UTC(1994, 8, 1, 5), 36 + 14 / 60, -(69 + 26 / 60)), hm = ms => { const d = new Date(Math.round((ms - 5 * 3600000) / 60000) * 60000); return ('0' + d.getUTCHours()).slice(-2) + ':' + ('0' + d.getUTCMinutes()).slice(-2); };
+  eq(await txt('#r_cb'), hm(sv.civilBegin), 'civil twilight begins'); eq(await txt('#r_ne'), hm(sv.nautEnd), 'nautical twilight ends'); eq(await txt('#r_saz'), brg(sv.setAz, 0) + 'T', 'bearing at sunset');
+  await set('zone', '0'); eq(await txt('#r_set'), '23:06', 'same sunset in UTC');
+  for (const [id, v] of [['date', '2027-06-21'], ['zone', '1'], ['latd', '78'], ['latm', '0'], ['lond', '015'], ['lonm', '0'], ['lonh', 'E']]) await set(id, v);
+  eq(await txt('#r_rise'), 'Does not set', 'midnight sun'); eq(await txt('#r_cb'), 'Sun stays above', 'no twilight in polar day');
+  await set('date', '2027-12-21'); eq(await txt('#r_rise'), 'Does not rise', 'polar night'); eq(await txt('#r_alt'), 'Below the horizon', 'noon altitude in polar night');
+  for (const [id, v] of [['date', '2027-06-21'], ['zone', '1'], ['latd', '56'], ['latm', '0'], ['lond', '010']]) await set(id, v);
+  eq(await txt('#r_ne'), 'Sun stays above', 'no nautical darkness at 56N in June'); ok(/^\d\d:\d\d$/.test(await txt('#r_ce')) || /next day$/.test(await txt('#r_ce')), 'civil twilight still ends');
+  await set('latd', '95'); ok((await res()).includes('Enter the date'), 'bad latitude message'); await set('latd', '20');
+  await done('sunrise-sunset-twilight-calculator');
+
+  // ---- Rate of turn ----
+  await open('rate-of-turn-calculator');
+  eq(await txt('#r_main'), '11.5 °/min', 'rate of turn'); eq(await txt('#r_time'), '3 min 56 s', 'time for 45 degrees'); eq(await txt('#r_arc'), '0.79 nm (7.9 cables)', 'arc length'); eq(await txt('#r_wo'), '0.41 nm (4.1 cables)', 'tangent distance');
+  await set('spd', '15'); await set('rad', '1.5'); eq(await txt('#r_main'), '9.5 °/min', '15 kn on 1.5 nm (bridge rule: 10)'); ok((await res()).includes('gives 10.0'), 'bridge rule shown');
+  await seg('mode', 'rad'); await set('rot', '9.549'); eq(await txt('#r_main'), '1.50 nm', 'radius from rate of turn');
+  await set('ang', '200'); ok((await res()).includes('less than 180'), 'course change limit'); await set('ang', ''); ok((await txt('#r_time')) === null, 'no turn rows without a course change');
+  await set('rot', '0'); ok((await res()).includes('Enter the rate of turn'), 'zero rate message'); await set('rot', '11.5'); await set('ang', '45');
+  await done('rate-of-turn-calculator');
+
+  // ---- Horizon ----
+  await open('distance-to-horizon-calculator');
+  eq(await txt('#r_hor'), '10.4 nm', 'sea horizon'); eq(await txt('#r_dip'), '23.6 nm', 'dipping range');
+  await set('ant', '30'); eq(await txt('#r_rad'), '12.1 nm', 'radar horizon'); eq(await txt('#r_rado'), (2.21 * (Math.sqrt(30) + Math.sqrt(40))).toFixed(1) + ' nm', 'radar range to the object');
+  await set('obj', ''); eq(await txt('#r_span'), (2.03 * 5).toFixed(1) + ' to ' + (2.12 * 5).toFixed(1) + ' nm', 'range of published tables'); ok((await txt('#r_dip')) === null, 'no dipping range without a light');
+  await set('eye', '30.48'); ok((await txt('#r_span')).endsWith('11.7 nm'), 'Bowditch Table 12: 100 ft gives 11.7 nm');
+  await set('eye', '0'); ok((await res()).includes('height of eye'), 'zero height message'); await set('eye', '25'); await set('obj', '40');
+  await done('distance-to-horizon-calculator');
+
+  // ---- Rolling period ----
+  await open('rolling-period-gm-calculator');
+  eq(await txt('#r_main'), '13.9 s', 'rolling period'); eq(await txt('#r_c'), '0.340', 'IS Code coefficient');
+  await set('tw', '10'); await set('spd', '15'); await set('wang', '0'); eq(await txt('#r_te'), '6.7 s', 'encounter period in a head sea'); eq(await txt('#r_wl'), '156 m', 'wave length'); eq(await txt('#r_ratio'), '0.48', 'ratio'); ok((await txt('#r_flag')).includes('half the rolling period'), 'parametric rolling flag');
+  await set('wang', '90'); eq(await txt('#r_te'), '10.0 s', 'beam sea: encounter period equals the wave period'); ok((await txt('#r_flag')) === null, 'no flag at a ratio of 0.72');
+  await set('tw', '14'); ok((await txt('#r_flag')).includes('synchronous'), 'synchronous rolling flag');
+  await set('tw', '8'); await set('spd', '26'); await set('wang', '180'); eq(await txt('#r_te'), 'None', 'overtaking the waves'); ok((await res()).includes('keeps pace'), 'following sea warning');
+  await seg('mode', 'gm'); await set('per', '13.853'); eq(await txt('#r_main'), '2.50 m', 'GM back from the period');
+  await seg('mode', 't'); await set('gm', '0'); ok((await res()).includes('must be positive'), 'zero GM message'); await set('gm', '2.50');
+  await set('tw', ''); await set('spd', ''); await set('wang', '');
+  await done('rolling-period-gm-calculator');
+
+  // ---- new tools inside the app frame ----
+  await open('draft-survey-calculator', true);
+  ok(await page.evaluate(() => getComputedStyle(document.querySelector('.back')).display !== 'none'), 'back link shown in the app'); ok(await page.evaluate(() => getComputedStyle(document.querySelector('.bar')).display === 'none'), 'site header hidden in the app');
+  await done('draft-survey-calculator-embed');
 
   await browser.close(); server.close();
   console.log(`\n${checks - fails} of ${checks} page checks passed`);
