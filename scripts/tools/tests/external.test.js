@@ -164,14 +164,14 @@ test('draught survey: UK P&I Club "Carefully to Carry" worked example and the Oc
   near(d.lbm, 171.56, 1e-9); near(d.fCorr, -0.0165, 0.00006); near(d.mCorr, -0.0081, 0.00006); near(d.aCorr, 0.0408, 0.00006);
   near(d.fc, 4.6135, 1e-9); near(d.mc, 5.0069, 1e-9); near(d.ac, 5.6308, 1e-9); near(d.trim, 1.0173, 1e-9); near(d.mmm, 5.0357, 0.00002);
   let r = C.draftSurveyDisp(d.trim, 181.8, 19894.37, 42.338, -4.331, 445.89, 435.26, 1.0185, 1.025);
-  near(r.ftc, -102.61, 0.006, 'first trim correction'); near(r.stc, 3.03, 0.006, 'second trim correction'); near(r.dispTrim, 19794.79, 0.01); near(r.dispTrue, 19669.26, 0.01, 'true displacement');
+  near(r.ftc, -102.61, 1e-9, 'first trim correction'); near(r.stc, 3.03, 1e-9, 'second trim correction'); near(r.dispTrim, 19794.79, 1e-9); near(r.dispTrue, 19669.26, 1e-9, 'true displacement'); // every line of the published sheet, to the cent
   // Ocean Link guide "Draft survey basics": 20,931.6 t corrected, 20,788.7 t at 1.018, constant 303.7 t
   d = C.draftSurvey(5.62, 5.58, 6.47, 6.43, 7.33, 7.27, 180, 2.5, 0, 6);
   near(d.fc, 5.575, 0.0006); near(d.ac, 7.359, 0.0006); near(d.trim, 1.784, 0.0006); near(d.mmm, 6.454, 0.0006); near(d.deflection, -0.017, 0.0006);
   r = C.draftSurveyDisp(1.784, 180, 20861.4, 28.40, 2.10, 236.5, 224.0, 1.018, 1.025);
   near(r.ftc, 59.1, 0.05); near(r.stc, 11.1, 0.06); near(r.dispTrim, 20931.6, 0.06); near(r.dispTrue, 20788.7, 0.1); near(r.dispTrue - 11965 - 8520, 303.7, 0.1); // the guide rounds each step to 0.1 t
   // Scribd 456601441 sheet: trim -1.75 cm, LCF -2.934 (forward), TPC 32.37, LBP 150 -> +1.108 t; 18,988.11 t at 0.9960 -> 18,450.89 t
-  r = C.draftSurveyDisp(-0.0175, 150, 18987, 32.37, -2.934, 0, 0, 0.9960, 1.025); near(r.ftc, 1.108, 0.001); near(r.dispTrue, 18450.89, 0.01);
+  r = C.draftSurveyDisp(-0.0175, 150, 18987, 32.37, -2.934, 0, 0, 0.9960, 1.025); near(r.ftc, 1.11, 1e-9); near(r.dispTrim, 18988.11, 1e-9); near(r.dispTrue, 18450.89, 1e-9); // the sheet prints the correction as 1.108; to two decimals it is 1.11, and every other line agrees to the cent
   near(C.draftSurvey(2.470, 2.470, 3.980, 3.980, 5.495, 5.495, 150, 0, 0, 0).mmm, 3.981, 0.001);
 });
 

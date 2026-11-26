@@ -9,8 +9,8 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 SITE = 'https://card.oceanlinkai.com'
 PLAY = 'https://play.google.com/store/apps/details?id=com.oceanlinkai.app'
-V = '6'            # bump to refresh cached css/js
-TODAY = '2026-11-25'
+V = '7'            # bump to refresh cached css/js
+TODAY = '2026-11-26'
 
 LOGO = ('<svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect x="3.4" y="21.6" width="4.6" height="4.6" rx="1.4" fill="#0B5D75"/>'
         '<rect x="8.2" y="17.4" width="5.2" height="5.2" rx="1.6" fill="#0E86A6"/><rect x="13.6" y="12.4" width="5.8" height="5.8" rx="1.8" fill="#00B0D2"/>'

@@ -182,7 +182,7 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   eq(await txt('#r_at'), '12:27', 'time of CPA (guide: about 1227)'); eq(await txt('#r_tco'), '232°T', 'target course (guide: about 232°)'); eq(await txt('#r_tsp'), '12.6 kn', 'target speed (guide: about 12.6 kn)');
   ok(Math.abs(c.cpa - 1.8) < 0.06, 'CPA near the guide figure of 1.8 nm');
   await set('t1', '23:54'); await set('t2', '00:06'); eq(await txt('#r_at'), '00:21', 'plots across midnight');
-  await set('b1', '000'); await set('r1', '10'); await set('b2', '000'); await set('r2', '8'); ok((await res()).includes('CPA is zero'), 'collision course message');
+  await set('b1', '000'); await set('r1', '10'); await set('b2', '000'); await set('r2', '8'); ok((await res()).includes('CPA is 0.05 nm or less'), 'collision course message');
   await set('r2', '11'); ok((await res()).includes('range is now opening'), 'opening range message');
   ok(await page.evaluate(() => document.querySelector('#dia svg') !== null), 'plot drawn');
   await done('cpa-tcpa-calculator');
@@ -330,7 +330,7 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   await open('distance-to-horizon-calculator');
   eq(await txt('#r_hor'), '10.4 nm', 'sea horizon'); eq(await txt('#r_dip'), '23.6 nm', 'dipping range');
   await set('ant', '30'); eq(await txt('#r_rad'), '12.1 nm', 'radar horizon'); eq(await txt('#r_rado'), (2.21 * (Math.sqrt(30) + Math.sqrt(40))).toFixed(1) + ' nm', 'radar range to the object');
-  await set('obj', ''); eq(await txt('#r_span'), (2.03 * 5).toFixed(1) + ' to ' + (2.12 * 5).toFixed(1) + ' nm', 'range of published tables'); ok((await txt('#r_dip')) === null, 'no dipping range without a light');
+  await set('obj', ''); eq(await txt('#r_span'), '10.2 to 10.6 nm', 'range of published tables (2.03 x 5 = 10.15, rounded half up as on paper)'); ok((await txt('#r_dip')) === null, 'no dipping range without a light');
   await set('eye', '30.48'); ok((await txt('#r_span')).endsWith('11.7 nm'), 'Bowditch Table 12: 100 ft gives 11.7 nm');
   await set('eye', '0'); ok((await res()).includes('height of eye'), 'zero height message'); await set('eye', '25'); await set('obj', '40');
   await done('distance-to-horizon-calculator');
@@ -351,6 +351,123 @@ const brg = (x, dp = 1) => { let r = parseFloat(C.norm360(x).toFixed(dp)); if (r
   await open('draft-survey-calculator', true);
   ok(await page.evaluate(() => getComputedStyle(document.querySelector('.back')).display !== 'none'), 'back link shown in the app'); ok(await page.evaluate(() => getComputedStyle(document.querySelector('.bar')).display === 'none'), 'site header hidden in the app');
   await done('draft-survey-calculator-embed');
+
+  // ---- regressions from the independent audit of 26 Nov 2026 ----
+  await open('true-wind-calculator');
+  await set('hdg', '045'); await set('spd', '14'); await set('rel', '30'); await set('ws', '25');
+  eq(await txt('#r_main'), '104°T', 'true wind, course left empty'); eq(await txt('#r_spd'), '14.7 kn', 'true wind speed, course left empty');
+  await set('cog', '052'); eq(await txt('#r_main'), '099°T', 'true wind with a course over the ground of 052'); eq(await txt('#r_spd'), '13.3 kn', 'true wind speed with a course over the ground');
+  await set('cog', '400'); ok((await res()).includes('course over the ground'), 'bad course over the ground is refused'); await set('cog', '');
+  await done('true-wind-calculator-cog');
+
+  await open('sunrise-sunset-twilight-calculator');
+  const polar = async (date) => { await page.evaluate(() => { document.getElementById('zone').value = '1'; document.getElementById('lath').value = 'N'; document.getElementById('lonh').value = 'E'; }); await set('latd', '70'); await set('latm', '00.0'); await set('lond', '015'); await set('lonm', '00.0'); await set('date', date); };
+  await polar('2027-07-27'); eq(await txt('#r_rise'), 'None', 'day the midnight sun ends: no sunrise'); eq(await txt('#r_set'), '23:46', 'day the midnight sun ends: sunset shown'); ok((await txt('#r_note')).includes('No sunrise'), 'note explains the missing sunrise'); ok((await txt('#r_len')) === null, 'no day length with one event');
+  await polar('2027-05-16'); eq(await txt('#r_set'), 'None', 'day the midnight sun begins: no sunset, never a made-up time'); eq(await txt('#r_rise'), '00:28', 'day the midnight sun begins: sunrise shown'); ok(!(await res()).includes('previous day'), 'no bogus previous-day sunset');
+  await polar('2027-06-21'); eq(await txt('#r_rise'), 'Does not set', 'midnight sun'); await polar('2027-12-21'); eq(await txt('#r_rise'), 'Does not rise', 'polar night');
+  await done('sunrise-polar');
+
+  await open('cpa-tcpa-calculator');
+  await set('r1', '999999999'); ok((await res()).includes('up to 120'), 'absurd range is refused and the page stays alive'); await set('r1', '10.0'); eq(await txt('#r_cpa'), '1.79 nm', 'CPA still right afterwards');
+  await done('cpa-range');
+
+  await open('squat-ukc-calculator');
+  await set('depth', '999999999'); eq(await txt('#r_squat'), '1.02 m', 'absurd depth does not freeze the chart'); await set('depth', '12.40'); eq(await txt('#r_ukc'), '0.60 m', 'net UKC still right afterwards');
+  await done('squat-depth');
+
+  await open('eta-speed-distance-time-calculator');
+  await set('dist', '1000000'); await set('speed', '0.0001'); ok((await res()).includes('ten years'), 'a steaming time beyond any calendar is refused, not printed as NaN');
+  await set('speed', '12'); await set('dist', '1,200'); ok(((await txt('#rd_dist')) || '').includes('decimal point: 1.2'), 'a typed comma is read as a decimal point and the page says so');
+  await set('dist', '1200'); ok((await txt('#rd_dist')) === null, 'the note goes when the comma goes');
+  await set('speed', '12,5'); ok((await txt('#rd_speed')) === null, 'an ordinary decimal comma needs no note'); eq(await txt('#r_time'), '4 d 00 h 00 min', '12,5 knots read as 12.5'); await set('speed', '12');
+  await done('eta-guards');
+
+  await open('rolling-period-gm-calculator');
+  await set('tw', '10'); await set('spd', '15'); await set('wang', '0'); ok((await txt('#r_est')).includes('estimated by the formula'), 'wave comparison on an estimated period says so');
+  await seg('mode', 'gm'); ok((await txt('#r_est')) === null, 'no such note when the period was timed');
+  await done('rolling-estimate-note');
+
+  // ---- figures that sit exactly on a limit (boundary audit of 26 Nov 2026) ----
+  // Each of these is a round-number case where binary arithmetic leaves a residue (10.3 + 0.7 - 10.1 - 0.7 - 0.2 is not 0).
+  await open('squat-ukc-calculator');
+  await seg('water', 'open'); await set('cb', '0.70'); await set('v', '10'); await set('depth', '10.3'); await set('tide', '0.7'); await set('draught', '10.1'); await set('other', '0.2');
+  eq(await txt('#r_ukc'), '0.00 m', 'net UKC exactly nil'); ok((await res()).includes('No clearance'), 'a net UKC of 0.00 m carries the grounding warning');
+  await set('other', '0.196'); eq(await txt('#r_ukc'), '0.00 m', 'net UKC of 4 mm prints as 0.00'); ok((await res()).includes('No clearance'), 'and still carries the grounding warning');
+  await set('other', '0.19'); eq(await txt('#r_ukc'), '0.01 m', 'net UKC of 1 cm'); ok(!(await res()).includes('No clearance'), 'no grounding warning with 1 cm printed');
+  await set('cb', '0.44'); await set('v', '8.9'); await set('depth', '5.24'); await set('tide', '3.64'); await set('draught', '7.59'); await set('other', '1.29');
+  ok(!(await res()).includes('falls to zero'), 'no zero-clearance speed when the clearance before squat is exactly nil');
+  await seg('water', 'conf'); await set('cb', '0.99'); await set('v', '10.2'); await set('depth', '25.71'); await set('tide', '2.57'); await set('draught', '20.20'); await set('other', '0');
+  ok((await res()).includes('1.40') && !(await res()).includes('1.1 to 1.4'), 'a ratio of exactly 1.40 is inside the range of the formula');
+  await set('depth', '25.92'); ok((await res()).includes('1.41') && (await res()).includes('1.1 to 1.4'), 'a ratio of 1.41 is outside it');
+  await done('squat-limits');
+
+  await open('list-and-gm-calculator');
+  await set('disp', '13500'); await set('km', '7.62'); await set('kg', '7.193'); await set('fsm', '5764.5'); await set('w', '50'); await set('d', '10');
+  eq(await txt('#r_gm'), '0.00 m', 'fluid GM exactly nil'); ok((await res()).includes('GM is zero or negative'), 'a GM of 0.00 m carries the unstable warning'); ok((await txt('#r_list')) === null, 'and no list is quoted beside it');
+  await set('kg', '7.183'); eq(await txt('#r_gm'), '0.01 m', 'GM of 1 cm'); ok(!(await res()).includes('GM is zero or negative'), 'no unstable warning at 1 cm'); ok((await txt('#r_list')).includes('to starboard'), 'list quoted again');
+  await done('gm-limits');
+
+  await open('fuel-consumption-calculator');
+  await set('cons', '20'); await set('hours', '24'); await set('rob', '20'); await set('speed', '11.2'); await set('dist', '268.8'); await set('newspeed', '');
+  eq(await txt('#r_arr'), '0.0 t', 'fuel runs out exactly on arrival'); ok(!(await res()).includes('Not enough fuel'), 'no shortfall warning with 0.0 t on arrival');
+  await set('rob', '19.9'); eq(await txt('#r_arr'), '-0.1 t', '100 kg short'); ok((await res()).includes('Short by 0.1 t'), 'shortfall of 0.1 t is warned');
+  await done('fuel-limits');
+
+  await open('propeller-slip-calculator');
+  await seg('mode', 'per'); await set('pitch', '4.63'); await set('rpm', '100'); await set('ph', '1'); await set('pm', '00'); await set('od', '15.0005');
+  eq(await txt('#r_main'), '0.00 %', 'slip that prints as nil'); ok(!(await res()).includes('Negative slip'), 'no negative-slip note beside 0.00 %');
+  await set('od', '15.01'); eq(await txt('#r_main'), '-0.07 %', 'negative slip'); ok((await res()).includes('Negative slip'), 'negative-slip note when the figure is negative');
+  await done('slip-limits');
+
+  await open('set-and-drift-course-to-steer-calculator');
+  await seg('mode', 'cts'); await set('ctrack', '000'); await set('cstw', '10'); await set('cset', '090'); await set('crate', '10');
+  ok((await res()).includes('too strong'), 'stream abeam as fast as the ship: no headway, track cannot be held');
+  await set('cstw', '5'); await set('cset', '330'); eq(await txt('#r_main'), '090.0°T', 'cross-track stream equal to the speed: steer 90 degrees off'); eq(await txt('#r_smg'), '8.7 kn', 'and make 8.7 kn along the track');
+  await done('cts-limits');
+
+  await open('true-wind-calculator');
+  await set('spd', '0'); await set('cog', ''); await set('rel', '40'); await set('ws', '3.5');
+  for (const h of ['000', '139.5', '020', '294.5', '251']) { await set('hdg', h); eq(await txt('#r_bf'), 'Force 2, Light breeze', '3.5 kn is Force 2 on a heading of ' + h); }
+  await done('beaufort-limits');
+
+  await open('rolling-period-gm-calculator');
+  await seg('mode', 'gm'); await set('per', '7.5'); await set('tw', '11'); await set('spd', '11'); await set('wang', '0');
+  eq(await txt('#r_ratio'), '1.10', 'encounter period 10% above the rolling period'); ok((await txt('#r_flag')).includes('synchronous'), 'a ratio of exactly 1.10 is flagged');
+  await set('per', '15'); eq(await txt('#r_ratio'), '0.55', 'encounter period 10% above half the rolling period'); ok((await txt('#r_flag')).includes('half the rolling period'), 'a ratio of exactly 0.55 is flagged');
+  await set('per', '14.6'); eq(await txt('#r_ratio'), '0.57', 'ratio of 0.57'); ok((await txt('#r_flag')) === null, 'no flag at 0.57');
+  await done('rolling-limits');
+
+  await open('dew-point-calculator');
+  await set('dry', '18.9'); await set('wet', '16.0'); await set('hdry', '16.3'); await set('hwet', '15.3');
+  { const o = parseFloat(await txt('#r_dew')), i = parseFloat(await txt('#r_hdew')), rule = await txt('#r_rule'), d = Math.round((o - i) * 10) / 10;
+    eq(d, -0.5, 'printed dew points half a degree apart'); ok(rule.includes('lower than in the hold by 0.5°C') && rule.endsWith('ventilate.') && !rule.includes('not'), 'the rule quotes the difference of the printed dew points'); }
+  await done('dew-limits');
+
+  await open('cpa-tcpa-calculator');
+  await set('oc', '330'); await set('os', '22.5'); await set('b1', '066.7'); await set('r1', '4.54'); await set('b2', '067.0'); await set('r2', '3.13');
+  eq(await txt('#r_cpa'), '0.05 nm', 'CPA printed as 0.05 nm'); ok((await res()).includes('CPA is 0.05 nm or less'), 'a printed CPA of 0.05 nm carries the collision warning');
+  await done('cpa-limits');
+
+  await open('eta-speed-distance-time-calculator');
+  await seg('mode', 'eta'); await page.evaluate(() => { for (const id of ['dzone', 'azone']) { const e = document.getElementById(id); e.value = '0'; e.dispatchEvent(new Event('change', { bubbles: true })); } });
+  await set('ddate', '2026-11-23'); await set('dtime', '08:00'); await set('speed', '12'); await set('dist', '0.7');
+  eq(await txt('#r_time'), '0 h 04 min', '3.5 minutes under way is shown as 4'); eq(await txt('#r_main'), 'Mon 23 Nov 2026, 08:04', 'and the ETA is the departure plus those 4 minutes');
+  await set('dist', '4322.9'); eq(await txt('#r_time'), '15 d 00 h 15 min', '21614.5 minutes under way is shown as 21615'); eq(await txt('#r_utc'), 'Tue 8 Dec 2026, 08:15', 'and the ETA agrees with it');
+  await done('eta-half-minute');
+
+  await open('draft-survey-calculator');
+  await set('fp', '10.02'); await set('fs', '10.02'); await set('mp', '10.10'); await set('ms', '10.10'); await set('ap', '9.99'); await set('as', '9.99'); await set('lbp', '100'); await set('xf', '6'); await set('xa', '2'); await set('xm', '4');
+  await page.evaluate(() => { for (const [id, v] of [['xfd', 'aft'], ['xad', 'aft'], ['xmd', 'fwd']]) { const e = document.getElementById(id); e.value = v; e.dispatchEvent(new Event('change', { bubbles: true })); } });
+  eq(await txt('#r_m'), '10.0988 m', 'a corrected draught of exactly 10.09875 m is rounded up, as on a surveyor\'s sheet'); eq(await txt('#r_mmm'), '10.0757 m', 'mean of means from the rounded draughts');
+  eq(await txt('#r_ftc'), '+5.74 t', 'first trim correction'); eq(await txt('#r_stc'), '+0.01 t', 'second trim correction'); eq(await txt('#r_dt'), '19,900.12 t', 'the column adds up: 19,894.37 + 5.74 + 0.01');
+  eq(await txt('#r_true'), '19,773.92 t', 'the density line is worked from the line above as printed: 19,900.12 x 1.0185 / 1.025 = 19,773.924');
+  await done('survey-half');
+
+  await open('lng-conversion-boil-off-calculator');
+  await page.evaluate(() => { const e = document.getElementById('heatd'); e.value = 'mj'; e.dispatchEvent(new Event('change', { bubbles: true })); });
+  await set('heat', '47'); ok((await res()).includes('47.5 to 60.1 MJ/kg'), 'heating value limits quoted in MJ/kg are the ones applied'); await set('heat', '47.5'); ok(!(await res()).includes('Enter the heating value'), '47.5 MJ/kg is accepted');
+  await set('heat', '60.1'); ok(!(await res()).includes('Enter the heating value'), '60.1 MJ/kg is accepted'); await set('heat', '60.2'); ok((await res()).includes('Enter the heating value'), '60.2 MJ/kg is refused');
+  await done('lng-limits');
 
   await browser.close(); server.close();
   console.log(`\n${checks - fails} of ${checks} page checks passed`);

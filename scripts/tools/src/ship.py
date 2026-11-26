@@ -37,14 +37,15 @@ TOOLS.append(dict(
     var blank = $('depth').value.trim() === '' && $('draught').value.trim() === '';
     var hasUkc = depth > 0 && !isNaN(tide) && dr > 0 && other >= 0, rows = [], msg = '', avail = null;
     if (hasUkc) {
-      var u = C.ukc(depth, tide, dr, sq, other); avail = u.staticUkc - other;
+      var u = C.ukc(depth, tide, dr, sq, other); avail = Math.round((u.staticUkc - other) * 1e6) / 1e6; // 5.24 + 3.64 - 7.59 - 1.29 is 0, not 9e-16
       h += '<div><div class="label">Net under keel clearance</div><div class="big" id="r_ukc">' + U.fx(u.net, 2) + ' <small>m</small></div><p class="sub">' + U.fx(u.net / dr * 100, 1) + '% of draught</p></div>';
       rows = [['Depth of water (charted + tide)', U.fx(u.depth, 2) + ' m'], ['Static UKC', '<span id="r_static">' + U.fx(u.staticUkc, 2) + ' m</span>'], ['Squat', '−' + U.fx(sq, 2) + ' m']];
       if (other > 0) rows.push(['Other allowances', '−' + U.fx(other, 2) + ' m']);
       if (avail > 0) rows.push(['Net UKC falls to zero at', U.fx(Math.sqrt(avail * 100 / ((conf ? 2 : 1) * cb)), 1) + ' kn']);
-      var ratio = u.depth / dr; rows.push(['Depth to draught ratio', U.fx(ratio, 2)]);
-      if (u.net <= 0) msg += '<div class="msg crit">No clearance. On these figures the ship touches bottom.</div>';
-      if (ratio > 1 && (ratio < 1.1 || ratio > 1.4)) msg += '<div class="msg">The quick Barrass formulas are meant for a depth to draught ratio of about 1.1 to 1.4. Here it is ' + U.fx(ratio, 2) + ', so treat the squat figure with extra care.</div>';
+      var ratio = u.depth / dr, shown = parseFloat(U.fx(ratio, 2)); rows.push(['Depth to draught ratio', U.fx(ratio, 2)]);
+      // The warnings go by the figures as printed, so the words never disagree with the numbers beside them.
+      if (parseFloat(U.fx(u.net, 2)) <= 0) msg += '<div class="msg crit">No clearance. On these figures the ship touches bottom.</div>';
+      if (ratio > 1 + 1e-9 && (shown < 1.1 || shown > 1.4)) msg += '<div class="msg">The quick Barrass formulas are meant for a depth to draught ratio of about 1.1 to 1.4. Here it is ' + U.fx(ratio, 2) + ', so treat the squat figure with extra care.</div>';
     } else if (!blank) msg += '<div class="msg">For the clearance, enter the charted depth, the height of tide and the draught.</div>';
     h += '</div>';
     rows.push(['Squat in open shallow water', U.fx(C.squat(cb, v, false), 2) + ' m'], ['Squat in a confined channel', U.fx(C.squat(cb, v, true), 2) + ' m']);
@@ -52,6 +53,7 @@ TOOLS.append(dict(
     // chart: squat against speed
     var W = 360, H = 240, mL = 34, mR = 10, mT = 20, mB = 36, vmax = Math.max(16, Math.ceil((v + 2) / 2) * 2);
     var top = Math.max(C.squat(cb, vmax, true), avail || 0) * 1.08, ystep = top > 3 ? 1 : top > 1.5 ? 0.5 : 0.25;
+    while (top / ystep > 9) ystep *= String(ystep).charAt(0) === '2' ? 2.5 : 2; // a few grid lines however deep the water
     function X(s) { return mL + s / vmax * (W - mL - mR); }
     function Y(m) { return H - mB - m / top * (H - mT - mB); }
     var g = U.svgOpen(W, H, 'Squat against speed'), s;
@@ -77,6 +79,7 @@ TOOLS.append(dict(
         '<p>Charted depth 12.40 m, tide 2.10 m, draught 11.20 m, Cb 0.80, 8 kn in a confined channel. Depth of water 14.50 m, static UKC 3.30 m. Squat = 2 × 0.80 × 8² ÷ 100 = 1.02 m. Other allowances are 0.28 m heel, 1.25 m chart accuracy and 0.15 m pressure, 1.68 m in all. Net UKC = 3.30 − 1.02 − 1.68 = 0.60 m. Slowing to 6 kn cuts the squat to 0.58 m.</p>'
         '<div class="card checked"><div class="label">How this tool was checked</div><p>The squat and clearance figures reproduce every worked example in the Ocean Link squat and UKC guides, including the laden bulk carrier at 10 and 7 knots and the container ship at 16 knots.</p></div>'
         '<h3>Limits</h3><ul><li>The Barrass formulas are empirical estimates, not measurements. They are intended to lean to the safe side, and they are meant for a depth to draught ratio of roughly 1.1 to 1.4.</li>'
+        '<li>The confined channel figure is for a channel in which the ship\'s midship section fills about a tenth to a quarter of the cross-section of the water (blockage factor 0.10 to 0.265). In a narrower canal the squat is greater than this.</li>'
         '<li>Squat depends on speed through the water, not over the ground. A following current hides a high water speed.</li>'
         '<li>Your company SMS and the port decide the method and the minimum UKC. Ports and pilots often use more detailed methods.</li></ul>'),
     faq=[
@@ -117,7 +120,7 @@ TOOLS.append(dict(
   var C = OLCalc, U = OLUI, $ = U.$;
   var mode = U.seg('mode', run);
   function show(slip, rows) {
-    var msg = slip < 0 ? '<div class="msg">Negative slip. The ship covered more ground than the propeller advanced, usually from a following current, sea or wind.</div>' : '';
+    var msg = parseFloat(U.fx(slip, 2)) < 0 ? '<div class="msg">Negative slip. The ship covered more ground than the propeller advanced, usually from a following current, sea or wind.</div>' : '';
     U.out('res', '<div class="label">Apparent slip</div><div class="big" id="r_main">' + U.fx(slip, 2) + ' <small>%</small></div>' + U.kv(rows) + msg);
   }
   function run() {
@@ -195,7 +198,7 @@ TOOLS.append(dict(
         rows.push(['Time for ' + U.big(dist, 0) + ' nm', U.dur(f.voyageDays * 24)], ['Fuel for the voyage', '<span id="r_voy">' + U.fx(f.voyageFuel, 1) + ' t</span>']);
         if (hasRob) {
           rows.push(['ROB on arrival', '<span id="r_arr">' + U.fx(f.robArrival, 1) + ' t</span>']);
-          if (f.robArrival < 0) msg = '<div class="msg crit">Not enough fuel on these figures. Short by ' + U.fx(-f.robArrival, 1) + ' t.</div>';
+          if (parseFloat(U.fx(f.robArrival, 1)) < 0) msg = '<div class="msg crit">Not enough fuel on these figures. Short by ' + U.fx(-f.robArrival, 1) + ' t.</div>';
         }
       }
       if (ns > 0) rows.push(['Estimate at ' + U.fx(ns, 1) + ' kn (cube law)', '<span id="r_cube">' + U.fx(C.cubeLaw(f.daily, sp, ns), 1) + ' t/day</span>']);
@@ -321,15 +324,17 @@ TOOLS.append(dict(
     var disp = U.num('disp'), km = U.num('km'), kg = U.num('kg'), fsm = $('fsm').value.trim() === '' ? 0 : U.num('fsm');
     if (!(disp > 0) || !(km > 0) || !(kg > 0) || !(fsm >= 0)) { U.need('res', 'Enter the displacement, KM and KG.'); U.out('dia', ''); return; }
     var w = U.num('w'), d = U.num('d'), s = C.stability(disp, km, kg, fsm, w > 0 ? w : 0, d > 0 ? d : 0), msg = '', sd = side.get() === 'port' ? 'port' : 'starboard';
+    // A GM that prints as 0.00 is treated as no GM: 7.62 - 7.193 - 0.427 is zero, not 4e-16 with a 90 degree list.
+    var noGm = parseFloat(U.fx(s.gmFluid, 2)) <= 0; if (noGm) s.list = null;
     var h = '<div class="two"><div><div class="label">Fluid GM</div><div class="big" id="r_gm">' + U.fx(s.gmFluid, 2) + ' <small>m</small></div></div>';
     if (s.list !== null) h += '<div><div class="label">List</div><div class="big" id="r_list">' + U.fx(s.list, 1) + '° <small>to ' + sd + '</small></div></div>';
     h += '</div>';
     var rows = [['Solid GM (KM − KG)', '<span id="r_solid">' + U.fx(s.gmSolid, 3) + ' m</span>'], ['Free surface correction', '<span id="r_fsc">' + U.fx(s.fsc, 3) + ' m</span>']];
     if (s.gg1 !== null) rows.push(['Shift of G (GG₁)', U.fx(s.gg1, 3) + ' m']);
-    if (s.gmFluid <= 0) msg = '<div class="msg crit">GM is zero or negative. The ship is unstable upright and will lie at an angle of loll, to either side. The list formula does not apply, and moving weight across will not cure it.</div>';
+    if (noGm) msg = '<div class="msg crit">GM is zero or negative. The ship is unstable upright and will lie at an angle of loll, to either side. The list formula does not apply, and moving weight across will not cure it.</div>';
     else if (s.list !== null && s.list > 10) msg = '<div class="msg warn">Above about 10° the small-angle formula is no longer reliable. Use the ship\'s stability data.</div>';
     U.out('res', h + U.kv(rows) + msg);
-    if (s.gmFluid <= 0) { U.out('dia', ''); return; }
+    if (noGm) { U.out('dia', ''); return; }
     // cross-section seen from astern, starboard on the right
     var W = 320, H = 210, cx = 160, wl = 120, ang = (s.list || 0) * (sd === 'port' ? -1 : 1), a = C.rad(Math.min(Math.abs(ang), 30) * (ang < 0 ? -1 : 1));
     function R(x, y) { return [cx + x * Math.cos(a) - y * Math.sin(a), wl + x * Math.sin(a) + y * Math.cos(a)]; }

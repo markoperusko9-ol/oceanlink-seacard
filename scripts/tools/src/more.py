@@ -57,12 +57,12 @@ TOOLS.append(dict(
         '<h2>How it works</h2>'
         '<p>Oil expands as it warms, so a tank volume means nothing until it is brought back to 15°C. The supplier gives the density at 15°C on the bunker delivery note. Three steps turn your sounding into tonnes:</p>'
         '<div class="formula">Standard volume = observed volume × VCF<br>Weight in air (t) = standard volume × (density at 15°C − 0.0011)</div>'
-        '<p>The <strong>volume correction factor</strong> comes from Petroleum Measurement Table 54B (ASTM D1250-80, API MPMS 11.1, IP 200), the table for fuel oils and other products. The tool works the table\'s own formula and rounds the factor to four decimals, as the printed table does:</p>'
+        '<p>The <strong>volume correction factor</strong> comes from Petroleum Measurement Table 54B (ASTM D1250-80, API MPMS 11.1, IP 200), the table for fuel oils and other products. The tool works the table\'s own formula, carries the expansion coefficient α to seven decimals, which is what reproduces the published tables to the last figure, and rounds the factor to four decimals, as the printed table does:</p>'
         '<div class="formula">VCF = exp[ −α × ΔT × (1 + 0.8 × α × ΔT) ], ΔT = temperature − 15<br>α = 186.9696 ÷ ρ² + 0.4862 ÷ ρ for fuel oils (ρ = density at 15°C in kg/m³, 839 and above)</div>'
         '<p>Lighter products use the table\'s other constants: jet fuels and kerosenes from 788 to 838.5 kg/m³, gasolines up to 770 kg/m³ and a transition zone between them. Subtracting 0.0011 from the density is the short form of Table 56. It changes mass in vacuum to weight in air, which is what bunkers are bought in.</p>'
         '<h3>Worked example</h3>'
         '<p>Sounding gives 161.68 m³ at 34°C. Density at 15°C is 0.9903. Table 54B gives a VCF of 0.9870, so the standard volume is 161.68 × 0.9870 = 159.578 m³. The weight factor is 0.9903 − 0.0011 = 0.9892, so the tank holds 159.578 × 0.9892 = 157.85 t.</p>'
-        '<div class="card checked"><div class="label">How this tool was checked</div><p>The volume correction factor reproduces all 44 values tested from three tables published by Measurement Canada under API Standard 2540 (1980): jet fuel at 800 kg/m³, gasoline at 730 kg/m³ and diesel at 840 kg/m³, from −30°C to 40°C. The whole calculation returns the 157.85 t of a published bunker survey example.</p></div>'
+        '<div class="card checked"><div class="label">How this tool was checked</div><p>The volume correction factor reproduces all 440 values checked in three tables published by Measurement Canada under API Standard 2540 (1980): aviation gasoline at 710 kg/m³, jet fuel at 800 kg/m³ and diesel at 840 kg/m³, from −40°C to 40°C, as well as 44 values from its gasoline table at 730 kg/m³. The whole calculation returns the 157.85 t of a published bunker survey example worked from the printed Table 54B.</p></div>'
         '<h3>Limits</h3><ul>'
         '<li>The volume must already be corrected for trim and list from your sounding tables, and free water must be taken off before you start.</li>'
         '<li>This is the 1980 edition of Table 54B (ASTM D1250-80). If your contract names the 2004 edition, the factor can differ in the fourth decimal.</li>'
@@ -222,7 +222,7 @@ TOOLS.append(dict(
     var q = U.num('qty'), unit = U.val('unit'), dens = U.num('dens'), heat = U.num('heat'), gas = U.num('gas'), h = '';
     if (U.val('heatd') === 'mj') heat = heat * 1000 / C.MJ_PER_MMBTU;
     if (!(dens >= 380 && dens <= 520)) { U.need('res', 'Enter the LNG density in kg/m³, between 380 and 520.'); return; }
-    if (!(heat >= 45 && heat <= 57)) { U.need('res', 'Enter the heating value: 45 to 57 MMBtu per tonne, or 47 to 60 MJ/kg.'); return; }
+    if (!(heat >= 45 && heat <= 57)) { U.need('res', 'Enter the heating value: 45 to 57 MMBtu per tonne, or 47.5 to 60.1 MJ/kg.'); return; }
     if (!(gas >= 1100 && gas <= 1500)) { U.need('res', 'Enter the gas volume per tonne, between 1,100 and 1,500 Nm³.'); return; }
     if (q > 0) {
       var a = C.lng(q, unit, dens, heat, gas), main = unit === 't' ? ['m³ of LNG', a.m3, 0] : ['t', a.t, 0];
@@ -312,9 +312,10 @@ TOOLS.append(dict(
     if (o.p.dew < 0) msg += '<div class="msg warn">Very dry air. Below a dew point of 0°C a small reading error moves the answer by several degrees, so treat it as approximate.</div>';
     if (i.p) {
       rows.push(['Dew point in the hold', '<span id="r_hdew">' + U.fx(i.p.dew, 1) + ' °C</span>'], ['Relative humidity in the hold', U.fx(i.p.rh, 0) + ' %']);
-      var diff = o.p.dew - i.p.dew;
-      if (Math.abs(diff) < 0.5) msg += '<div class="msg" id="r_rule">The two dew points are within half a degree, which is inside the error of the readings. The dew point rule gives no clear answer.</div>';
-      else if (diff < 0) msg += '<div class="msg" id="r_rule">Outside dew point is lower than in the hold by ' + U.fx(-diff, 1) + '°C. By the dew point rule: ventilate.</div>';
+      // The rule is read off the two dew points as printed, so the difference quoted is the one the reader can check.
+      var tenths = Math.round((parseFloat(U.fx(o.p.dew, 1)) - parseFloat(U.fx(i.p.dew, 1))) * 10), diff = tenths / 10;
+      if (Math.abs(tenths) < 5) msg += '<div class="msg" id="r_rule">The two dew points are within half a degree, which is inside the error of the readings. The dew point rule gives no clear answer.</div>';
+      else if (tenths < 0) msg += '<div class="msg" id="r_rule">Outside dew point is lower than in the hold by ' + U.fx(-diff, 1) + '°C. By the dew point rule: ventilate.</div>';
       else msg += '<div class="msg warn" id="r_rule">Outside dew point is higher than in the hold by ' + U.fx(diff, 1) + '°C. By the dew point rule: do not ventilate.</div>';
     } else if (i.err) msg += '<div class="msg warn">Hold air: ' + i.err + '</div>';
     U.out('res', h + U.kv(rows) + msg);
@@ -388,10 +389,12 @@ TOOLS.append(dict(
       if (ms !== null) return clock(ms);
       return s.transitAlt < limit ? 'Sun stays below' : 'Sun stays above';
     }
-    var L = C.SUN_LIMITS, h;
-    if (s.rise !== null) {
-      h = '<div class="two"><div><div class="label">Sunrise</div><div class="big" id="r_rise">' + clock(s.rise) + '</div></div>' +
-        '<div><div class="label">Sunset</div><div class="big" id="r_set">' + clock(s.set) + '</div></div></div>';
+    var L = C.SUN_LIMITS, h, note = '';
+    if (s.rise !== null || s.set !== null) { // on the day the midnight sun begins or ends there is only one of the two
+      h = '<div class="two"><div><div class="label">Sunrise</div><div class="big" id="r_rise">' + (s.rise !== null ? clock(s.rise) : 'None') + '</div></div>' +
+        '<div><div class="label">Sunset</div><div class="big" id="r_set">' + (s.set !== null ? clock(s.set) : 'None') + '</div></div></div>';
+      if (s.rise === null) note = 'No sunrise on this date: the Sun was already above the horizon when the day began.';
+      if (s.set === null) note = 'No sunset on this date: the Sun stays above the horizon into the next day.';
     } else {
       h = '<div class="label">Sun</div><div class="big" id="r_rise">' + (s.transitAlt < L.rise ? 'Does not rise' : 'Does not set') + '</div>';
     }
@@ -403,7 +406,8 @@ TOOLS.append(dict(
       ['Altitude at meridian passage', '<span id="r_alt">' + (s.transitAlt >= 0 ? dms(s.transitAlt) + ', bearing ' + (north ? 'south' : 'north') : 'Below the horizon') + '</span>'],
       s.set !== null ? ['Sunset', clock(s.set) + ', bearing <span id="r_saz">' + U.brg(s.setAz, 0) + 'T</span>'] : null,
       ['Civil twilight ends', '<span id="r_ce">' + ev(s.civilEnd, L.civil) + '</span>'], ['Nautical twilight ends', '<span id="r_ne">' + ev(s.nautEnd, L.naut) + '</span>'],
-      s.rise !== null ? ['Sunrise to sunset', '<span id="r_len">' + U.dur((s.set - s.rise) / 3600000) + '</span>'] : null]);
+      s.rise !== null && s.set !== null ? ['Sunrise to sunset', '<span id="r_len">' + U.dur((s.set - s.rise) / 3600000) + '</span>'] : null]);
+    if (note) h += '<div class="msg" id="r_note">' + note + '</div>';
     if (Math.abs(lat) > 62) h += '<div class="msg">At this latitude the Sun crosses the horizon at a shallow angle, so the times can be a few minutes out and depend heavily on refraction.</div>';
     U.out('res', h);
   }
@@ -424,7 +428,7 @@ TOOLS.append(dict(
         '<li>Times are for an observer at sea level. From a bridge 20 to 30 m up, sunrise is seen a minute or so earlier and sunset later, more in high latitudes.</li>'
         '<li>Refraction near the horizon varies with the weather. A minute or two of difference from what you observe is normal.</li>'
         '<li>Enter the position where the ship will be at the event, not where she is now. Every 15′ of longitude moves the times by one minute.</li>'
-        '<li>Above the polar circles the Sun may stay up or down all day; the tool then says so. Close to those dates the times are sensitive and should be treated as approximate.</li></ul>'),
+        '<li>Above the polar circles the Sun may stay up or down all day; the tool then says so. On the day the midnight sun begins or ends there is a sunrise without a sunset, or a sunset without a sunrise, and the tool shows the one that exists. Close to those dates the times are sensitive and should be treated as approximate.</li></ul>'),
     faq=[
         ('What is the difference between civil and nautical twilight?',
          'Civil twilight is the time when the Sun is between the horizon and 6 degrees below it. Nautical twilight is when it is between 6 and 12 degrees below. Star sights are taken between the two, when stars and the horizon can be seen together.'),
@@ -636,8 +640,10 @@ TOOLS.append(dict(
       } else {
         var ratio = te / T;
         rows.push(['Encounter period', '<span id="r_te">' + U.fx(te, 1) + ' s</span>'], ['Encounter period ÷ rolling period', '<span id="r_ratio">' + U.fx(ratio, 2) + '</span>']);
-        if (Math.abs(ratio - 1) <= 0.1) msg = '<div class="msg warn" id="r_flag">The encounter period is within 10% of the rolling period. MSC.1/Circ.1228 names this as the condition for synchronous rolling, and for parametric rolling in head or following seas.</div>';
-        else if (Math.abs(ratio - 0.5) <= 0.05) msg = '<div class="msg warn" id="r_flag">The encounter period is within 10% of half the rolling period. MSC.1/Circ.1228 names this as a condition for parametric rolling in head or following seas.</div>';
+        var pc = Math.round(parseFloat(U.fx(ratio, 2)) * 100); // the ratio as printed, in hundredths
+        if (pc >= 90 && pc <= 110) msg = '<div class="msg warn" id="r_flag">The encounter period is within 10% of the rolling period. MSC.1/Circ.1228 names this as the condition for synchronous rolling, and for parametric rolling in head or following seas.</div>';
+        else if (pc >= 45 && pc <= 55) msg = '<div class="msg warn" id="r_flag">The encounter period is within 10% of half the rolling period. MSC.1/Circ.1228 names this as a condition for parametric rolling in head or following seas.</div>';
+        if (fromGm) msg += '<div class="msg" id="r_est">This comparison uses the rolling period estimated by the formula, which can be 10% or more out, mostly on the short side for large ships. For a decision, time the roll and enter it under GM from period.</div>';
       }
     }
     U.out('res', h + U.kv(rows) + msg);
@@ -656,7 +662,7 @@ TOOLS.append(dict(
         '<p>Beam 32.2 m, draught 12.0 m, waterline length 220 m. C = 0.373 + 0.023 × 2.683 − 0.043 × 2.2 = 0.340. With a GM of 2.50 m the rolling period is 2 × 0.340 × 32.2 ÷ 1.581 = 13.9 s. Steaming at 15 knots into a head sea of 10 s period, the encounter period is 300 ÷ 45 = 6.7 s, which is 0.48 of the rolling period: close to half, the parametric rolling condition.</p>'
         '<div class="card checked"><div class="label">How this tool was checked</div><p>The rolling period formula and its coefficient were checked against the text of the 2008 IS Code as reproduced in the UK MCA instructions to surveyors, and the encounter period against MSC.1/Circ.1228. The encounter period was also derived from first principles for 300 cases: in head and beam seas the IMO formula agrees within 1.1%.</p></div>'
         '<h3>Limits</h3><ul>'
-        '<li>The formula is an approximation. The study behind it found predictions within about 7.5% of measured rolling periods, so a GM worked back from a timed roll can be 15% out. It does not replace the loading computer.</li>'
+        '<li>The formula is an approximation. It was fitted to 71 ships measured in 1982, all within about 7.5% of it. A study presented at the International Marine Design Conference in 2024 found that it considerably underestimates the rolling period of large ships, and that errors of more than 10% are common with formulas of this kind. So a GM worked back from a timed roll can be 15% out or more, and for a large ship the period worked from GM is likely to be on the short side. It does not replace the loading computer.</li>'
         '<li>The best rolling period is the one you time yourself in calm water, as the circular recommends: several complete rolls, averaged.</li>'
         '<li>The encounter formula rounds the wave speed to 3 × T<sub>W</sub> knots. In following seas, when the ship\'s speed approaches the wave speed, it becomes very sensitive and should be read as a warning, not a number.</li>'
         '<li>Being outside the 10% bands shown here does not mean heavy rolling cannot happen. Real seas contain many periods at once.</li></ul>'),

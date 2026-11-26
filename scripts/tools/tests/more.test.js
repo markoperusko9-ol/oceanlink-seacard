@@ -64,7 +64,7 @@ test('Table 54B: unity at 15 C, product groups, limits and the bunker sum', () =
     assert.ok((t > 15) === (f.vcf < 1), 'oil expands when warm');
     assert.ok(C.vcf54B(rho, t + 1).vcf < f.vcf, 'VCF falls as temperature rises');
     const b = C.bunker(1000, t, rho);
-    near(b.vcf, f.vcf, 0.00005, 'four-decimal VCF'); near(b.gsv, 1000 * b.vcf, 1e-9); near(b.massAir, b.gsv * (rho / 1000 - 0.0011), 1e-9); near(b.massVac - b.massAir, b.gsv * 0.0011, 1e-9);
+    near(b.vcf, f.vcf, 0.00005, 'four-decimal VCF'); near(b.gsv, 1000 * b.vcf, 0.0005 + 1e-9, 'standard volume to the litre'); near(b.massAir, b.gsv * (rho / 1000 - 0.0011), 1e-9); near(b.massVac - b.massAir, b.gsv * 0.0011, 1e-9);
   }
   // the groups meet without a jump larger than the table's own step at the class boundaries
   near(C.vcf54B(838.99, 40).vcf, C.vcf54B(839, 40).vcf, 0.0008, 'jet/fuel oil boundary'); near(C.vcf54B(770, 40).vcf, C.vcf54B(770.01, 40).vcf, 0.0003, 'gasoline/transition boundary');
@@ -85,7 +85,10 @@ test('draught survey: straight-line geometry, signs and the reverse problem', ()
   assert.ok(r(1, 2).ftc > 0 && r(1, -2).ftc < 0 && r(-1, 2).ftc < 0 && r(-1, -2).ftc > 0, 'first trim correction sign: plus when the LCF is toward the deeper end');
   assert.ok(r(1, 2).stc > 0 && r(-1, 2).stc > 0, 'second trim correction always added'); near(r(-1, 2).stc, r(1, 2).stc, 1e-12);
   near(r(0, 5).dispTrue, 20000, 1e-9, 'even keel, table density: no correction');
-  near(C.draftSurveyDisp(0, 180, 20000, 30, 0, 240, 228, 1.000, 1.025).dispTrue, 20000 / 1.025, 1e-9, 'fresh water');
+  near(C.draftSurveyDisp(0, 180, 20000, 30, 0, 240, 228, 1.000, 1.025).dispTrue, 20000 / 1.025, 0.005, 'fresh water');
+  // the column adds up as written: displacement + the two corrections as printed, then the density line from that
+  const col = C.draftSurveyDisp(-0.0313, 100, 19894.37, 42.338, -4.331, 445.89, 435.26, 1.0185, 1.025);
+  assert.equal(col.ftc, 5.74); assert.equal(col.stc, 0.01); assert.equal(col.dispTrim, 19900.12); assert.equal(col.dispTrue, C.roundHalfUp(19900.12 * 1.0185 / 1.025, 2)); assert.equal(col.densityCorr, C.roundHalfUp(col.dispTrue - 19900.12, 2));
 });
 
 test('LNG conversions close the loop in every unit, boil-off arithmetic', () => {
@@ -140,4 +143,66 @@ test('rate of turn, horizon and rolling: definitions hold', () => {
   }
   near(C.encounterPeriod(10, 0, 0), 10, 1e-12); near(C.encounterPeriod(10, 20, 90), 10, 1e-9); assert.equal(C.encounterPeriod(10, 30, 180), Infinity); assert.ok(C.encounterPeriod(10, 35, 180) < 0);
   near(C.waveLength(10), 156, 1e-12);
+});
+
+test('Table 54B reproduces three official tables value for value (440 factors, Measurement Canada)', () => {
+  const tables = require('./fixtures_vcf_tables.json'); let n = 0;
+  for (const t of tables) for (const [temp, printed] of t.rows) {
+    const got = C.bunker(1000, temp, t.rho15).vcf; n++;
+    assert.ok(Math.abs(got - printed) < 1e-9, `${t.name} at ${temp} C: tool ${got}, printed ${printed}`);
+  }
+  assert.strictEqual(n, 440);
+  // the three factors that sit on a rounding edge and need the coefficient carried to seven decimals, as the standard does
+  assert.strictEqual(C.bunker(1, -38.5, 710).vcf, 1.0681); assert.strictEqual(C.bunker(1, -36, 710).vcf, 1.065); assert.strictEqual(C.bunker(1, -9.5, 710).vcf, 1.0316);
+});
+
+test('true wind: course over the ground moves the ship, heading aims the anemometer', () => {
+  const a = C.trueWind(45, 14, 30, 25), b = C.trueWind(45, 14, 30, 25, 52);
+  assert.ok(Math.abs(a.dir - 103.53) < 0.01 && Math.abs(a.speed - 14.656) < 0.001);
+  assert.ok(Math.abs(b.dir - 99.31) < 0.01 && Math.abs(b.speed - 13.291) < 0.001);
+  assert.strictEqual(b.apparentFrom, 75);
+});
+
+test('course to steer when the cross-track stream equals the ship\'s speed (boundary audit of 26 Nov 2026)', () => {
+  // Track 000, 5 kn, stream 330 at 10 kn: the cross-track part is exactly 5 kn, so she steers 090 and makes 10 cos 30 along the track.
+  // sin(330 deg) is -0.5000000000000004 in floating point, which used to read as "stream too strong".
+  let c = C.courseToSteer(0, 5, 330, 10); assert.ok(c, 'track can be held'); assert.ok(Math.abs(c.cts - 90) < 1e-6); assert.ok(Math.abs(c.smg - 10 * Math.cos(Math.PI / 6)) < 1e-9);
+  c = C.courseToSteer(330, 5, 0, 10); assert.ok(c, 'track can be held'); assert.ok(Math.abs(c.cts - 240) < 1e-6);
+  c = C.courseToSteer(68.4, 18.5, 38.4, 37); assert.ok(c, 'track can be held'); assert.ok(Math.abs(c.cts - 158.4) < 1e-6);
+  // Stream abeam and as fast as the ship: all her speed goes into holding the track, none along it.
+  assert.equal(C.courseToSteer(0, 10, 90, 10), null); assert.equal(C.courseToSteer(0, 10, 270, 10), null); assert.equal(C.courseToSteer(43, 19.5, 133, 19.5), null);
+  // A hair past the limit is still refused, a hair inside still works.
+  assert.equal(C.courseToSteer(0, 5, 330, 10.1), null); assert.ok(C.courseToSteer(0, 5, 330, 9.9));
+});
+
+test('rounding half up on the decimal value, as on paper (boundary audit of 26 Nov 2026)', () => {
+  const R = C.roundHalfUp;
+  // decimal halves that binary numbers hold a hair low
+  for (const [x, dp, want] of [[10.09875, 4, 10.0988], [1.005, 2, 1.01], [2.675, 2, 2.68], [0.615, 2, 0.62], [1.45, 1, 1.5], [0.15, 1, 0.2], [0.35, 1, 0.4], [10.15, 1, 10.2], [1.405, 2, 1.41], [1.095, 2, 1.1], [2.5, 0, 3], [0.5, 0, 1]]) assert.equal(R(x, dp), want, `${x} to ${dp} places`);
+  // sums that come out a hair off a half: 5 mm net clearance, a GM of 5 mm, 50 kg of fuel short
+  assert.equal(R(27.44 + 3.04 - 10.15 - 20.325, 2), 0.01); assert.equal(R(24.40 + 0.43 - 17.30 - 0.58 - 6.945, 2), 0.01); assert.equal(R(10.3 + 0.7 - 10.1 - 0.7 - 0.2, 2), 0);
+  assert.equal(R(-0.05 - 1e-15, 1), -0.1); assert.equal(R(-0.004, 2), 0); assert.ok(Object.is(R(-0.004, 2), 0), 'no minus zero');
+  // near misses stay where they are
+  assert.equal(R(39103.992549996045, 4), 39103.9925); assert.equal(R(1.00499999, 2), 1); assert.equal(R(0.0049, 2), 0); assert.equal(R(109375.8577619615, 2), 109375.86);
+  // away from halves it is ordinary rounding, for small, large, negative and odd figures alike
+  let seed = 7; const rnd = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+  for (let i = 0; i < 200000; i++) { const dp = Math.floor(rnd() * 5), x = (rnd() - 0.4) * Math.pow(10, Math.floor(rnd() * 9) - 2), k = Math.pow(10, dp); if (Math.abs(Math.abs(x * k) % 1 - 0.5) > 1e-4) assert.equal(R(x, dp), Math.round(Math.abs(x) * k) / k * (x < 0 && Math.round(Math.abs(x) * k) ? -1 : 1), `${x} to ${dp}`); }
+  assert.equal(R(1e-7, 2), 0); assert.equal(R(1e21, 2), 1e21); assert.ok(Number.isNaN(R(NaN, 2))); assert.equal(R(Infinity, 1), Infinity); assert.equal(R(0, 3), 0);
+});
+
+test('draught survey: a corrected draught exactly on a half is rounded up, as on the surveyor\'s sheet', () => {
+  // Marks 6 m abaft the FP, 2 m abaft the AP, 4 m forward of midships, LBP 100 m: midships comes to 10.10 - 0.00125 = 10.09875.
+  const s = C.draftSurvey(10.02, 10.02, 10.10, 10.10, 9.99, 9.99, 100, 6, -4, -2);
+  assert.equal(s.mc, 10.0988); assert.equal(s.fc, 10.0219); assert.equal(s.ac, 9.9906); near(s.mmm, 10.0756625, 1e-12, 'mean of means');
+  // the UK P&I Club example is unchanged
+  const u = C.draftSurvey(4.61, 4.65, 4.93, 5.10, 5.58, 5.60, 181.8, 2.94, 1.44, 7.30); assert.equal(u.fc, 4.6135); assert.equal(u.mc, 5.0069); assert.equal(u.ac, 5.6308);
+});
+
+test('bunker: each line is worked from the figure printed on the line above, as on paper', () => {
+  const b = C.bunker(161.68, 34, 990.3);
+  assert.equal(b.gsv, 159.578); near(b.wcf, 0.9892, 1e-12, 'weight factor'); assert.equal(C.roundHalfUp(b.massAir, 2), 157.85); near(b.massAir, 159.578 * 0.9892, 1e-9, 'weight in air');
+  // whatever the factor, the litre figure is the product rounded half up, and the tonnes come from the litre figure
+  const c = C.bunker(2743.21, 50, 985); assert.equal(c.gsv, C.roundHalfUp(2743.21 * c.vcf, 3)); near(c.massAir, c.gsv * (0.985 - 0.0011), 1e-9, 'weight in air from the litre figure');
+  // a standard volume and a weight that fall exactly on a half are rounded up: 250 m3 at 15 C, density 0.9910, gives 250.000 x 0.9899 = 247.475
+  const d = C.bunker(250, 15, 991); assert.equal(d.vcf, 1); assert.equal(d.gsv, 250); assert.equal(C.roundHalfUp(d.massAir, 2), 247.48);
 });

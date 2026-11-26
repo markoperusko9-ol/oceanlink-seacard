@@ -16,6 +16,16 @@
   function norm180(x) { x = norm360(x); return x > 180 ? x - 360 : x; }
   function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
   function hypot(x, y) { return Math.sqrt(x * x + y * y); }
+  /* Round half up on the decimal value, as on paper. Binary arithmetic holds 10.09875 as 10.098749999999999 and
+     gives 27.44 + 3.04 - 10.15 - 20.325 as 0.004999999999995453; rounded as they stand, both lose their last figure.
+     So the value is first cleaned six places beyond the ones wanted, then rounded half away from zero. */
+  function roundHalfUp(x, dp) {
+    if (!isFinite(x) || Math.abs(x) >= 1e15) return x; // nothing after the point left to round
+    var a = Math.abs(x), p = Number(Math.round(Number(a + 'e' + (dp + 6))) + 'e-' + (dp + 6));
+    var r = isFinite(p) ? Number(Math.round(Number(p + 'e' + dp)) + 'e-' + dp) : NaN;
+    if (!isFinite(r)) { var k = Math.pow(10, dp); r = Math.round(a * k) / k; } // too small to write out plainly (1e-7)
+    return x < 0 && r !== 0 ? -r : r;
+  }
   /* Direction (deg true) of a vector given as east (x) and north (y) parts. */
   function dirOf(x, y) { return norm360(deg(Math.atan2(x, y))); }
 
@@ -215,10 +225,11 @@
   function courseToSteer(track, stw, set, rate) {
     var a = rad(set - track);
     var cross = rate * Math.sin(a), along = rate * Math.cos(a);
-    if (Math.abs(cross) > stw) return null; // current too strong to hold the track
-    var corr = deg(Math.asin(cross / stw));
+    var k = cross / stw;
+    if (Math.abs(k) > 1 + 1e-12) return null; // current too strong to hold the track
+    var corr = deg(Math.asin(Math.max(-1, Math.min(1, k)))); // sin(330 deg) is -0.5000000000000004 in floating point
     var smg = stw * Math.cos(rad(corr)) + along;
-    if (smg <= 0) return null;
+    if (smg <= 1e-9) return null; // no headway along the track, rounding noise included
     return { cts: norm360(track - corr), correction: -corr, smg: smg };
   }
   /* Course and speed made good from course steered, speed through water, set and rate. */
@@ -346,6 +357,9 @@
     else if (rho15 > 770) { a = -0.00336312 + 2680.3206 / (rho15 * rho15); group = 'Transition zone'; }
     else { a = 346.4228 / (rho15 * rho15) + 0.4388 / rho15; group = 'Gasolines'; }
     tMax = rho15 > 824 ? 150 : rho15 > 778.5 ? 125 : 90;
+    // Carrying the coefficient to seven decimals reproduces the printed tables at every value checked (440 of 440,
+    // Measurement Canada, 710, 800 and 840 kg/m3). Without this step about one factor in 150 lands 0.0001 away.
+    a = Math.round(a * 1e7) / 1e7;
     var dt = tempC - 15, v = Math.exp(-a * dt * (1 + 0.8 * a * dt));
     return { vcf: v, alpha: a, group: group, inRange: tempC >= -18 && tempC <= tMax, tMax: tMax };
   }
@@ -353,7 +367,9 @@
      standard volume = observed volume x VCF, weight in air = standard volume x (density at 15 C - 0.0011). */
   function bunker(volume, tempC, rho15) {
     var f = vcf54B(rho15, tempC); if (!f) return null;
-    var vcf = Math.round(f.vcf * 10000) / 10000, gsv = volume * vcf, wcf = rho15 / 1000 - 0.0011;
+    // Worked the way it is on paper: the standard volume is rounded to the litre (three decimals of a cubic metre) and the
+    // weights are taken from that figure, so 159.578 x 0.9892 on a calculator gives the tonnes shown.
+    var vcf = Math.round(f.vcf * 10000) / 10000, gsv = roundHalfUp(volume * vcf, 3), wcf = rho15 / 1000 - 0.0011;
     return { vcf: vcf, vcfExact: f.vcf, group: f.group, inRange: f.inRange, tMax: f.tMax, gsv: gsv, wcf: wcf, massAir: gsv * wcf, massVac: gsv * rho15 / 1000 };
   }
 
@@ -367,7 +383,8 @@
   function draftSurvey(fp, fs, mp, ms, ap, as, lbp, xf, xm, xa) {
     var F = (fp + fs) / 2, M = (mp + ms) / 2, A = (ap + as) / 2, lbm = lbp - xf - xa;
     var slope = (F - A) / lbm; // change of draught per metre going forward
-    function r4(x) { return Math.round(x * 10000) / 10000; }
+    // Half up on the decimal figure, as on a surveyor's sheet: 10.09875 is held as 10.098749999999999 and must still give 10.0988.
+    function r4(x) { return roundHalfUp(x, 4); }
     var fc = r4(F + slope * xf), mc = r4(M + slope * xm), ac = r4(A - slope * xa);
     return { fm: F, mm: M, am: A, lbm: lbm, apparentTrim: A - F, fCorr: fc - F, mCorr: mc - M, aCorr: ac - A,
       fc: fc, mc: mc, ac: ac, trim: ac - fc, mmm: (fc + 6 * mc + ac) / 8, deflection: mc - (fc + ac) / 2 };
@@ -375,9 +392,11 @@
   /* Displacement corrected for trim and density. trim in metres (+ by the stern), lcfAft: LCF from midships,
      positive aft. mtcPlus and mtcMinus: MTC (t-m/cm) at the mean draught plus and minus 0.5 m. */
   function draftSurveyDisp(trim, lbp, disp, tpc, lcfAft, mtcPlus, mtcMinus, rhoDock, rhoTable) {
-    var ftc = trim * 100 * tpc * lcfAft / lbp, stc = trim * trim * 50 * (mtcPlus - mtcMinus) / lbp;
-    var dt = disp + ftc + stc;
-    return { ftc: ftc, stc: stc, dispTrim: dt, dispTrue: dt * rhoDock / rhoTable, densityCorr: dt * rhoDock / rhoTable - dt };
+    // Worked like a survey sheet: each figure is rounded to two decimals of a tonne as it is written down, and each line is
+    // taken from the line above as written, so the column adds up (19,894.37 + 5.74 + 0.01 is 19,900.12, not 19,900.11).
+    var ftc = roundHalfUp(trim * 100 * tpc * lcfAft / lbp, 2), stc = roundHalfUp(trim * trim * 50 * (mtcPlus - mtcMinus) / lbp, 2);
+    var dt = roundHalfUp(disp + ftc + stc, 2), dTrue = roundHalfUp(dt * rhoDock / rhoTable, 2);
+    return { ftc: ftc, stc: stc, dispTrim: dt, dispTrue: dTrue, densityCorr: roundHalfUp(dTrue - dt, 2) };
   }
 
   /* ---------- LNG quantities and boil-off ---------- */
@@ -455,7 +474,7 @@
   }
 
   return {
-    NM: NM, rad: rad, deg: deg, norm360: norm360, norm180: norm180, dirOf: dirOf,
+    NM: NM, rad: rad, deg: deg, norm360: norm360, norm180: norm180, dirOf: dirOf, roundHalfUp: roundHalfUp,
     sunPosition: sunPosition, bodyAzAlt: bodyAzAlt, amplitude: amplitude, compassError: compassError,
     trueWind: trueWind, beaufort: beaufort,
     steamingHours: steamingHours, eta: eta, requiredSpeed: requiredSpeed,

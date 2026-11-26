@@ -36,16 +36,31 @@
   function show(id, on) { var el = $(id); if (el) el.style.display = on ? '' : 'none'; }
   /* Re-run fn whenever any input or select inside the calculator changes. */
   function live(fn) {
+    function go() { fn(); commaNotes(); }
     document.querySelectorAll('.calc input, .calc select').forEach(function (el) {
-      el.addEventListener('input', fn); el.addEventListener('change', fn);
+      el.addEventListener('input', go); el.addEventListener('change', go);
       if (el.tagName === 'INPUT' && el.type === 'text') el.addEventListener('focus', function () { el.select(); });
     });
-    fn();
+    go();
+  }
+  /* A typed comma is read as a decimal point, so 1,200 means 1.2 and not 1200. When a value has the shape of
+     a thousands group (1,200 or 170,000) say so under the field, because the other reading is a thousand times
+     bigger. An ordinary decimal comma such as 12,5 needs no note. */
+  function commaNotes() {
+    document.querySelectorAll('.calc input[type="text"]').forEach(function (el) {
+      var f = el.closest('.f'); if (!f || !el.id) return;
+      var id = 'rd_' + el.id, note = document.getElementById(id), v = num(el.id);
+      if (!/^\s*[-+]?\d{1,3},\d{3}\s*$/.test(el.value) || isNaN(v)) { if (note) note.remove(); return; }
+      if (!note) { note = document.createElement('small'); note.id = id; note.className = 'rd'; f.appendChild(note); }
+      note.textContent = 'Comma read as a decimal point: ' + v + '. Type thousands without a comma.';
+    });
   }
 
   /* ---------- formatting ---------- */
+  /* Figures are rounded half up on the decimal value, as on paper (see roundHalfUp in calc.js). toFixed alone goes by
+     the binary number, so 10.09875 would print as 10.0987 and a net clearance of exactly 5 mm as 0.00. */
   function fx(x, dp) {
-    var s = x.toFixed(dp);
+    var s = C.roundHalfUp(x, dp).toFixed(dp);
     if (parseFloat(s) === 0) s = (0).toFixed(dp); // no "-0.0"
     return s;
   }
@@ -58,7 +73,7 @@
   /* Bearing or course as three figures: 045.3° */
   function brg(x, dp) {
     dp = dp === undefined ? 1 : dp;
-    var r = parseFloat(C.norm360(x).toFixed(dp)); if (r >= 360) r = 0;
+    var r = parseFloat(fx(C.norm360(x), dp)); if (r >= 360) r = 0; // half up on the decimal figure, like every other number
     var s = r.toFixed(dp), i = s.split('.')[0];
     return ('000' + i).slice(-3) + (dp ? '.' + s.split('.')[1] : '') + '°';
   }
@@ -71,8 +86,11 @@
     return ('000' + d).slice(-w) + '°' + (m < 9.95 ? '0' : '') + m.toFixed(1) + "'" + h;
   }
   /* Hours as "4 d 04 h 00 min". */
+  /* Nearest whole number, an exact half going up. 0.7 nm at 12 kn is 3.5 minutes, held as 3.4999999999999996: the
+     steaming time and the ETA clock must both call that 4, not one 3 and the other 4. */
+  function wholeUp(q) { var w = Math.floor(q), f = C.roundHalfUp(q - w, 6); return w + (f >= 0.5 ? 1 : 0); }
   function dur(hours) {
-    var mins = Math.round(hours * 60), d = Math.floor(mins / 1440), h = Math.floor((mins % 1440) / 60), m = mins % 60;
+    var mins = wholeUp(hours * 60), d = Math.floor(mins / 1440), h = Math.floor((mins % 1440) / 60), m = mins % 60;
     var s = (d ? d + ' d ' : '') + (d ? ('0' + h).slice(-2) : h) + ' h ' + ('0' + m).slice(-2) + ' min';
     return s;
   }
@@ -80,7 +98,7 @@
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   /* Clock time stored as UTC milliseconds, printed as it stands. */
   function stamp(ms) {
-    var d = new Date(Math.round(ms / 60000) * 60000);
+    var d = new Date(wholeUp(ms / 60000) * 60000);
     return DAYS[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + MONTHS[d.getUTCMonth()] + ' ' + d.getUTCFullYear() + ', ' +
       ('0' + d.getUTCHours()).slice(-2) + ':' + ('0' + d.getUTCMinutes()).slice(-2);
   }
@@ -169,7 +187,7 @@
 
   window.OLUI = {
     $: $, num: num, val: val, latlon: latlon, seg: seg, show: show, live: live,
-    fx: fx, big: big, brg: brg, dm: dm, dur: dur, stamp: stamp, zone: zone, dateMs: dateMs, timeParts: timeParts,
+    fx: fx, big: big, brg: brg, dm: dm, dur: dur, wholeUp: wholeUp, stamp: stamp, zone: zone, dateMs: dateMs, timeParts: timeParts,
     esc: esc, kv: kv, out: out, need: need, COL: COL,
     svgOpen: svgOpen, pt: pt, line: line, arrow: arrow, text: text, circle: circle, rose: rose, ship: ship, tag: tag
   };

@@ -93,7 +93,7 @@ TOOLS.append(dict(
         '<h3>Amplitude</h3>'
         '<p>The amplitude lines give the Sun\'s true bearing at theoretical sunrise and sunset, when its centre is on the celestial horizon:</p>'
         '<div class="formula">sin Amplitude = sin Declination ÷ cos Latitude</div>'
-        '<p>At that moment the Sun\'s lower limb is still about half a diameter above the visible horizon. If you enter the exact time of your observation instead, the azimuth at the top is already the true bearing for that instant.</p>'
+        '<p>At that moment the Sun\'s lower limb is about two-thirds of a diameter above the visible horizon, seen from a ship\'s bridge. If you enter the exact time of your observation instead, the azimuth at the top is already the true bearing for that instant.</p>'
         '<h3>Worked example</h3>'
         '<p>Latitude 20°00\'N, declination 15°00\'N. sin Amp = 0.2588 ÷ 0.9397 = 0.2754, so the amplitude at sunset is W 16.0° N and the true bearing is 286.0°. The gyro showed 287.0°. Error = 286.0 − 287.0 = 1.0° W, gyro high.</p>'
         '<div class="card checked"><div class="label">How this tool was checked</div><p>The Sun position was compared with a reference astronomical ephemeris for 1,500 random times and positions between 2026 and 2040. With the Sun above the horizon and below 80° altitude, the azimuth always agreed within 0.02°. Declination agreed within 0.2′ and GHA within 0.6′. That is ample for compass error, which is logged to 0.1° or 0.5°. It is not almanac grade, so do not use these figures for sight reduction.</p></div>'
@@ -106,7 +106,7 @@ TOOLS.append(dict(
         ('How do I name the compass error?',
          'Subtract the compass bearing from the true bearing. If true is larger the error is East. If true is smaller the error is West. For a gyro, East means the gyro reads low and West means it reads high.'),
         ('When should I take an amplitude?',
-         'When the Sun\'s centre is on the celestial horizon, which is when its lower limb is about half a diameter above the visible horizon. If you enter the exact time of the observation instead, the tool gives the true azimuth for that moment.'),
+         'When the Sun\'s centre is on the celestial horizon, which is when its lower limb is about two-thirds of a diameter above the visible horizon. If you enter the exact time of the observation instead, the tool gives the true azimuth for that moment.'),
     ],
     guides=[(G + 'navigation/azimuth-and-amplitude-observations/', 'Azimuth and amplitude observations'),
             (G + 'navigation/compass-error-deviation-and-variation/', 'Compass error, deviation and variation'),
@@ -345,6 +345,7 @@ TOOLS.append(dict(
       var sp = U.num('speed');
       if (!(sp > 0)) { U.need('res', 'Enter the speed.'); return; }
       var e = C.eta(dep, dz, az, dist, sp);
+      if (!(e.hours <= 87600)) { U.need('res', 'That is more than ten years under way. Check the distance and the speed.'); return; }
       U.out('res', '<div class="label">ETA, ship\'s time (' + U.zone(az) + ')</div><div class="big" id="r_main">' + U.stamp(e.arrLocalMs) + '</div>' +
         U.kv([['ETA in UTC', '<span id="r_utc">' + U.stamp(e.utcMs) + '</span>'], ['Steaming time', '<span id="r_time">' + U.dur(e.hours) + '</span> (' + U.fx(e.hours, 1) + ' h)'],
           ['Departure in UTC', U.stamp(dep - dz * 3600000)]]));
@@ -409,7 +410,8 @@ TOOLS.append(dict(
     desc='Free true wind calculator for ships. Enter heading, speed and the relative wind from the anemometer to get true wind direction, speed in knots and m/s, and Beaufort force.',
     lead='The anemometer shows the wind as it feels on a moving ship. Enter your heading and speed and the relative wind to get the true wind for the logbook and the weather report.',
     form=(
-        '<h2>Own ship</h2><div class="fields">' + num('hdg', 'Heading (°T)', '000') + num('spd', 'Speed (kn)', '10')
+        '<h2>Own ship</h2><div class="fields">' + num('hdg', 'Heading (°T)', '000') + num('spd', 'Speed over the ground (kn)', '10')
+        + num('cog', 'Course over the ground (°T)', '', hint='Optional. Leave empty when it is the same as the heading.', cls='full', ph='Same as the heading')
         + '</div><h2>Relative wind from the anemometer</h2><div class="fields">'
         + num('rel', 'Angle off the bow (°)', '90', hint='0 to 180. A 0 to 360 display reading 270 is 90 to port.')
         + segfield('side', 'Side', [('stbd', 'Starboard'), ('port', 'Port')])
@@ -420,13 +422,14 @@ TOOLS.append(dict(
   var C = OLCalc, U = OLUI;
   var side = U.seg('side', run), unit = U.seg('unit', run);
   function run() {
-    var hdg = U.num('hdg'), spd = U.num('spd'), rel = U.num('rel'), ws = U.num('ws');
+    var hdg = U.num('hdg'), spd = U.num('spd'), rel = U.num('rel'), ws = U.num('ws'), cogTxt = U.val('cog').trim(), cog = U.num('cog');
     if (!(hdg >= 0 && hdg <= 360) || !(spd >= 0) || !(rel >= 0 && rel <= 180) || !(ws >= 0)) {
       U.need('res', 'Enter heading (0 to 360), speed, and the relative wind (angle 0 to 180).'); U.out('dia', ''); return;
     }
+    if (cogTxt !== '' && !(cog >= 0 && cog <= 360)) { U.need('res', 'Enter the course over the ground as 0 to 360, or leave it empty.'); U.out('dia', ''); return; }
     var wk = unit.get() === 'ms' ? C.convert('speed', ws, 'm/s', 'kn') : ws;
     var relDir = side.get() === 'port' ? 360 - rel : rel;
-    var w = C.trueWind(hdg, spd, relDir, wk), bf = C.beaufort(w.speed), h;
+    var w = C.trueWind(hdg, spd, relDir, wk, cogTxt === '' ? undefined : cog), bf = C.beaufort(Math.round(w.speed * 1e6) / 1e6), h; // 3.5 kn is 3.5, not 3.4999999999999996
     if (w.dir === null || w.speed < 0.05) {
       h = '<div class="label">True wind</div><div class="big" id="r_main">Calm</div><p class="sub">The wind you feel is all your own speed.</p>';
     } else {
@@ -452,12 +455,12 @@ TOOLS.append(dict(
         '<h2>How it works</h2>'
         '<p>The relative (apparent) wind is the true wind combined with the head wind made by the ship\'s own movement. Take the ship\'s movement back out and the true wind is left:</p>'
         '<div class="formula">True wind = Relative wind − Ship\'s head wind &nbsp;(as vectors)</div>'
-        '<p>The tool first turns the relative angle into a true bearing (heading plus the angle, to starboard or port), then subtracts the ship\'s course and speed vector. The true wind is always further aft than the relative wind, unless you are stopped.</p>'
+        '<p>The tool first turns the relative angle into a true bearing (heading plus the angle, to starboard or port), then subtracts the ship\'s course and speed over the ground. The heading and the course over the ground are two different things: the anemometer is lined up with the bow, but the ship moves along her course. If you leave the course empty the tool takes it as the heading. The true wind is always further aft than the relative wind, unless you are stopped.</p>'
         '<p>Wind direction is where the wind comes <em>from</em>. The Beaufort force is read from the WMO table using the true wind speed in whole knots.</p>'
         '<h3>Worked example</h3>'
         '<p>Heading 000°T at 10 kn. The anemometer shows 10 kn on the starboard beam (090° relative). The ship makes 10 kn of head wind from the north. Remove it and the true wind is from 135°T at 14.1 kn, Force 4.</p>'
-        '<div class="card checked"><div class="label">How this tool was checked</div><p>The calculation was run on 2,000 random cases built the other way round: a known true wind and ship movement were combined into a relative wind, and the tool had to return the original true wind. It also passes head wind, following wind and calm cases worked by hand, and every boundary of the Beaufort table.</p></div>'
-        '<h3>Limits</h3><ul><li>Heading and speed through the water give the wind over the water, which is what the sea state follows. For wind over the ground, enter course and speed over the ground.</li>'
+        '<div class="card checked"><div class="label">How this tool was checked</div><p>The calculation was run on 2,000 random cases built the other way round: a known true wind and ship movement were combined into a relative wind, and the tool had to return the original true wind. It also passes head wind, following wind and calm cases worked by hand, and every boundary of the Beaufort table. The method is the one set out by Smith, Bourassa and Sharp (1999) for ships\' weather systems. In a separate audit the live page was run on 3,000 cases against independent vector arithmetic and agreed on every figure shown.</p></div>'
+        '<h3>Limits</h3><ul><li>The weather report and the logbook want the wind over the fixed Earth, so use speed and course over the ground. With the course left empty the heading is used for both, which is close enough unless the ship is being set hard or making a lot of leeway.</li>'
         '<li>The anemometer reads at its own height and is disturbed by the ship\'s structure. Check the result against the look of the sea.</li></ul>'),
     faq=[
         ('What is the difference between true wind and relative wind?',
@@ -489,7 +492,8 @@ TOOLS.append(dict(
 (function () {
   var C = OLCalc, U = OLUI;
   function rg(x) { var a = Math.round(Math.abs(x)); return a === 0 ? 'right ahead' : a === 180 ? 'right astern' : (x > 0 ? 'Green ' : 'Red ') + a + '°'; }
-  function hhmm(min) { min = ((Math.round(min) % 1440) + 1440) % 1440; return ('0' + Math.floor(min / 60)).slice(-2) + ':' + ('0' + (min % 60)).slice(-2); }
+  function hhmm(min) { min = ((U.wholeUp(min) % 1440) + 1440) % 1440; // rounds as the TCPA beside it does, so second plot + TCPA is the time shown
+    return ('0' + Math.floor(min / 60)).slice(-2) + ':' + ('0' + (min % 60)).slice(-2); }
   function run() {
     var oc = U.num('oc'), os = U.num('os'), b1 = U.num('b1'), r1 = U.num('r1'), b2 = U.num('b2'), r2 = U.num('r2');
     var p1 = U.timeParts(U.val('t1')), p2 = U.timeParts(U.val('t2'));
@@ -497,6 +501,7 @@ TOOLS.append(dict(
     if (!okB(oc) || !(os >= 0) || !okB(b1) || !okB(b2) || !(r1 > 0) || !(r2 > 0) || isNaN(p1[0]) || isNaN(p2[0])) {
       U.need('res', 'Enter your course and speed and both plots. Bearings are true, 0 to 360.'); U.out('dia', ''); return;
     }
+    if (r1 > 120 || r2 > 120 || os > 80) { U.need('res', 'Check the ranges and your speed. Ranges are in nautical miles, up to 120.'); U.out('dia', ''); return; }
     var m1 = p1[0] * 60 + p1[1], m2 = p2[0] * 60 + p2[1], dt = m2 - m1; if (dt < 0) dt += 1440;
     if (dt === 0) { U.need('res', 'The two plots need different times.'); U.out('dia', ''); return; }
     var r = C.cpa(oc, os, b1, r1, b2, r2, dt), msg = '', h;
@@ -512,13 +517,13 @@ TOOLS.append(dict(
     rows.push(['Plot interval', dt + ' min']);
     if (r.tcpaMin === null) msg = '<div class="msg">No relative movement between the plots. The target is on your course and speed and the range is steady.</div>';
     else if (r.tcpaMin < 0) msg = '<div class="msg warn">The CPA was ' + U.fx(-r.tcpaMin, 0) + ' min before the second plot. The range is now opening.</div>';
-    else if (r.cpa < 0.05) msg = '<div class="msg crit">Steady bearing and closing range. On these plots the CPA is zero.</div>';
+    else if (parseFloat(U.fx(r.cpa, 2)) <= 0.05) msg = '<div class="msg crit">Steady bearing and closing range. On these plots the CPA is 0.05 nm or less.</div>';
     U.out('res', h + U.kv(rows) + msg);
     // plot
     var W = 340, H = 340, cx = W / 2, cy = H / 2, R = 138;
     var w = [r.p1[0] - os * Math.sin(C.rad(oc)) * dt / 60, r.p1[1] - os * Math.cos(C.rad(oc)) * dt / 60];
     var far = Math.max(r1, r2, Math.sqrt(w[0] * w[0] + w[1] * w[1]));
-    var steps = [0.5, 1, 2, 3, 5, 10, 20], ring = 20; for (var i = 0; i < steps.length; i++) if (far / steps[i] <= 4.2) { ring = steps[i]; break; }
+    var steps = [0.5, 1, 2, 3, 5, 10, 20, 50, 100, 200, 500, 1000], ring = 1000; for (var i = 0; i < steps.length; i++) if (far / steps[i] <= 4.2) { ring = steps[i]; break; }
     var maxR = Math.ceil(far / ring) * ring, k = R / maxR;
     function P(q) { return [cx + q[0] * k, cy - q[1] * k]; }
     var g = U.svgOpen(W, H, 'Relative motion plot') + '<clipPath id="cp"><circle cx="' + cx + '" cy="' + cy + '" r="' + R + '"/></clipPath>';
