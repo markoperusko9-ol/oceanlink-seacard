@@ -49,6 +49,7 @@ footer{border-top:1px solid var(--line);color:var(--t3);font-size:13px;text-alig
 .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;margin-top:10px}
 .fields.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .f{display:block;min-width:0}.f.full{grid-column:1/-1}
+.fields>div[id^="f_"]{display:contents}
 .f>span,.f>.l{display:block;font-size:13px;line-height:1.35;font-weight:500;color:var(--t3);margin-bottom:6px;letter-spacing:-.1px;transition:color .15s}
 .f:focus-within>span,.f:focus-within>.l{color:var(--acc)}
 .f small{display:block;font-size:12px;line-height:1.45;color:var(--t4);margin-top:5px}.f small.rd{color:var(--warn)}
