@@ -206,3 +206,19 @@ test('bunker: each line is worked from the figure printed on the line above, as 
   // a standard volume and a weight that fall exactly on a half are rounded up: 250 m3 at 15 C, density 0.9910, gives 250.000 x 0.9899 = 247.475
   const d = C.bunker(250, 15, 991); assert.equal(d.vcf, 1); assert.equal(d.gsv, 250); assert.equal(C.roundHalfUp(d.massAir, 2), 247.48);
 });
+
+test('sunrise, meridian passage and sunset against the Hong Kong Observatory almanac 2026 (official printed table, 122 days)', () => {
+  const H = require('./fixtures_hko_2026.json'); let n = 0, same = 0, worst = 0; const apart = [];
+  const hhmm = (ms) => { const d = new Date(Math.round((ms + H.zone * 3600000) / 60000) * 60000); return ('0' + d.getUTCHours()).slice(-2) + ('0' + d.getUTCMinutes()).slice(-2); };
+  const mins = (s) => +s.slice(0, 2) * 60 + +s.slice(2);
+  for (const [month, rows] of Object.entries(H.months)) rows.forEach((row, i) => {
+    const [rise, transit, set] = row.split(' '), day = Date.UTC(H.year, +month - 1, i + 1), s = C.sunEvents(day - H.zone * 3600000, H.lat, H.lon);   // exactly as the page calls it
+    for (const [name, got, want] of [['sunrise', s.rise, rise], ['transit', s.transit, transit], ['sunset', s.set, set]]) {
+      const d = Math.abs(mins(hhmm(got)) - mins(want)); n++; if (d === 0) same++; else apart.push(`${H.year}-${month}-${i + 1} ${name}`); worst = Math.max(worst, d);
+      assert.ok(d <= 1, `${H.year}-${month}-${i + 1} ${name}: tool ${hhmm(got)}, almanac ${want}`);
+      // a one-minute difference is allowed only where the tool's own time is within 5 seconds of the half minute
+      if (d === 1) { const sec = Math.round((got + H.zone * 3600000) / 1000) % 60; assert.ok(Math.abs(sec - 30) <= 5, `${name} on ${month}-${i + 1} differs by a minute away from a rounding edge (seconds ${sec})`); }
+    }
+  });
+  assert.equal(n, 366); assert.ok(same >= 360, `only ${same} of ${n} identical to the minute`); assert.ok(worst <= 1);
+});

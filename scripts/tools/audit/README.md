@@ -34,6 +34,7 @@ One module alone: `python3 scripts/tools/audit/a_ship.py 2000 squat` (number of 
 | `a_ship.py` | Squat and UKC, slip, fuel, FWA and DWA, list and GM, unit converter, rate of turn, horizon, rolling period | Exact fractions, pint, geometry, first-principles wave encounter |
 | `a_cargo.py` | Bunker quantity, draught survey, LNG, dew point | Three official Table 54B tables (440 printed factors), the 1980 procedure in exact decimals, a surveyor's sheet in exact decimals, the UK P&I Club example, the IGU table, ASHRAE and WMO formulas |
 | `a_edges.py` | All of the above, on their limits | Exact decimal arithmetic. See below |
+| `a_official.py` | Sunrise, meridian passage and sunset | The Hong Kong Observatory Almanac 2026, read off its printed monthly pages: 122 days, 366 times |
 | `a_examples.py` | Every worked example printed on the pages | The page itself, and astropy for the Sun |
 | `a_fuzz.py` | All 20 pages | Bad, empty and absurd input: a page may refuse it, but must never print NaN, hang or throw |
 
