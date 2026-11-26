@@ -4,6 +4,7 @@
   'use strict';
   if (!/[?&]embed=1/.test(location.search)) return;
   document.documentElement.classList.add('embed');
+  try { if (window.self !== window.top) document.documentElement.classList.add('framed'); } catch (e) { document.documentElement.classList.add('framed'); } // opened directly, the page keeps its own margins
   function tell(extra) {
     var m = { olTools: 1, height: Math.ceil(document.documentElement.getBoundingClientRect().height) + 1 }; // whole document, including margins that sit outside the body box
     if (extra) m.nav = 1;
