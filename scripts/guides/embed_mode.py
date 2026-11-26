@@ -8,7 +8,7 @@ import os
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 MARK = '<!--ol-embed-->'
-BLOCK = (MARK + '<script src="/tools/assets/embed.js?v=9"></script><style>'
+BLOCK = (MARK + '<script src="/tools/assets/embed.js?v=10"></script><style>'
          '.embed .bar,.embed .cta,.embed footer{display:none}'
          'html.embed{scrollbar-width:none}html.embed::-webkit-scrollbar{display:none}'
          '.embed.framed .wrap{padding:4px 0 12px;max-width:none}'
